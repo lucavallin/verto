@@ -6,7 +6,9 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "generate-data": "python populate.py",
+    "prod": "npm generate-data && npm generate"
   },
   "dependencies": {
     "@nuxt/content": "^1.12.0",
