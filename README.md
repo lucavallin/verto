@@ -8,7 +8,7 @@ Welcome! 👋🏼
 Open-source maintainers are always looking to get more people involved, but new developers generally think it's challenging to become a contributor. We believe getting developers to fix super-easy issues removes the barrier for future contributions. This is why Good First Issue exists.
 
 ## What is different in this fork?
-The original project is unmaintained, but I find the website very useful and I would like to keep it alive. 
+The original project is unmaintained, but I find the website very useful and I would like to keep it alive.
 I am also replacing Nuxt.js & Python for Next.js & Typescript.
 
 ## Adding a new project
@@ -47,3 +47,10 @@ $ npm run build # start the development server
 ```
 
 The app should open in your browser.
+
+
+## TODO
+- Analytics
+- Sitemap
+- Generate language routes (`/language/${tag.slug}` - see tags.json)
+- Probably run some linter and stuff

@@ -1,6 +1,6 @@
-import React, { Component } from "react"
+import React, { Component } from 'react'
 
-import Tags from "~/data/tags.json"
+import Tags from '~/data/tags.json'
 export default class MyReactCompoennt extends Component {
   constructor(props) {
     super(props)
@@ -11,14 +11,14 @@ export default class MyReactCompoennt extends Component {
         <div>
           <h3 className="section-heading">About</h3>
           <p className="text-sm">
-            Good First Issue curates easy pickings from popular open-source
-            projects, and helps you make your first contribution to open-source.
+            Good First Issue curates easy pickings from popular open-source projects, and helps you
+            make your first contribution to open-source.
           </p>
         </div>
         <div className="pt-6">
           <h3 className="section-heading">Browse by language</h3>
           <div>
-            {this.props.tags.map(tag => {
+            {this.props.tags.map((tag) => {
               return (
                 <nuxt-link key={this.props.index}>
                   {tag.language}
