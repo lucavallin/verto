@@ -1,0 +1,9 @@
+name: schedule-deploy
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  call-deploy:
+    uses: ./.github/workflows/deploy.yml
