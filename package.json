@@ -1,33 +1,29 @@
 {
-  "name": "good-first-issue",
-  "version": "1.0.0",
+  "name": "gfi",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
-    "generate-data": "python populate.py",
-    "prod": "npm generate-data && npm generate"
+    "dev": "next dev",
+    "build": "python3 generate.py && next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@nuxt/content": "^1.12.0",
-    "@nuxtjs/pwa": "^3.3.5",
-    "@nuxtjs/sitemap": "^2.4.0",
-    "core-js": "^3.18.0",
-    "dayjs": "^1.10.7",
-    "lodash": "^4.17.21",
-    "nuxt": "^2.15.8",
-    "vue-feather-icons": "^5.1.0"
+    "@next/font": "13.0.7",
+    "@types/node": "18.11.17",
+    "@types/react": "18.0.26",
+    "@types/react-dom": "18.0.9",
+    "eslint": "8.30.0",
+    "eslint-config-next": "13.0.7",
+    "next": "13.0.7",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "4.9.4"
   },
   "devDependencies": {
-    "@nuxtjs/google-analytics": "^2.4.0",
-    "@nuxtjs/google-fonts": "^1.2.0",
-    "@nuxtjs/tailwindcss": "^3.4.1",
-    "@tailwindcss/postcss7-compat": "npm:@tailwindcss/postcss7-compat",
-    "autoprefixer": "^9",
-    "postcss": "^7",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.20",
+    "tailwindcss": "^3.2.4"
   },
   "prettier": {
     "printWidth": 100,
@@ -37,8 +33,4 @@
     "bracketSpacing": true,
     "semi": false
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ]
 }

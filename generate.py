@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 import itertools
 import json
-import logging.config
 import random
 import re
 from collections import Counter
@@ -11,7 +10,6 @@ from os import getenv, path
 
 import toml
 
-from config import LOGGING_CONFIG
 from github3 import exceptions, login
 from numerize import numerize
 from emoji import emojize
@@ -29,9 +27,6 @@ ISSUE_SORT = "created"
 ISSUE_SORT_DIRECTION = "desc"
 ISSUE_LIMIT = 10
 SLUGIFY_REPLACEMENTS = [["#", "sharp"], ["+", "plus"]]
-
-logging.config.dictConfig(LOGGING_CONFIG)
-LOGGER = logging.getLogger(__file__)
 
 if not path.exists(LABELS_DATA_FILE):
     raise RuntimeError("No labels data file found. Exiting.")
@@ -63,8 +58,6 @@ def get_repository_info(owner, name):
     its owner login and name.
     """
 
-    LOGGER.info("Getting info for %s/%s", owner, name)
-
     access_token = getenv("GITHUB_ACCESS_TOKEN")
     if not access_token:
         raise AssertionError(
@@ -95,7 +88,6 @@ def get_repository_info(owner, name):
                 for label in ISSUE_LABELS
             )
         )
-        LOGGER.info("\t found %d good first issues", len(good_first_issues))
         # check if repo has at least one good first issue
         if good_first_issues and repository.language:
             # store the repo info
@@ -103,9 +95,9 @@ def get_repository_info(owner, name):
             info["owner"] = owner
             info["description"] = emojize(repository.description or "")
             info["language"] = repository.language
-            info["slug"] = slugify(
-                repository.language, replacements=SLUGIFY_REPLACEMENTS
-            )
+            # info["slug"] = slugify(
+            #     repository.language, replacements=SLUGIFY_REPLACEMENTS
+            # )
             info["url"] = repository.html_url
             info["stars"] = repository.stargazers_count
             info["stars_display"] = numerize.numerize(repository.stargazers_count)
@@ -128,10 +120,9 @@ def get_repository_info(owner, name):
 
             info["issues"] = issues
             return info
-        LOGGER.info("\t skipping the repo")
         return None
     except exceptions.NotFoundError:
-        LOGGER.warning("Not Found: %s", f"{owner}/{name}")
+        pass
 
 
 if __name__ == "__main__":
@@ -146,12 +137,6 @@ if __name__ == "__main__":
     TAGS = Counter()
     with open(REPO_DATA_FILE, "r") as data_file:
         DATA = toml.load(REPO_DATA_FILE)
-
-        LOGGER.info(
-            "Found %d repository entries in %s",
-            len(DATA["repositories"]),
-            REPO_DATA_FILE,
-        )
 
         for repository_url in DATA["repositories"]:
             repo_dict = parse_github_url(repository_url)
@@ -170,9 +155,6 @@ if __name__ == "__main__":
 
     with open(REPO_GENERATED_DATA_FILE, "w") as file_desc:
         json.dump(REPOSITORIES, file_desc)
-    LOGGER.info(
-        "Wrote data for %d repos to %s", len(REPOSITORIES), REPO_GENERATED_DATA_FILE
-    )
 
     # use only those tags that have at least three occurrences
     tags = [
@@ -187,4 +169,3 @@ if __name__ == "__main__":
     tags_sorted = sorted(tags, key=itemgetter("count"), reverse=True)
     with open(TAGS_GENERATED_DATA_FILE, "w") as file_desc:
         json.dump(tags_sorted, file_desc)
-    LOGGER.info("Wrote %d tags to %s", len(tags), TAGS_GENERATED_DATA_FILE)

@@ -1,0 +1,7 @@
+toml
+github3.py
+superjson
+requests
+numerize
+emoji
+slugify
