@@ -1,9 +1,5 @@
-<p align="center">
-  <a href="https://gfi.lucavall.in" target="_blank">
-    <img src="public/readme-logo.svg">
-  </a>
-</p>
-<hr>
+![](public/readme-logo.svg)
+---
 
 Welcome! 👋🏼
 
