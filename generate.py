@@ -161,7 +161,7 @@ if __name__ == "__main__":
         {
             "language": key,
             "count": value,
-            "slug": slugify(key, replacements=SLUGIFY_REPLACEMENTS),
+            # "slug": slugify(key, replacements=SLUGIFY_REPLACEMENTS),
         }
         for (key, value) in TAGS.items()
         if value >= 3

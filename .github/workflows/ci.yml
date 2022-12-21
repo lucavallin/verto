@@ -14,8 +14,8 @@ jobs:
       with:
         python-version: '3.6'
 
-    - name: Install dependencies
-      run: make pre-build
+    - name: Python Dependency Installation
+      uses: py-actions/py-dependency-install@v4.0.0
 
-    - name: Run tests for data sanity
-      run: make test
+    # - name: Run tests for data sanity
+    #   run: make test
