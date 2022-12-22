@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
-import { Repository } from '../Types'
+import { Repository } from '../types'
 
 type RepoBoxProps = {
   repo: Repository

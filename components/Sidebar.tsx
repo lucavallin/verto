@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { Tag } from '../Types'
+import { Tag } from '../types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
 
