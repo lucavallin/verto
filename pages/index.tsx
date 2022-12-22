@@ -7,9 +7,6 @@ export default function Home() {
     <>
       <main>
         <div className="p-4 w-full">
-          {repositories.map((repo) => (
-            <RepoBox key={repo.id} repo={repo} />
-          ))}
         </div>
       </main>
     </>
