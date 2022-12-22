@@ -16,11 +16,11 @@ export const Navbar = ({ tags }: NavbarProps) => {
       <nav className="flex items-center justify-center flex-wrap">
         <Link href="/" className="flex items-center text-gray-700 font-bold">
           <Image
-            src="/../public/gfi-logo-white.svg"
+            src="/gfi-logo.svg"
             alt="Good First Issue"
             className="h-12"
-            width="50"
-            height="50"
+            width={300}
+            height={100}
           />
         </Link>
         {activeTag ? (
