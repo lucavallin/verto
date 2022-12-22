@@ -1,7 +1,7 @@
-import React from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
+import React from 'react'
 
 export const Navbar = () => {
   const router = useRouter()

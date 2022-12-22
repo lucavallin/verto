@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
-import dayjs from 'dayjs'
-import relativeTime from 'dayjs/plugin/relativeTime'
-import { Repository } from '../types'
 import { faComment } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
+import React, { useState } from 'react'
+
+import { Repository } from '../types'
 
 type RepoBoxProps = {
   repo: Repository

@@ -1,9 +1,10 @@
-import React from 'react'
-import Link from 'next/link'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
-import { useAppContext } from '../pages/_app'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
+import React from 'react'
+
+import { useAppContext } from '../pages/_app'
 
 export const Sidebar = () => {
   const { tags } = useAppContext()
