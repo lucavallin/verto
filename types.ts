@@ -1,22 +1,26 @@
+// Describes a Tag, which is a programming language
 export interface Tag {
-  language: string
   count: number
+  language: string
 }
 
+// Describes a Repository, which is a GitHub repository
 export interface Repository {
+  description: string
   id: string
-  name: string
-  owner: string
-  url: string
   issues: Issue[]
-  stars: number
   language: string
   last_modified: string
+  name: string
+  owner: string
+  stars: number
+  url: string
 }
 
+// Describes an Issue, which is a GitHub issue linked to a repository
 export interface Issue {
-  url: string
+  comments_count: number
   number: number
   title: string
-  comments_count: number
+  url: string
 }

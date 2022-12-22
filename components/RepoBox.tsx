@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
-import { Repository } from '../types'
+import { Repository } from '../Types'
 
 type RepoBoxProps = {
   repo: Repository
@@ -10,6 +10,8 @@ type RepoBoxProps = {
 export const RepoBox = ({ repo }: RepoBoxProps) => {
   const [isIssueOpen, setIsIssueOpen] = useState(false)
   const [activeIssue, setActiveIssue] = useState(null)
+
+  dayjs.extend(relativeTime)
   const lastModified = dayjs(repo.last_modified).fromNow()
 
   return (
