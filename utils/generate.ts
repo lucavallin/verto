@@ -114,13 +114,13 @@
 //     # parse the repositories data file and get the list of repos
 //     # for generating pages for.
 
-//     if not path.exists(REPO_DATA_FILE):
+//     if not path.exists(CONFIG_FILE):
 //         raise RuntimeError("No config data file found. Exiting.")
 
 //     REPOSITORIES = []
 //     TAGS = Counter()
-//     with open(REPO_DATA_FILE, "r") as data_file:
-//         DATA = toml.load(REPO_DATA_FILE)
+//     with open(CONFIG_FILE, "r") as data_file:
+//         DATA = toml.load(CONFIG_FILE)
 
 //         for repository_url in DATA["repositories"]:
 //             repo_dict = parse_github_url(repository_url)

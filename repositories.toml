@@ -805,3 +805,5 @@ repositories = [
   "github.com/ZupIT/ritchie-cli",
   "github.com/ZupIT/ritchie-formulas",
 ]
+
+labels = ["good first issue", "help wanted", "good-first-issue"]

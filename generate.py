@@ -15,25 +15,20 @@ from numerize import numerize
 from emoji import emojize
 from slugify import slugify
 
-REPO_DATA_FILE = "./repositories.toml"
+CONFIG_FILE = "./repositories.toml"
 REPO_GENERATED_DATA_FILE = "data/generated.json"
 TAGS_GENERATED_DATA_FILE = "data/tags.json"
 GH_URL_PATTERN = re.compile(
     r"[http://|https://]?github.com/(?P<owner>[\w\.-]+)/(?P<name>[\w\.-]+)/?"
 )
-LABELS_DATA_FILE = "./labels.json"
 ISSUE_STATE = "open"
 ISSUE_SORT = "created"
 ISSUE_SORT_DIRECTION = "desc"
 ISSUE_LIMIT = 10
 SLUGIFY_REPLACEMENTS = [["#", "sharp"], ["+", "plus"]]
 
-if not path.exists(LABELS_DATA_FILE):
-    raise RuntimeError("No labels data file found. Exiting.")
-
-with open(LABELS_DATA_FILE) as labels_file:
-    LABELS_DATA = json.load(labels_file)
-
+with open(CONFIG_FILE) as config_file:
+    LABELS_DATA = toml.load(config_file)
     ISSUE_LABELS = LABELS_DATA["labels"]
 
 
@@ -130,13 +125,13 @@ if __name__ == "__main__":
     # parse the repositories data file and get the list of repos
     # for generating pages for.
 
-    if not path.exists(REPO_DATA_FILE):
+    if not path.exists(CONFIG_FILE):
         raise RuntimeError("No config data file found. Exiting.")
 
     REPOSITORIES = []
     TAGS = Counter()
-    with open(REPO_DATA_FILE, "r") as data_file:
-        DATA = toml.load(REPO_DATA_FILE)
+    with open(CONFIG_FILE, "r") as data_file:
+        DATA = toml.load(CONFIG_FILE)
 
         for repository_url in DATA["repositories"]:
             repo_dict = parse_github_url(repository_url)
