@@ -1,3 +1,4 @@
+export {}
 // import { AppData } from '../types'
 
 // export const getRepositoryData: AppData = () => {
