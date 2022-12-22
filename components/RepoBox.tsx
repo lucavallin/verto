@@ -67,10 +67,8 @@ export const RepoBox = ({ repo }: RepoBoxProps) => {
       {isIssueOpen && (
         <ol className="px-5 py-3 text-base leading-loose border-t border-ink-200">
           {repo.issues.map((issue) => (
-            <li key="issue.url" className="flex flex-row items-start justify-start py-1">
-              <span className="text-slate text-right px-2 leading-snug" style="min-width: 70px">
-                #{issue.number}
-              </span>
+            <li key={issue.url} className="flex flex-row items-start justify-start py-1">
+              <span className="text-slate text-right px-2 leading-snug">#{issue.number}</span>
               <div className="flex items-start flex-row flex-auto">
                 <a
                   title="Open issue on GitHub"

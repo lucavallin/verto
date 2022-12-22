@@ -57,7 +57,7 @@ export const Sidebar = ({ tags }: SidebarProps) => {
             <span className="inline hover:underline text-juniper" title="Visit Luca's blog">
               &nbsp;@lucavallin&nbsp;
             </span>
-            & contributors initative
+            & contributors initiative
           </span>
         </a>
       </div>
