@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 
-import Tags from '~/data/tags.json'
+import Tags from '../data/tags.json'
 export default class MyReactCompoennt extends Component {
-  constructor(props) {
-    super(props)
-  }
   render() {
     return (
       <section className="masthead font-sans pt-6 border-r border-ink-200 px-6 text-vanilla-300 flex-none w-full md:max-w-sm">
@@ -17,22 +14,6 @@ export default class MyReactCompoennt extends Component {
         </div>
         <div className="pt-6">
           <h3 className="section-heading">Browse by language</h3>
-          <div>
-            {this.props.tags.map((tag) => {
-              return (
-                <nuxt-link key={this.props.index}>
-                  {tag.language}
-                  <span
-                    className="{
-            'text-vanilla-400 group-hover:text-juniper': $route.params.slug !== tag.slug
-          }"
-                  >
-                    &times; {tag.count}
-                  </span>
-                </nuxt-link>
-              )
-            })}
-          </div>
         </div>
         <div className="pt-6">
           <a
@@ -52,7 +33,6 @@ export default class MyReactCompoennt extends Component {
             rel="noopener noreferrer"
             href="https://deepsource.io?ref=gfi"
           >
-            <img style="width: 14px" src="/social/heart.svg" alt="Heart" />
             <span className="ml-2">
               A
               <span
