@@ -14,8 +14,14 @@ export const Navbar = ({ tags }: NavbarProps) => {
   return (
     <header className="w-full py-4 border-b border-ink-200 bg-ink-400">
       <nav className="flex items-center justify-center flex-wrap">
-        <Link to="/" className="flex items-center text-gray-700 font-bold">
-          <Image src="../public/gfi-logo-white.svg" alt="Good First Issue" className="h-12" />
+        <Link href="/" className="flex items-center text-gray-700 font-bold">
+          <Image
+            src="/../public/gfi-logo-white.svg"
+            alt="Good First Issue"
+            className="h-12"
+            width="50"
+            height="50"
+          />
         </Link>
         {activeTag ? (
           <span className="text-2xl cursor-pointer">

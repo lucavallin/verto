@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { Tag } from '../types'
+import Image from 'next/image'
 
 type SidebarProps = {
   tags: Tag[]
@@ -49,7 +50,7 @@ export const Sidebar = ({ tags }: SidebarProps) => {
           rel="noopener noreferrer"
           href="https://cavall.in"
         >
-          <img style="width: 14px" src="/social/heart.svg" alt="Heart" />
+          <Image src="/../public/heart.svg" alt="Heart" width="14" height="40" />
           <span className="ml-2">
             A
             <span className="inline hover:underline text-juniper" title="Visit Luca's blog">
