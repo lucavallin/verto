@@ -1,6 +1,7 @@
 <p align="center">
   <img src="public/gfi.svg" />
 </p>
+
 ---
 
 Welcome! 👋🏼
