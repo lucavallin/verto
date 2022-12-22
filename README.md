@@ -9,7 +9,7 @@ Open-source maintainers are always looking to get more people involved, but new 
 
 ## What is different in this fork?
 The original project is unmaintained, but I find the website very useful and I would like to keep it alive.
-I am also replacing Nuxt.js & Python for Next.js & Typescript.
+We are also replacing everything with Next.js.
 
 ## Adding a new project
 
@@ -27,29 +27,27 @@ Follow these simple steps:
 
   - It is actively maintained.
 
-- Add your repository's path (in lexicographic order) in [data/repositories.toml](data/repositories.toml).
+- Add your repository's path (in lexicographic order) in [repositories.toml](repositories.toml).
 
 - Create a new pull-request. Please add the link to the issues page of the repository in the PR description. Once the pull request is merged, the changes will be live on [gfi.lucavall.in](https://gfi.lucavall.in/).
 
 ## Setting up the project locally
 
-Good First Issue has two components — the front-end app built with Next.js and a data population script written in Python.
-
 To contribute new features and changes to the website, you would want to run the app locally. Please follow these steps:
 
-1. Clone the project locally. Make sure you have Python 3 and a recent version of Node.js installed on your computer.
+1. Clone the project locally. Make sure you have a recent version of Node.js installed on your computer.
 
 2. Build the front-end app and start the development server.
 
 ```bash
-$ npm install # install the dependencies
-$ npm run build # start the development server
+# install the dependencies
+$ npm install
+# start the development server
+$ npm run dev
 ```
 
-The app should open in your browser.
+You will then be able to open the app in your browser.
 
 
 ## TODO
-- Analytics
-- Sitemap
 - Generate language routes (`/language/${tag.slug}` - see tags.json)

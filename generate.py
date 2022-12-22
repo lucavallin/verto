@@ -15,7 +15,7 @@ from numerize import numerize
 from emoji import emojize
 from slugify import slugify
 
-REPO_DATA_FILE = "data/repositories.toml"
+REPO_DATA_FILE = "./repositories.toml"
 REPO_GENERATED_DATA_FILE = "data/generated.json"
 TAGS_GENERATED_DATA_FILE = "data/tags.json"
 GH_URL_PATTERN = re.compile(
