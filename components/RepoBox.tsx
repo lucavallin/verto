@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import { Repository } from '../types'
+import { faComment } from '@fortawesome/free-regular-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 type RepoBoxProps = {
   repo: Repository
@@ -81,10 +83,8 @@ export const RepoBox = ({ repo }: RepoBoxProps) => {
                 </a>
                 {issue.comments_count > 0 && (
                   <div className="flex flex-row items-center justify-end mt-1 w-10">
-                    {/* <message-square-icon size="0.8x" className="mt-px" /> */}
-                    <span className="ml-1 text-sm leading-snug">
-                      {issue.comments_count} comment(s)
-                    </span>
+                    <FontAwesomeIcon icon={faComment} />
+                    <span className="ml-1 text-sm leading-snug">{issue.comments_count}</span>
                   </div>
                 )}
               </div>
