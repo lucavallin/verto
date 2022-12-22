@@ -1,14 +1,12 @@
 import React from 'react'
 import Link from 'next/link'
-import { Tag } from '../types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
+import { useAppContext } from '../pages/_app'
 
-type SidebarProps = {
-  tags: Tag[]
-}
+export const Sidebar = () => {
+  const { tags } = useAppContext()
 
-export const Sidebar = ({ tags }: SidebarProps) => {
   return (
     <section className="masthead font-sans pt-6 border-r border-ink-200 px-6 text-vanilla-300 flex-none w-full md:max-w-sm">
       <div>
@@ -56,14 +54,14 @@ export const Sidebar = ({ tags }: SidebarProps) => {
           className="flex flex-row justify-center items-center"
           target="_blank"
           rel="noopener noreferrer"
-          href="https://cavall.in"
+          href="https://github.com/lucavallin"
         >
           <FontAwesomeIcon icon={faHeart} />
           <span className="ml-2">
-            A
-            <span className="inline hover:underline text-juniper" title="Visit Luca's blog">
-              &nbsp;@lucavallin&nbsp;
-            </span>
+            A{' '}
+            <span className="inline hover:underline text-juniper" title="Visit GitHub profile">
+              @lucavallin
+            </span>{' '}
             & contributors initiative
           </span>
         </a>

@@ -1,13 +1,15 @@
 import { RepoBox } from '../components/RepoBox'
-import repositories from '../data/generated.json'
+import { useAppContext } from './_app'
 
 export default function Home() {
+  const { repos } = useAppContext()
+
   return (
     <>
       <main>
         <div className="p-4 w-full">
-          {repositories.map((repo) => (
-            <RepoBox key={repo.id} repo={repo} />
+          {repos.map((r) => (
+            <RepoBox key={r.id} repo={r} />
           ))}
         </div>
       </main>
