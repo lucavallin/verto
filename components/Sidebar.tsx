@@ -1,7 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
-import { Tag } from '../types'
-import Image from 'next/image'
+import { Tag } from '../Types'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-regular-svg-icons'
 
 type SidebarProps = {
   tags: Tag[]
@@ -50,11 +51,11 @@ export const Sidebar = ({ tags }: SidebarProps) => {
           rel="noopener noreferrer"
           href="https://cavall.in"
         >
-          <Image src="/../public/heart.svg" alt="Heart" width="14" height="40" />
+          <FontAwesomeIcon icon={faHeart} />
           <span className="ml-2">
             A
             <span className="inline hover:underline text-juniper" title="Visit Luca's blog">
-              Luca Cavallin
+              &nbsp;@lucavallin&nbsp;
             </span>
             & contributors initative
           </span>

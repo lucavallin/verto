@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Tag } from '../types'
+import { Tag } from '../Types'
 
 type NavbarProps = {
   tags: Tag[]
