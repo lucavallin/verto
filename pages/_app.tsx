@@ -1,17 +1,22 @@
-import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import { Layout } from '../components/Layout'
+import { Inter } from '@next/font/google'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
-import { Inter } from '@next/font/google'
+import { Layout } from '../components/Layout'
+import '../styles/globals.css'
 
 config.autoAddCss = false
-const inter = Inter()
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter'
+})
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <Layout className={inter.className}>
-      <Component {...pageProps} />
-    </Layout>
+    <main className={`${inter.variable} font-sans`}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </main>
   )
 }

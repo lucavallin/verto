@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.section-heading {
+  font-weight: 700;
+  font-size: .875rem;
+  margin-bottom: 0.5rem;
+  --tw-text-opacity: 1;
+  color: rgba(82,87,92,var(--tw-text-opacity));
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
