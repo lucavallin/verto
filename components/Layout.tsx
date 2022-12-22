@@ -12,10 +12,10 @@ export const Layout = ({ children, className }: LayoutProps) => (
   <div
     className={`bg-ink-400 flex flex-col min-h-screen antialiased text-vanilla-300 ${className}`}
   >
-    <Navbar tag={{}}></Navbar>
+    <Navbar tag={{ count: 0, language: 'go' }}></Navbar>
     <main className="flex flex-1">
       <section className="container max-w-6xl mx-auto flex flex-col md:flex-row">
-        <Sidebar tags={[]} />
+        <Sidebar tags={[{ count: 0, language: 'go' }]} />
         {children}
       </section>
     </main>
