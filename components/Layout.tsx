@@ -2,6 +2,7 @@ import React from 'react'
 
 import { Sidebar } from './Sidebar'
 import { Navbar } from './Navbar'
+import tags from '../data/tags.json'
 
 type LayoutProps = {
   children: React.ReactNode
@@ -12,7 +13,7 @@ export const Layout = ({ children }: LayoutProps) => (
     <Navbar tag={{ count: 0, language: 'go' }}></Navbar>
     <main className="flex flex-1">
       <section className="container max-w-6xl mx-auto flex flex-col md:flex-row">
-        <Sidebar tags={[{ count: 0, language: 'go' }]} />
+        <Sidebar tags={tags} />
         {children}
       </section>
     </main>

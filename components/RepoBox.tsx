@@ -11,7 +11,6 @@ type RepoBoxProps = {
 
 export const RepoBox = ({ repo }: RepoBoxProps) => {
   const [isIssueOpen, setIsIssueOpen] = useState(false)
-  const [activeIssue, setActiveIssue] = useState(null)
 
   dayjs.extend(relativeTime)
   const lastModified = dayjs(repo.last_modified).fromNow()

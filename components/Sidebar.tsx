@@ -23,9 +23,16 @@ export const Sidebar = ({ tags }: SidebarProps) => {
         <div>
           {tags.map((tag) => {
             return (
-              <Link key={tag.language} href={`/language/${tag.language}`}>
+              <Link
+                key={tag.language}
+                href={`/language/${tag.language}`}
+                className="group mx-1 border px-2 py-1 inline-block rounded-sm my-1 text-sm border-slate hover:text-juniper hover:border-juniper"
+                // :class="{
+                //   'active-pill': $route.params.slug === tag.slug,
+                // }"
+              >
                 {tag.language}
-                <span className="{'text-vanilla-400 group-hover:text-juniper': $route.params.slug !== tag.slug}">
+                <span className={`text-vanilla-400 group-hover:text-juniper`}>
                   &times; {tag.count}
                 </span>
               </Link>
