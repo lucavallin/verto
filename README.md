@@ -1,4 +1,4 @@
-![](public/readme-logo.svg)
+![](public/gfi.svg)
 ---
 
 Welcome! 👋🏼

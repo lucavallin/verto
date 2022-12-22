@@ -25,7 +25,7 @@ export default function Document() {
         <meta name="og:image" content="/public/meta.jpg" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="UTF-8" />
-        <link rel="icon" href="/public/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
       </Head>
       <body>
         <Main />
