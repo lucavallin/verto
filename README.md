@@ -50,4 +50,3 @@ You will then be able to open the app in your browser.
 
 # TODO
 - Configure ESLint, Prettier to also re-order imports
-- improve routing/validate for language pages
