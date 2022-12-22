@@ -53,4 +53,3 @@ The app should open in your browser.
 - Analytics
 - Sitemap
 - Generate language routes (`/language/${tag.slug}` - see tags.json)
-- Probably run some linter and stuff
