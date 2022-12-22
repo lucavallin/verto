@@ -24,3 +24,9 @@ export interface Issue {
   title: string
   url: string
 }
+
+// Describes the data that is retrieved from the GitHub API and used by the app
+export interface AppData {
+  repos: Repository[]
+  tags: Tag[]
+}

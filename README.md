@@ -49,4 +49,4 @@ $ npm run dev
 You will then be able to open the app in your browser.
 
 # TODO
-- Configure ESLint, Prettier to also re-order imports
+- While we replace it: call python script in CI

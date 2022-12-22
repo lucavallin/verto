@@ -1,14 +1,13 @@
+import { Layout } from '../components/Layout'
+import repositories from '../data/generated.json'
+import tags from '../data/tags.json'
+import '../styles/globals.css'
+import { AppData } from '../types'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { Inter } from '@next/font/google'
 import type { AppProps } from 'next/app'
 import { createContext, useContext } from 'react'
-
-import { Layout } from '../components/Layout'
-import repositories from '../data/generated.json'
-import tags from '../data/tags.json'
-import '../styles/globals.css'
-import { Repository, Tag } from '../types'
 
 // Fontawesome and TailwindCSS related settings
 config.autoAddCss = false
@@ -18,10 +17,7 @@ const inter = Inter({
 })
 
 // Context for sharing repositories and tags data across components
-const AppContext = createContext<{
-  repos: Repository[]
-  tags: Tag[]
-}>({ repos: [], tags: [] })
+const AppContext = createContext<AppData>({ repos: [], tags: [] })
 export const useAppContext = () => useContext(AppContext)
 
 // Entry point for the app

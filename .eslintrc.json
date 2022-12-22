@@ -14,5 +14,4 @@
     "sourceType": "module"
   },
   "plugins": ["@typescript-eslint"]
-
 }
