@@ -19,8 +19,8 @@ export const Navbar = ({ tags }: NavbarProps) => {
             src="/gfi-logo.svg"
             alt="Good First Issue"
             className="h-12"
-            width={300}
-            height={100}
+            width={236}
+            height={48}
           />
         </Link>
         {activeTag ? (
