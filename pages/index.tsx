@@ -1,7 +1,8 @@
-import Head from 'next/head'
+import { RepoBox } from '../components/RepoBox'
 import repositories from '../data/generated.json'
 
 export default function Home() {
+  const repo = repositories[0]
   return (
     <>
       <main>

@@ -17,8 +17,8 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-      juniper: '#33cb9a',
-      light_juniper: '#2EB78B',
+      juniper: '#cb3364',
+      light_juniper: '#b72e5a',
       robin: '#4568dc',
       slate: '#52575c',
       cherry: '#df6145',
