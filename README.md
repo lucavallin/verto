@@ -48,6 +48,7 @@ $ npm run dev
 
 You will then be able to open the app in your browser.
 
-
-## TODO
-- Generate language routes (`/language/${tag.slug}` - see tags.json)
+# TODO
+- Configure ESLint, Prettier to also re-order imports
+- improve routing/validate for language pages
+- fix sidebar highlighting for language pages
