@@ -21,7 +21,7 @@ TAGS_GENERATED_DATA_FILE = "data/tags.json"
 GH_URL_PATTERN = re.compile(
     r"[http://|https://]?github.com/(?P<owner>[\w\.-]+)/(?P<name>[\w\.-]+)/?"
 )
-LABELS_DATA_FILE = "data/labels.json"
+LABELS_DATA_FILE = "./labels.json"
 ISSUE_STATE = "open"
 ISSUE_SORT = "created"
 ISSUE_SORT_DIRECTION = "desc"
