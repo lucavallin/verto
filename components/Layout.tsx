@@ -1,10 +1,10 @@
 import React from 'react'
 
-import Sidebar from './Sidebar'
-import Navbar from './Navbar'
+import { Sidebar } from './Sidebar'
+import { Navbar } from './Navbar'
 import { Inter } from '@next/font/google'
 
-// TODO this must be moved to _app.tsx
+// TODO Should this be moved to _app.tsx?
 const inter = Inter()
 
 type LayoutProps = {
@@ -16,7 +16,7 @@ export const Layout = ({ children }: LayoutProps) => (
     <Navbar tag="tag"></Navbar>
     <main className={`flex flex-1 ${inter.className}`}>
       <section className="container max-w-6xl mx-auto flex flex-col md:flex-row">
-        <Sidebar></Sidebar>
+        <Sidebar tags={{}} />
         {children}
       </section>
     </main>
