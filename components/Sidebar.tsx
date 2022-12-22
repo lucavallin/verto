@@ -3,9 +3,13 @@ import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import { useAppContext } from '../pages/_app'
+import { useRouter } from 'next/router'
 
 export const Sidebar = () => {
   const { tags } = useAppContext()
+
+  const router = useRouter()
+  const { tag: activeTag } = router.query
 
   return (
     <section className="masthead font-sans pt-6 border-r border-ink-200 px-6 text-vanilla-300 flex-none w-full md:max-w-sm">
@@ -24,10 +28,11 @@ export const Sidebar = () => {
               <Link
                 key={tag.language}
                 href={`/language/${tag.language}`}
-                className="group mx-1 border px-2 py-1 inline-block rounded-sm my-1 text-sm border-slate hover:text-juniper hover:border-juniper"
-                // :class="{
-                //   'active-pill': $route.params.slug === tag.slug,
-                // }"
+                className={`group mx-1 border px-2 py-1 inline-block rounded-sm my-1 text-sm ${
+                  tag.language === activeTag
+                    ? 'active-pill'
+                    : 'border-slate hover:text-juniper hover:border-juniper'
+                }`}
               >
                 {tag.language}
                 <span className={`text-vanilla-400 group-hover:text-juniper`}>

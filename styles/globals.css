@@ -3,11 +3,12 @@
 @tailwind utilities;
 
 .section-heading {
-  font-weight: 700;
-  font-size: .875rem;
-  margin-bottom: 0.5rem;
-  --tw-text-opacity: 1;
-  color: rgba(82,87,92,var(--tw-text-opacity));
-  text-transform: uppercase;
-  letter-spacing: .05em;
+  @apply text-sm font-bold uppercase tracking-wider mb-2 text-slate;
+}
+
+.active-pill {
+  @apply text-juniper font-semibold border-juniper;
+}
+.active-pill > span {
+  @apply text-juniper;
 }
