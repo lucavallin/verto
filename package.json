@@ -6,6 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "export": "next export",
     "prepare": "husky install",
     "prebuild": "ts-node ./utils/generate.ts"
   },
