@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/gfi.png" />
+  <img src="public/gfi.png" width="355" height="51"/>
 </p>
 
 ---
