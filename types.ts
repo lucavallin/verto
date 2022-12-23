@@ -1,3 +1,6 @@
+// Nullable generic for nullable fields
+type Nullable<T> = T | null;
+
 // Describes a Tag, which is a programming language
 export interface Tag {
   count: number
@@ -6,10 +9,10 @@ export interface Tag {
 
 // Describes a Repository, which is a GitHub repository
 export interface Repository {
-  description: string
-  id: string
+  description: Nullable<string>
+  id: number
   issues: Issue[]
-  language: string
+  language: Nullable<string>
   last_modified: string
   name: string
   owner: string
