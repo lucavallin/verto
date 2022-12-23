@@ -1,18 +1,18 @@
-import { RepoBox } from '../components/RepoBox'
-import { useAppContext } from './_app'
+import { RepoBox } from "../components/RepoBox";
+import { useAppContext } from "./_app";
 
 export default function Home() {
-  const { repos } = useAppContext()
+  const { repositories } = useAppContext();
 
   return (
     <>
       <main>
         <div className="p-4 w-full">
-          {repos.map((r) => (
-            <RepoBox key={r.id} repo={r} />
+          {repositories.map((repository) => (
+            <RepoBox key={repository.id} repo={repository} />
           ))}
         </div>
       </main>
     </>
-  )
+  );
 }

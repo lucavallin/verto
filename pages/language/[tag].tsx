@@ -1,10 +1,9 @@
-import { useRouter } from 'next/router'
-
 import { RepoBox } from '../../components/RepoBox'
 import { useAppContext } from '../_app'
+import { useRouter } from 'next/router'
 
 export default function Language() {
-  const { repos } = useAppContext()
+  const { repositories } = useAppContext()
 
   const router = useRouter()
   const { tag } = router.query
@@ -13,10 +12,10 @@ export default function Language() {
     <>
       <main>
         <div className="p-4 w-full">
-          {repos
-            .filter((r) => r.language == tag)
-            .map((r) => (
-              <RepoBox key={r.id} repo={r} />
+          {repositories
+            .filter((repository) => repository.language == tag)
+            .map((repository) => (
+              <RepoBox key={repository.id} repository={repository} />
             ))}
         </div>
       </main>

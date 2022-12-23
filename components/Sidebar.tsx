@@ -1,16 +1,15 @@
+import { useAppContext } from '../pages/_app'
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
 
-import { useAppContext } from '../pages/_app'
-
 export const Sidebar = () => {
   const { tags } = useAppContext()
 
   const router = useRouter()
-  const { tag: activeTag } = router.query
+  const { tag: activeTagId } = router.query
 
   return (
     <section className="masthead font-sans pt-6 border-r border-ink-200 px-6 text-vanilla-300 flex-none w-full md:max-w-sm">
@@ -27,15 +26,15 @@ export const Sidebar = () => {
           {tags.map((tag) => {
             return (
               <Link
-                key={tag.language}
-                href={`/language/${tag.language}`}
+                key={tag.id}
+                href={`/language/${tag.id}`}
                 className={`group mx-1 border px-2 py-1 inline-block rounded-sm my-1 text-sm ${
-                  tag.language === activeTag
+                  tag.id === activeTagId
                     ? 'active-pill'
                     : 'border-slate hover:text-juniper hover:border-juniper'
                 }`}
               >
-                {tag.language}
+                {tag.id}
                 <span className={`text-vanilla-400 group-hover:text-juniper`}>
                   &times; {tag.count}
                 </span>

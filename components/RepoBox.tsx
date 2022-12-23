@@ -1,24 +1,23 @@
+import { Repository } from '../types'
 import { faComment } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import React, { useState } from 'react'
 
-import { Repository } from '../types'
-
 type RepoBoxProps = {
-  repo: Repository
+  repository: Repository
 }
 
-export const RepoBox = ({ repo }: RepoBoxProps) => {
+export const RepoBox = ({ repository }: RepoBoxProps) => {
   const [isIssueOpen, setIsIssueOpen] = useState(false)
 
   dayjs.extend(relativeTime)
-  const lastModified = dayjs(repo.last_modified).fromNow()
+  const lastModified = dayjs(repository.last_modified).fromNow()
 
   return (
     <div
-      id={`repo-${repo.id}`}
+      id={`repo-${repository.id}`}
       className={`select-none border w-full rounded-md mb-4 cursor-pointer hover:bg-ink-300 group ${
         isIssueOpen ? 'border-juniper hover:bg-ink-400' : 'border-ink-200'
       }`}
@@ -27,15 +26,15 @@ export const RepoBox = ({ repo }: RepoBoxProps) => {
       <div className="px-5 py-3">
         <div className="flex flex-row">
           <a
-            title={`Open ${repo.owner}/${repo.name} on GitHub`}
-            href={repo.url}
+            title={`Open ${repository.owner}/${repository.name} on GitHub`}
+            href={repository.url}
             target="_blank"
             rel="noopener noreferrer"
             className={`text-xl font-bold group-hover:text-juniper ${
               isIssueOpen ? 'text-juniper' : ''
             }`}
           >
-            {repo.owner} / {repo.name}
+            {repository.owner} / {repository.name}
           </a>
           <span className="flex-1"></span>
           <span
@@ -43,10 +42,10 @@ export const RepoBox = ({ repo }: RepoBoxProps) => {
               isIssueOpen ? 'text-ink-400 bg-juniper border-transparent' : 'text-vanilla-200'
             }`}
           >
-            {repo.issues.length} issue(s)
+            {repository.issues.length} issue(s)
           </span>
         </div>
-        <div className="flex-row flex text-sm py-1 overflow-auto">{repo.description}</div>
+        <div className="flex-row flex text-sm py-1 overflow-auto">{repository.description}</div>
         <div
           className={`flex-row flex text-sm py-1 font-mono ${
             isIssueOpen ? 'text-honey' : 'text-vanilla-200'
@@ -54,11 +53,11 @@ export const RepoBox = ({ repo }: RepoBoxProps) => {
         >
           <div className="mr-4">
             <span className="text-green-600">lang: </span>
-            {repo.language}
+            {repository.language}
           </div>
           <div className="mr-4">
             <span className="text-blue-600">stars: </span>
-            {repo.stars}
+            {repository.stars_display}
           </div>
           <div className="mr-4">
             <span className="text-red-600">last activity: </span>
@@ -68,7 +67,7 @@ export const RepoBox = ({ repo }: RepoBoxProps) => {
       </div>
       {isIssueOpen && (
         <ol className="px-5 py-3 text-base leading-loose border-t border-ink-200">
-          {repo.issues.map((issue) => (
+          {repository.issues.map((issue) => (
             <li key={issue.url} className="flex flex-row items-start justify-start py-1">
               <span className="text-slate text-right px-2 leading-snug">#{issue.number}</span>
               <div className="flex items-start flex-row flex-auto">
