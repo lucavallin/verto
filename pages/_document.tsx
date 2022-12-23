@@ -1,11 +1,9 @@
-import { Head, Html, Main, NextScript } from 'next/document'
+import { Head, Html, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        {/* eslint-disable-next-line @next/next/no-title-in-document-head */}
-        <title>Good First Issue: issues for your first open-source contribution</title>
         <meta
           name="description"
           content="Making your first open-source contribution is easier than you think. Good First Issue is a curated list of issues from popular open-source projects that you can fix easily. Start today!"
@@ -36,7 +34,6 @@ export default function Document() {
         />
         <meta name="twitter:image" content="https://gfi.cavall.in/meta.png" />
 
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="UTF-8" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
       </Head>
@@ -45,5 +42,5 @@ export default function Document() {
         <NextScript />
       </body>
     </Html>
-  )
+  );
 }

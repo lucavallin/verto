@@ -110,4 +110,4 @@ export const getRepositoryData = async (): Promise<AppData> => {
   };
 };
 
-getRepositoryData().then((data) => fs.writeFileSync("./data/generated.json", JSON.stringify(data)));
+getRepositoryData().then((data) => fs.writeFileSync("./generated.json", JSON.stringify(data)));

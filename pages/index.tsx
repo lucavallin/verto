@@ -1,4 +1,4 @@
-import { RepoBox } from "../components/RepoBox";
+import { RepositoryBox } from "../components/RepositoryBox";
 import { useAppContext } from "./_app";
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
       <main>
         <div className="p-4 w-full">
           {repositories.map((repository) => (
-            <RepoBox key={repository.id} repo={repository} />
+            <RepositoryBox key={repository.id} repository={repository} />
           ))}
         </div>
       </main>

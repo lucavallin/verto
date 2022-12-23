@@ -1,25 +1,26 @@
-import { Repository } from '../types'
-import { faComment } from '@fortawesome/free-regular-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import dayjs from 'dayjs'
-import relativeTime from 'dayjs/plugin/relativeTime'
-import React, { useState } from 'react'
+import { faComment } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+import React, { useState } from "react";
 
-type RepoBoxProps = {
-  repository: Repository
-}
+import { Repository } from "../types";
 
-export const RepoBox = ({ repository }: RepoBoxProps) => {
-  const [isIssueOpen, setIsIssueOpen] = useState(false)
+type RepositoryBoxProps = {
+  repository: Repository;
+};
 
-  dayjs.extend(relativeTime)
-  const lastModified = dayjs(repository.last_modified).fromNow()
+export const RepositoryBox = ({ repository }: RepositoryBoxProps) => {
+  const [isIssueOpen, setIsIssueOpen] = useState(false);
+
+  dayjs.extend(relativeTime);
+  const lastModified = dayjs(repository.last_modified).fromNow();
 
   return (
     <div
       id={`repo-${repository.id}`}
       className={`select-none border w-full rounded-md mb-4 cursor-pointer hover:bg-ink-300 group ${
-        isIssueOpen ? 'border-juniper hover:bg-ink-400' : 'border-ink-200'
+        isIssueOpen ? "border-juniper hover:bg-ink-400" : "border-ink-200"
       }`}
       onClick={() => setIsIssueOpen(!isIssueOpen)}
     >
@@ -31,7 +32,7 @@ export const RepoBox = ({ repository }: RepoBoxProps) => {
             target="_blank"
             rel="noopener noreferrer"
             className={`text-xl font-bold group-hover:text-juniper ${
-              isIssueOpen ? 'text-juniper' : ''
+              isIssueOpen ? "text-juniper" : ""
             }`}
           >
             {repository.owner} / {repository.name}
@@ -39,7 +40,7 @@ export const RepoBox = ({ repository }: RepoBoxProps) => {
           <span className="flex-1"></span>
           <span
             className={`hidden md:inline text-sm border px-3 py-1 ml-2 rounded-full font-semibold ${
-              isIssueOpen ? 'text-ink-400 bg-juniper border-transparent' : 'text-vanilla-200'
+              isIssueOpen ? "text-ink-400 bg-juniper border-transparent" : "text-vanilla-200"
             }`}
           >
             {repository.issues.length} issue(s)
@@ -48,7 +49,7 @@ export const RepoBox = ({ repository }: RepoBoxProps) => {
         <div className="flex-row flex text-sm py-1 overflow-auto">{repository.description}</div>
         <div
           className={`flex-row flex text-sm py-1 font-mono ${
-            isIssueOpen ? 'text-honey' : 'text-vanilla-200'
+            isIssueOpen ? "text-honey" : "text-vanilla-200"
           }`}
         >
           <div className="mr-4">
@@ -92,5 +93,5 @@ export const RepoBox = ({ repository }: RepoBoxProps) => {
         </ol>
       )}
     </div>
-  )
-}
+  );
+};

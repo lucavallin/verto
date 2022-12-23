@@ -1,12 +1,13 @@
-import { RepoBox } from '../../components/RepoBox'
-import { useAppContext } from '../_app'
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
+
+import { RepositoryBox } from "../../components/RepositoryBox";
+import { useAppContext } from "../_app";
 
 export default function Language() {
-  const { repositories } = useAppContext()
+  const { repositories } = useAppContext();
 
-  const router = useRouter()
-  const { tag } = router.query
+  const router = useRouter();
+  const { tag } = router.query;
 
   return (
     <>
@@ -15,10 +16,10 @@ export default function Language() {
           {repositories
             .filter((repository) => repository.language == tag)
             .map((repository) => (
-              <RepoBox key={repository.id} repository={repository} />
+              <RepositoryBox key={repository.id} repository={repository} />
             ))}
         </div>
       </main>
     </>
-  )
+  );
 }
