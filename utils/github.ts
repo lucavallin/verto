@@ -7,11 +7,18 @@ export const getRepositoryData: AppData = () => {
         auth: process.env.GITHUB_PAT
     });
 
+    let repositoriesToQuery = repositories
     const issueLimit = 10
     const tmpTags = []
     const slugifyReplacements = [["#", "sharp"], ["+", "plus"]]
 
-    repositories.map((r) => {
+    // Take only the first 10 repositories in development,
+    // otherwise we make GitHub unhappy
+    if (process.env.NODE_ENV === 'development') {
+        repositoriesToQuery = repositories.slice(0, 10)
+    }
+
+    repositoriesToQuery.map((r) => {
         const [owner, repo] = r.split('/')
         octokit.repos.get({ owner, repo }).then((response) => {
             const { data: repository } = response
