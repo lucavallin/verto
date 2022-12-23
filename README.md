@@ -20,7 +20,7 @@ You're welcome to add a new project in Good First Issue, and we encourage all pr
 
 Follow these simple steps:
 
-- Our goal is to narrow down projects for new open-source contributors. To maintain the quality of projects in Good First Issue, please make sure your GitHub repository meets the following criteria:
+- The goal is to narrow down projects for new open-source contributors. To maintain the quality of projects in Good First Issue, please make sure the GitHub repository you want to add meets the following criteria:
 
   - It has at least three issues with the `good first issue` label or other labels defined in `gfi.config.json` (see `labels` and the end).
 
@@ -32,7 +32,7 @@ Follow these simple steps:
 
   - It is actively maintained.
 
-- Add your repository's path (in lexicographic order) in [gfi.config.json](gfi.config.json).
+- Add your repository's path (in the format `owner/name` and lexicographic order) to [gfi.config.json](gfi.config.json).
 
 - Create a new pull-request. Please add the link to the issues page of the repository in the PR description. Once the pull request is merged, the changes will be live on [gfi.lucavall.in](https://gfi.lucavall.in/).
 
@@ -52,6 +52,3 @@ $ npm run dev
 ```
 
 You will then be able to open the app in your browser.
-
-# TODO
-- While we replace it: call python script in CI
