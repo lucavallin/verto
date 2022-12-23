@@ -8,7 +8,7 @@ import { AppData, Repository, Tag } from "../types";
 
 export const getRepositoryData = async (): Promise<AppData> => {
   const octokit = new Octokit({
-    auth: process.env.GH_PERSONAL_ACCESS_TOKEN
+    auth: process.env.GITHUB_TOKEN
   });
 
   const slugReplacements = [

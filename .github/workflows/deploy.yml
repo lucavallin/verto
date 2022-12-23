@@ -57,6 +57,8 @@ jobs:
         run: npm install
       - name: Build with Next.js
         run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
       - name: Static HTML export with Next.js
         run: npm run export
       - name: Upload artifact
