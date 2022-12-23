@@ -1,16 +1,13 @@
-import { Octokit } from "@octokit/rest";
 import fs from "fs";
 import millify from "millify";
 import slugify from "slugify";
 
 import gfiConfig from "../gfi.config.json";
 import { AppData, Repository, Tag } from "../types";
+import { octokit } from "./github";
 
 export const getRepositoryData = async (): Promise<AppData> => {
-  const octokit = new Octokit({
-    auth: process.env.GITHUB_TOKEN
-  });
-
+  let processedRepositories = 0;
   const slugReplacements = [
     { symbol: "#", slug: "sharp" },
     { symbol: "+", slug: "plus" }
@@ -23,6 +20,12 @@ export const getRepositoryData = async (): Promise<AppData> => {
     .reduce<Promise<Repository[]>>(async (repositoryList, r: string) => {
       const [owner, repo] = r.split("/");
       const { data: repositoryData } = await octokit.repos.get({ owner, repo });
+
+      // console.log(
+      //   `Processing repository: ${processedRepositories++} of ${
+      //     gfiConfig.repositories.length
+      //   }: ${r}`
+      // );
 
       // Skip repos that are archived, disabled, private, or have no language, or have less than 100 stars, or have less than 3 open issues
       if (

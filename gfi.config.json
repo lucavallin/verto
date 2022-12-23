@@ -769,30 +769,7 @@
         "zulip/zulip"
     ],
     "labels": [
-        "beginner friendly",
-        "beginner-friendly",
-        "beginner",
-        "easy to understand",
-        "easy-to-understand",
-        "easy",
-        "first timer friendly",
-        "first timer only",
-        "first timer",
-        "first timers only",
-        "first timers",
-        "first-timer-friendly",
-        "first-timer-only",
-        "first-timer",
-        "first-timers-only",
-        "first-timers",
         "good first issue",
-        "good-first-issue",
-        "help wanted",
-        "newcomer friendly",
-        "newcomer-friendly",
-        "newcomer",
-        "newcomers only",
-        "newcomers-only",
-        "newcomers"
+        "help wanted"
     ]
 }

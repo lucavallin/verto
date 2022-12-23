@@ -56,3 +56,5 @@ You will then be able to open the app in your browser.
 # TODO
 Explain where data comes from
 catch failing requests
+double check emojis from gh
+explain why labels removed

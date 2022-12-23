@@ -16,6 +16,8 @@
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@next/font": "^13.0.7",
+    "@octokit/plugin-retry": "^4.0.3",
+    "@octokit/plugin-throttling": "^4.3.2",
     "@octokit/rest": "^19.0.5",
     "@types/node": "18.11.17",
     "@types/react": "18.0.26",
