@@ -21,7 +21,7 @@ export default function Document() {
           property="og:description"
           content="Making your first open-source contribution is easier than you think. Good First Issue is a curated list of issues from popular open-source projects that you can fix easily. Start today!"
         />
-        <meta property="og:image" content="https://gfi.cavall.in/meta.jpg" />
+        <meta property="og:image" content="https://gfi.cavall.in/meta.png" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="gfi.cavall.in" />
@@ -34,7 +34,7 @@ export default function Document() {
           name="twitter:description"
           content="Making your first open-source contribution is easier than you think. Good First Issue is a curated list of issues from popular open-source projects that you can fix easily. Start today!"
         />
-        <meta name="twitter:image" content="https://gfi.cavall.in/meta.jpg" />
+        <meta name="twitter:image" content="https://gfi.cavall.in/meta.png" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="UTF-8" />
