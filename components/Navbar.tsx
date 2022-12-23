@@ -18,10 +18,10 @@ export const Navbar = () => {
         <Link href="/" className="flex items-center text-gray-700 font-bold">
           <Image src="/gfi.png" alt="Good First Issue" className="h-12" width={355} height={51} />
         </Link>
-        {path ? (
+        {path && tag ? (
           <span className="text-2xl cursor-pointer">
             <span className="font-normal ml-2 mr-1 text-slate">/</span>
-            <span className="font-semibold text-juniper">{tag.display}</span>
+            <span className="font-semibold text-juniper">{tag?.display}</span>
           </span>
         ) : null}
       </nav>
