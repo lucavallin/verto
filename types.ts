@@ -4,7 +4,7 @@ type Nullable<T> = T | null;
 // Describes a Tag, which is a programming language
 export interface Tag {
   count: number;
-  display: string;
+  display: Nullable<string>;
   id: string;
 }
 
