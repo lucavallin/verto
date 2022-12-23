@@ -12,7 +12,7 @@ Open-source maintainers are always looking to get more people involved, but new 
 
 ## What is different in this fork?
 The original project is unmaintained, but I find the website very useful and I would like to keep it alive.
-We are also replacing everything with Next.js.
+The original code has been entirely replaced by Next.js and Typescript and there are differences in how data in retrieve from GitHub and compiled.
 
 ## Adding a new project
 
@@ -22,7 +22,7 @@ Follow these simple steps:
 
 - Our goal is to narrow down projects for new open-source contributors. To maintain the quality of projects in Good First Issue, please make sure your GitHub repository meets the following criteria:
 
-  - It has at least three issues with the `good first issue` label or other labels defined in `repositories.toml` (see `labels` and the end).
+  - It has at least three issues with the `good first issue` label or other labels defined in `gfi.config.json` (see `labels` and the end).
 
   - It has at least 10 contributors.
 
@@ -32,7 +32,7 @@ Follow these simple steps:
 
   - It is actively maintained.
 
-- Add your repository's path (in lexicographic order) in [repositories.toml](repositories.toml).
+- Add your repository's path (in lexicographic order) in [gfi.config.json](gfi.config.json).
 
 - Create a new pull-request. Please add the link to the issues page of the repository in the PR description. Once the pull request is merged, the changes will be live on [gfi.lucavall.in](https://gfi.lucavall.in/).
 
@@ -42,7 +42,7 @@ To contribute new features and changes to the website, you would want to run the
 
 1. Clone the project locally. Make sure you have a recent version of Node.js installed on your computer.
 
-2. Build the front-end app and start the development server.
+2. Start the development server.
 
 ```bash
 # install the dependencies
