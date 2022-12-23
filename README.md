@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/gfi.svg" />
+  <img src="public/gfi.png" />
 </p>
 
 ---

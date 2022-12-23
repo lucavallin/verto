@@ -11,7 +11,7 @@ export const Navbar = () => {
     <header className="w-full py-4 border-b border-ink-200 bg-ink-400">
       <nav className="flex items-center justify-center flex-wrap">
         <Link href="/" className="flex items-center text-gray-700 font-bold">
-          <Image src="/gfi.svg" alt="Good First Issue" className="h-12" width={236} height={48} />
+          <Image src="/gfi.png" alt="Good First Issue" className="h-12" width={236} height={48} />
         </Link>
         {tag ? (
           <span className="text-2xl cursor-pointer">
