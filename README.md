@@ -22,9 +22,11 @@ Follow these simple steps:
 
 - Our goal is to narrow down projects for new open-source contributors. To maintain the quality of projects in Good First Issue, please make sure your GitHub repository meets the following criteria:
 
-  - It has at least three issues with the `good first issue`, `help wanted` or similar labels. The label `good first issue` is already present on all repositories by default. If not, you can follow the steps [here](https://help.github.com/en/github/managing-your-work-on-github/applying-labels-to-issues-and-pull-requests).
+  - It has at least three issues with the `good first issue` label or other labels defined in `repositories.toml` (see `labels` and the end).
 
   - It has at least 10 contributors.
+
+  - It has at least 100 stars.
 
   - It contains a README.md with detailed setup instructions for the project, and a CONTRIBUTING.md with guidelines for new contributors.
 
