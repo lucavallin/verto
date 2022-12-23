@@ -52,3 +52,6 @@ $ npm run dev
 ```
 
 You will then be able to open the app in your browser.
+
+# TODO
+Explain where data comes from
