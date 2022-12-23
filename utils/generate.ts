@@ -100,7 +100,7 @@ export const getRepositoryData = async (): Promise<AppData> => {
         tags[index].count++;
         return tags;
       }
-      return [...tags, { id: repository.tag, count: 1 }];
+      return [...tags, { id: repository.tag, display: repository.language, count: 1 }];
     }, [])
     .filter((tag: Tag) => tag.count >= 3);
 
