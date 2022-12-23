@@ -18,9 +18,8 @@ export const getRepositoryData = async (): Promise<AppData> => {
   const issueLimit = 10;
 
   // Take only the first 10 repositories in development otherwise we make GitHub unhappy
-  const repositories = await gfiConfig.repositories
-    .slice(0, process.env.NODE_ENV === "development" ? 10 : gfiConfig.repositories.length)
-    .reduce<Promise<Repository[]>>(async (repositoryList, r: string) => {
+  const repositories = await gfiConfig.repositories.reduce<Promise<Repository[]>>(
+    async (repositoryList, r: string) => {
       const [owner, repo] = r.split("/");
       const { data: repositoryData } = await octokit.repos.get({ owner, repo });
 
@@ -88,7 +87,9 @@ export const getRepositoryData = async (): Promise<AppData> => {
           }))
         }
       ];
-    }, Promise.resolve([]));
+    },
+    Promise.resolve([])
+  );
 
   // Create a list of tags, excluding tags with less than 3 occurrences
   const tags = repositories
