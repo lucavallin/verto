@@ -8,12 +8,12 @@ import millify from "millify";
 import slugify from "slugify";
 
 import firstissue from "./firstissue.json";
-import { AppData, Repository, Tag } from "./types";
+import { Repository, Tag } from "./types";
 
 // Setup Octokit (GitHub API client)
 const MyOctokit = Octokit.plugin(throttling, retry);
 const octokit = new MyOctokit({
-  auth: process.env.GITHUB_TOKEN,
+  auth: process.env.GH_PERSONAL_ACCESS_TOKEN,
   throttle: {
     onRateLimit: (retryAfter: number, options: octokitTypes.RequestOptions) => {
       octokit.log.warn(`Request quota exhausted for request ${options.method} ${options.url}`);
