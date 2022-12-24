@@ -59,11 +59,12 @@ jobs:
         run: npm run build
         env:
           GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-      - name: Update firstissue.json
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: update firstissue.json
-          file_pattern: 'firstissue.json'
+      #  Skip this step for now, as it's not working
+      # - name: Update firstissue.json
+      #   uses: stefanzweifel/git-auto-commit-action@v4
+      #   with:
+      #     commit_message: update firstissue.json
+      #     file_pattern: 'firstissue.json'
       - name: Static HTML export with Next.js
         run: npm run export
       - name: Upload artifact
