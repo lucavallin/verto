@@ -6,8 +6,13 @@ import gfiConfig from "../gfi.config.json";
 import { AppData, Repository, Tag } from "../types";
 import { octokit } from "./github";
 
-export const getRepositoryData = async (): Promise<AppData> => {
+// This function could be more decoupled, but it works for now
+export const getRepositoriesData = async (): Promise<{
+  invalidRepositories: Array<string>;
+  appData: AppData;
+}> => {
   let processedRepositories = 0;
+  let invalidRepositories: Array<string> = [];
   const slugReplacements = [
     { symbol: "#", slug: "sharp" },
     { symbol: "+", slug: "plus" }
@@ -17,15 +22,18 @@ export const getRepositoryData = async (): Promise<AppData> => {
   // Take only the first 10 repositories in development otherwise we make GitHub unhappy
   const repositories = await gfiConfig.repositories
     .slice(0, process.env.NODE_ENV === "development" ? 10 : gfiConfig.repositories.length)
-    .reduce<Promise<Repository[]>>(async (repositoryList, r: string) => {
+    .reduce<Promise<Repository[]>>(async (repositoryList, r: string, i) => {
+      // Wait 500ms between each request to avoid rate limiting
+      await new Promise((resolve) => setTimeout(resolve, 500 * i));
+
       const [owner, repo] = r.split("/");
       const { data: repositoryData } = await octokit.repos.get({ owner, repo });
 
-      // console.log(
-      //   `Processing repository: ${processedRepositories++} of ${
-      //     gfiConfig.repositories.length
-      //   }: ${r}`
-      // );
+      console.log(
+        `Processing repository: ${processedRepositories++} of ${
+          process.env.NODE_ENV === "development" ? 10 : gfiConfig.repositories.length
+        }: ${r}`
+      );
 
       // Skip repos that are archived, disabled, private, or have no language, or have less than 100 stars, or have less than 3 open issues
       if (
@@ -36,8 +44,9 @@ export const getRepositoryData = async (): Promise<AppData> => {
         repositoryData.stargazers_count < 100 ||
         repositoryData.open_issues_count < 3
       ) {
-        // TODO It would be nice to remove the repo from gfi.config.json forever
         console.log(`Skipping repository: ${owner}/${repo}`);
+        // Not the best way to do this, but it works
+        invalidRepositories = [...invalidRepositories, r];
         return repositoryList;
       }
 
@@ -108,9 +117,23 @@ export const getRepositoryData = async (): Promise<AppData> => {
     .filter((tag: Tag) => tag.count >= 3);
 
   return {
-    repositories,
-    tags
+    invalidRepositories,
+    appData: {
+      repositories,
+      tags
+    }
   };
 };
 
-getRepositoryData().then((data) => fs.writeFileSync("./generated.json", JSON.stringify(data)));
+// Entrypoint of this script: get data and write it to files
+getRepositoriesData().then((data) => {
+  const { invalidRepositories, appData } = data;
+  fs.writeFileSync("./generated.json", JSON.stringify(appData));
+
+  // Not the most elegant solution, but this update the list of repositories in gfi.config.json just fine
+  gfiConfig.repositories = gfiConfig.repositories.filter((repository: string) =>
+    invalidRepositories.find((invalid) => repository === invalid)
+  );
+
+  fs.writeFileSync("./gfi.config.json", JSON.stringify(gfiConfig));
+});
