@@ -70,7 +70,7 @@ export const RepositoryBox = ({ repository }: RepositoryBoxProps) => {
         <ol className="px-5 py-3 text-base leading-loose border-t border-ink-200">
           {repository.issues.map((issue) => (
             <li key={issue.url} className="flex flex-row items-start justify-start py-1">
-              <span className="text-slate text-right px-2 leading-snug">#{issue.number}</span>
+              <span className="text-slate text-right w-30 px-2 leading-snug">#{issue.number}</span>
               <div className="flex items-start flex-row flex-auto">
                 <a
                   title="Open issue on GitHub"
@@ -83,8 +83,8 @@ export const RepositoryBox = ({ repository }: RepositoryBoxProps) => {
                 </a>
                 {issue.comments_count > 0 && (
                   <div className="flex flex-row items-center justify-end mt-1 w-10">
+                    <span className="mr-2 text-sm leading-snug">{issue.comments_count}</span>
                     <FontAwesomeIcon icon={faComment} />
-                    <span className="ml-1 text-sm leading-snug">{issue.comments_count}</span>
                   </div>
                 )}
               </div>

@@ -16,11 +16,11 @@ export const Navbar = () => {
     <header className="w-full py-4 border-b border-ink-200 bg-ink-400">
       <nav className="flex items-center justify-center flex-wrap">
         <Link href="/" className="flex items-center text-gray-700 font-bold">
-          <Image src="/firstissue.png" alt="First Issue" className="h-12" width={355} height={51} />
+          <Image src="/firstissue.png" alt="First Issue" className="h-12" width={290} height={51} />
         </Link>
         {path && tag ? (
-          <span className="text-2xl cursor-pointer">
-            <span className="font-normal ml-2 mr-1 text-slate">/</span>
+          <span className="text-2xl pt-3 cursor-pointer">
+            <span className="font-normal mx-3 text-slate">/</span>
             <span className="font-semibold text-juniper">{tag?.display}</span>
           </span>
         ) : null}
