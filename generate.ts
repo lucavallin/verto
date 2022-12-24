@@ -55,13 +55,13 @@ firstissue.repositories
     const { data: repositoryData } = await octokit.repos.get({ owner, repo });
 
     console.log(
-      `Processing repository: ${processedRepositories++} of ${
+      `Processing repository ${processedRepositories++} of ${
         process.env.NODE_ENV === "development" ? 30 : firstissue.repositories.length
       }: ${r}`
     );
 
     // Skip repos that are archived, disabled, private, or have no language, or have less than 100 stars,
-    // or have less than 3 open issues or haven't been updated in the last 6 months
+    // or have less than 3 open issues or haven't been updated in the last 3 months
     if (
       repositoryData.archived ||
       repositoryData.disabled ||
@@ -69,7 +69,7 @@ firstissue.repositories
       !repositoryData.language ||
       repositoryData.stargazers_count < 100 ||
       repositoryData.open_issues_count < 3 ||
-      dayjs().diff(dayjs(repositoryData.pushed_at), "month") > 6
+      dayjs().diff(dayjs(repositoryData.pushed_at), "month") > 3
     ) {
       console.log(`Skipping repository: ${owner}/${repo}`);
       // Not the best way to do this, but it works
@@ -146,12 +146,14 @@ firstissue.repositories
         }
         return [...tags, { id: repository.tag, display: repository.language, count: 1 }];
       }, [])
-      .filter((tag: Tag) => tag.count >= 3);
+      .filter((tag: Tag) => tag.count >= 3)
+      .sort();
 
     return {
       invalidRepositories,
       appData: {
-        repositories,
+        // Sort the repositories randomly so that the list isn't always the same
+        repositories: repositories.sort(() => Math.random() - 0.5),
         tags
       }
     };
