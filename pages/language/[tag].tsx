@@ -14,7 +14,7 @@ export default function Language() {
       <main>
         <div className="p-4 w-full">
           {repositories
-            .filter((repository) => repository.language == tag)
+            .filter((repository) => repository.tag == tag)
             .map((repository) => (
               <RepositoryBox key={repository.id} repository={repository} />
             ))}

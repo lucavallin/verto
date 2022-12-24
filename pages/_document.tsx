@@ -1,4 +1,5 @@
 import { Head, Html, Main, NextScript } from "next/document";
+import { GoogleAnalytics } from "nextjs-google-analytics";
 
 export default function Document() {
   return (
@@ -36,6 +37,7 @@ export default function Document() {
 
         <meta charSet="UTF-8" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+        <GoogleAnalytics gaMeasurementId="G-KV9HDNBZ1L" trackPageViews />
       </Head>
       <body>
         <Main />

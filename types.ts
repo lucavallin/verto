@@ -15,18 +15,21 @@ export interface Repository {
   issues: Issue[];
   language: Nullable<string>;
   last_modified: string;
+  license: Nullable<string>;
   name: string;
   owner: string;
   stars: number;
   stars_display: string;
   url: string;
   tag: string;
+  topics: string[];
 }
 
 // Describes an Issue, which is a GitHub issue linked to a repository
 export interface Issue {
   comments_count: number;
   created_at: string;
+  id: number;
   number: number;
   title: string;
   url: string;
