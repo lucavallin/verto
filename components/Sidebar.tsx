@@ -17,8 +17,8 @@ export const Sidebar = () => {
       <div>
         <h3 className="section-heading">About</h3>
         <p className="text-sm">
-          Good First Issue curates easy pickings from popular open-source projects, and helps you
-          make your first contribution to open-source.
+          First Issue curates easy pickings from popular open-source projects, and helps you make
+          your first contribution to open-source.
         </p>
       </div>
       <div className="pt-6">

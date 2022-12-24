@@ -10,10 +10,6 @@ Welcome! 👋🏼
 
 Open-source maintainers are always looking to get more people involved, but new developers generally think it's challenging to become a contributor. We believe getting developers to fix super-easy issues removes the barrier for future contributions. This is why First Issue exists.
 
-## What is different in this fork?
-The original project is unmaintained, but I find the website very useful and I would like to keep it alive.
-The original code has been entirely replaced by Next.js and Typescript and there are differences in how data in retrieve from GitHub and compiled.
-
 ## Adding a new project
 
 You're welcome to add a new project in First Issue, and we encourage all projects &mdash; old and new, big and small.
@@ -56,3 +52,4 @@ You will then be able to open the app in your browser.
 # TODO
 - Explain where data comes from and how labels work
 - double check emojis from gh
+- check tag navigation

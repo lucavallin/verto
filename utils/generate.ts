@@ -23,8 +23,8 @@ export const getRepositoriesData = async (): Promise<{
   const repositories = await firstissueConfig.repositories
     .slice(0, process.env.NODE_ENV === "development" ? 10 : firstissueConfig.repositories.length)
     .reduce<Promise<Repository[]>>(async (repositoryList, r: string, i) => {
-      // Wait 500ms between each request to avoid rate limiting
-      await new Promise((resolve) => setTimeout(resolve, 500 * i));
+      // Wait 1s between each request to avoid rate limiting
+      await new Promise((resolve) => setTimeout(resolve, 1000 * i));
 
       const [owner, repo] = r.split("/");
       const { data: repositoryData } = await octokit.repos.get({ owner, repo });
