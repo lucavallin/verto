@@ -26,7 +26,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Good First Issue: issues for your first open-source contribution</title>
+        <title>First Issue: issues for your first open-source contribution</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <AppContext.Provider value={{ repositories: data.repositories, tags: data.tags }}>

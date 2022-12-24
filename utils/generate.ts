@@ -2,7 +2,7 @@ import fs from "fs";
 import millify from "millify";
 import slugify from "slugify";
 
-import gfiConfig from "../gfi.config.json";
+import firstissueConfig from "../firstissue.config.json";
 import { AppData, Repository, Tag } from "../types";
 import { octokit } from "./github";
 
@@ -20,8 +20,8 @@ export const getRepositoriesData = async (): Promise<{
   const issueLimit = 10;
 
   // Take only the first 10 repositories in development otherwise we make GitHub unhappy
-  const repositories = await gfiConfig.repositories
-    .slice(0, process.env.NODE_ENV === "development" ? 10 : gfiConfig.repositories.length)
+  const repositories = await firstissueConfig.repositories
+    .slice(0, process.env.NODE_ENV === "development" ? 10 : firstissueConfig.repositories.length)
     .reduce<Promise<Repository[]>>(async (repositoryList, r: string, i) => {
       // Wait 500ms between each request to avoid rate limiting
       await new Promise((resolve) => setTimeout(resolve, 500 * i));
@@ -31,7 +31,7 @@ export const getRepositoriesData = async (): Promise<{
 
       console.log(
         `Processing repository: ${processedRepositories++} of ${
-          process.env.NODE_ENV === "development" ? 10 : gfiConfig.repositories.length
+          process.env.NODE_ENV === "development" ? 10 : firstissueConfig.repositories.length
         }: ${r}`
       );
 
@@ -52,7 +52,7 @@ export const getRepositoriesData = async (): Promise<{
 
       // Promise<any> is a hack to get around the very complicated type of octokit.issues.listForRepo
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const issuesData = await gfiConfig.labels.reduce<Promise<any>>(
+      const issuesData = await firstissueConfig.labels.reduce<Promise<any>>(
         async (issuesList, label: string) => {
           const { data } = await octokit.issues.listForRepo({
             owner,
@@ -130,10 +130,10 @@ getRepositoriesData().then((data) => {
   const { invalidRepositories, appData } = data;
   fs.writeFileSync("./generated.json", JSON.stringify(appData));
 
-  // Not the most elegant solution, but this update the list of repositories in gfi.config.json just fine
-  gfiConfig.repositories = gfiConfig.repositories.filter((repository: string) =>
-    invalidRepositories.find((invalid) => repository === invalid)
+  // Not the most elegant solution, but this update the list of repositories in firstissue.config.json just fine
+  firstissueConfig.repositories = firstissueConfig.repositories.filter(
+    (repository: string) => !invalidRepositories.includes(repository)
   );
 
-  fs.writeFileSync("./gfi.config.json", JSON.stringify(gfiConfig));
+  fs.writeFileSync("./firstissue.config.json", JSON.stringify(firstissueConfig, null, 2));
 });

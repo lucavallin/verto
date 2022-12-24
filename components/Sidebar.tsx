@@ -47,7 +47,7 @@ export const Sidebar = () => {
       <div className="pt-6">
         <a
           className="block bg-juniper hover:bg-light_juniper text-ink-400 uppercase rounded-md font-bold text-center px-1 py-3"
-          href="https://github.com/lucavallin/gfi#adding-a-new-project"
+          href="https://github.com/lucavallin/first-issue#adding-a-new-project"
           target="_blank"
           rel="noopener noreferrer"
         >

@@ -1,4 +1,4 @@
-name: Deploy to gfi.cavall.in
+name: Deploy to firstissue.dev
 
 on:
   # Runs on pushes targeting the default branch
