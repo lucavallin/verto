@@ -8,7 +8,7 @@ import millify from "millify";
 import slugify from "slugify";
 
 import firstissue from "./firstissue.json";
-import { Repository, Tag } from "./types";
+import { AppData, Repository, Tag } from "./types";
 
 // Setup Octokit (GitHub API client)
 const MyOctokit = Octokit.plugin(throttling, retry);
@@ -60,7 +60,8 @@ firstissue.repositories
       }: ${r}`
     );
 
-    // Skip repos that are archived, disabled, private, or have no language, or have less than 100 stars, or have less than 3 open issues
+    // Skip repos that are archived, disabled, private, or have no language, or have less than 100 stars,
+    // or have less than 3 open issues or haven't been updated in the last 6 months
     if (
       repositoryData.archived ||
       repositoryData.disabled ||
@@ -131,7 +132,7 @@ firstissue.repositories
       }
     ];
   }, Promise.resolve([]))
-  .then((repositories) => {
+  .then((repositories: Repository[]) => {
     // Create a list of tags from the repositories for filtering in the UI
     // Ignore tags that have less than 3 repositories
     const tags = repositories
@@ -170,6 +171,6 @@ firstissue.repositories
   .finally(() => {
     console.log("Finished generating data.");
   })
-  .catch((error) => {
+  .catch((error: any) => {
     console.error(error);
   });
