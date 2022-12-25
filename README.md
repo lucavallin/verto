@@ -6,9 +6,9 @@
 
 Welcome! 👋🏼
 
-**First Issue** is an initiative to curate easy pickings from popular projects, so developers who've never contributed to open-source can get started quickly.
+**First Issue** is an initiative to curate a list of accessible issues from popular projects, so developers look for a new (or first) project to contribute to can get started quickly.
 
-Open-source maintainers are always looking to get more people involved, but new developers generally think it's challenging to become a contributor. We believe getting developers to fix super-easy issues removes the barrier for future contributions. This is why First Issue exists.
+Open-source maintainers are always looking to get more people involved, but it can be challenging to become a contributor. We believe First Issue lowers the barrier for future contributions - and this is why it exists.
 
 ## Adding a new project
 
@@ -16,7 +16,7 @@ You're welcome to add a new project in First Issue, and we encourage all project
 
 Follow these simple steps:
 
-- The goal is to narrow down projects for new open-source contributors. To maintain the quality of projects in First Issue, please make sure the GitHub repository you want to add meets the following criteria:
+- To maintain the quality of projects in First Issue, please make sure the GitHub repository you want to add meets the following criteria:
 
   - It has at least three issues with the `good first issue` label or other labels defined in `firstissue.json` (see `labels` and the end).
 
@@ -26,7 +26,7 @@ Follow these simple steps:
 
   - It contains a README.md with detailed setup instructions for the project, and a CONTRIBUTING.md with guidelines for new contributors.
 
-  - It is actively maintained (last updated less than 6 months ago).
+  - It is actively maintained (last update less than 6 months ago).
 
 - Add your repository's path (in the format `owner/name` and lexicographic order) to [firstissue.json](firstissue.json).
 
@@ -51,4 +51,4 @@ $ npm install
 $ npm run dev
 ```
 
-The project contains a `pre-commit` hook that runs linters automatically to ensure code quality.
+Good to know when you commit: the project contains a `pre-commit` hook that runs linters automatically to ensure code quality!
