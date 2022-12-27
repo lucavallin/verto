@@ -63,7 +63,7 @@ export const Sidebar = () => {
         </div>
       </div>
       <div className="pt-6">
-        <h3 className="section-heading">Browse by top topics</h3>
+        <h3 className="section-heading">Browse by topic</h3>
         <div>
           {topics.slice(0, showMoreTopics ? topics.length : 15).map((topic) => {
             return (

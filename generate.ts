@@ -2,6 +2,7 @@ import { retry } from "@octokit/plugin-retry";
 import { throttling } from "@octokit/plugin-throttling";
 import { Octokit } from "@octokit/rest";
 import * as octokitTypes from "@octokit/types";
+import { RequestError } from "@octokit/types";
 import dayjs from "dayjs";
 import fs from "fs";
 import millify from "millify";
@@ -52,7 +53,19 @@ const issueLimit = 10;
     await new Promise((resolve) => setTimeout(resolve, 1000 * i));
 
     const [owner, repo] = r.split("/");
-    const { data: repositoryData } = await octokit.repos.get({ owner, repo });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let repositoryData = {} as any;
+    try {
+      repositoryData = (await octokit.repos.get({ owner, repo })).data;
+    } catch (e: any) {
+      if (e.status === 404) {
+        console.log(`Repository not found: ${owner}/${repo}`);
+        // Not the best way to do this, but it works
+        invalidRepositories = [...invalidRepositories, r];
+        return repositoryList;
+      }
+      throw e;
+    }
 
     console.log(
       `Processing repository ${processedRepositories++} of ${
