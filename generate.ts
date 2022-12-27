@@ -45,8 +45,8 @@ const slugReplacements = [
 const issueLimit = 10;
 
 // Take only the first 10 repositories in development otherwise we make GitHub unhappy
-firstissue.repositories
-  .slice(0, process.env.NODE_ENV === "development" ? 10 : firstissue.repositories.length)
+[...new Set(firstissue.repositories)]
+  .slice(0, process.env.NODE_ENV === "development" ? 30 : firstissue.repositories.length)
   .reduce<Promise<Repository[]>>(async (repositoryList, r: string, i) => {
     // Wait 1s between each request to avoid rate limiting
     await new Promise((resolve) => setTimeout(resolve, 1000 * i));
@@ -60,16 +60,16 @@ firstissue.repositories
       }: ${r}`
     );
 
-    // Skip repos that are archived, disabled, private, or have no language, or have less than 100 stars,
-    // or have less than 3 open issues or haven't been updated in the last 3 months
+    // Skip repos that are archived, disabled, private, or have no language, or have less than 500 stars,
+    // or have less than 3 open issues or haven't been updated in the last month
     if (
       repositoryData.archived ||
       repositoryData.disabled ||
       repositoryData.private ||
       !repositoryData.language ||
-      repositoryData.stargazers_count < 100 ||
+      repositoryData.stargazers_count < 999 ||
       repositoryData.open_issues_count < 3 ||
-      dayjs().diff(dayjs(repositoryData.pushed_at), "month") > 3
+      dayjs().diff(dayjs(repositoryData.pushed_at), "month") > 1
     ) {
       console.log(`Skipping repository: ${owner}/${repo}`);
       // Not the best way to do this, but it works
@@ -143,8 +143,7 @@ firstissue.repositories
     ];
   }, Promise.resolve([]))
   .then((repositories: Repository[]) => {
-    // Create a list of language ags from the repositories for filtering in the UI
-    // Ignore language tags that have less than 3 repositories
+    // Create a list of language agrs from the repositories for filtering in the UI
     const languages = repositories
       .reduce((languages: CountableTag[], repository: Repository) => {
         if (!repository.language) return languages;
@@ -159,10 +158,10 @@ firstissue.repositories
           { id: repository.language.id, display: repository.language.display, count: 1 }
         ];
       }, [])
+      // Ignore language tags that have less than 3 repositories
       .filter((language: CountableTag) => language.count >= 3);
 
     // Create a list of topic tags from the repositories for filtering in the UI
-    // Ignore topic tags that have less than 2 repositories
     const topics = repositories
       .filter((repository) => repository.topics && repository.topics.length > 0)
       .flatMap((repository) => repository.topics!)
@@ -175,7 +174,8 @@ firstissue.repositories
         }
         return [...topics, { id: candidateTopic.id, display: candidateTopic.display, count: 1 }];
       }, [])
-      .filter((topic: CountableTag) => topic.count >= 2);
+      // Ignore topic tags that have less than 2 repositories
+      .filter((topic: CountableTag) => topic.count >= 3);
 
     return {
       invalidRepositories,
@@ -183,9 +183,11 @@ firstissue.repositories
         // Sort the repositories randomly so that the list isn't always the same
         repositories: repositories.sort(() => Math.random() - 0.5),
         languages: languages.sort((a: CountableTag, b: CountableTag) =>
+          // Sort alphabetically
           a.id < b.id ? -1 : b.id > a.id ? 1 : 0
         ),
         topics: topics.sort((a: CountableTag, b: CountableTag) =>
+          // Sort alphabetically
           a.id < b.id ? -1 : b.id > a.id ? 1 : 0
         )
       }
@@ -199,6 +201,7 @@ firstissue.repositories
     firstissue.repositories = firstissue.repositories
       .filter((repository: string) => !invalidRepositories.includes(repository))
       .sort((a: string, b: string) =>
+        // Sort alphabetically
         a.toLowerCase() < b.toLowerCase() ? -1 : b.toLowerCase() > a.toLowerCase() ? 1 : 0
       );
 

@@ -22,11 +22,11 @@ Follow these simple steps:
 
   - It has at least 10 contributors.
 
-  - It has at least 100 stars.
+  - It has at least 1000 stars.
 
   - It contains a README.md with detailed setup instructions for the project, and a CONTRIBUTING.md with guidelines for new contributors.
 
-  - It is actively maintained (last update less than 6 months ago).
+  - It is actively maintained (last update less than 1 month ago).
 
 - Add your repository's path (in the format `owner/name` and lexicographic order) to [firstissue.json](firstissue.json).
 
@@ -52,3 +52,7 @@ $ npm run dev
 ```
 
 Good to know when you commit: the project contains a `pre-commit` hook that runs linters automatically to ensure code quality!
+
+#### Credits
+
+This project is based on [good-first-issue](https://github.com/deepsourcelabs/good-first-issue). The app and generation scripts have been rewritten using Next.js, React and Typescript, new features have been added and the UI is being updated too. The deployment process has been streamlined, complexity has been reduced and further improvements are planned.
