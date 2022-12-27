@@ -35,21 +35,6 @@ export const octokit = new MyOctokit({
   }
 });
 
-["owner1", "owner2", ...]
-  .reduce<Promise<string[]>>(async (repos, owner, i) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000 * i));
-    const response = await octokit.repos.listForUser({
-      username: owner,
-      sort: "updated",
-      per_page: 100
-    });
-    return [...(await repos), ...response.data.map((repo) => repo.owner.login + "/" + repo.name)];
-  }, Promise.resolve([]))
-  .then((repos) => {
-    firstissue.repositories = [...firstissue.repositories, ...repos];
-    fs.writeFileSync("./firstissue.json", JSON.stringify(firstissue, null, 2));
-  });
-
 // Script entry point
 let processedRepositories = 0;
 let invalidRepositories: Array<string> = [];
