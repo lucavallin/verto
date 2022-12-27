@@ -159,7 +159,11 @@ const issueLimit = 10;
         ];
       }, [])
       // Ignore language tags that have less than 3 repositories
-      .filter((language: CountableTag) => language.count >= 3);
+      .filter((language: CountableTag) => language.count >= 3)
+      .sort((a: CountableTag, b: CountableTag) =>
+        // Sort alphabetically
+        a.id < b.id ? -1 : b.id > a.id ? 1 : 0
+      );
 
     // Create a list of topic tags from the repositories for filtering in the UI
     const topics = repositories
@@ -175,21 +179,20 @@ const issueLimit = 10;
         return [...topics, { id: candidateTopic.id, display: candidateTopic.display, count: 1 }];
       }, [])
       // Ignore topic tags that have less than 2 repositories
-      .filter((topic: CountableTag) => topic.count >= 3);
+      .filter((topic: CountableTag) => topic.count >= 3)
+      .sort(
+        (a: CountableTag, b: CountableTag) =>
+          // Sort by number of repositories
+          b.count - a.count
+      );
 
     return {
       invalidRepositories,
       appData: {
         // Sort the repositories randomly so that the list isn't always the same
         repositories: repositories.sort(() => Math.random() - 0.5),
-        languages: languages.sort((a: CountableTag, b: CountableTag) =>
-          // Sort alphabetically
-          a.id < b.id ? -1 : b.id > a.id ? 1 : 0
-        ),
-        topics: topics.sort((a: CountableTag, b: CountableTag) =>
-          // Sort alphabetically
-          a.id < b.id ? -1 : b.id > a.id ? 1 : 0
-        )
+        languages,
+        topics
       }
     };
   })
@@ -198,7 +201,7 @@ const issueLimit = 10;
     fs.writeFileSync("./generated.json", JSON.stringify(appData));
 
     // Not the most elegant solution, but this update the list of repositories in firstissue.json just fine
-    firstissue.repositories = firstissue.repositories
+    firstissue.repositories = [...new Set(firstissue.repositories)]
       .filter((repository: string) => !invalidRepositories.includes(repository))
       .sort((a: string, b: string) =>
         // Sort alphabetically

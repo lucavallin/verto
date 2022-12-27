@@ -8,6 +8,7 @@ import { useAppContext } from "../pages/_app";
 
 export const Sidebar = () => {
   const { languages, topics } = useAppContext();
+  const [showMoreTopics, setShowMoreTopics] = React.useState(false);
 
   const router = useRouter();
   const { tag: activeTagId } = router.query;
@@ -20,6 +21,23 @@ export const Sidebar = () => {
           First Issue curates accessible issues from popular open-source projects, and helps you
           make your next contribution to open-source.
         </p>
+        <div className="text-sm pt-6">
+          <a
+            className="flex flex-row items-center"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/lucavallin"
+          >
+            <FontAwesomeIcon icon={faHeart} />
+            <span className="ml-2">
+              A{" "}
+              <span className="inline hover:underline text-juniper" title="Visit GitHub profile">
+                @lucavallin
+              </span>{" "}
+              & contributors initiative
+            </span>
+          </a>
+        </div>
       </div>
       <div className="pt-6">
         <h3 className="section-heading">Browse by language</h3>
@@ -47,7 +65,7 @@ export const Sidebar = () => {
       <div className="pt-6">
         <h3 className="section-heading">Browse by top topics</h3>
         <div>
-          {topics.map((topic) => {
+          {topics.slice(0, showMoreTopics ? topics.length : 15).map((topic) => {
             return (
               <Link
                 key={topic.id}
@@ -65,6 +83,12 @@ export const Sidebar = () => {
               </Link>
             );
           })}
+          <div
+            className="group mx-1 border px-2 py-1 inline-block rounded-sm my-1 text-sm active-pill cursor-pointer hover:bg-light_juniper hover:text-ink-400"
+            onClick={() => setShowMoreTopics(!showMoreTopics)}
+          >
+            Show {showMoreTopics ? "less" : "all..."}
+          </div>
         </div>
       </div>
       <div className="pt-6">
@@ -75,24 +99,6 @@ export const Sidebar = () => {
           rel="noopener noreferrer"
         >
           Add your project
-        </a>
-      </div>
-
-      <div className="text-sm pt-6">
-        <a
-          className="flex flex-row justify-center items-center"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/lucavallin"
-        >
-          <FontAwesomeIcon icon={faHeart} />
-          <span className="ml-2">
-            A{" "}
-            <span className="inline hover:underline text-juniper" title="Visit GitHub profile">
-              @lucavallin
-            </span>{" "}
-            & contributors initiative
-          </span>
         </a>
       </div>
     </section>
