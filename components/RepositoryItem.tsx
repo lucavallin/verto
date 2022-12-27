@@ -6,11 +6,11 @@ import React, { useState } from "react";
 
 import { Repository } from "../types";
 
-type RepositoryBoxProps = {
+type RepositoryItemProps = {
   repository: Repository;
 };
 
-export const RepositoryBox = ({ repository }: RepositoryBoxProps) => {
+export const RepositoryItem = ({ repository }: RepositoryItemProps) => {
   const [isIssueOpen, setIsIssueOpen] = useState(false);
 
   dayjs.extend(relativeTime);

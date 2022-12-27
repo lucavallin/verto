@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 
-import { RepositoryBox } from "../../components/RepositoryBox";
+import { RepositoryList } from "../../components/RepositoryList";
 import { useAppContext } from "../_app";
 
 export default function Topic() {
@@ -10,16 +10,10 @@ export default function Topic() {
   const { tag } = router.query;
 
   return (
-    <>
-      <main>
-        <div className="p-4 w-full">
-          {repositories
-            .filter((repository) => repository.topics?.some((topic) => topic.id == tag))
-            .map((repository) => (
-              <RepositoryBox key={repository.id} repository={repository} />
-            ))}
-        </div>
-      </main>
-    </>
+    <RepositoryList
+      repositories={repositories.filter((repository) =>
+        repository.topics?.some((topic) => topic.id == tag)
+      )}
+    />
   );
 }

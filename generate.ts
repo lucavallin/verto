@@ -2,7 +2,6 @@ import { retry } from "@octokit/plugin-retry";
 import { throttling } from "@octokit/plugin-throttling";
 import { Octokit } from "@octokit/rest";
 import * as octokitTypes from "@octokit/types";
-import { RequestError } from "@octokit/types";
 import dayjs from "dayjs";
 import fs from "fs";
 import millify from "millify";
