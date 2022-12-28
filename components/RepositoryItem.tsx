@@ -37,7 +37,11 @@ export const RepositoryItem = ({ repository }: RepositoryItemProps) => {
           >
             {repository.owner} / {repository.name}
           </a>
-          <span className="flex-1"></span>
+          <div className="flex flex-1 justify-end items-center">
+            <div
+              className={`w-2 h-2 rounded-full ${repository.has_new_issues ? "bg-juniper" : ""}`}
+            ></div>
+          </div>
           <span
             className={`hidden md:inline text-sm border px-3 py-1 ml-2 rounded-full font-semibold ${
               isIssueOpen ? "text-ink-400 bg-juniper border-transparent" : "text-vanilla-200"
@@ -45,10 +49,12 @@ export const RepositoryItem = ({ repository }: RepositoryItemProps) => {
           >
             {repository.issues.length}
             {repository.issues.length >= 10 ? "+" : ""} issue
-            {repository.issues.length >= 1 ? "s" : ""}
+            {repository.issues.length > 1 ? "s" : ""}
           </span>
         </div>
-        <div className="flex-row flex text-sm py-1 overflow-auto">{repository.description}</div>
+        <div className="flex-row flex text-sm py-1 overflow-auto text-neutral-content">
+          {repository.description}
+        </div>
         <div
           className={`flex-row flex text-sm py-1 font-mono ${
             isIssueOpen ? "text-honey" : "text-vanilla-200"

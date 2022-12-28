@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.section-heading {
-  @apply text-sm font-bold uppercase tracking-wider mb-2 text-slate;
-}
-
 .active-pill {
   @apply text-juniper font-semibold border-juniper;
 }

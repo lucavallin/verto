@@ -12,9 +12,7 @@ Open-source maintainers are always looking to get more people involved, but it c
 
 ## Adding a new project
 
-You're welcome to add a new project in First Issue, and we encourage all projects &mdash; old and new, big and small.
-
-Follow these simple steps:
+You're welcome to add a new project in First Issue, just follow these steps:
 
 - To maintain the quality of projects in First Issue, please make sure the GitHub repository you want to add meets the following criteria:
 
@@ -40,7 +38,7 @@ To contribute new features and changes to the website, you would want to run the
 
 1. Clone the project locally. Make sure you have a recent version of Node.js installed on your computer.
 
-2. You can use the included [generated.json](generated.json) as dummy data or you can run `npm run prebuild` to fetch the latest data from GitHub yourself: for this, you will need to set the `GITHUB_TOKEN` environment variable to a valid GitHub access token. Notice: repositories not maching the criteria listed above (see rules in [generated.json](generated.json)) are automatically removed from [firstissue.json](firstissue.json) when the [generated.json](generated.json) script runs.
+2. You can use the included [generated.json](generated.json) as dummy data or you can run `npm run prebuild` to fetch the latest data from GitHub yourself: for this, you will need to set the `GH_PERSONAL_ACCESS_TOKEN` environment variable to a valid GitHub Personal Access Token (PAT). Notice: repositories not maching the criteria listed above (see rules in [generated.json](generated.json)) are automatically removed from [firstissue.json](firstissue.json) when the [generated.json](generated.json) script runs.
 
 3. Start the development server and open the app in your browser.
 

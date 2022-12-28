@@ -150,7 +150,14 @@ const issueLimit = 10;
           }))
           .sort(() => Math.random() - 0.5)
           .slice(0, issueLimit)
-          .sort((a: Issue, b: Issue) => b.comments_count - a.comments_count)
+          .sort(
+            (a: Issue, b: Issue) =>
+              new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
+          ),
+        has_new_issues: issuesData.some(
+          // Repository has "new" issues if there are any issues created in the last week
+          (issue: Issue) => dayjs().diff(dayjs(issue.created_at), "day") <= 7
+        )
       }
     ];
   }, Promise.resolve([]))
@@ -222,9 +229,34 @@ const issueLimit = 10;
 
     // Write updated list of repositories to file
     fs.writeFileSync("./firstissue.json", JSON.stringify(firstissue, null, 2));
+    return appData;
+  })
+  .then((appData) => {
+    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+      <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+          <url>
+              <loc>https://firstissue.dev</loc>
+          </url>
+          ${appData.languages
+            .map(
+              (language: CountableTag) =>
+                `<url><loc>https://firstissue.dev/language/${language.id}</loc></url>`
+            )
+            .join("")}
+          ${appData.topics
+            .map(
+              (topic: CountableTag) =>
+                `<url><loc>https://firstissue.dev/topic/${topic.id}</loc></url>`
+            )
+            .join("")}
+      </urlset>
+   `;
+
+    fs.writeFileSync("./public/sitemap.xml", sitemap);
+    console.log("Generated sitemap.xml");
   })
   .finally(() => {
-    console.log("Finished generating data.");
+    console.log("Data generation complete.");
   })
   .catch((error: any) => {
     console.error(error);

@@ -15,6 +15,7 @@ export interface CountableTag extends Tag {
 // Describes a Repository, which is a GitHub repository
 export interface Repository {
   description: Nullable<string>;
+  has_new_issues: boolean;
   id: number;
   issues: Issue[];
   language: Tag;

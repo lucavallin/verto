@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
-import { Navbar } from './Navbar'
-import { Sidebar } from './Sidebar'
+import { Navbar } from "./Navbar";
+import { Sidebar } from "./Sidebar";
 
 type LayoutProps = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 export const Layout = ({ children }: LayoutProps) => (
   <div className="bg-ink-400 flex flex-col min-h-screen antialiased text-vanilla-300">
@@ -17,4 +17,4 @@ export const Layout = ({ children }: LayoutProps) => (
       </section>
     </main>
   </div>
-)
+);

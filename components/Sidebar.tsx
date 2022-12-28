@@ -8,15 +8,23 @@ import { useAppContext } from "../pages/_app";
 
 export const Sidebar = () => {
   const { languages, topics } = useAppContext();
+
+  const topicsLimit = 15;
   const [showMoreTopics, setShowMoreTopics] = React.useState(false);
+  const updateShowMoreTopics = () => {
+    if (!showMoreTopics) {
+      window.scrollTo(0, 0);
+    }
+    setShowMoreTopics(!showMoreTopics);
+  };
 
   const router = useRouter();
   const { tag: activeTagId } = router.query;
 
   return (
-    <section className="masthead font-sans pt-6 border-r border-ink-200 px-6 text-vanilla-300 flex-none w-full md:max-w-sm">
+    <section className="font-sans pt-6 px-6 text-vanilla-300 flex-none w-full md:max-w-sm">
       <div>
-        <h3 className="section-heading">About</h3>
+        <h3 className="text-sm font-bold uppercase tracking-wider mb-2 text-slate">About</h3>
         <p className="text-sm">
           First Issue curates accessible issues from popular open-source projects, and helps you
           make your next contribution to open-source.
@@ -40,7 +48,9 @@ export const Sidebar = () => {
         </div>
       </div>
       <div className="pt-6">
-        <h3 className="section-heading">Browse by language</h3>
+        <h3 className="text-sm font-bold uppercase tracking-wider mb-2 text-slate">
+          Browse by language
+        </h3>
         <div>
           {languages.map((language) => {
             return (
@@ -63,9 +73,11 @@ export const Sidebar = () => {
         </div>
       </div>
       <div className="pt-6">
-        <h3 className="section-heading">Browse by topic</h3>
+        <h3 className="text-sm font-bold uppercase tracking-wider mb-2 text-slate">
+          Browse by topic
+        </h3>
         <div>
-          {topics.slice(0, showMoreTopics ? topics.length : 15).map((topic) => {
+          {topics.slice(0, showMoreTopics ? topics.length : topicsLimit).map((topic) => {
             return (
               <Link
                 key={topic.id}
@@ -83,12 +95,14 @@ export const Sidebar = () => {
               </Link>
             );
           })}
-          <div
-            className="group mx-1 border px-2 py-1 inline-block rounded-sm my-1 text-sm active-pill cursor-pointer hover:bg-light_juniper hover:text-ink-400"
-            onClick={() => setShowMoreTopics(!showMoreTopics)}
-          >
-            Show {showMoreTopics ? "less" : "all..."}
-          </div>
+          {topics.length > topicsLimit && (
+            <div
+              className="group mx-1 border px-2 py-1 inline-block rounded-sm my-1 text-sm active-pill cursor-pointer hover:bg-light_juniper hover:text-ink-400"
+              onClick={() => updateShowMoreTopics()}
+            >
+              Show {showMoreTopics ? "less" : "more..."}
+            </div>
+          )}
         </div>
       </div>
       <div className="pt-6">

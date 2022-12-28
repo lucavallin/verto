@@ -13,9 +13,9 @@ export const Navbar = () => {
   const tag = [...languages, ...topics].find((tag: Tag) => tag.id === path);
 
   return (
-    <header className="w-full py-4 border-b border-ink-200 bg-ink-400">
-      <nav className="flex items-center justify-center flex-wrap">
-        <Link href="/" className="flex items-center text-gray-700 font-bold">
+    <header className="container max-w-6xl mx-auto flex flex-col md:flex-row my-5 md:my-10 p-6 bg-ink-400">
+      <nav className="flex items-center md:justify-center flex-wrap">
+        <Link href="/">
           <Image src="/firstissue.png" alt="First Issue" className="h-12" width={290} height={51} />
         </Link>
         {path && tag ? (
