@@ -46,7 +46,7 @@ const issueLimit = 10;
 
 // Take only the first 10 repositories in development otherwise we make GitHub unhappy
 [...new Set(firstissue.repositories)]
-  .slice(0, process.env.NODE_ENV === "development" ? 30 : 30)
+  .slice(0, process.env.NODE_ENV === "development" ? 30 : firstissue.repositories.length)
   .reduce<Promise<Repository[]>>(async (repositoryList, r: string, i) => {
     // Wait 1s between each request to avoid rate limiting
     await new Promise((resolve) => setTimeout(resolve, 1000 * i));

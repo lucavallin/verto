@@ -19,6 +19,7 @@ export const Sidebar = () => {
   };
 
   const router = useRouter();
+  const { pathname } = router;
   const { tag: activeTagId } = router.query;
 
   return (

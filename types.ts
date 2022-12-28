@@ -43,7 +43,7 @@ export interface Issue {
 // Describes a Label, which is a GitHub label
 export interface Label {
   id: string;
-  name: string;
+  display: string;
 }
 
 // Describes the data that is retrieved from the GitHub API and used by the app
