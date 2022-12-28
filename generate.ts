@@ -8,7 +8,7 @@ import millify from "millify";
 import slugify from "slugify";
 
 import firstissue from "./firstissue.json";
-import { CountableTag, Issue, Repository, Tag } from "./types";
+import { CountableTag, Issue, Label, Repository, Tag } from "./types";
 
 // Setup Octokit (GitHub API client)
 const MyOctokit = Octokit.plugin(throttling, retry);
@@ -46,7 +46,7 @@ const issueLimit = 10;
 
 // Take only the first 10 repositories in development otherwise we make GitHub unhappy
 [...new Set(firstissue.repositories)]
-  .slice(0, process.env.NODE_ENV === "development" ? 30 : firstissue.repositories.length)
+  .slice(0, process.env.NODE_ENV === "development" ? 30 : 30)
   .reduce<Promise<Repository[]>>(async (repositoryList, r: string, i) => {
     // Wait 1s between each request to avoid rate limiting
     await new Promise((resolve) => setTimeout(resolve, 1000 * i));
@@ -144,6 +144,11 @@ const issueLimit = 10;
             id: issue.id,
             comments_count: issue.comments,
             created_at: issue.created_at,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            labels: issue.labels.map((label: any) => ({
+              id: slugify(label.name, { lower: true }),
+              display: label.name
+            })),
             number: issue.number,
             title: issue.title,
             url: issue.html_url

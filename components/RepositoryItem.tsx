@@ -2,7 +2,7 @@ import { faComment } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Repository } from "../types";
 
@@ -14,7 +14,14 @@ export const RepositoryItem = ({ repository }: RepositoryItemProps) => {
   const [isIssueOpen, setIsIssueOpen] = useState(false);
 
   dayjs.extend(relativeTime);
-  const lastModified = dayjs(repository.last_modified).fromNow();
+  const useLastModified = (date: string) => {
+    const [lastModified, setLastModified] = useState("");
+
+    useEffect(() => setLastModified(dayjs(date).fromNow()), [date]);
+
+    return lastModified;
+  };
+  const lastModified = useLastModified(repository.last_modified);
 
   return (
     <div

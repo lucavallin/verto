@@ -34,9 +34,16 @@ export interface Issue {
   comments_count: number;
   created_at: string;
   id: number;
+  labels: Label[];
   number: number;
   title: string;
   url: string;
+}
+
+// Describes a Label, which is a GitHub label
+export interface Label {
+  id: string;
+  name: string;
 }
 
 // Describes the data that is retrieved from the GitHub API and used by the app

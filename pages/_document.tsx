@@ -14,7 +14,7 @@ export default function Document() {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="First Issue: issues for your next open-source contribution."
+          content="First Issue | Issues for your next open-source contribution."
         />
         <meta
           property="og:description"
@@ -27,7 +27,7 @@ export default function Document() {
         <meta property="twitter:url" content="https://firstissue.dev" />
         <meta
           name="twitter:title"
-          content="First Issue: issues for your next open-source contribution."
+          content="First Issue | Issues for your next open-source contribution."
         />
         <meta
           name="twitter:description"
