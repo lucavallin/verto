@@ -11,7 +11,7 @@ export default function Home() {
       <Head>
         <title>First Issue | Issues for your next open-source contribution</title>
       </Head>
-      <RepositoryList repositories={repositories} />;
+      <RepositoryList repositories={repositories} />
     </>
   );
 }

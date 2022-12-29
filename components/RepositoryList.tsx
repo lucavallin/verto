@@ -26,7 +26,7 @@ export const RepositoryList = ({ repositories }: RepositoryListProps) => {
     <main>
       <div className="p-4 w-full">
         <InfiniteScroll
-          dataLength={repositories.length} //This is important field to render the next data
+          dataLength={items}
           next={() => setItems(items + itemsPerScroll)}
           hasMore={items < repositories.length}
           loader={<Loader />}
