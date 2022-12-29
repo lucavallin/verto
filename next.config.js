@@ -14,6 +14,7 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
+  trailingSlash: true,
   headers: async () => {
     return [
       {

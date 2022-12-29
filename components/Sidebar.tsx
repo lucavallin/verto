@@ -21,6 +21,9 @@ export const Sidebar = () => {
   const router = useRouter();
   const { tag: activeTagId } = router.query;
 
+  // used to highlight the active language or topic
+  const pageName = router.pathname.split("/")[1];
+
   return (
     <section className="font-sans pt-6 px-6 text-vanilla-300 flex-none w-full md:max-w-sm">
       <div>
@@ -58,7 +61,7 @@ export const Sidebar = () => {
                 key={language.id}
                 href={`/language/${language.id}`}
                 className={`group mx-1 border px-2 py-1 inline-block rounded-sm my-1 text-sm ${
-                  language.id === activeTagId
+                  pageName == "language" && language.id === activeTagId
                     ? "active-pill"
                     : "border-slate hover:text-juniper hover:border-juniper"
                 }`}
@@ -83,7 +86,7 @@ export const Sidebar = () => {
                 key={topic.id}
                 href={`/topic/${topic.id}`}
                 className={`group mx-1 border px-2 py-1 inline-block rounded-sm my-1 text-sm ${
-                  topic.id === activeTagId
+                  pageName == "topic" && topic.id === activeTagId
                     ? "active-pill"
                     : "border-slate hover:text-juniper hover:border-juniper"
                 }`}
