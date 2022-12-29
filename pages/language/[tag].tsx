@@ -11,11 +11,12 @@ export default function Language() {
   const { tag } = router.query;
 
   const language = languages.find((language) => language.id == tag);
+  const pageTitle = `First Issue | ${language?.display} Language`;
 
   return (
     <>
       <Head>
-        <title>First Issue | {language?.display} Language</title>
+        <title>{pageTitle}</title>
       </Head>
       <RepositoryList
         repositories={repositories.filter((repository) => repository.language.id == tag)}

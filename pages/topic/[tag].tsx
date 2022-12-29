@@ -11,11 +11,12 @@ export default function Topic() {
   const { tag } = router.query;
 
   const topic = topics.find((topic) => topic.id == tag);
+  const pageTitle = `First Issue | Topic ${topic?.display}`;
 
   return (
     <>
       <Head>
-        <title>First Issue | Topic {topic?.display}</title>
+        <title>{pageTitle}</title>
       </Head>
       <RepositoryList
         repositories={repositories.filter((repository) =>

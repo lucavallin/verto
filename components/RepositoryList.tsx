@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-import InfiniteScroll from "react-infinite-scroller";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 import { Repository } from "../types";
 import { RepositoryItem } from "./RepositoryItem";
@@ -26,9 +25,16 @@ export const RepositoryList = ({ repositories }: RepositoryListProps) => {
   return (
     <main>
       <div className="p-4 w-full">
-        {repositories.slice(0, items).map((repository) => (
-          <RepositoryItem key={repository.id} repository={repository} />
-        ))}
+        <InfiniteScroll
+          dataLength={repositories.length} //This is important field to render the next data
+          next={() => setItems(items + itemsPerScroll)}
+          hasMore={items < repositories.length}
+          loader={<Loader />}
+        >
+          {repositories.slice(0, items).map((repository) => (
+            <RepositoryItem key={repository.id} repository={repository} />
+          ))}
+        </InfiniteScroll>
       </div>
     </main>
   );

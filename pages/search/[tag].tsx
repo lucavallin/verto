@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 
 import { RepositoryList } from "../../components/RepositoryList";
@@ -9,6 +10,8 @@ export default function Language() {
 
   const router = useRouter();
   const { query } = router.query;
+
+  const pageTitle = `First Issue | Search ${query}`;
 
   const queriedLanguages = languages.filter((language: CountableTag) =>
     language.display?.toLowerCase().includes(query as string)
@@ -28,6 +31,9 @@ export default function Language() {
   // show repositories that have the tag in either title, description, language or topics or issues
   return (
     <>
+      <Head>
+        <title>{pageTitle}</title>
+      </Head>
       <RepositoryList repositories={queriedRepositories} />
       {queriedLanguages}
       {queriedTopics}
