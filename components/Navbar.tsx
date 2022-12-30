@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
@@ -15,8 +16,7 @@ export const Navbar = () => {
     <header className="container max-w-6xl mx-auto flex flex-col md:flex-row my-5 md:my-10 p-6 bg-ink-400">
       <nav className="flex items-center md:justify-center flex-wrap">
         <Link href="/">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/firstissue.png" alt="First Issue" className="h-12" width={290} height={51} />
+          <Image src="/firstissue.png" alt="First Issue" className="h-12" width={290} height={51} />
         </Link>
         {path && tag ? (
           <span className="text-2xl pt-3 cursor-pointer">
