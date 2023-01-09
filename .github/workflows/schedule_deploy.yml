@@ -7,3 +7,5 @@ on:
 jobs:
   call-deploy:
     uses: ./.github/workflows/deploy.yml
+    env:
+      GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
