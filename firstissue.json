@@ -1040,6 +1040,7 @@
     "redux-saga/redux-saga",
     "renovatebot/renovate",
     "responsively-org/responsively-app",
+    "restqa/restqa",
     "rethinkdb/rethinkdb",
     "RetroShare/RetroShare",
     "rigetti/pyquil",
