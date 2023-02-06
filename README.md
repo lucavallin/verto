@@ -36,11 +36,52 @@ First Issue is a static website that uses Next.js, React and Typescript. The dat
 
 To contribute new features and changes to the website, you would want to run the app locally. Please follow these steps:
 
+
+## How to setup the project in their local machine
+
 1. Clone the project locally. Make sure you have a recent version of Node.js installed on your computer.
 
-2. You can use the included [generated.json](generated.json) as dummy data or you can run `npm run prebuild` to fetch the latest data from GitHub yourself: for this, you will need to set the `GH_PERSONAL_ACCESS_TOKEN` environment variable to a valid GitHub Personal Access Token (PAT). Notice: repositories not maching the criteria listed above (see rules in [generated.json](generated.json)) are automatically removed from [firstissue.json](firstissue.json) when the [generated.json](generated.json) script runs.
+2. Fork the repository
+Forking the repository means creating a copy of the original repository in your Github account. To do this, navigate to the repository you want to contribute to and click on the “Fork” button in the top-right corner.
 
-3. Start the development server and open the app in your browser.
+3. Clone the repository
+Cloning the repository means downloading a copy of the repository to your local machine. This enables you to make changes and test your code locally. To clone the repository, navigate to your forked repository, click on the green “Clone or download” button, and copy the URL. Then, open your terminal and type the following command.
+
+```bash
+$ git clone <repository-url>
+```
+
+4. Create a new branch
+Creating a new branch allows you to work on a specific feature or bug fix without affecting the main branch of the repository. To create a new branch, type the following command in your terminal.
+
+```bash
+$ git checkout -b <branch-name>
+```
+
+5. Make changes
+Now that you have a local copy of the repository and a new branch, you can make changes to the code. Edit the files, add new ones or delete the existing ones.
+
+6. Commit changes
+Once you have made the changes, you need to commit them to the branch. Committing changes means saving the changes to the branch. To commit changes, type the following commands in your terminal.
+
+```bash
+$ git add .
+$ git commit -m “<commit-message>”>
+```
+
+7. Push changes
+Pushing changes means uploading the changes to your forked repository on Github. To push changes, type the following command in your terminal.
+
+```bash
+$ git push origin <branch-name>
+```
+
+8. Submit a pull request
+A pull request is a request to the original repository’s maintainer to merge your changes into the main branch. To submit a pull request, navigate to your forked repository on Github, switch to the branch you just pushed, and click on the “New pull request” button. Fill in a descriptive title and comments explaining the changes you made and why they are necessary.
+
+9. You can use the included [generated.json](generated.json) as dummy data or you can run `npm run prebuild` to fetch the latest data from GitHub yourself: for this, you will need to set the `GH_PERSONAL_ACCESS_TOKEN` environment variable to a valid GitHub Personal Access Token (PAT). Notice: repositories not maching the criteria listed above (see rules in [generated.json](generated.json)) are automatically removed from [firstissue.json](firstissue.json) when the [generated.json](generated.json) script runs.
+
+10. Start the development server and open the app in your browser.
 
 ```bash
 # install the dependencies
@@ -54,3 +95,4 @@ Good to know when you commit: the project contains a `pre-commit` hook that runs
 #### Credits
 
 This project is based on [good-first-issue](https://github.com/deepsourcelabs/good-first-issue). The app and generation scripts have been rewritten using Next.js, React and Typescript, new features have been added and the UI is being updated too. The deployment process has been streamlined, complexity has been reduced and further improvements are planned.
+
