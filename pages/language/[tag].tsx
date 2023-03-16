@@ -1,19 +1,16 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 import { RepositoryList } from "../../components/RepositoryList";
-import data from "../../generated.json";
-import { Repository, Tag, CountableTag } from "../../types";
+import { useAppContext } from "../_app";
 
-export default function Language({
-  repositories,
-  tag,
-  languages
-}: {
-  repositories: Repository[];
-  tag: string;
-  languages: CountableTag[];
-}) {
-  const language = languages.find((language: Tag) => language.id == tag);
+export default function Language() {
+  const { repositories, languages } = useAppContext();
+
+  const router = useRouter();
+  const { tag } = router.query;
+
+  const language = languages.find((language) => language.id == tag);
   const pageTitle = `First Issue | ${language?.display} Language`;
 
   return (
@@ -22,17 +19,8 @@ export default function Language({
         <title>{pageTitle}</title>
       </Head>
       <RepositoryList
-        repositories={repositories.filter(
-          (repository: Repository) => repository.language.id == tag
-        )}
+        repositories={repositories.filter((repository) => repository.language.id == tag)}
       />
     </>
   );
-}
-
-export async function getServerSideProps(context: any) {
-  const { tag } = context.params;
-  return {
-    props: { repositories: data.repositories, languages: data.languages, topics: data.topics, tag }
-  };
 }
