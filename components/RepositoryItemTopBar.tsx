@@ -1,5 +1,5 @@
 import { Repository } from "../types";
-import { RepositoryIssueNumberIndicator } from "./ReposiroryIssueNumberIndicator";
+import { RepositoryIssueNumberIndicator } from "./RepositoryIssueNumberIndicator";
 import { RepositoryLinkTitle } from "./RepositoryLinkTitle";
 
 type RepositoryItemTopBarProps = {
