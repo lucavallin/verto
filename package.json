@@ -31,7 +31,7 @@
     "react-dom": "18.2.0",
     "react-infinite-scroll-component": "^6.1.0",
     "slugify": "^1.6.5",
-    "typescript": "5.0.2"
+    "typescript": "5.0.3"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.1.6",
