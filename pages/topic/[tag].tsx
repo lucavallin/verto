@@ -13,6 +13,21 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: [],
     fallback: true
   };
+
+  /**
+   * The above assumes that this is hosted on some infrastructure
+   * that's capable of SSR, otherwise we'll need to statically generate all possible
+   * topic pages at build time
+  
+   ```
+    return {
+      paths: data.topics.map((topic) => ({
+        params: { tag: topic.id }
+      })),
+      fallback: false
+    };
+   ```
+  */
 };
 
 export const getStaticProps: GetStaticProps<TopicProps> = async ({ params = {} }) => {

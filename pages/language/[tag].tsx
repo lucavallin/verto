@@ -13,6 +13,21 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: [],
     fallback: true
   };
+
+  /**
+   * The above assumes that this is hosted on some infrastructure
+   * that's capable of SSR, otherwise we'll need to statically generate all possible
+   * language pages at build time
+  
+   ```
+    return {
+      paths: data.languages.map((topic) => ({
+        params: { tag: languages.id }
+      })),
+      fallback: false
+    };
+   ```
+  */
 };
 
 export const getStaticProps: GetStaticProps<LanguageProps> = async ({ params = {} }) => {
