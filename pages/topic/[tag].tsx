@@ -1,28 +1,25 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
-import { ParsedUrlQuery } from "querystring";
 
 import { RepositoryList } from "../../components/RepositoryList";
 import { useAppContext } from "../_app";
 
-interface Params extends ParsedUrlQuery {
-  tag: string | undefined;
-}
-
 type TopicProps = {
-  tag: Params["tag"];
+  tag: string | undefined;
 };
 
-export const getStaticPaths: GetStaticPaths<Params> = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [],
     fallback: true
   };
 };
 
-export const getStaticProps: GetStaticProps<TopicProps, Params> = async ({ params = {} }) => {
+export const getStaticProps: GetStaticProps<TopicProps> = async ({ params = {} }) => {
+  const { tag } = params;
+
   return {
-    props: { tag: params.tag }
+    props: { tag: Array.isArray(tag) ? tag[0] : tag }
   };
 };
 
