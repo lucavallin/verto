@@ -1,40 +1,33 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
+import { ParsedUrlQuery } from "querystring";
 
 import { RepositoryList } from "../../components/RepositoryList";
+import data from "../../generated.json";
 import { useAppContext } from "../_app";
 
+interface Params extends ParsedUrlQuery {
+  tag: string;
+}
+
 type LanguageProps = {
-  tag: string | undefined;
+  tag: Params["tag"];
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths<Params> = async () => {
   return {
-    paths: [],
-    fallback: true
+    paths: data.languages.map((language) => ({
+      params: { tag: language.id }
+    })),
+    fallback: false
   };
-
-  /**
-   * The above assumes that this is hosted on some infrastructure
-   * that's capable of SSR, otherwise we'll need to statically generate all possible
-   * language pages at build time
-  
-   ```
-    return {
-      paths: data.languages.map((topic) => ({
-        params: { tag: languages.id }
-      })),
-      fallback: false
-    };
-   ```
-  */
 };
 
-export const getStaticProps: GetStaticProps<LanguageProps> = async ({ params = {} }) => {
-  const { tag } = params;
-
+export const getStaticProps: GetStaticProps<LanguageProps, Params> = async ({
+  params = {} as Params
+}) => {
   return {
-    props: { tag: Array.isArray(tag) ? tag[0] : tag }
+    props: { tag: params.tag }
   };
 };
 
@@ -42,7 +35,7 @@ export default function Language({ tag }: LanguageProps) {
   const { repositories, languages } = useAppContext();
 
   const language = languages.find((language) => language.id === tag);
-  const pageTitle = `First Issue | ${language?.display ?? ""} Language`;
+  const pageTitle = `First Issue | ${language?.display} Language`;
 
   return (
     <>

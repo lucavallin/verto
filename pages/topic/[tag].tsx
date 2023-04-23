@@ -1,40 +1,33 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
+import { ParsedUrlQuery } from "querystring";
 
 import { RepositoryList } from "../../components/RepositoryList";
+import data from "../../generated.json";
 import { useAppContext } from "../_app";
 
+interface Params extends ParsedUrlQuery {
+  tag: string;
+}
+
 type TopicProps = {
-  tag: string | undefined;
+  tag: Params["tag"];
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths<Params> = async () => {
   return {
-    paths: [],
-    fallback: true
+    paths: data.topics.map((topic) => ({
+      params: { tag: topic.id }
+    })),
+    fallback: false
   };
-
-  /**
-   * The above assumes that this is hosted on some infrastructure
-   * that's capable of SSR, otherwise we'll need to statically generate all possible
-   * topic pages at build time
-  
-   ```
-    return {
-      paths: data.topics.map((topic) => ({
-        params: { tag: topic.id }
-      })),
-      fallback: false
-    };
-   ```
-  */
 };
 
-export const getStaticProps: GetStaticProps<TopicProps> = async ({ params = {} }) => {
-  const { tag } = params;
-
+export const getStaticProps: GetStaticProps<TopicProps, Params> = async ({
+  params = {} as Params
+}) => {
   return {
-    props: { tag: Array.isArray(tag) ? tag[0] : tag }
+    props: { tag: params.tag }
   };
 };
 
@@ -42,7 +35,7 @@ export default function Topic({ tag }: TopicProps) {
   const { repositories, topics } = useAppContext();
 
   const topic = topics.find((topic) => topic.id === tag);
-  const pageTitle = `First Issue | Topic ${topic?.display ?? ""}`;
+  const pageTitle = `First Issue | Topic ${topic?.display}`;
 
   return (
     <>
