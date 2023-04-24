@@ -5,27 +5,24 @@ import { RepositoryList } from "../../components/RepositoryList";
 import { CountableTag } from "../../types";
 import { useAppContext } from "../_app";
 
-export default function Language() {
+export default function Language() { /* Acho que está a funcionar, tenho de criar uma searchBar para redirecionar para aqui */
   const { repositories, languages, topics } = useAppContext();
 
   const router = useRouter();
-  const { query } = router.query;
+  const { tag } = router.query;
+  const pageTitle = `First Issue | Search ${tag}`;
 
-  const pageTitle = `First Issue | Search ${query}`;
+  const queriedLanguages = languages.filter(language => language.display?.toLocaleLowerCase() == tag);
 
-  const queriedLanguages = languages.filter((language: CountableTag) =>
-    language.display?.toLowerCase().includes(query as string)
-  );
-  const queriedTopics = topics.filter((topic: CountableTag) =>
-    topic.display?.toLowerCase().includes(query as string)
-  );
+  const queriedTopics = topics.filter((topic: CountableTag) => topic.display?.toLowerCase().includes(tag as string));
+  
   const queriedRepositories = repositories.filter(
     (repository) =>
-      repository.owner.toLowerCase().includes(query as string) ||
-      repository.name.toLowerCase().includes(query as string) ||
-      repository.language.display?.toLowerCase().includes(query as string) ||
-      repository.topics?.some((topic) => topic.display?.toLowerCase().includes(query as string)) ||
-      repository.issues?.some((issue) => issue.title.toLowerCase().includes(query as string))
+      repository.owner.toLowerCase().includes(tag as string) ||
+      repository.name.toLowerCase().includes(tag as string) ||
+      repository.language.display?.toLowerCase().includes(tag as string) ||
+      repository.topics?.some((topic) => topic.display?.toLowerCase().includes(tag as string)) ||
+      repository.issues?.some((issue) => issue.title.toLowerCase().includes(tag as string))
   );
 
   // show repositories that have the tag in either title, description, language or topics or issues
@@ -35,8 +32,8 @@ export default function Language() {
         <title>{pageTitle}</title>
       </Head>
       <RepositoryList repositories={queriedRepositories} />
-      {queriedLanguages}
-      {queriedTopics}
+      {/* {queriedLanguages} */}
+      {/* {queriedTopics} */}
     </>
   );
 }

@@ -5,6 +5,7 @@ import React from "react";
 
 import { useAppContext } from "../pages/_app";
 import { Tag } from "../types";
+import SearchBar from "../pages/SearchBar/[tag]";
 
 export const Navbar = () => {
   const router = useRouter();
@@ -14,16 +15,19 @@ export const Navbar = () => {
 
   return (
     <header className="container max-w-6xl mx-auto flex flex-col md:flex-row my-5 md:my-10 p-6 bg-ink-400">
-      <nav className="flex items-center md:justify-center flex-wrap">
-        <Link href="/">
-          <Image src="/firstissue.png" alt="First Issue" className="h-12" width={290} height={51} />
-        </Link>
-        {path && tag ? (
-          <span className="text-2xl pt-3 cursor-pointer">
-            <span className="font-normal mx-3 text-slate">/</span>
-            <span className="font-semibold text-juniper">{tag?.display}</span>
-          </span>
-        ) : null}
+      <nav className="flex items-center justify-between flex-wrap w-full">
+        <div className="flex items-center md:justify-center flex-wrap">
+          <Link href="/">
+            <Image src="/firstissue.png" alt="First Issue" className="h-12 cursor-pointer" width={290} height={51} />
+          </Link>
+          {path && tag ? (
+            <span className="text-2xl pt-3 cursor-pointer">
+              <span className="font-normal mx-3 text-slate">/</span>
+              <span className="font-semibold text-juniper">{tag?.display}</span>
+            </span>
+          ) : null}
+        </div>
+        <SearchBar />
       </nav>
     </header>
   );
