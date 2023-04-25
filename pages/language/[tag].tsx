@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 import { RepositoryList } from "../../components/RepositoryList";
 import { useAppContext } from "../_app";
 
+import data from "../../order.json";
+
 export default function Language() {
   const { repositories, languages } = useAppContext();
 
@@ -19,7 +21,7 @@ export default function Language() {
         <title>{pageTitle}</title>
       </Head>
       <RepositoryList
-        repositories={repositories.filter((repository) => repository.language.id == tag)}
+        repositories={repositories.filter((repository) => repository.language.id == tag)} dtOrder={data.date} starOrder={data.star}
       />
     </>
   );

@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 import { RepositoryList } from "../../components/RepositoryList";
 import { useAppContext } from "../_app";
 
+import data from "../../order.json";
+
 export default function Topic() {
   const { repositories, topics } = useAppContext();
 
@@ -21,7 +23,7 @@ export default function Topic() {
       <RepositoryList
         repositories={repositories.filter((repository) =>
           repository.topics?.some((topic) => topic.id == tag)
-        )}
+        )} dtOrder={data.date} starOrder={data.star}
       />
     </>
   );

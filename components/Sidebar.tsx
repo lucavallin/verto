@@ -6,6 +6,7 @@ import { AddYourProjectLinkButton } from "./AddYourProjectLinkButton";
 import { SidebarAboutSection } from "./SidebarAboutSection";
 import { SidebarLanguagePicker } from "./SidebarLanguagePicker";
 import { SidebarTopicPicker } from "./SidebarTopicPicker";
+import { SidebarOrder } from "./SidebarOrder";
 
 const DEFAULT_TOPICS_LIMIT = 15;
 
@@ -28,6 +29,7 @@ export const Sidebar = () => {
   return (
     <section className="font-sans pt-6 px-6 text-vanilla-300 flex-none w-full md:max-w-sm">
       <SidebarAboutSection />
+      <SidebarOrder />
       <SidebarLanguagePicker languages={languages} activeTagId={activeTagId} pageName={pageName} />
       <SidebarTopicPicker
         activeTagId={activeTagId}

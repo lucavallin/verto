@@ -5,6 +5,8 @@ import { RepositoryList } from "../../components/RepositoryList";
 import { CountableTag } from "../../types";
 import { useAppContext } from "../_app";
 
+import data from "../../order.json";
+
 export default function Language() {
   const { repositories, languages, topics } = useAppContext();
 
@@ -34,7 +36,7 @@ export default function Language() {
       <Head>
         <title>{pageTitle}</title>
       </Head>
-      <RepositoryList repositories={queriedRepositories} />
+      <RepositoryList repositories={queriedRepositories} dtOrder={data.date} starOrder={data.star}/>
       {queriedLanguages}
       {queriedTopics}
     </>
