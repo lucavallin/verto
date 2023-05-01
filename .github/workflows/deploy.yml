@@ -67,7 +67,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: update firstissue.json [skip actions]
-          branch: main
+          branch: json-updates
           file_pattern: 'firstissue.json'
       - name: Static HTML export with Next.js
         run: npm run export
