@@ -70,6 +70,7 @@ jobs:
           branch: json-updates
           file_pattern: 'firstissue.json'
           skip_checkout: true
+          push_options: '--force'
       - name: Static HTML export with Next.js
         run: npm run export
       - name: Upload artifact
