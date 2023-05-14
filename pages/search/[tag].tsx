@@ -2,11 +2,11 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 
 import { RepositoryList } from "../../components/RepositoryList";
+import { useAppData } from "../../hooks/useAppData";
 import { CountableTag } from "../../types";
-import { useAppContext } from "../_app";
 
 export default function Language() {
-  const { repositories, languages, topics } = useAppContext();
+  const { repositories, languages, topics } = useAppData();
 
   const router = useRouter();
   const { query } = router.query;

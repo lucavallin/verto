@@ -46,9 +46,17 @@ export interface Label {
   display: string;
 }
 
+export enum RepositorySortOrder {
+  MOST_STARS = "By Most Stars",
+  LEAST_STARS = "By Least Stars",
+  NONE = "None"
+}
+
 // Describes the data that is retrieved from the GitHub API and used by the app
 export interface AppData {
   repositories: Repository[];
   languages: CountableTag[];
   topics: CountableTag[];
+  repositorySortOrder: RepositorySortOrder;
+  updateRepositorySortOrder: (sortOrder: RepositorySortOrder) => void;
 }

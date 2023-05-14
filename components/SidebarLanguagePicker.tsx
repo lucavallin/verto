@@ -1,4 +1,5 @@
 import { CountableTag } from "../types";
+import { SidebarItemHeader } from "./SidebarItemHeader";
 import { SidebarPickerItemLink } from "./SidebarPickerItemLink";
 
 type SidebarLanguagePickerProps = {
@@ -7,10 +8,6 @@ type SidebarLanguagePickerProps = {
   pageName: string;
 };
 
-const Header = () => (
-  <h3 className="text-sm font-bold uppercase tracking-wider mb-2 text-slate">Browse by language</h3>
-);
-
 export const SidebarLanguagePicker = ({
   activeTagId,
   languages,
@@ -18,7 +15,7 @@ export const SidebarLanguagePicker = ({
 }: SidebarLanguagePickerProps) => {
   return (
     <div className="pt-6">
-      <Header />
+      <SidebarItemHeader text="Browse by Language" />
       <div>
         {languages.map((language) => {
           return (

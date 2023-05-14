@@ -4,7 +4,7 @@ import { ParsedUrlQuery } from "querystring";
 
 import { RepositoryList } from "../../components/RepositoryList";
 import data from "../../generated.json";
-import { useAppContext } from "../_app";
+import { useAppData } from "../../hooks/useAppData";
 
 interface Params extends ParsedUrlQuery {
   tag: string;
@@ -32,7 +32,7 @@ export const getStaticProps: GetStaticProps<LanguageProps, Params> = async ({
 };
 
 export default function Language({ tag }: LanguageProps) {
-  const { repositories, languages } = useAppContext();
+  const { repositories, languages } = useAppData();
 
   const language = languages.find((language) => language.id === tag);
   const pageTitle = `First Issue | ${language?.display} Language`;
