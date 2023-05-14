@@ -1,7 +1,7 @@
 import React, { createContext, useState } from "react";
 
 import data from "../generated.json";
-import { AppData, Repository, RepositorySortOrder } from "../types";
+import { AppData, CountableTag, Repository, RepositorySortOrder } from "../types";
 
 const DEFAULT_VALUE: AppData = {
   languages: [],
@@ -14,7 +14,11 @@ const DEFAULT_VALUE: AppData = {
 const AppDataContext = createContext<AppData>(DEFAULT_VALUE);
 
 const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
-  const { repositories: allRepositories, languages, topics } = data;
+  const {
+    repositories: allRepositories,
+    languages,
+    topics
+  }: { repositories: Repository[]; languages: CountableTag[]; topics: CountableTag[] } = data;
   const [repositories, setRepositories] = useState<Repository[]>(allRepositories);
   const [repositorySortOrder, setRepositorySortOrder] = useState<RepositorySortOrder>(
     RepositorySortOrder.NONE
