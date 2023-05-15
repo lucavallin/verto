@@ -70,6 +70,5 @@ module.exports = {
       bold: '700'
     }
   },
-  corePlugins: {},
-  plugins: [require("daisyui")]
+  corePlugins: {}
 }
