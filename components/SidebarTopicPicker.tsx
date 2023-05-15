@@ -1,5 +1,6 @@
 import { CountableTag } from "../types";
 import { ShowMoreTopicsButton } from "./ShowMoreTopicsButton";
+import { SidebarItemHeader } from "./SidebarItemHeader";
 import { SidebarPickerItemLink } from "./SidebarPickerItemLink";
 
 type SidebarTopicPickerProps = {
@@ -10,10 +11,6 @@ type SidebarTopicPickerProps = {
   topics: CountableTag[];
   topicsLimit: number;
 };
-
-const Header = () => (
-  <h3 className="text-sm font-bold uppercase tracking-wider mb-2 text-slate">Browse by topic</h3>
-);
 
 export const SidebarTopicPicker = ({
   activeTagId,
@@ -28,7 +25,7 @@ export const SidebarTopicPicker = ({
 
   return (
     <div className="pt-6">
-      <Header />
+      <SidebarItemHeader text="Browse by topic" />
       <div>
         {topics.slice(0, sliceEndNum).map((topic) => {
           return (

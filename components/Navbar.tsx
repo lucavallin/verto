@@ -3,13 +3,13 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 
-import { useAppContext } from "../pages/_app";
+import { useAppData } from "../hooks/useAppData";
 import { Tag } from "../types";
 
 export const Navbar = () => {
   const router = useRouter();
   const { tag: path } = router.query;
-  const { languages, topics } = useAppContext();
+  const { languages, topics } = useAppData();
   const tag = [...languages, ...topics].find((tag: Tag) => tag.id === path);
 
   return (

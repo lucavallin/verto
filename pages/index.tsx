@@ -1,10 +1,10 @@
 import Head from "next/head";
 
 import { RepositoryList } from "../components/RepositoryList";
-import { useAppContext } from "./_app";
+import { useAppData } from "../hooks/useAppData";
 
 export default function Home() {
-  const { repositories } = useAppContext();
+  const { repositories } = useAppData();
 
   return (
     <>

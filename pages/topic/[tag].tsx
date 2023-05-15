@@ -4,7 +4,7 @@ import { ParsedUrlQuery } from "querystring";
 
 import { RepositoryList } from "../../components/RepositoryList";
 import data from "../../generated.json";
-import { useAppContext } from "../_app";
+import { useAppData } from "../../hooks/useAppData";
 
 interface Params extends ParsedUrlQuery {
   tag: string;
@@ -32,7 +32,7 @@ export const getStaticProps: GetStaticProps<TopicProps, Params> = async ({
 };
 
 export default function Topic({ tag }: TopicProps) {
-  const { repositories, topics } = useAppContext();
+  const { repositories, topics } = useAppData();
 
   const topic = topics.find((topic) => topic.id === tag);
   const pageTitle = `First Issue | Topic ${topic?.display}`;
