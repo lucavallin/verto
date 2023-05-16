@@ -31,9 +31,11 @@ export const RepositoryList = ({ repositories }: RepositoryListProps) => {
           hasMore={items < repositories.length}
           loader={<Loader />}
         >
-          {repositories.slice(0, items).map((repository) => (
-            <RepositoryItem key={repository.id} repository={repository} />
-          ))}
+          {repositories.slice(0, items).map((repository) => {
+            //NOTE - We sometimes get duplicate values back from GitHub API
+            // meaning we can't simply rely on the id as the key
+            return <RepositoryItem key={repository.id + Math.random()} repository={repository} />;
+          })}
         </InfiniteScroll>
       </div>
     </main>
