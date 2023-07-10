@@ -38,20 +38,9 @@ To contribute new features and changes to the website, you would want to run the
 
 
 ## How to setup the project locally
-1. Fork the repository. To do this, navigate to the repository for your contribution and click on the “Fork” button in the top-right corner. After that Clone the project locally. Make sure you have a recent version of Node.js installed on your computer.
-```bash
-$ git clone https://github.com/lucavallin/first-issue.git
-```
-
-2. Create a new branch to work on a specific feature or bug fix without affecting the main branch of the repository. To create a new branch, type the following command in your terminal.
-
-```bash
-$ git checkout -b <branch-name>
-```
-
-3. You can use the included [generated.json](generated.json) as dummy data or you can run `npm run prebuild` to fetch the latest data from GitHub yourself: for this, you will need to set the `GH_PERSONAL_ACCESS_TOKEN` environment variable to a valid GitHub Personal Access Token (PAT). Notice: repositories not maching the criteria listed above (see rules in [generated.json](generated.json)) are automatically removed from [firstissue.json](firstissue.json) when the [generated.json](generated.json) script runs.
-
-4. Start the development server and open the app in your browser.
+1. Fork the repository, clone it locally, create a new branch to work on a specific feature or bug fix without affecting the main branch of the repository. Make sure you have a recent version of Node.js installed on your computer.
+1. You can use the included [generated.json](generated.json) as dummy data or you can run `npm run prebuild` to fetch the latest data from GitHub yourself: for this, you will need to set the `GH_PERSONAL_ACCESS_TOKEN` environment variable to a valid GitHub Personal Access Token (PAT). Notice: repositories not maching the criteria listed above (see rules in [generated.json](generated.json)) are automatically removed from [firstissue.json](firstissue.json) when the [generated.json](generated.json) script runs.
+1. Start the development server and open the app in your browser.
 
 ```bash
 # install the dependencies
