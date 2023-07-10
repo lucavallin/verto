@@ -45,7 +45,7 @@
     "eslint-import-resolver-typescript": "^3.5.3",
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.3",
-    "postcss": "^8.4.21",
+    "postcss": "^8.4.25",
     "prettier": "^2.8.1",
     "tailwindcss": "^3.2.7",
     "ts-node": "^10.9.1"
