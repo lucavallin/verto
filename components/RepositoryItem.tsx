@@ -31,9 +31,8 @@ export const RepositoryItem = ({ repository }: RepositoryItemProps) => {
       className={`select-none border w-full rounded-md mb-4 cursor-pointer hover:bg-ink-300 group ${
         isIssueOpen ? "border-juniper hover:bg-ink-400" : "border-ink-200"
       }`}
-      onClick={() => setIsIssueOpen(!isIssueOpen)}
     >
-      <div className="px-5 py-3">
+      <div className="px-5 py-3" onClick={() => setIsIssueOpen(!isIssueOpen)}>
         <RepositoryItemTopBar
           isIssueOpen={isIssueOpen}
           repositoryHasNewIssues={repository.has_new_issues}
