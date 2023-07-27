@@ -91,7 +91,7 @@ const issueLimit = 10;
 
     // Promise<any> is a hack to get around the very complicated type of octokit.issues.listForRepo
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const issuesData = await firstissue.labels.reduce<Promise<any>>(
+    const issues: any[] = await firstissue.labels.reduce<Promise<any>>(
       async (issuesList, label: string) => {
         const { data } = await octokit.issues.listForRepo({
           owner,
@@ -106,6 +106,10 @@ const issueLimit = 10;
       },
       Promise.resolve([])
     );
+
+    // Duplicates may occur when issues have multiple desired labels
+    // Remove duplicates in the issues array
+    const issuesData = [...new Map(issues.map(issue => [issue.id, issue])).values()];
 
     // Skip repos that have no issues with the labels we want
     if (issuesData.length == 0) return repositoryList;
