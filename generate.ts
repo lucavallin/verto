@@ -106,7 +106,7 @@ const getRepositories = async (
               name
             }
             stargazerCount
-            # return first 20 open issues with one or more of the labels we want
+            # return first 10 open issues with one or more of the labels we want
             issues( 
               states: OPEN
               filterBy: {labels: [${labels.map((label) => `"${label}"`).join(",")}]}
@@ -152,7 +152,7 @@ const getRepositories = async (
 
   const gqlQueryErrors = validate(gqlQuery);
   if (gqlQueryErrors.length > 0) {
-    // if query is invalid, throw error
+    // if query is invalid, gqlQueryErrors will contain errors
     throw new Error(
       `GraphQL query is invalid:\n\t${gqlQueryErrors.map((error) => error.message).join("\n\t")}`
     );
@@ -189,7 +189,6 @@ const getRepositories = async (
               id: slugify(topic.topic.name, { lower: true }),
               display: topic.topic.name
             })),
-          // TODO: random sort issues
           issues:
             repo.issues.edges
               ?.filter((edge) => edge !== undefined)
@@ -212,6 +211,7 @@ const getRepositories = async (
                       })) ?? []
                 })
               )
+              // sort issues by issue number
               .sort((a, b) => a.number - b.number) ?? [],
           has_new_issues:
             repo.issues.edges
@@ -232,7 +232,7 @@ const getRepositories = async (
 [...new Set(firstissue.repositories)]
   .slice(0, process.env.NODE_ENV === "development" ? 200 : firstissue.repositories.length)
   .reduce((repoChunks: string[][], repo: string, index) => {
-    // Split repositories into smaller chunks
+    // Split repositories into smaller chunks, this helps prevent request timeouts
     const chunkIndex = Math.floor(index / REPOS_PER_REQUEST);
     if (!repoChunks[chunkIndex]) {
       repoChunks[chunkIndex] = [];
@@ -252,7 +252,7 @@ const getRepositories = async (
     return [...(await repoData), ...repositories];
   }, Promise.resolve([]))
   .then((repoData) => {
-    // Get a list of distinct languages for use with filtering in the UI
+    // Get a list of distinct languages with counts for use with filtering in the UI
     const filterLanguages = Object.values(
       repoData.reduce((arr: { [key: string]: CountableTagModel }, repo: RepositoryModel) => {
         // group languages by id and count them
@@ -267,7 +267,7 @@ const getRepositories = async (
       // Sort alphabetically
       .sort((a, b) => a.display.localeCompare(b.display));
 
-    // Get a list of distinct topics for use with filtering in the UI
+    // Get a list of distinct topics with counts for use with filtering in the UI
     const filterTopics = Object.values(
       repoData
         .filter((repo) => repo.topics !== undefined)
