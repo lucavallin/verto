@@ -137,8 +137,8 @@ const getRepositories = async (
               edges {
                 node {
                   topic {
-                    name
-                    id
+                    namea
+                    ida
                   }
                 }
               }
@@ -153,9 +153,9 @@ const getRepositories = async (
   const gqlQueryErrors = validate(gqlQuery);
   if (gqlQueryErrors.length > 0) {
     // if query is invalid, throw error
-    throw `GraphQL query is invalid:\n\t${gqlQueryErrors
-      .map((error) => error.message)
-      .join("\n\t")}`;
+    throw new Error(
+      `GraphQL query is invalid:\n\t${gqlQueryErrors.map((error) => error.message).join("\n\t")}`
+    );
   }
 
   const searchResults = await octokit.graphql<Pick<Query, "search">>({ query: gqlQuery });
