@@ -7,7 +7,7 @@ const ByLine = () => (
     <span className="ml-2">
       A{" "}
       <a
-        className="flex flex-row items-center"
+        className="inline"
         target="_blank"
         rel="noopener noreferrer"
         href="https://github.com/lucavallin"
@@ -16,7 +16,7 @@ const ByLine = () => (
         @lucavallin
       </span></a>{" "}
       & contributors initiative. Special thanks to <a
-        className="flex flex-row items-center"
+        className="inline"
         target="_blank"
         rel="noopener noreferrer"
         href="https://github.com/chidame"
