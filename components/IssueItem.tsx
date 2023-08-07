@@ -26,7 +26,7 @@ export const IssueItem = ({ issue }: IssueItemProps) => {
       <span className="text-slate text-right w-30 px-2 leading-snug">#{issue.number}</span>
       <div className="flex items-start flex-row flex-auto">
         <a
-          className="leading-snug font-semibold hover:text-juniper text-vanilla-300 block flex-auto"
+          className="break-all mr-4 leading-snug font-semibold hover:text-juniper text-vanilla-300 block flex-auto"
           href={issue.url}
           rel="noopener noreferrer"
           target="_blank"
