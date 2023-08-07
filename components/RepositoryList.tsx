@@ -23,7 +23,7 @@ export const RepositoryList = ({ repositories }: RepositoryListProps) => {
   const [items, setItems] = useState(itemsPerScroll);
 
   return (
-    <main>
+    <main className="grow">
       <div className="p-4 w-full">
         <InfiniteScroll
           dataLength={items}
