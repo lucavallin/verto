@@ -58,4 +58,4 @@ This project is based on [good-first-issue](https://github.com/deepsourcelabs/go
 Special thanks to all contributors, especially:
 
 - [@isaacwashere](https://github.com/isaacwashere): for refactoring React components and contributing high-quality features to the project
-
+- [@chidame](https://github.com/chidame): for UI/UX improvements, product management tips and help with the community.
