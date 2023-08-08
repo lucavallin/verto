@@ -137,8 +137,8 @@ const getRepositories = async (
               edges {
                 node {
                   topic {
-                    namea
-                    ida
+                    name
+                    id
                   }
                 }
               }
@@ -241,8 +241,8 @@ const getRepositories = async (
     return repoChunks;
   }, [])
   .reduce<Promise<RepositoryModel[]>>(async (repoData, chunk, index, arr) => {
-    // Wait 5s between each request to keep within secondary rate limit
-    await new Promise((resolve) => setTimeout(resolve, 5000 * index));
+    // Wait 10s between each request to keep within secondary rate limit
+    await new Promise((resolve) => setTimeout(resolve, 10000 * index));
 
     console.log(
       `Getting repositories - chunk ${index + 1} of ${arr.length} (size: ${chunk.length})`
