@@ -3,7 +3,7 @@ type Nullable<T> = T | null;
 
 // Describes a Tag, which is a programming language or a topic
 export interface Tag {
-  display: Nullable<string>;
+  display: string;
   id: string;
 }
 
@@ -16,7 +16,7 @@ export interface CountableTag extends Tag {
 export interface Repository {
   description: Nullable<string>;
   has_new_issues: boolean;
-  id: number;
+  id: string;
   issues: Issue[];
   language: Tag;
   last_modified: string;
@@ -33,7 +33,7 @@ export interface Repository {
 export interface Issue {
   comments_count: number;
   created_at: string;
-  id: number;
+  id: string;
   labels: Label[];
   number: number;
   title: string;
