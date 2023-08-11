@@ -310,7 +310,6 @@ const getRepositories = async (
     console.log("Generated generated.json");
 
     // Update firstissue.json with new list of repositories
-    // TODO: is this correct? repos that temporarily fail our repo criteria will be removed forever!
     firstissue.repositories = data.repositories
       .map((repo) => `${repo.owner}/${repo.name}`)
       // Sort alphabetically
