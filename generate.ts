@@ -29,7 +29,7 @@ import {
 } from "./types";
 
 /** Number of repositories to query per request (max 100, but set to a smaller number to prevent timeouts) */
-const REPOS_PER_REQUEST = 50;
+const REPOS_PER_REQUEST = 25;
 /** Maximum number of issues to retrieve per repository */
 const MAX_ISSUES = 10;
 
