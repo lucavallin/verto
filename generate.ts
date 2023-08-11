@@ -251,15 +251,17 @@ const getRepositories = async (
     return repoChunks;
   }, [])
   .reduce<Promise<RepositoryModel[]>>(async (repoData, chunk, index, arr) => {
-    // Wait 10s between each request to keep within secondary rate limit
-    await new Promise((resolve) => setTimeout(resolve, 10000 * index));
+    return repoData.then(async (repos) => {
+      console.log(
+        `Getting repositories - chunk ${index + 1} of ${arr.length} (size: ${chunk.length})`
+      );
+      const repositories = await getRepositories(chunk, firstissue.labels);
 
-    console.log(
-      `Getting repositories - chunk ${index + 1} of ${arr.length} (size: ${chunk.length})`
-    );
-    const repositories = await getRepositories(chunk, firstissue.labels);
+      // wait 1s between requests
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    return [...(await repoData), ...repositories];
+      return [...repos, ...repositories];
+    });
   }, Promise.resolve([]))
   .then((repoData) => {
     // Get a list of distinct languages with counts for use with filtering in the UI
