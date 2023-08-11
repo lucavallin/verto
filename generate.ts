@@ -29,7 +29,7 @@ import {
 } from "./types";
 
 /** Number of repositories to query per request (max 100, but set to a smaller number to prevent timeouts) */
-const REPOS_PER_REQUEST = 50;
+const REPOS_PER_REQUEST = 25;
 /** Maximum number of issues to retrieve per repository */
 const MAX_ISSUES = 10;
 
@@ -54,10 +54,20 @@ const octokit = new MyOctokit({
         return true;
       }
     },
-    onSecondaryRateLimit: (retryAfter: number, options: object, octokit: Octokit) => {
-      // does not retry, only logs a warning
+    onSecondaryRateLimit: (
+      retryAfter: number,
+      options: object,
+      octokit: Octokit,
+      retryCount: number
+    ) => {
       const { method, url } = options as RequestOptions;
       octokit.log.warn(`SecondaryRateLimit detected for request ${method} ${url}`);
+
+      if (retryCount < 2) {
+        // retries twice
+        octokit.log.warn(`Retrying after ${retryAfter} seconds!`);
+        return true;
+      }
     }
   }
 });
@@ -241,15 +251,17 @@ const getRepositories = async (
     return repoChunks;
   }, [])
   .reduce<Promise<RepositoryModel[]>>(async (repoData, chunk, index, arr) => {
-    // Wait 10s between each request to keep within secondary rate limit
-    await new Promise((resolve) => setTimeout(resolve, 10000 * index));
+    return repoData.then(async (repos) => {
+      console.log(
+        `Getting repositories - chunk ${index + 1} of ${arr.length} (size: ${chunk.length})`
+      );
+      const repositories = await getRepositories(chunk, firstissue.labels);
 
-    console.log(
-      `Getting repositories - chunk ${index + 1} of ${arr.length} (size: ${chunk.length})`
-    );
-    const repositories = await getRepositories(chunk, firstissue.labels);
+      // wait 1s between requests
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    return [...(await repoData), ...repositories];
+      return [...repos, ...repositories];
+    });
   }, Promise.resolve([]))
   .then((repoData) => {
     // Get a list of distinct languages with counts for use with filtering in the UI
@@ -298,7 +310,6 @@ const getRepositories = async (
     console.log("Generated generated.json");
 
     // Update firstissue.json with new list of repositories
-    // TODO: is this correct? repos that temporarily fail our repo criteria will be removed forever!
     firstissue.repositories = data.repositories
       .map((repo) => `${repo.owner}/${repo.name}`)
       // Sort alphabetically
