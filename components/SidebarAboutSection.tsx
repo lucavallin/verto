@@ -3,27 +3,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ByLine = () => (
   <div className="text-sm pt-6">
-    <FontAwesomeIcon icon={faHeart} />
-    <span className="ml-2">
-      A{" "}
-      <a
-        className="inline"
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://github.com/lucavallin"
-      >
-      <span className="inline hover:underline text-juniper" title="Visit GitHub profile">
-        @lucavallin
-      </span></a>{" "}
-      & contributors initiative. Special thanks to <a
-        className="inline"
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://github.com/chidame"
-      ><span className="inline hover:underline text-juniper" title="Visit GitHub profile">
-        @chidame
-      </span></a> for for UI/UX improvements, product management tips and help with the community.
-    </span>
+    <a
+      className="flex flex-row items-center"
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://github.com/lucavallin"
+    >
+      <FontAwesomeIcon icon={faHeart} />
+      <span className="ml-2">
+        A{" "}
+        <span className="inline hover:underline text-juniper" title="Visit GitHub profile">
+          @lucavallin
+        </span>{" "}
+        & contributors initiative
+      </span>
+    </a>
   </div>
 );
 
