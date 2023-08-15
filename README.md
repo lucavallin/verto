@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/firstissue.png" width="355" height="51"/>
+  <img src="./public/firstissue.png" width="355" height="51"/>
 </p>
 
 ---
