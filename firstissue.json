@@ -401,6 +401,7 @@
     "ethereum/web3.py",
     "evhub/coconut",
     "external-secrets/external-secrets",
+    "f3d-app/f3d",
     "facebook/Ax",
     "facebook/buck",
     "facebook/create-react-app",
