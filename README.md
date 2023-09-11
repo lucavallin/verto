@@ -51,6 +51,10 @@ $ npm run dev
 
 Good to know when you commit: the project contains a `pre-commit` hook that runs linters automatically to ensure code quality!
 
+### Spread the word!
+
+Help us spread the word about first-issue. See [spread-the-word](/spread-the-word.md) for more information!
+
 #### Credits
 
 This project is based on [good-first-issue](https://github.com/deepsourcelabs/good-first-issue). The app and generation scripts have been rewritten using Next.js, React and Typescript, new features have been added and the UI is being updated too. The deployment process has been streamlined, complexity has been reduced and further improvements are planned.
