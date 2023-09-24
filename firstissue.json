@@ -1180,6 +1180,7 @@
     "timescale/promscale",
     "timescale/timescaledb",
     "timothycrosley/isort",
+    "timscodebase/uno",
     "tinacms/tinacms",
     "tomkp/react-split-pane",
     "tongueroo/jets",
