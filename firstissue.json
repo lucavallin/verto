@@ -400,6 +400,7 @@
     "ethereum/solidity",
     "ethereum/web3.py",
     "evhub/coconut",
+    "expressots/expressots",
     "external-secrets/external-secrets",
     "f3d-app/f3d",
     "facebook/Ax",
