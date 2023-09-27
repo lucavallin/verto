@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/firstissue.png" width="355" height="51"/>
+  <img src="/public/meta.png" width="100%"/>
 </p>
 
 ---
@@ -29,6 +29,26 @@ You're welcome to add a new project in First Issue, just follow these steps:
 - Add your repository's path (in the format `owner/name` and lexicographic order) to [firstissue.json](firstissue.json).
 
 - Create a new pull-request. Please add the link to the issues page of the repository in the PR description. Once the pull request is merged, the changes will be live on [firstissue.dev](https://firstissue.dev/).
+
+## Help us grow!
+
+Navigating open-source projects can be quite overwhelming for begineers and experienced contributers alike. First-issue looks to solve this problem by providing a platform that serves as a starting point for those looking to get started with open-source or those who are looking to get into a new project.
+
+#### How to help
+
+It's easy! The more people who know about [FirstIssue.dev](http://firstissue.dev), the better. There are various ways you can help us grow:
+- Contribute to `Awesome` lists. Everyone uses them. They are community built resources on a wide variety of topics. Find one that relates to getting started with open-source and get [FirstIssue.dev](http://firstissue.dev) put in there. You could even create one yourself!
+- Blog about us. Have you ever used [FirstIssue.dev](http://firstissue.dev) and do you like what we are doing? Share your experience on platforms like:
+    - [Medium](https://medium.com)
+    - [Dev.to](https://dev.to)
+    - [FreeCodeCamp](https://freecodecamp.org)
+    - [ItsFoss](https://itsfoss.com)
+    - [Reddit](https://reddit.com/)
+    - [Discord](https://discord.com)
+- Reach out to bloggers, tech influencers, developer and open-source on Twitter and YouTube, for example. Try and get [FirstIssue.dev](http://firstissue.dev/) mentioned in a video or tweet!
+- Make a guide, like a blog post or a video. Teaching is a great way to learn: share your experience getting started in open-source and mention us in your content 😉
+- 
+- Be creative! This is a non-comprehensive list of ideas. Once you have written an article, recorded a video, or have gotten us mentioned somewhere, come back here and add your name along with a link to the media to the [list of contributors below](https://github.com/lucavallin/first-issue#credits)!
 
 ## How does it work?
 
