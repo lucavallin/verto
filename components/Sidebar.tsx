@@ -1,12 +1,10 @@
 import { useRouter } from "next/router";
 import React from "react";
 
-import { REPOSITORY_SORT_OPTIONS } from "../constants";
 import { useAppData } from "../hooks/useAppData";
 import { AboutSection } from "./AboutSection";
 import { AddYourProjectLinkButton } from "./AddYourProjectLinkButton";
 import { LanguagePicker } from "./LanguagePicker";
-import { RepositorySortPicker } from "./RepositorySortPicker";
 import { StarItOnGitHubButton } from "./StarItOnGitHubButton";
 import { TagPicker } from "./TagPicker";
 
@@ -14,7 +12,7 @@ const DEFAULT_TAGS_LIMIT = 15;
 
 export const Sidebar = () => {
   const router = useRouter();
-  const { languages, tags, repositorySortOrder, updateRepositorySortOrder } = useAppData();
+  const { languages, tags } = useAppData();
   const [showMoreTags, setShowMoreTags] = React.useState(false);
   const { tag: activeTagId } = router.query;
 
