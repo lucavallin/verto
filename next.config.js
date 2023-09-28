@@ -4,6 +4,10 @@ const nextConfig = {
   reactStrictMode: true,
   productionBrowserSourceMaps: true,
   trailingSlash: true,
+  images: {
+    unoptimized: true,
+  },
+  output: "export",
 }
 
 module.exports = nextConfig

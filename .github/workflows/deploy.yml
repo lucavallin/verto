@@ -10,11 +10,10 @@ on:
 
   # Allows you to trigger this workflow from another workflow
   workflow_call:
-  
-  # Cron schedule, everyday at midnight   
-  schedule:
-    - cron: '0 0 * * *'
 
+  # Cron schedule, everyday at midnight
+  schedule:
+    - cron: "0 0 * * *"
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -63,16 +62,14 @@ jobs:
         run: npm run build
         env:
           GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-      - name: Update firstissue.json
+      - name: Update config.json
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: update firstissue.json [skip actions]
+          commit_message: update config.json [skip actions]
           branch: json-updates
-          file_pattern: 'firstissue.json'
+          file_pattern: "config.json"
           skip_checkout: true
-          push_options: '--force'
-      - name: Static HTML export with Next.js
-        run: npm run export
+          push_options: "--force"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:

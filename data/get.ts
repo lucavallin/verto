@@ -20,13 +20,17 @@ import fs from "fs";
 import millify from "millify";
 import slugify from "slugify";
 
-import firstissue from "./firstissue.json";
+import config from "../config.json";
 import {
   CountableTag as CountableTagModel,
   Issue as IssueModel,
   Repository as RepositoryModel,
   Tag as TagModel
-} from "./types";
+} from "../types";
+
+console.log(
+  "⚠️ This command must be run from the root of the project directory with `npm run prebuild`"
+);
 
 /** Number of repositories to query per request (max 100, but set to a smaller number to prevent timeouts) */
 const REPOS_PER_REQUEST = 25;
@@ -117,7 +121,7 @@ const getRepositories = async (
             }
             stargazerCount
             # return first 10 open issues with one or more of the labels we want
-            issues( 
+            issues(
               states: OPEN
               filterBy: {labels: [${labels.map((label) => `"${label}"`).join(",")}]}
               orderBy: {field: CREATED_AT, direction: DESC}
@@ -239,8 +243,8 @@ const getRepositories = async (
   return repoData.filter((repo) => repo.issues.length >= 3);
 };
 
-[...new Set(firstissue.repositories)]
-  .slice(0, process.env.NODE_ENV === "development" ? 200 : firstissue.repositories.length)
+[...new Set(config.repositories)]
+  .slice(0, process.env.NODE_ENV === "development" ? 200 : config.repositories.length)
   .reduce((repoChunks: string[][], repo: string, index) => {
     // Split repositories into smaller chunks, this helps prevent request timeouts
     const chunkIndex = Math.floor(index / REPOS_PER_REQUEST);
@@ -255,7 +259,7 @@ const getRepositories = async (
       console.log(
         `Getting repositories - chunk ${index + 1} of ${arr.length} (size: ${chunk.length})`
       );
-      const repositories = await getRepositories(chunk, firstissue.labels);
+      const repositories = await getRepositories(chunk, config.labels);
 
       // wait 1s between requests
       await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -306,16 +310,16 @@ const getRepositories = async (
   })
   .then((data) => {
     // Write generated data to file for use in the app
-    fs.writeFileSync("./generated.json", JSON.stringify(data));
-    console.log("Generated generated.json");
+    fs.writeFileSync("data/data.json", JSON.stringify(data));
+    console.log("Generated data/data.json");
 
-    // Update firstissue.json with new list of repositories
-    firstissue.repositories = data.repositories
+    // Update config.json with new list of repositories
+    config.repositories = data.repositories
       .map((repo) => `${repo.owner}/${repo.name}`)
       // Sort alphabetically
       .sort((a, b) => a.localeCompare(b));
-    fs.writeFileSync("./firstissue.json", JSON.stringify(firstissue, null, 2));
-    console.log("Generated firstissue.json");
+    fs.writeFileSync("config.json", JSON.stringify(config, null, 2));
+    console.log("Generated config.json");
 
     // Build sitemap
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -338,8 +342,8 @@ const getRepositories = async (
       </urlset>
     `;
 
-    fs.writeFileSync("./public/sitemap.xml", sitemap);
-    console.log("Generated sitemap.xml");
+    fs.writeFileSync("public/sitemap.xml", sitemap);
+    console.log("Generated public/sitemap.xml");
   })
   .finally(() => {
     console.log("Data generation complete.");

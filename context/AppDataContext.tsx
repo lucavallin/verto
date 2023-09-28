@@ -1,6 +1,6 @@
 import React, { createContext, useState } from "react";
 
-import data from "../generated.json";
+import data from "../data/data.json";
 import { AppData, CountableTag, Repository, RepositorySortOrder } from "../types";
 
 const DEFAULT_VALUE: AppData = {
