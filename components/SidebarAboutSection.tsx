@@ -27,7 +27,7 @@ const ByLine = () => (
       data-show-count="true"
       aria-label="Star lucavallin/first-issue on GitHub"
     >
-      View it on GitHub
+      <span className="text-md">&nbsp;View and Star it on GitHub ⭐️</span>
     </GitHubButton>
   </div>
 );
