@@ -1,6 +1,5 @@
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import GitHubButton from "react-github-btn";
 
 const ByLine = () => (
   <div className="text-sm pt-6">
@@ -8,27 +7,20 @@ const ByLine = () => (
       className="flex flex-row items-center"
       target="_blank"
       rel="noopener noreferrer"
-      href="https://github.com/lucavallin"
+      href="https://cavall.in"
     >
       <FontAwesomeIcon icon={faHeart} />
       <span className="ml-2">
         A{" "}
-        <span className="inline hover:underline text-juniper" title="Visit GitHub profile">
+        <span
+          className="inline hover:underline text-juniper font-bold"
+          title="Visit GitHub profile"
+        >
           @lucavallin
         </span>{" "}
         & contributors initiative
       </span>
     </a>
-    <br />
-    <GitHubButton
-      href="https://github.com/lucavallin/first-issue"
-      data-color-scheme="no-preference: light; light: light; dark: dark;"
-      data-size="large"
-      data-show-count="true"
-      aria-label="Star lucavallin/first-issue on GitHub"
-    >
-      <span className="text-md">&nbsp;View and Star it on GitHub ⭐️</span>
-    </GitHubButton>
   </div>
 );
 

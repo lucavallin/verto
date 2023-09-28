@@ -8,6 +8,7 @@ import { SidebarAboutSection } from "./SidebarAboutSection";
 import { SidebarLanguagePicker } from "./SidebarLanguagePicker";
 import { SidebarRepositorySortPicker } from "./SidebarRepositorySortPicker";
 import { SidebarTopicPicker } from "./SidebarTopicPicker";
+import { StarItOnGitHubButton } from "./StarItOnGitHubButton";
 
 const DEFAULT_TOPICS_LIMIT = 15;
 
@@ -30,6 +31,7 @@ export const Sidebar = () => {
   return (
     <section className="font-sans pt-6 px-6 text-vanilla-300 flex-none w-full md:max-w-sm">
       <SidebarAboutSection />
+      <StarItOnGitHubButton />
       <AddYourProjectLinkButton />
       <SidebarLanguagePicker languages={languages} activeTagId={activeTagId} pageName={pageName} />
       <SidebarRepositorySortPicker
