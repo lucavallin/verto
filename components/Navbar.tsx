@@ -9,8 +9,8 @@ import { Tag } from "../types";
 export const Navbar = () => {
   const router = useRouter();
   const { tag: path } = router.query;
-  const { languages, topics } = useAppData();
-  const tag = [...languages, ...topics].find((tag: Tag) => tag.id === path);
+  const { languages, tags } = useAppData();
+  const tag = [...languages, ...tags].find((tag: Tag) => tag.id === path);
 
   return (
     <header className="container max-w-6xl mx-auto flex flex-col md:flex-row my-5 md:my-10 p-6 bg-ink-400">

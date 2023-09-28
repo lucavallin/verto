@@ -2,19 +2,19 @@ import Link from "next/link";
 
 import { Tag } from "../types";
 
-type SidebarPickerItemLinkProps = {
+type PickerItemLinkProps = {
   className: string;
   totalOccurrences: number;
   href: string;
   text: Tag["display"];
 };
 
-export const SidebarPickerItemLink = ({
+export const PickerItemLink = ({
   className,
   totalOccurrences,
   href,
   text
-}: SidebarPickerItemLinkProps) => {
+}: PickerItemLinkProps) => {
   return (
     <Link href={href} className={className}>
       {text}

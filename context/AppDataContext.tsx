@@ -7,7 +7,7 @@ const DEFAULT_VALUE: AppData = {
   languages: [],
   repositories: [],
   repositorySortOrder: RepositorySortOrder.NONE,
-  topics: [],
+  tags: [],
   updateRepositorySortOrder: () => {}
 };
 
@@ -17,8 +17,8 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
   const {
     repositories: allRepositories,
     languages,
-    topics
-  }: { repositories: Repository[]; languages: CountableTag[]; topics: CountableTag[] } = data;
+    tags
+  }: { repositories: Repository[]; languages: CountableTag[]; tags: CountableTag[] } = data;
   const [repositories, setRepositories] = useState<Repository[]>(allRepositories);
   const [repositorySortOrder, setRepositorySortOrder] = useState<RepositorySortOrder>(
     RepositorySortOrder.NONE
@@ -60,7 +60,7 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
     languages,
     repositories,
     repositorySortOrder,
-    topics,
+    tags,
     updateRepositorySortOrder
   };
 

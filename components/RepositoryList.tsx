@@ -3,8 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
+import { REPOSITORY_SORT_OPTIONS } from "../constants";
+import { useAppData } from "../hooks/useAppData";
 import { Repository } from "../types";
 import { RepositoryItem } from "./RepositoryItem";
+import { RepositorySortPicker } from "./RepositorySortPicker";
 
 type RepositoryListProps = {
   repositories: Repository[];
@@ -21,11 +24,18 @@ const Loader = () => (
 export const RepositoryList = ({ repositories }: RepositoryListProps) => {
   const itemsPerScroll = 15;
   const [items, setItems] = useState(itemsPerScroll);
+  const { repositorySortOrder, updateRepositorySortOrder } = useAppData();
 
   return (
     <main className="grow">
-      <div className="p-4 w-full">
+      <div className="px-6 w-full">
+        <RepositorySortPicker
+          activeSort={repositorySortOrder}
+          sortOptions={REPOSITORY_SORT_OPTIONS}
+          onSortOrderSelect={updateRepositorySortOrder}
+        />
         <InfiniteScroll
+          className="pt-6"
           dataLength={items}
           next={() => setItems(items + itemsPerScroll)}
           hasMore={items < repositories.length}

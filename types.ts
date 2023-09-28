@@ -1,7 +1,7 @@
 // Nullable generic for nullable fields
 type Nullable<T> = T | null;
 
-// Describes a Tag, which is a programming language or a topic
+// Describes a Tag, which is a programming language or a tag
 export interface Tag {
   display: string;
   id: string;
@@ -26,7 +26,7 @@ export interface Repository {
   stars: number;
   stars_display: string;
   url: string;
-  topics?: Tag[];
+  tags?: Tag[];
 }
 
 // Describes an Issue, which is a GitHub issue linked to a repository
@@ -57,6 +57,6 @@ export interface AppData {
   languages: CountableTag[];
   repositories: Repository[];
   repositorySortOrder: RepositorySortOrder;
-  topics: CountableTag[];
+  tags: CountableTag[];
   updateRepositorySortOrder: (sortOrder: RepositorySortOrder) => void;
 }

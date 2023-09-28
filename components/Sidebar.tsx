@@ -3,49 +3,44 @@ import React from "react";
 
 import { REPOSITORY_SORT_OPTIONS } from "../constants";
 import { useAppData } from "../hooks/useAppData";
+import { AboutSection } from "./AboutSection";
 import { AddYourProjectLinkButton } from "./AddYourProjectLinkButton";
-import { SidebarAboutSection } from "./SidebarAboutSection";
-import { SidebarLanguagePicker } from "./SidebarLanguagePicker";
-import { SidebarRepositorySortPicker } from "./SidebarRepositorySortPicker";
-import { SidebarTopicPicker } from "./SidebarTopicPicker";
+import { LanguagePicker } from "./LanguagePicker";
+import { RepositorySortPicker } from "./RepositorySortPicker";
 import { StarItOnGitHubButton } from "./StarItOnGitHubButton";
+import { TagPicker } from "./TagPicker";
 
-const DEFAULT_TOPICS_LIMIT = 15;
+const DEFAULT_TAGS_LIMIT = 15;
 
 export const Sidebar = () => {
   const router = useRouter();
-  const { languages, topics, repositorySortOrder, updateRepositorySortOrder } = useAppData();
-  const [showMoreTopics, setShowMoreTopics] = React.useState(false);
+  const { languages, tags, repositorySortOrder, updateRepositorySortOrder } = useAppData();
+  const [showMoreTags, setShowMoreTags] = React.useState(false);
   const { tag: activeTagId } = router.query;
 
-  // NOTE: This is used to highlight the active language or topic
+  // NOTE: This is used to highlight the active language or tag
   const pageName = router.pathname.split("/")[1];
 
-  const updateShowMoreTopics = () => {
-    if (!showMoreTopics) {
+  const updateShowMoreTags = () => {
+    if (!showMoreTags) {
       window.scrollTo(0, 0);
     }
-    setShowMoreTopics(!showMoreTopics);
+    setShowMoreTags(!showMoreTags);
   };
 
   return (
-    <section className="font-sans pt-6 px-6 text-vanilla-300 flex-none w-full md:max-w-sm">
-      <SidebarAboutSection />
+    <section className="font-sans px-6 text-vanilla-300 flex-none w-full md:max-w-sm">
+      <AboutSection />
       <StarItOnGitHubButton />
       <AddYourProjectLinkButton />
-      <SidebarLanguagePicker languages={languages} activeTagId={activeTagId} pageName={pageName} />
-      <SidebarRepositorySortPicker
-        activeSort={repositorySortOrder}
-        sortOptions={REPOSITORY_SORT_OPTIONS}
-        onSortOrderSelect={updateRepositorySortOrder}
-      />
-      <SidebarTopicPicker
+      <LanguagePicker languages={languages} activeTagId={activeTagId} pageName={pageName} />
+      <TagPicker
         activeTagId={activeTagId}
-        handleShowMoreTopics={updateShowMoreTopics}
+        handleShowMoreTags={updateShowMoreTags}
         pageName={pageName}
-        showMoreTopics={showMoreTopics}
-        topics={topics}
-        topicsLimit={DEFAULT_TOPICS_LIMIT}
+        showMoreTags={showMoreTags}
+        tags={tags}
+        tagsLimit={DEFAULT_TAGS_LIMIT}
       />
     </section>
   );

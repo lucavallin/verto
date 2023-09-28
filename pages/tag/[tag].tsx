@@ -10,20 +10,20 @@ interface Params extends ParsedUrlQuery {
   tag: string;
 }
 
-type TopicProps = {
+type TagProps = {
   tag: Params["tag"];
 };
 
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
   return {
-    paths: data.topics.map((topic) => ({
-      params: { tag: topic.id }
+    paths: data.tags.map((tag) => ({
+      params: { tag: tag.id }
     })),
     fallback: false
   };
 };
 
-export const getStaticProps: GetStaticProps<TopicProps, Params> = async ({
+export const getStaticProps: GetStaticProps<TagProps, Params> = async ({
   params = {} as Params
 }) => {
   return {
@@ -31,11 +31,11 @@ export const getStaticProps: GetStaticProps<TopicProps, Params> = async ({
   };
 };
 
-export default function Topic({ tag }: TopicProps) {
-  const { repositories, topics } = useAppData();
+export default function Tag({ tag }: TagProps) {
+  const { repositories, tags } = useAppData();
 
-  const topic = topics.find((topic) => topic.id === tag);
-  const pageTitle = `First Issue | Topic ${topic?.display}`;
+  const activeTag = tags.find((t) => t.id === tag);
+  const pageTitle = `First Issue | Tag ${activeTag?.display}`;
 
   return (
     <>
@@ -44,7 +44,7 @@ export default function Topic({ tag }: TopicProps) {
       </Head>
       <RepositoryList
         repositories={repositories.filter((repository) =>
-          repository.topics?.some((topic) => topic.id === tag)
+          repository.tags?.some((t) => t.id === tag)
         )}
       />
     </>

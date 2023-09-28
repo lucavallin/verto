@@ -196,7 +196,7 @@ const getRepositories = async (
             id: slugify((repo.primaryLanguage as Language).name, { lower: true }),
             display: (repo.primaryLanguage as Language).name
           },
-          topics: repo.repositoryTopics.edges
+          tags: repo.repositoryTopics.edges
             ?.filter((edge) => edge !== undefined)
             .map((edge) => (edge as RepositoryTopicEdge).node as RepositoryTopic)
             .map((topic) => ({
@@ -283,21 +283,21 @@ const getRepositories = async (
       // Sort alphabetically
       .sort((a, b) => a.display.localeCompare(b.display));
 
-    // Get a list of distinct topics with counts for use with filtering in the UI
-    const filterTopics = Object.values(
+    // Get a list of distinct tags with counts for use with filtering in the UI
+    const filterTags = Object.values(
       repoData
-        .filter((repo) => repo.topics !== undefined)
-        .flatMap((repo) => repo.topics as TagModel[])
-        .reduce((arr: { [key: string]: CountableTagModel }, topic: TagModel) => {
-          // group topics by id and count them
-          const { id, display } = topic;
+        .filter((repo) => repo.tags !== undefined)
+        .flatMap((repo) => repo.tags as TagModel[])
+        .reduce((arr: { [key: string]: CountableTagModel }, tag: TagModel) => {
+          // group tags by id and count them
+          const { id, display } = tag;
           if (arr[id] === undefined) arr[id] = { id, display, count: 1 };
           else arr[id].count++;
           return arr;
         }, {} as { [key: string]: CountableTagModel })
     )
-      // Ignore topics with less than 3 repositories
-      .filter((topic) => topic.count >= 3)
+      // Ignore tags with less than 3 repositories
+      .filter((tag) => tag.count >= 3)
       // Sort by count desc
       .sort((a, b) => b.count - a.count);
 
@@ -305,7 +305,7 @@ const getRepositories = async (
       // Sort the repositories randomly so that the list isn't always the same
       repositories: repoData.sort(() => Math.random() - 0.5),
       languages: filterLanguages,
-      topics: filterTopics
+      tags: filterTags
     };
   })
   .then((data) => {
@@ -333,10 +333,9 @@ const getRepositories = async (
               `<url><loc>https://firstissue.dev/language/${language.id}</loc></url>`
           )
           .join("")}
-        ${data.topics
+        ${data.tags
           .map(
-            (topic: CountableTagModel) =>
-              `<url><loc>https://firstissue.dev/topic/${topic.id}</loc></url>`
+            (tag: CountableTagModel) => `<url><loc>https://firstissue.dev/tag/${tag.id}</loc></url>`
           )
           .join("")}
       </urlset>

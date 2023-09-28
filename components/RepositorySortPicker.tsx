@@ -1,20 +1,20 @@
 import { RepositorySortOrder } from "../types";
 import { SidebarItemHeader } from "./SidebarItemHeader";
 
-type SidebarRepositorySortPickerProps = {
+type RepositorySortPickerProps = {
   activeSort: RepositorySortOrder;
   sortOptions: RepositorySortOrder[];
   onSortOrderSelect: (sortOrder: RepositorySortOrder) => void;
 };
 
-export const SidebarRepositorySortPicker = ({
+export const RepositorySortPicker = ({
   activeSort,
   sortOptions,
   onSortOrderSelect
-}: SidebarRepositorySortPickerProps) => {
+}: RepositorySortPickerProps) => {
   return (
-    <div className="pt-6">
-      <SidebarItemHeader text="Sort Repositories" />
+    <div>
+      <SidebarItemHeader className="inline-block" text="Sort Repositories" />
       <div>
         {sortOptions.map((sortOption) => {
           return (

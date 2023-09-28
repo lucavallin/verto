@@ -38,7 +38,7 @@ Navigating open-source projects can be quite overwhelming for begineers and expe
 
 It's easy! The more people who know about [FirstIssue.dev](http://firstissue.dev), the better. There are various ways you can help us grow:
 
-- Contribute to `awesome` lists. Everyone uses them. They are community built resources on a wide variety of topics. Find one that relates to getting started with open-source and get [FirstIssue.dev](http://firstissue.dev) put in there. You could even create one yourself!
+- Contribute to `awesome` lists. Everyone uses them. They are community built resources on a wide variety of tags. Find one that relates to getting started with open-source and get [FirstIssue.dev](http://firstissue.dev) put in there. You could even create one yourself!
 - Blog about us. Have you ever used [FirstIssue.dev](http://firstissue.dev) and do you like what we are doing? Share your experience on platforms like:
   - [Medium](https://medium.com)
   - [Dev.to](https://dev.to)

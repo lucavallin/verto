@@ -24,7 +24,7 @@ const ByLine = () => (
   </div>
 );
 
-export const SidebarAboutSection = () => {
+export const AboutSection = () => {
   return (
     <div>
       <h3 className="text-sm font-bold uppercase tracking-wider mb-2 text-slate">About</h3>
