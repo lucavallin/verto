@@ -74,7 +74,4 @@ Good to know when you commit: the project contains a `pre-commit` hook that runs
 
 This project is based on [good-first-issue](https://github.com/deepsourcelabs/good-first-issue). The app and generation scripts have been rewritten using Next.js, React and Typescript, new features have been added and the UI is being updated too. The deployment process has been streamlined, complexity has been reduced and further improvements are planned.
 
-Special thanks to all contributors, especially:
-
-- [@isaacwashere](https://github.com/isaacwashere): for refactoring React components and contributing high-quality features to the project
-- [@chidame](https://github.com/chidame): for UI/UX improvements, product management tips and help with the community.
+Special thanks to [@chidame](https://github.com/chidame) for UI/UX improvements, product management tips and help with the community.
