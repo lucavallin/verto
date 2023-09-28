@@ -33,7 +33,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
       - name: Build with Next.js
         run: npm run build
         env:
