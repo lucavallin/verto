@@ -30,6 +30,7 @@ export const Sidebar = () => {
   return (
     <section className="font-sans pt-6 px-6 text-vanilla-300 flex-none w-full md:max-w-sm">
       <SidebarAboutSection />
+      <AddYourProjectLinkButton />
       <SidebarLanguagePicker languages={languages} activeTagId={activeTagId} pageName={pageName} />
       <SidebarRepositorySortPicker
         activeSort={repositorySortOrder}
@@ -44,7 +45,6 @@ export const Sidebar = () => {
         topics={topics}
         topicsLimit={DEFAULT_TOPICS_LIMIT}
       />
-      <AddYourProjectLinkButton />
     </section>
   );
 };

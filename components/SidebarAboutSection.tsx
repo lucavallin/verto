@@ -1,5 +1,6 @@
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import GitHubButton from "react-github-btn";
 
 const ByLine = () => (
   <div className="text-sm pt-6">
@@ -18,6 +19,16 @@ const ByLine = () => (
         & contributors initiative
       </span>
     </a>
+    <br />
+    <GitHubButton
+      href="https://github.com/lucavallin/first-issue"
+      data-color-scheme="no-preference: light; light: light; dark: dark;"
+      data-size="large"
+      data-show-count="true"
+      aria-label="Star lucavallin/first-issue on GitHub"
+    >
+      View it on GitHub
+    </GitHubButton>
   </div>
 );
 
