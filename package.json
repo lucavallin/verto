@@ -6,9 +6,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next export",
     "prepare": "husky install",
-    "prebuild": "ts-node generate.ts"
+    "prebuild": "ts-node data/get.ts"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
