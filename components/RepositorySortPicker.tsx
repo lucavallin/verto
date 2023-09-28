@@ -1,5 +1,5 @@
 import { RepositorySortOrder } from "../types";
-import { SidebarItemHeader } from "./SidebarItemHeader";
+import { MenuItemHeader } from "./MenuItemHeader";
 
 type RepositorySortPickerProps = {
   activeSort: RepositorySortOrder;
@@ -13,8 +13,10 @@ export const RepositorySortPicker = ({
   onSortOrderSelect
 }: RepositorySortPickerProps) => {
   return (
-    <div>
-      <SidebarItemHeader className="inline-block" text="Sort Repositories" />
+    <div className="flex flex-col md:flex-row justify-between md:items-center">
+      <div>
+        <MenuItemHeader text="Sort Repositories" />
+      </div>
       <div>
         {sortOptions.map((sortOption) => {
           return (

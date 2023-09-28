@@ -1,6 +1,6 @@
 import { CountableTag } from "../types";
+import { MenuItemHeader } from "./MenuItemHeader";
 import { PickerItemLink } from "./PickerItemLink";
-import { SidebarItemHeader } from "./SidebarItemHeader";
 
 type LanguagePickerProps = {
   activeTagId: string | string[] | undefined;
@@ -11,7 +11,7 @@ type LanguagePickerProps = {
 export const LanguagePicker = ({ activeTagId, languages, pageName }: LanguagePickerProps) => {
   return (
     <div className="pt-6">
-      <SidebarItemHeader text="Browse by Language" />
+      <MenuItemHeader text="Browse by Language" />
       <div>
         {languages.map((language) => {
           return (

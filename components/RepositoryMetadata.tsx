@@ -15,9 +15,7 @@ export const RepositoryMetadata = ({
 }: RepositoryMetadataProps) => {
   return (
     <div
-      className={`flex-row flex text-sm py-1 font-mono ${
-        isIssueOpen ? "text-honey" : "text-vanilla-200"
-      }`}
+      className={`flex-row flex text-sm py-1 font-mono ${isIssueOpen ? "font-bold" : "font-light"}`}
     >
       <div className="mr-4">
         <span className="text-green-600">lang: </span>

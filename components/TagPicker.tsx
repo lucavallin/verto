@@ -1,7 +1,7 @@
 import { CountableTag } from "../types";
+import { MenuItemHeader } from "./MenuItemHeader";
 import { PickerItemLink } from "./PickerItemLink";
 import { ShowMoreTagsButton } from "./ShowMoreTagsButton";
-import { SidebarItemHeader } from "./SidebarItemHeader";
 
 type TagPickerProps = {
   activeTagId: string | string[] | undefined;
@@ -25,7 +25,7 @@ export const TagPicker = ({
 
   return (
     <div className="py-6">
-      <SidebarItemHeader text="Browse by tag" />
+      <MenuItemHeader text="Browse by tag" />
       <div>
         {tags.slice(0, sliceEndNum).map((tag) => {
           return (
