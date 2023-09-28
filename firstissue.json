@@ -209,6 +209,7 @@
     "backstage/backstage",
     "badges/shields",
     "bagisto/bagisto",
+    "ballerina-platform/ballerina-lang",
     "bazelbuild/bazel",
     "bbatsov/projectile",
     "bcherny/json-schema-to-typescript",
