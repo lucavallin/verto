@@ -663,6 +663,7 @@
     "jupyter/notebook",
     "jupyterhub/binderhub",
     "jupyterlab/jupyterlab",
+    "Juspay/Hyperswitch",
     "k3s-io/k3s",
     "k8snetworkplumbingwg/multus-cni",
     "karmada-io/karmada",
