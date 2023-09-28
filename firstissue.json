@@ -210,7 +210,6 @@
     "badges/shields",
     "bagisto/bagisto",
     "ballerina-platform/ballerina-lang",
-    "ballerina-platform/ballerina-standard-library",
     "bazelbuild/bazel",
     "bbatsov/projectile",
     "bcherny/json-schema-to-typescript",
