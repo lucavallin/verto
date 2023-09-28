@@ -47,7 +47,6 @@ It's easy! The more people who know about [FirstIssue.dev](http://firstissue.dev
     - [Discord](https://discord.com)
 - Reach out to bloggers, tech influencers, developer and open-source on Twitter and YouTube, for example. Try and get [FirstIssue.dev](http://firstissue.dev/) mentioned in a video or tweet!
 - Make a guide, like a blog post or a video. Teaching is a great way to learn: share your experience getting started in open-source and mention us in your content 😉
-- 
 - Be creative! This is a non-comprehensive list of ideas. Once you have written an article, recorded a video, or have gotten us mentioned somewhere, come back here and add your name along with a link to the media to the [list of contributors below](https://github.com/lucavallin/first-issue#credits)!
 
 ## How does it work?
