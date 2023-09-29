@@ -35,10 +35,10 @@ export const TagPicker = ({ tags, activeTagId, onTagPage }: TagPickerProps) => {
         {tags.slice(0, limit).map((tag) => {
           return (
             <PickerItem
-              className={`group mx-1 border px-2 py-1 inline-block rounded-sm my-1 text-sm ${
+              className={`group mx-1 my-1 inline-block rounded-sm border px-2 py-1 text-sm ${
                 onTagPage && tag.id === activeTagId
                   ? "active-pill"
-                  : "border-secondary transition-all hover:text-primary transition-all hover:border-primary"
+                  : "border-secondary transition-all transition-all hover:border-primary hover:text-primary"
               }`}
               href={`/tag/${tag.id}`}
               key={tag.id}

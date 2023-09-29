@@ -5,19 +5,23 @@ import { useState } from "react";
 export const SearchBar = () => {
   const [query, setQuery] = useState("");
   return (
-    <div className="relative flex rounded-md mt-4 hidden">
+    <div className="relative mt-4 flex hidden rounded-md">
       <input
         type="text"
-        className="py-3 px-4 pl-11 block w-full rounded-l-md text-sm text-secondary"
+        className="block w-full rounded-l-md px-4 py-3 pl-11 text-sm text-secondary"
         onChange={(e) => setQuery(e.target.value)}
       />
-      <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-20 flex items-center pl-4">
         <FontAwesomeIcon icon={faSearch} className={"text-secondary"} />
       </div>
       <button
         type="button"
-        className="w-20 py-3 px-4 inline-flex flex-shrink-0 justify-center items-center rounded-r-md border border-primary transition-all hover:bg-primary font-semibold text-whitetransition-all text-sm"
-        onClick={() => alert(`Show repositories that have "${query}" in the owner, name, language or tags or issue title`)}
+        className="text-whitetransition-all inline-flex w-20 flex-shrink-0 items-center justify-center rounded-r-md border border-primary px-4 py-3 text-sm font-semibold transition-all hover:bg-primary"
+        onClick={() =>
+          alert(
+            `Show repositories that have "${query}" in the owner, name, language or tags or issue title`
+          )
+        }
       >
         Search
       </button>

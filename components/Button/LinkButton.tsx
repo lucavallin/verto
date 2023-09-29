@@ -1,3 +1,5 @@
+import React from "react";
+
 type LinkButtonProps = {
   href: string;
   secondary?: boolean;
@@ -8,10 +10,10 @@ export const LinkButton = ({ href, secondary, children }: LinkButtonProps) => {
   return (
     <div className="pt-4">
       <a
-        className={`block transition-all font-bold text-center px-1 py-3 transition-all uppercase rounded-md border ${
+        className={`block rounded-md border px-1 py-3 text-center font-bold uppercase transition-all transition-all ${
           secondary
             ? "border-primary hover:border-primary hover:text-primary"
-            : "bg-primary hover:bg-primary_light text-dark-400"
+            : "bg-primary text-dark-400 hover:bg-primary_light"
         }`}
         href={href}
         target="_blank"

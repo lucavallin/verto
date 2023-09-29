@@ -3,13 +3,13 @@ import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ByLine = () => (
-  <div className="text-sm pt-6">
+  <div className="pt-6 text-sm">
     <a className="flex flex-row items-center" target="_blank" href="https://cavall.in">
       <FontAwesomeIcon icon={faHeart} />
       <span className="ml-2">
         A{" "}
         <span
-          className="inline transition-all hover:underline text-primary font-bold"
+          className="inline font-bold text-primary transition-all hover:underline"
           title="Visit GitHub profile"
         >
           @lucavallin
@@ -18,7 +18,7 @@ const ByLine = () => (
       </span>
     </a>
     <a
-      className="flex flex-row items-center text-secondary cursor-pointer"
+      className="flex cursor-pointer flex-row items-center text-secondary"
       target="_blank"
       href={process.env.NEXT_PUBLIC_POLICIES_URL}
     >
@@ -35,7 +35,7 @@ const ByLine = () => (
 export const AboutSection = () => {
   return (
     <div>
-      <h3 className="text-sm font-bold uppercase tracking-wider mb-2 text-secondary">About</h3>
+      <h3 className="mb-2 text-sm font-bold uppercase tracking-wider text-secondary">About</h3>
       <p className="text-sm">
         First Issue curates accessible issues from popular open-source projects, and helps you make
         your next contribution to open-source.

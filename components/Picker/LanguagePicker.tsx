@@ -16,10 +16,10 @@ export const LanguagePicker = ({ activeTagId, languages, onLanguagePage }: Langu
         {languages.map((language) => {
           return (
             <PickerItem
-              className={`group mx-1 border px-2 py-1 inline-block rounded-sm my-1 text-sm ${
+              className={`group mx-1 my-1 inline-block rounded-sm border px-2 py-1 text-sm ${
                 onLanguagePage && language.id === activeTagId
                   ? "active-pill"
-                  : "border-secondary transition-all hover:text-primary transition-all hover:border-primary"
+                  : "border-secondary transition-all transition-all hover:border-primary hover:text-primary"
               }`}
               href={`/language/${language.id}`}
               key={language.id}

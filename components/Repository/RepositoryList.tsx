@@ -1,21 +1,21 @@
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import { useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import { REPOSITORY_SORT_OPTIONS } from "../../constants";
 import { useAppData } from "../../hooks/useAppData";
 import { Repository } from "../../types";
 import { SortPicker } from "../Picker/SortPicker";
-import { RepositoryItem } from "./RepositoryItem";
 import { SearchBar } from "../SearchBar";
+import { RepositoryItem } from "./RepositoryItem";
 
 type RepositoryListProps = {
   repositories: Repository[];
 };
 
 const Loader = () => (
-  <div className="p-4 w-full">
+  <div className="w-full p-4">
     <div className="flex items-center justify-center">
       <FontAwesomeIcon icon={faCircleNotch} className="fa-spin" />
     </div>
@@ -29,7 +29,7 @@ export const RepositoryList = ({ repositories }: RepositoryListProps) => {
 
   return (
     <main className="grow">
-      <div className="px-6 w-full">
+      <div className="w-full px-6">
         <SortPicker
           activeSort={repositorySortOrder}
           sortOptions={REPOSITORY_SORT_OPTIONS}

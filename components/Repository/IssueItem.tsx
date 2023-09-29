@@ -13,7 +13,7 @@ type IssueCommentNumProps = {
 
 const IssueCommentNum = ({ numIssues }: IssueCommentNumProps) => {
   return (
-    <div className="flex flex-row items-center justify-end mt-1 w-10 text-secondary">
+    <div className="mt-1 flex w-10 flex-row items-center justify-end text-secondary">
       <span className="mr-2 text-sm leading-snug">{numIssues}</span>
       <FontAwesomeIcon icon={faComment} />
     </div>
@@ -23,10 +23,10 @@ const IssueCommentNum = ({ numIssues }: IssueCommentNumProps) => {
 export const IssueItem = ({ issue }: IssueItemProps) => {
   return (
     <li key={issue.url} className="flex flex-row items-start justify-start py-1">
-      <span className="text-secondary text-right w-30 px-2 leading-snug">#{issue.number}</span>
-      <div className="flex items-start flex-row flex-auto">
+      <span className="w-30 px-2 text-right leading-snug text-secondary">#{issue.number}</span>
+      <div className="flex flex-auto flex-row items-start">
         <a
-          className="break-all mr-4 leading-snug transition-all hover:text-primary block flex-auto"
+          className="mr-4 block flex-auto break-all leading-snug transition-all hover:text-primary"
           href={issue.url}
           rel="noopener noreferrer"
           target="_blank"

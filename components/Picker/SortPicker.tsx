@@ -9,7 +9,7 @@ type SortPickerProps = {
 
 export const SortPicker = ({ activeSort, sortOptions, onSortOrderSelect }: SortPickerProps) => {
   return (
-    <div className="flex flex-col md:flex-row justify-between md:items-center pt-6 md:pt-0">
+    <div className="flex flex-col justify-between pt-6 md:flex-row md:items-center md:pt-0">
       <div>
         <SectionTitle text="Sort Repositories" />
       </div>
@@ -19,10 +19,10 @@ export const SortPicker = ({ activeSort, sortOptions, onSortOrderSelect }: SortP
             <button
               key={sortOption}
               onClick={() => onSortOrderSelect(sortOption)}
-              className={`group mx-1 border px-2 py-1 inline-block rounded-sm my-1 text-sm ${
+              className={`group mx-1 my-1 inline-block rounded-sm border px-2 py-1 text-sm ${
                 activeSort === sortOption
                   ? "active-pill"
-                  : "border-secondary transition-all hover:text-primary transition-all hover:border-primary"
+                  : "border-secondary transition-all transition-all hover:border-primary hover:text-primary"
               }`}
             >
               {sortOption}

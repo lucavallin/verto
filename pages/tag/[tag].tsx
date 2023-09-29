@@ -43,8 +43,8 @@ export default function Tag({ tag }: TagProps) {
         <title>{pageTitle}</title>
       </Head>
       <RepositoryList
-        repositories={repositories.filter((repository) =>
-          repository.tags?.some((t) => t.id === tag)
+        repositories={repositories.filter(
+          (repository) => repository.tags?.some((t) => t.id === tag)
         )}
       />
     </>

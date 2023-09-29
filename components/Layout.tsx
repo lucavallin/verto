@@ -8,10 +8,10 @@ type LayoutProps = {
 };
 
 export const Layout = ({ children }: LayoutProps) => (
-  <div className="bg-dark-400 flex flex-col min-h-screen antialiased text-light-300">
+  <div className="flex min-h-screen flex-col bg-dark-400 text-light-300 antialiased">
     <Header />
     <main className="flex flex-1">
-      <section className="container max-w-6xl mx-auto flex flex-col md:flex-row">
+      <section className="container mx-auto flex max-w-6xl flex-col md:flex-row">
         <Sidebar />
         {children}
       </section>

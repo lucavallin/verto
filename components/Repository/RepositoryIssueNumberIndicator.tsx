@@ -9,8 +9,8 @@ export const RepositoryIssueNumberIndicator = ({
 }: RepositoryIssueNumberIndicatorProps) => {
   return (
     <span
-      className={`hidden md:inline text-sm border px-3 py-1 ml-2 rounded-full font-semibold ${
-        isIssueOpen ? "text-dark-400 bg-primary border-transparent" : "text-light-200"
+      className={`ml-2 hidden rounded-full border px-3 py-1 text-sm font-semibold md:inline ${
+        isIssueOpen ? "border-transparent bg-primary text-dark-400" : "text-light-200"
       }`}
     >
       {numberOfIssues}

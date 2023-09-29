@@ -7,7 +7,7 @@ type IssueListProps = {
 
 export const IssuesList = ({ issues }: IssueListProps) => {
   return (
-    <ol className="px-5 py-3 text-base leading-loose border-t border-dark-200">
+    <ol className="border-t border-dark-200 px-5 py-3 text-base leading-loose">
       {issues.map((issue) => (
         <IssueItem issue={issue} key={issue.id} />
       ))}

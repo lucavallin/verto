@@ -270,13 +270,16 @@ const getRepositories = async (
   .then((repoData) => {
     // Get a list of distinct languages with counts for use with filtering in the UI
     const filterLanguages = Object.values(
-      repoData.reduce((arr: { [key: string]: CountableTagModel }, repo: RepositoryModel) => {
-        // group languages by id and count them
-        const { id, display } = repo.language;
-        if (arr[id] === undefined) arr[id] = { id, display, count: 1 };
-        else arr[id].count++;
-        return arr;
-      }, {} as { [key: string]: CountableTagModel })
+      repoData.reduce(
+        (arr: { [key: string]: CountableTagModel }, repo: RepositoryModel) => {
+          // group languages by id and count them
+          const { id, display } = repo.language;
+          if (arr[id] === undefined) arr[id] = { id, display, count: 1 };
+          else arr[id].count++;
+          return arr;
+        },
+        {} as { [key: string]: CountableTagModel }
+      )
     )
       // Ignore language with less than 3 repositories
       .filter((language) => language.count >= 3)
@@ -288,13 +291,16 @@ const getRepositories = async (
       repoData
         .filter((repo) => repo.tags !== undefined)
         .flatMap((repo) => repo.tags as TagModel[])
-        .reduce((arr: { [key: string]: CountableTagModel }, tag: TagModel) => {
-          // group tags by id and count them
-          const { id, display } = tag;
-          if (arr[id] === undefined) arr[id] = { id, display, count: 1 };
-          else arr[id].count++;
-          return arr;
-        }, {} as { [key: string]: CountableTagModel })
+        .reduce(
+          (arr: { [key: string]: CountableTagModel }, tag: TagModel) => {
+            // group tags by id and count them
+            const { id, display } = tag;
+            if (arr[id] === undefined) arr[id] = { id, display, count: 1 };
+            else arr[id].count++;
+            return arr;
+          },
+          {} as { [key: string]: CountableTagModel }
+        )
     )
       // Ignore tags with less than 3 repositories
       .filter((tag) => tag.count >= 3)

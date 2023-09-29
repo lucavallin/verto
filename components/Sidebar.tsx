@@ -1,7 +1,6 @@
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter } from "next/router";
-import React from "react";
 
 import { useAppData } from "../hooks/useAppData";
 import { AboutSection } from "./AboutSection";
@@ -17,7 +16,7 @@ export const Sidebar = () => {
   const pageName = router.pathname.split("/")[1];
 
   return (
-    <section className="font-sans px-6 text-light-300 flex-none w-full md:max-w-sm">
+    <section className="w-full flex-none px-6 font-sans text-light-300 md:max-w-sm">
       <AboutSection />
       <LinkButton href="https://github.com/lucavallin/first-issue" secondary>
         <FontAwesomeIcon icon={faGithub} className="mr-2" />
