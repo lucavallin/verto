@@ -28,7 +28,7 @@ export const NewsletterSection = () => {
   };
 
   return (
-    <div className="pt-6">
+    <div className="pt-6 hidden">
       <SectionTitle text="Join the Newsletter" />
       <p className="text-sm">
         Join the FirstIssue.dev newsletter and receive curated issues in your inbox every week.
