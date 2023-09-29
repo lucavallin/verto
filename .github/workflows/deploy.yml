@@ -63,6 +63,7 @@ jobs:
         env:
           GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
           GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID }}
+          NEWSLETTER_SUBSCRIBE_URL: ${{ secrets.NEWSLETTER_SUBSCRIBE_URL }}
       - name: Upload data.json
         uses: actions/upload-artifact@v3
         with:

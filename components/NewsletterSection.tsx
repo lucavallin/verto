@@ -17,8 +17,8 @@ export const NewsletterSection = () => {
       return;
     }
 
-    const mailchimpSubscribeUrl = process.env.MAILCHIMP_SUBSCRIBE_URL;
-    fetch(`${mailchimpSubscribeUrl}&EMAIL=${email}`)
+    const subscribeUrl = process.env.NEWSLETTER_SUBSCRIBE_URL;
+    fetch(`${subscribeUrl}&EMAIL=${email}`)
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .then((res: any) => {
         console.log("res", res);
