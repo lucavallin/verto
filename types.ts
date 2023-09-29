@@ -58,5 +58,6 @@ export interface AppData {
   repositories: Repository[];
   repositorySortOrder: RepositorySortOrder;
   tags: CountableTag[];
+  query: string;
   updateRepositorySortOrder: (sortOrder: RepositorySortOrder) => void;
 }

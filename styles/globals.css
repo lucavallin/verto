@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 .active-pill {
-  @apply text-juniper font-semibold border-juniper;
+  @apply text-primary font-semibold border-primary;
 }
 .active-pill > span {
-  @apply text-juniper;
+  @apply text-primary;
 }

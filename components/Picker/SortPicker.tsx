@@ -1,21 +1,17 @@
-import { RepositorySortOrder } from "../types";
-import { MenuItemHeader } from "./MenuItemHeader";
+import { RepositorySortOrder } from "../../types";
+import { SectionTitle } from "../SectionTitle";
 
-type RepositorySortPickerProps = {
+type SortPickerProps = {
   activeSort: RepositorySortOrder;
   sortOptions: RepositorySortOrder[];
   onSortOrderSelect: (sortOrder: RepositorySortOrder) => void;
 };
 
-export const RepositorySortPicker = ({
-  activeSort,
-  sortOptions,
-  onSortOrderSelect
-}: RepositorySortPickerProps) => {
+export const SortPicker = ({ activeSort, sortOptions, onSortOrderSelect }: SortPickerProps) => {
   return (
-    <div className="flex flex-col md:flex-row justify-between md:items-center">
+    <div className="flex flex-col md:flex-row justify-between md:items-center pt-6 md:pt-0">
       <div>
-        <MenuItemHeader text="Sort Repositories" />
+        <SectionTitle text="Sort Repositories" />
       </div>
       <div>
         {sortOptions.map((sortOption) => {
@@ -26,7 +22,7 @@ export const RepositorySortPicker = ({
               className={`group mx-1 border px-2 py-1 inline-block rounded-sm my-1 text-sm ${
                 activeSort === sortOption
                   ? "active-pill"
-                  : "border-slate hover:text-juniper hover:border-juniper"
+                  : "border-secondary transition-all hover:text-primary transition-all hover:border-primary"
               }`}
             >
               {sortOption}

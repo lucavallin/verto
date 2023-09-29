@@ -1,45 +1,38 @@
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter } from "next/router";
 import React from "react";
 
 import { useAppData } from "../hooks/useAppData";
 import { AboutSection } from "./AboutSection";
-import { AddYourProjectLinkButton } from "./AddYourProjectLinkButton";
-import { LanguagePicker } from "./LanguagePicker";
-import { StarItOnGitHubButton } from "./StarItOnGitHubButton";
-import { TagPicker } from "./TagPicker";
-
-const DEFAULT_TAGS_LIMIT = 15;
+import { LinkButton } from "./Button/LinkButton";
+import { NewsletterSection } from "./NewsletterSection";
+import { LanguagePicker } from "./Picker/LanguagePicker";
+import { TagPicker } from "./Picker/TagPicker";
 
 export const Sidebar = () => {
   const router = useRouter();
   const { languages, tags } = useAppData();
-  const [showMoreTags, setShowMoreTags] = React.useState(false);
   const { tag: activeTagId } = router.query;
-
-  // NOTE: This is used to highlight the active language or tag
   const pageName = router.pathname.split("/")[1];
 
-  const updateShowMoreTags = () => {
-    if (!showMoreTags) {
-      window.scrollTo(0, 0);
-    }
-    setShowMoreTags(!showMoreTags);
-  };
-
   return (
-    <section className="font-sans px-6 text-vanilla-300 flex-none w-full md:max-w-sm">
+    <section className="font-sans px-6 text-light-300 flex-none w-full md:max-w-sm">
       <AboutSection />
-      <StarItOnGitHubButton />
-      <AddYourProjectLinkButton />
-      <LanguagePicker languages={languages} activeTagId={activeTagId} pageName={pageName} />
-      <TagPicker
+      <LinkButton href="https://github.com/lucavallin/first-issue" secondary>
+        <FontAwesomeIcon icon={faGithub} className="mr-2" />
+        Star it on GitHub 🌟
+      </LinkButton>
+      <LinkButton href="https://github.com/lucavallin/first-issue#adding-a-new-project">
+        Add your project
+      </LinkButton>
+      <LanguagePicker
+        languages={languages}
         activeTagId={activeTagId}
-        handleShowMoreTags={updateShowMoreTags}
-        pageName={pageName}
-        showMoreTags={showMoreTags}
-        tags={tags}
-        tagsLimit={DEFAULT_TAGS_LIMIT}
+        onLanguagePage={pageName == "language"}
       />
+      <TagPicker tags={tags} activeTagId={activeTagId} onTagPage={pageName == "tag"} />
+      <NewsletterSection />
     </section>
   );
 };

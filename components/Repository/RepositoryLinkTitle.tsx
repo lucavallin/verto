@@ -1,4 +1,4 @@
-import { Repository } from "../types";
+import { Repository } from "../../types";
 
 type RepositoryLinkTitleProps = {
   isIssueOpen: boolean;
@@ -15,7 +15,9 @@ export const RepositoryLinkTitle = ({
 }: RepositoryLinkTitleProps) => {
   return (
     <a
-      className={`text-xl font-bold group-hover:text-juniper ${isIssueOpen ? "text-juniper" : ""}`}
+      className={`text-xl font-bold transition-all group-hover:text-primary ${
+        isIssueOpen ? "text-primary" : ""
+      }`}
       href={repositoryUrl}
       rel="noopener noreferrer"
       target="_blank"

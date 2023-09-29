@@ -5,9 +5,9 @@ const nextConfig = {
   productionBrowserSourceMaps: true,
   trailingSlash: true,
   images: {
-    unoptimized: true,
+    unoptimized: true
   },
-  output: "export",
-}
+  output: "export"
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

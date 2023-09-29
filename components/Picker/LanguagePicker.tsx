@@ -1,25 +1,25 @@
-import { CountableTag } from "../types";
-import { MenuItemHeader } from "./MenuItemHeader";
-import { PickerItemLink } from "./PickerItemLink";
+import { CountableTag } from "../../types";
+import { SectionTitle } from "../SectionTitle";
+import { PickerItem } from "./PickerItem";
 
 type LanguagePickerProps = {
   activeTagId: string | string[] | undefined;
   languages: CountableTag[];
-  pageName: string;
+  onLanguagePage: boolean;
 };
 
-export const LanguagePicker = ({ activeTagId, languages, pageName }: LanguagePickerProps) => {
+export const LanguagePicker = ({ activeTagId, languages, onLanguagePage }: LanguagePickerProps) => {
   return (
     <div className="pt-6">
-      <MenuItemHeader text="Browse by Language" />
+      <SectionTitle text="Browse by Language" />
       <div>
         {languages.map((language) => {
           return (
-            <PickerItemLink
+            <PickerItem
               className={`group mx-1 border px-2 py-1 inline-block rounded-sm my-1 text-sm ${
-                pageName == "language" && language.id === activeTagId
+                onLanguagePage && language.id === activeTagId
                   ? "active-pill"
-                  : "border-slate hover:text-juniper hover:border-juniper"
+                  : "border-secondary transition-all hover:text-primary transition-all hover:border-primary"
               }`}
               href={`/language/${language.id}`}
               key={language.id}

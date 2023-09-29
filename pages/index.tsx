@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import { RepositoryList } from "../components/RepositoryList";
+import { RepositoryList } from "../components/Repository/RepositoryList";
 import { useAppData } from "../hooks/useAppData";
 
 export default function Home() {

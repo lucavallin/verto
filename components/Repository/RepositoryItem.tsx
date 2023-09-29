@@ -2,7 +2,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import React, { useEffect, useState } from "react";
 
-import { Repository } from "../types";
+import { Repository } from "../../types";
 import { IssuesList } from "./IssueList";
 import { RepositoryDescription } from "./RepositoryDescription";
 import { RepositoryItemTopBar } from "./RepositoryItemTopBar";
@@ -29,10 +29,13 @@ export const RepositoryItem = ({ repository }: RepositoryItemProps) => {
     <div
       id={`repo-${repository.id}`}
       className={`select-none border w-full rounded-md mb-4 group ${
-        isIssueOpen ? "border-juniper" : "border-ink-200"
+        isIssueOpen ? "border-primary" : "border-dark-200"
       }`}
     >
-      <div className="px-5 py-3 cursor-pointer hover:bg-ink-300" onClick={() => setIsIssueOpen(!isIssueOpen)}>
+      <div
+        className="px-5 py-3 cursor-pointer transition-all hover:bg-dark-300"
+        onClick={() => setIsIssueOpen(!isIssueOpen)}
+      >
         <RepositoryItemTopBar
           isIssueOpen={isIssueOpen}
           repositoryHasNewIssues={repository.has_new_issues}

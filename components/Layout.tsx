@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Navbar } from "./Navbar";
+import { Header } from "./Header";
 import { Sidebar } from "./Sidebar";
 
 type LayoutProps = {
@@ -8,8 +8,8 @@ type LayoutProps = {
 };
 
 export const Layout = ({ children }: LayoutProps) => (
-  <div className="bg-ink-400 flex flex-col min-h-screen antialiased text-vanilla-300">
-    <Navbar />
+  <div className="bg-dark-400 flex flex-col min-h-screen antialiased text-light-300">
+    <Header />
     <main className="flex flex-1">
       <section className="container max-w-6xl mx-auto flex flex-col md:flex-row">
         <Sidebar />

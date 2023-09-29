@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { Tag } from "../types";
+import { Tag } from "../../types";
 
 type PickerItemLinkProps = {
   className: string;
@@ -9,16 +9,11 @@ type PickerItemLinkProps = {
   text: Tag["display"];
 };
 
-export const PickerItemLink = ({
-  className,
-  totalOccurrences,
-  href,
-  text
-}: PickerItemLinkProps) => {
+export const PickerItem = ({ className, totalOccurrences, href, text }: PickerItemLinkProps) => {
   return (
     <Link href={href} className={className}>
       {text}
-      <span className={`text-vanilla-400 group-hover:text-juniper`}>
+      <span className={`text-light-400 transition-all group-hover:text-primary`}>
         &nbsp;&times;{totalOccurrences}
       </span>
     </Link>

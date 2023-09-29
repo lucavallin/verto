@@ -1,4 +1,4 @@
-import { Repository } from "../types";
+import { Repository } from "../../types";
 import { RepositoryIssueNumberIndicator } from "./RepositoryIssueNumberIndicator";
 import { RepositoryLinkTitle } from "./RepositoryLinkTitle";
 
@@ -28,7 +28,7 @@ export const RepositoryItemTopBar = ({
         repositoryUrl={repositoryUrl}
       />
       <div className="flex flex-1 justify-end items-center">
-        <div className={`w-2 h-2 rounded-full ${repositoryHasNewIssues ? "bg-juniper" : ""}`}></div>
+        <div className={`w-2 h-2 rounded-full ${repositoryHasNewIssues ? "bg-primary" : ""}`}></div>
       </div>
       <RepositoryIssueNumberIndicator
         isIssueOpen={isIssueOpen}

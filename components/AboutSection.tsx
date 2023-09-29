@@ -13,7 +13,7 @@ const ByLine = () => (
       <span className="ml-2">
         A{" "}
         <span
-          className="inline hover:underline text-juniper font-bold"
+          className="inline transition-all hover:underline text-primary font-bold"
           title="Visit GitHub profile"
         >
           @lucavallin
@@ -27,7 +27,7 @@ const ByLine = () => (
 export const AboutSection = () => {
   return (
     <div>
-      <h3 className="text-sm font-bold uppercase tracking-wider mb-2 text-slate">About</h3>
+      <h3 className="text-sm font-bold uppercase tracking-wider mb-2 text-secondary">About</h3>
       <p className="text-sm">
         First Issue curates accessible issues from popular open-source projects, and helps you make
         your next contribution to open-source.

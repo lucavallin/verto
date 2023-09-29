@@ -8,17 +8,23 @@ const DEFAULT_VALUE: AppData = {
   repositories: [],
   repositorySortOrder: RepositorySortOrder.NONE,
   tags: [],
+  query: "",
   updateRepositorySortOrder: () => {}
 };
 
 const AppDataContext = createContext<AppData>(DEFAULT_VALUE);
 
 const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
+  const query = "";
   const {
     repositories: allRepositories,
     languages,
     tags
-  }: { repositories: Repository[]; languages: CountableTag[]; tags: CountableTag[] } = data;
+  }: {
+    repositories: Repository[];
+    languages: CountableTag[];
+    tags: CountableTag[];
+  } = data;
   const [repositories, setRepositories] = useState<Repository[]>(allRepositories);
   const [repositorySortOrder, setRepositorySortOrder] = useState<RepositorySortOrder>(
     RepositorySortOrder.NONE
@@ -61,6 +67,7 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
     repositories,
     repositorySortOrder,
     tags,
+    query,
     updateRepositorySortOrder
   };
 

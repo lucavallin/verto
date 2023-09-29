@@ -10,7 +10,7 @@ export const RepositoryIssueNumberIndicator = ({
   return (
     <span
       className={`hidden md:inline text-sm border px-3 py-1 ml-2 rounded-full font-semibold ${
-        isIssueOpen ? "text-ink-400 bg-juniper border-transparent" : "text-vanilla-200"
+        isIssueOpen ? "text-dark-400 bg-primary border-transparent" : "text-light-200"
       }`}
     >
       {numberOfIssues}
