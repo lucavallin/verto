@@ -4,7 +4,9 @@ import type { AppProps } from "next/app";
 import { Inter } from "next/font/google";
 import Head from "next/head";
 
+import { CookieBar } from "../components/CookieBar";
 import { Layout } from "../components/Layout";
+import { SponsorsBar } from "../components/SponsorsBar";
 import { AppDataProvider } from "../context/AppDataContext";
 import "../styles/globals.css";
 
@@ -24,9 +26,11 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <AppDataProvider>
         <main className={`${inter.variable} font-sans`}>
+          <SponsorsBar />
           <Layout>
             <Component {...pageProps} />
           </Layout>
+          <CookieBar />
         </main>
       </AppDataProvider>
     </>

@@ -1,10 +1,8 @@
+import useLocalStorage from "use-local-storage";
 import { SectionTitle } from "./SectionTitle";
 
 export const CookieBar = () => {
-  let accepted = false;
-  try {
-    accepted = window.localStorage.hasItem("cookieAccepted");
-  } catch (e) {}
+  const [accepted, setAccepted] = useLocalStorage("cookies-accepted", false);
 
   return (
     <div
@@ -12,18 +10,16 @@ export const CookieBar = () => {
         accepted ? "hidden" : ""
       }`}
     >
-      <SectionTitle text="🍪 Cookies" />
+      <div className="hidden md:block">
+        <SectionTitle text="🍪 Cookies" />
+      </div>
       <p className="text-sm text-primary">
         We use cookies to ensure you get the best experience on FirstIssue.dev
       </p>
       <button
         type="button"
         className="inline-flex flex-shrink-0 items-center justify-center rounded-md border border-primary bg-primary px-4 py-3 text-sm font-semibold text-dark-400 transition-all hover:bg-primary_light"
-        onClick={() => {
-          try {
-            window.localStorage.setItem("cookieAccepted", "true");
-          } catch (e) {}
-        }}
+        onClick={() => setAccepted(true)}
       >
         Accept
       </button>

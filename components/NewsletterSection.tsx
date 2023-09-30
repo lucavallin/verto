@@ -11,7 +11,7 @@ export const NewsletterSection = () => {
   const [isValidEmail, setIsValidEmail] = useState(true);
 
   const { loading, error, success, handleSubmit } = useMailChimpForm(
-    process.env.NEXT_PUBLIC_NEWSLETTER_SUBSCRIBE_URL!
+    process.env.NEXT_PUBLIC_NEWSLETTER_URL!
   );
   const { fields, handleFieldChange } = useFormFields({
     EMAIL: ""
