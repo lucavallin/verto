@@ -48,6 +48,11 @@ export default function Document() {
           function gtag(){window.dataLayer.push(arguments);}
           gtag('js', new Date());
 
+          gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied'
+          });
+
           gtag('config', ${process.env.NEXT_PUBLIC_GA_TRACKING_ID});
         `}
         </Script>
