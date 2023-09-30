@@ -35,7 +35,6 @@ export const NewsletterSection = () => {
           <input
             type="email"
             id="EMAIL"
-            autoFocus
             className="block w-full rounded-l-md px-4 py-3 pl-11 text-sm text-secondary"
             value={fields.EMAIL}
             onChange={(e) => {
