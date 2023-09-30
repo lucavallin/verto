@@ -4,7 +4,6 @@ import type { AppProps } from "next/app";
 import { Inter } from "next/font/google";
 import Head from "next/head";
 
-import { CookieBar } from "../components/CookieBar";
 import { Layout } from "../components/Layout";
 import { AppDataProvider } from "../context/AppDataContext";
 import "../styles/globals.css";
@@ -28,7 +27,6 @@ export default function App({ Component, pageProps }: AppProps) {
           <Layout>
             <Component {...pageProps} />
           </Layout>
-          <CookieBar />
         </main>
       </AppDataProvider>
     </>
