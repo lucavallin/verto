@@ -12,9 +12,9 @@ export const SponsorsBar = () => (
     </div>
     <Link
       href={`${process.env.NEXT_PUBLIC_SPONSOR_URL}`}
-      className="text-sm text-secondary hover:text-primary"
+      className="text-sm text-secondary hover:text-primary rounded-sm border px-2 py-1"
     >
-      Your logo here?
+      Sponsor?
     </Link>
   </div>
 );
