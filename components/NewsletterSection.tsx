@@ -33,9 +33,10 @@ export const NewsletterSection = () => {
           }}
         >
           <input
+          aria-label="email"
             type="email"
             id="EMAIL"
-            className="block w-full rounded-l-md px-4 py-3 pl-11 text-sm text-secondary"
+            className="block w-full rounded-l-md px-4 py-3 pl-11 text-sm text-dark-300"
             value={fields.EMAIL}
             onChange={(e) => {
               setIsValidEmail(isEmail(e.target.value));
