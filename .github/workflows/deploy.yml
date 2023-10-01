@@ -62,7 +62,6 @@ jobs:
         run: npm run build
         env:
           GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-          NEXT_PUBLIC_GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID }}
           NEXT_PUBLIC_NEWSLETTER_URL: ${{ secrets.NEWSLETTER_URL }}
           NEXT_PUBLIC_POLICY_URL: ${{ secrets.POLICY_URL }}
           NEXT_PUBLIC_SPONSOR_URL: ${{ secrets.SPONSOR_URL }}
