@@ -230,6 +230,7 @@
     "brndnmtthws/conky",
     "btcpayserver/btcpayserver",
     "buildbot/buildbot",
+    "BuilderIO/qwik",
     "buildpacks/pack",
     "bytebase/bytebase",
     "bytecodealliance/wasm-micro-runtime",
