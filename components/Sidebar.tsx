@@ -8,23 +8,21 @@ import { LinkButton } from "./Button/LinkButton";
 import { NewsletterSection } from "./NewsletterSection";
 import { LanguagePicker } from "./Picker/LanguagePicker";
 import { TagPicker } from "./Picker/TagPicker";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export const Sidebar = () => {
   const router = useRouter();
   const { languages, tags } = useAppData();
   const { tag: activeTagId } = router.query;
   const pageName = router.pathname.split("/")[1];
-  const [isMobileView, setIsMobileView] = useState(false);
   
   useEffect(() => {
     const scrollTarget = document.getElementById("repositories-list");
     const isMobile = window.innerWidth <= 640; 
-    setIsMobileView(isMobile);
     if (isMobile && (pageName === "language" || pageName === "tag")) {
       scrollTarget?.scrollIntoView({ behavior: "smooth" });
     }
-  }, [router.asPath]);
+  }, [router.asPath, pageName]);
 
   return (
     <section className="w-full flex-none px-6 font-sans text-light-300 md:max-w-sm">
