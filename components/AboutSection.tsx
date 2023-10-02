@@ -20,7 +20,7 @@ const ByLine = () => (
     <a
       className="flex cursor-pointer flex-row items-center text-secondary"
       target="_blank"
-      href={process.env.NEXT_PUBLIC_POLICIES_URL}
+      href={process.env.NEXT_PUBLIC_POLICY_URL}
     >
       <FontAwesomeIcon icon={faCircleInfo} />
       <span className="ml-2">
