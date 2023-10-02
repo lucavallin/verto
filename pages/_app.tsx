@@ -3,6 +3,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import type { AppProps } from "next/app";
 import { Inter } from "next/font/google";
 import Head from "next/head";
+import { Analytics } from '@vercel/analytics/react';
 
 import { Layout } from "../components/Layout";
 import { SponsorsBar } from "../components/SponsorsBar";
@@ -30,6 +31,7 @@ export default function App({ Component, pageProps }: AppProps) {
             <Component {...pageProps} />
           </Layout>
         </main>
+        <Analytics />
       </AppDataProvider>
     </>
   );
