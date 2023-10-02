@@ -34,13 +34,13 @@ export const Sidebar = () => {
       <LinkButton href="https://github.com/lucavallin/first-issue#adding-a-new-project">
         Add your project
       </LinkButton>
+      <NewsletterSection />
       <LanguagePicker
         languages={languages}
         activeTagId={activeTagId}
         onLanguagePage={pageName == "language"}
       />
       <TagPicker tags={tags} activeTagId={activeTagId} onTagPage={pageName == "tag"} />
-      <NewsletterSection />
     </section>
   );
 };
