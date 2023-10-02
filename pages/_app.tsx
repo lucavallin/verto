@@ -1,9 +1,9 @@
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import { Analytics } from "@vercel/analytics/react";
 import type { AppProps } from "next/app";
 import { Inter } from "next/font/google";
 import Head from "next/head";
-import { Analytics } from '@vercel/analytics/react';
 
 import { Layout } from "../components/Layout";
 import { SponsorsBar } from "../components/SponsorsBar";
