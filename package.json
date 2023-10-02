@@ -16,7 +16,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@types/node": "20.7.1",
-    "@types/react": "18.2.0",
+    "@types/react": "18.2.24",
     "@types/react-dom": "18.2.8",
     "@vercel/analytics": "^1.0.2",
     "dayjs": "^1.11.10",
