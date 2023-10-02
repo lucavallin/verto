@@ -1,5 +1,6 @@
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-
 import { CountableTag } from "../../types";
 import { ShowMoreButton } from "../Button/ShowMoreButton";
 import { SectionTitle } from "../SectionTitle";
@@ -17,6 +18,12 @@ export const TagPicker = ({ tags, activeTagId, onTagPage }: TagPickerProps) => {
   const [limit, setLimit] = useState(limitStep);
   const hasMore = tags.length > limit;
 
+  const [isCollapsed, setIsCollapsed] = useState<boolean>(true);
+
+  const toggleCollapsible = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+
   const handleShowMore = () => {
     if (!hasMore) {
       setLimit(15);
@@ -30,15 +37,30 @@ export const TagPicker = ({ tags, activeTagId, onTagPage }: TagPickerProps) => {
 
   return (
     <div className="pt-6">
-      <SectionTitle text="Browse by tag" />
-      <div>
+      <div
+        onClick={toggleCollapsible}
+        className={`flex cursor-pointer ${isCollapsed ? "sm:flex" : ""}`}
+      >
+        <SectionTitle text="Browse by tag" />
+        <FontAwesomeIcon
+          icon={faChevronDown}
+          className={`mx-2 mt-[3px] transform text-secondary transition-transform ${
+            isCollapsed ? "rotate-0" : "rotate-180"
+          } animate-fade-in duration-300 ease-in-out lg:hidden`}
+        />
+      </div>
+      <div
+        className={`transition-max-height overflow-hidden duration-300 ease-in-out ${
+          isCollapsed ? "max-h-0" : "max-h-96"
+        } ${isCollapsed ? "sm:max-h-full" : ""}`}
+      >
         {tags.slice(0, limit).map((tag) => {
           return (
             <PickerItem
               className={`group mx-1 my-1 inline-block rounded-sm border px-2 py-1 text-sm ${
                 onTagPage && tag.id === activeTagId
                   ? "active-pill"
-                  : "border-secondary transition-all transition-all hover:border-primary hover:text-primary"
+                  : "border-secondary transition-all hover:border-primary hover:text-primary"
               }`}
               href={`/tag/${tag.id}`}
               key={tag.id}
