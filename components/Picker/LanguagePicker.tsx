@@ -29,7 +29,7 @@ export const LanguagePicker = ({ activeTagId, languages, onLanguagePage }: Langu
           icon={faChevronDown}
           className={`mx-2 mt-[3px] transform text-secondary transition-transform ${
             isCollapsed ? "rotate-0" : "rotate-180"
-          } animate-fade-in duration-300 ease-in-out lg:hidden`}
+          } animate-fade-in duration-300 ease-in-out md:hidden`}
         />
       </div>
       <div
