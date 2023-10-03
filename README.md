@@ -14,9 +14,11 @@ Open-source maintainers are always looking to get more people involved, but it c
 
 You're welcome to add a new project in First Issue, just follow these steps:
 
-- To maintain the quality of projects in First Issue, please make sure the GitHub repository you want to add meets the following criteria:
+- To maintain the quality of projects in First Issue, please make sure the repository you want to add meets the following criteria:
 
-  - It has at least three issues with the `good first issue` label or other labels defined in `config.json` (see `labels` and the end).
+  - For **GitHub** repositories: it has at least three issues with the `good first issue` label or other labels defined in [config.json](config.json) (see `labels` and the end of the `GitHub` provider).
+
+  - For **GitLab** repositories: it has at least three issues with the `quick win` label or other labels defined in [config.json](config.json) (see `labels` and the end of the `GitLab` provider).
 
   - It has at least 10 contributors.
 
@@ -26,7 +28,9 @@ You're welcome to add a new project in First Issue, just follow these steps:
 
   - It is actively maintained (last update less than 1 month ago).
 
-- Add your repository's path (in the format `owner/name` and lexicographic order) to [config.json](config.json).
+- For **GitHub** repositories: add your repository's path (in the format `owner/name` and lexicographic order) to [config.json](config.json) inside the `GitHub` provider.
+
+- For **GitLab** repositories: add your repository's id (in the format `<project path>|<project id>`) to [config.json](config.json) inside the `GitLab` provider.
 
 - Create a new pull-request. Please add the link to the issues page of the repository in the PR description. Once the pull request is merged, the changes will be live on [firstissue.dev](https://firstissue.dev/).
 
@@ -56,6 +60,8 @@ $ npm run dev
 ```
 
 Good to know when you commit: the project contains a `pre-commit` hook that runs linters automatically to ensure code quality!
+
+**Note**: this project requires at least NodeJS 18.
 
 ## Credits
 

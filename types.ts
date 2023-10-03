@@ -1,6 +1,14 @@
 // Nullable generic for nullable fields
 type Nullable<T> = T | null;
 
+export interface Source {
+  name: string;
+  provider: "github" | "gitlab";
+  url?: string;
+  repositories: string[];
+  labels: string[];
+}
+
 // Describes a Tag, which is a programming language or a tag
 export interface Tag {
   display: string;
@@ -60,4 +68,38 @@ export interface AppData {
   tags: CountableTag[];
   query: string;
   updateRepositorySortOrder: (sortOrder: RepositorySortOrder) => void;
+}
+
+export interface GitLabRepository {
+  id: string;
+  name: string;
+  description: string;
+  starCount: number;
+  openIssuesCount: number;
+  lastActivityAt: string;
+  webUrl: string;
+  namespace: {
+    fullName: string;
+  };
+  group: {
+    fullName: string;
+  };
+  languages: {
+    name: string;
+    share: number;
+  }[];
+  topics: string[];
+  issues: {
+    nodes: {
+      iid: string;
+      webUrl: string;
+      title: string;
+      createdAt: string;
+      labels: {
+        nodes: {
+          title: string;
+        }[];
+      };
+    }[];
+  };
 }
