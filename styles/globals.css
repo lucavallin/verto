@@ -2,9 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-.active-pill {
-  @apply border-primary font-semibold text-primary;
+::-webkit-scrollbar {
+  width: 10px;
 }
-.active-pill > span {
+
+::-webkit-scrollbar-track {
+  background-color: #373c49;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #cb3364;
+  border-radius: 2px;
+}
+
+.active-pill {
+  @apply font-semibold border-primary text-primary;
+}
+
+.active-pill>span {
   @apply text-primary;
 }
