@@ -1,24 +1,19 @@
 # Code of Conduct
 
-We as members, contributors, and leaders pledge to make participation in our community 
+We as members and contributors, and leaders pledge to make participation in our community 
 a pleasant experience for everyone, interacting in ways that contribute to a welcoming and healthy community.
 
 Community leaders are responsible for clarifying and enforcing our code of conduct and will take appropriate and fair corrective action in
-response to any behavior that they deem in contravention of the code of conduct. Community leaders have the right and responsibility to remove, edit, or reject
-comments, commits, code, wiki edits, issues, and other contributions that are
+response to any behavior that they deem in contravention of the code of conduct. Community leaders have the right and responsibility to remove any content
 not aligned to this Code of Conduct, and will communicate reasons for moderation
 decisions when appropriate.
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the community leaders responsible for enforcement at
+Unacceptable behavior may be reported to the community leaders responsible for enforcement at
 `coc@lucavall.in`. All complaints will be reviewed and investigated promptly and fairly. All community leaders are obligated to respect the privacy and security of the
 reporter of any incident.
 
 This Code of Conduct applies within all community spaces, and also applies when
 an individual is officially representing the community in public spaces.
-Examples of representing our community include using an official e-mail address,
-posting via an official social media account, or acting as an appointed
-representative at an online or offline event.
 
 ## Examples of unacceptable behavior
 
@@ -32,8 +27,7 @@ representative at an online or offline event.
 
 ## Enforcement Guidelines
 
-Community leaders will follow these guidelines in determining
-the consequences for any action they deem in violation of this Code of Conduct:
+Community leaders will follow these guidelines for any action they deem in violation of this Code of Conduct:
 
 ### 1. Correction
 
