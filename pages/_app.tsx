@@ -22,7 +22,7 @@ const inter = Inter({
 // Entry point for the app
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const shouldRenderComponents = router.pathname === "/";
+  const shouldRenderComponents = router.pathname === "/" || router.pathname.startsWith('/language/') || router.pathname.startsWith('/tag/');
   return (
     <>
       <Head>
