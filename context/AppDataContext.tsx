@@ -1,18 +1,25 @@
+// AppDataContext.tsx
 import React, { createContext, useState } from "react";
-
 import data from "../data/data.json";
 import { AppData, CountableTag, Repository, RepositorySortOrder } from "../types";
 
-const DEFAULT_VALUE: AppData = {
+type AppDataContextType = AppData & {
+  filterRepositoriesByTag: (tag: string) => Repository[];
+  filterRepositoriesByQuery: (query: string) => void;
+};
+
+const DEFAULT_VALUE: AppDataContextType = {
   languages: [],
   repositories: [],
   repositorySortOrder: RepositorySortOrder.NONE,
   tags: [],
   query: "",
-  updateRepositorySortOrder: () => {}
+  updateRepositorySortOrder: () => {},
+  filterRepositoriesByTag: () => [],
+  filterRepositoriesByQuery: () => {}, 
 };
 
-const AppDataContext = createContext<AppData>(DEFAULT_VALUE);
+const AppDataContext = createContext<AppDataContextType>(DEFAULT_VALUE);
 
 const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
   const query = "";
@@ -62,13 +69,38 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
     setRepositories(updatedRepositories);
   };
 
+  const filterRepositoriesByTag = (tag: string) => {
+    return repositories.filter((repository) =>
+      repository.tags?.some((t) => t.id === tag)
+    );
+  };
+
+  // Define the filter function for the query
+  const filterRepositoriesByQuery = (query: string) => {
+    if (!query) {
+      setRepositories(allRepositories); 
+      return;
+    }
+  
+    // Filter repositories based on query
+    const filtered = allRepositories.filter((repository) => {
+      const { name, owner, issues } = repository; 
+      const searchText = `${name} ${owner} ${issues.map((issue) => issue.title)}`.toLowerCase();
+      return searchText.includes(query.toLowerCase());
+    });
+  
+    setRepositories(filtered);
+  };
+
   const value = {
     languages,
     repositories,
     repositorySortOrder,
     tags,
     query,
-    updateRepositorySortOrder
+    updateRepositorySortOrder,
+    filterRepositoriesByTag,
+    filterRepositoriesByQuery,
   };
 
   return <AppDataContext.Provider value={value}>{children}</AppDataContext.Provider>;

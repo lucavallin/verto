@@ -36,17 +36,19 @@ export default function Tag({ tag }: TagProps) {
 
   const activeTag = tags.find((t) => t.id === tag);
   const pageTitle = `First Issue | Tag ${activeTag?.display}`;
+  const { filterRepositoriesByTag } = useAppData();
+  const filteredRepositories = filterRepositoriesByTag(tag);
+
+  // ...
 
   return (
     <>
       <Head>
         <title>{pageTitle}</title>
       </Head>
-      <RepositoryList
-        repositories={repositories.filter(
-          (repository) => repository.tags?.some((t) => t.id === tag)
-        )}
-      />
+      <RepositoryList repositories={filteredRepositories} />
     </>
   );
 }
+
+ 

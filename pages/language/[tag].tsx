@@ -36,15 +36,17 @@ export default function Language({ tag }: LanguageProps) {
 
   const language = languages.find((language) => language.id === tag);
   const pageTitle = `First Issue | ${language?.display} Language`;
+  const { filterRepositoriesByTag } = useAppData();
+  const filteredRepositories = filterRepositoriesByTag(tag);
 
   return (
     <>
       <Head>
         <title>{pageTitle}</title>
       </Head>
-      <RepositoryList
-        repositories={repositories.filter((repository) => repository.language.id === tag)}
-      />
+      <RepositoryList repositories={filteredRepositories} />
     </>
   );
 }
+
+
