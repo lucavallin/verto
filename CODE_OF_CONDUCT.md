@@ -3,7 +3,7 @@
 We as members, contributors, and leaders pledge to make participation in our
 community a pleasant experience for everyone.
 
-We pledge to act and interact in ways that contribute to an open, welcoming, and healthy community.
+We pledge to act and interact in ways that contribute to a welcoming and healthy community.
 
 ## Unacceptable behavior
 
