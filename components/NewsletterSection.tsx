@@ -1,76 +1,55 @@
-import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
-import { faSpinner, faWarning } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
-import { useFormFields, useMailChimpForm } from "use-mailchimp-form";
-import isEmail from "validator/lib/isEmail";
+import { useEffect } from "react";
 
+import Script from "next/script";
 import { SectionTitle } from "./SectionTitle";
 
-export const NewsletterSection = () => {
-  const [isValidEmail, setIsValidEmail] = useState(true);
+interface CustomSubstackWidget {
+  element: string;
+  substackUrl: string | undefined;
+  placeholder: string;
+  buttonText: string;
+  theme: string;
+  colors: {
+    primary: string;
+    input: string;
+    email: string;
+    text: string;
+  };
+}
 
-  const { loading, error, success, handleSubmit } = useMailChimpForm(
-    process.env.NEXT_PUBLIC_NEWSLETTER_URL!
-  );
-  const { fields, handleFieldChange } = useFormFields({
-    EMAIL: ""
-  });
+declare global {
+  interface Window {
+    CustomSubstackWidget?: CustomSubstackWidget;
+  }
+}
+
+export const NewsletterSection = () => {
+  useEffect(() => {
+    window.CustomSubstackWidget = {
+      element: "#substack-embed",
+      substackUrl: process.env.NEXT_PUBLIC_NEWSLETTER_URL,
+      placeholder: "your email address",
+      buttonText: "SUBSCRIBE",
+      theme: "custom",
+      colors: {
+        primary: "#cb3364",
+        input: "#ffffff",
+        email: "#52575c",
+        text: "#16181d"
+      }
+    };
+  }, []);
 
   return (
     <div className="pt-6">
-      <SectionTitle text="Join the Newsletter" />
+      <SectionTitle className="mb-2" text="Join the Newsletter" />
       <p className="text-sm">
-        Join the FirstIssue.dev newsletter and receive curated issues in your inbox every week.
+        Join &quot;The lucavallin Newsletter&quot; to receive curated issues from FirstIssue and
+        other articles in your inbox every other week.
       </p>
 
-      {!success && !error && (
-        <form
-          className="relative mt-4 flex rounded-md"
-          onSubmit={(event) => {
-            event.preventDefault();
-            handleSubmit(fields);
-          }}
-        >
-          <input
-            type="email"
-            id="EMAIL"
-            className="block w-full rounded-l-md px-4 py-3 pl-11 text-sm text-secondary"
-            value={fields.EMAIL}
-            onChange={(e) => {
-              setIsValidEmail(isEmail(e.target.value));
-              handleFieldChange(e);
-            }}
-          />
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-20 flex items-center pl-4">
-            <FontAwesomeIcon
-              icon={loading ? faSpinner : isValidEmail ? faEnvelope : faWarning}
-              className={isValidEmail ? "text-secondary" : "text-primary"}
-              spin={loading}
-            />
-          </div>
-          <button
-            type="submit"
-            className="text-whitetransition-all inline-flex w-20 flex-shrink-0 items-center justify-center rounded-r-md border border-primary px-4 py-3 text-sm font-semibold transition-all hover:bg-primary"
-          >
-            Join
-          </button>
-        </form>
-      )}
-      {success && (
-        <div className="pt-4">
-          <div className="block rounded-md bg-primary px-1 py-3 text-center font-bold uppercase text-dark-400">
-            Thanks for subscribing!
-          </div>
-        </div>
-      )}
-      {error && (
-        <div className="pt-4">
-          <div className="block rounded-md border border-primary px-1 py-3 text-center font-bold uppercase text-primary">
-            Something went wrong
-          </div>
-        </div>
-      )}
+      <Script src="https://substackapi.com/widget.js" strategy="lazyOnload" />
+      <div id="substack-embed" className="relative mt-4 flex rounded-md"></div>
     </div>
   );
 };

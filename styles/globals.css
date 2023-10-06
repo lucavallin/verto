@@ -16,9 +16,9 @@
 }
 
 .active-pill {
-  @apply font-semibold border-primary text-primary;
+  @apply border-primary font-semibold text-primary;
 }
 
-.active-pill>span {
+.active-pill > span {
   @apply text-primary;
 }
