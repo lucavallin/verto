@@ -9,9 +9,8 @@ export const RepositoryIssueNumberIndicator = ({
 }: RepositoryIssueNumberIndicatorProps) => {
   return (
     <span
-      className={`ml-2 hidden rounded-full border px-3 py-1 text-sm font-semibold md:inline ${
-        isIssueOpen ? "border-transparent bg-primary text-dark-400" : "text-light-200"
-      }`}
+      className={`ml-2 hidden rounded-full border min-w-fit h-fit p-2 text-sm font-semibold md:inline ${isIssueOpen ? "border-transparent bg-primary text-dark-400" : "text-light-200"
+        }`}
     >
       {numberOfIssues}
       {numberOfIssues >= 10 ? "+" : ""} issue
