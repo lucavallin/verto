@@ -703,6 +703,7 @@
       "karmada-io/karmada",
       "KaTeX/KaTeX",
       "kedacore/keda",
+      "kedro-org/kedro",
       "keephq/keep",
       "kelseyhightower/nocode",
       "keploy/keploy",
