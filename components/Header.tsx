@@ -17,7 +17,7 @@ export const Header = () => {
         <Link href="/">
           <Image src="/firstissue.png" alt="First Issue" className="h-12" width={290} height={51} />
         </Link>
-        {activeTagOrLanguage && activeTagOrLanguage ? (
+        {activeTagOrLanguage ? (
           <span className="cursor-pointer pt-3 text-2xl">
             <span className="mx-3 font-normal text-secondary">/</span>
             <span className="font-semibold text-primary">{activeTagOrLanguage?.display}</span>
