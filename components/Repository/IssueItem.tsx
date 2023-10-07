@@ -23,10 +23,10 @@ const IssueCommentNum = ({ numIssues }: IssueCommentNumProps) => {
 export const IssueItem = ({ issue }: IssueItemProps) => {
   return (
     <li key={issue.url} className="flex flex-row items-start justify-start py-1">
-      <span className="min-w-[70px] pr-2 text-right leading-snug text-secondary">#{issue.number}</span>
+      <span className="min-w-[74px] pr-2 text-right leading-snug text-secondary">#{issue.number}</span>
       <div className="flex flex-auto flex-row items-start">
         <a
-          className="mr-4 block flex-auto text-justify leading-snug transition-all hover:text-primary"
+          className={`block flex-auto break-all leading-snug transition-all hover:text-primary ${issue.comments_count > 0 ? 'mr-4' : 'mr-12'}`}
           href={issue.url}
           rel="noopener noreferrer"
           target="_blank"
