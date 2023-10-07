@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useAppData } from "../hooks/useAppData";
 import { AboutSection } from "./AboutSection";
 import { LinkButton } from "./Button/LinkButton";
+import { CollectivSection } from "./Collectiv/CollectivSection";
 import { NewsletterSection } from "./NewsletterSection";
 import { LanguagePicker } from "./Picker/LanguagePicker";
 import { TagPicker } from "./Picker/TagPicker";
@@ -34,6 +35,7 @@ export const Sidebar = () => {
       <LinkButton href="https://github.com/lucavallin/first-issue#adding-a-new-project">
         Add your project
       </LinkButton>
+      <CollectivSection />
       <NewsletterSection />
       <LanguagePicker
         languages={languages}

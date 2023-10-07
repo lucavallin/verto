@@ -1,4 +1,5 @@
 import { Repository } from "../../types";
+import { RepositoryCollectivButton } from "../Collectiv/RepositoryCollectivButton";
 import { RepositoryIssueNumberIndicator } from "./RepositoryIssueNumberIndicator";
 import { RepositoryLinkTitle } from "./RepositoryLinkTitle";
 
@@ -30,6 +31,7 @@ export const RepositoryItemTopBar = ({
       <div className="flex flex-1 items-center justify-end">
         <div className={`h-2 w-2 rounded-full ${repositoryHasNewIssues ? "bg-primary" : ""}`}></div>
       </div>
+      {isIssueOpen && <RepositoryCollectivButton />}
       <RepositoryIssueNumberIndicator
         isIssueOpen={isIssueOpen}
         numberOfIssues={repositoryNumIssues}
