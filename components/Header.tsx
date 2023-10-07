@@ -7,9 +7,9 @@ import { Tag } from "../types";
 
 export const Header = () => {
   const router = useRouter();
-  const { tag: path } = router.query;
+  const { tag, language } = router.query;
   const { languages, tags } = useAppData();
-  const tag = [...languages, ...tags].find((tag: Tag) => tag.id === path);
+  const activeTagOrLanguage = [...languages, ...tags].find((t: Tag) => (t.id === tag || t.id === language));
 
   return (
     <header className="container mx-auto my-5 flex max-w-6xl flex-col items-center bg-dark-400 p-6 md:my-10 md:flex-row md:justify-between">
@@ -17,10 +17,10 @@ export const Header = () => {
         <Link href="/">
           <Image src="/firstissue.png" alt="First Issue" className="h-12" width={290} height={51} />
         </Link>
-        {path && tag ? (
+        {activeTagOrLanguage && activeTagOrLanguage ? (
           <span className="cursor-pointer pt-3 text-2xl">
             <span className="mx-3 font-normal text-secondary">/</span>
-            <span className="font-semibold text-primary">{tag?.display}</span>
+            <span className="font-semibold text-primary">{activeTagOrLanguage?.display}</span>
           </span>
         ) : null}
       </nav>
