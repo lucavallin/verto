@@ -1,10 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CollectivTitle } from "./Collectiv/CollectivTitle";
 import { SectionTitle } from "./SectionTitle";
 
 export const SponsorsBar = () => (
   <div className="flex items-center justify-between bg-dark-400 px-6 py-3 transition-all hover:border-primary hover:text-primary">
-    <SectionTitle text="Sponsored by" />
+    <div className="flex gap-2">
+      <SectionTitle text="Sponsored by" />
+      <CollectivTitle text="Collectiv." />
+    </div>
     <div className="flex items-center justify-between">
       <Link href="https://cavall.in" className="grayscale hover:grayscale-0">
         <Image src="/sponsors/lucavallin.png" alt="lucavallin" width={25} height={25} />

@@ -3,5 +3,12 @@ type CollectivTitleProps = {
 };
 
 export const CollectivTitle = ({ text }: CollectivTitleProps) => (
-  <h3 className="mb-2 text-sm font-bold uppercase tracking-wider text-[#F8F8F8]">{text}</h3>
+  <a
+    href="https://chat.collectivai.com/"
+    className="mb-2 text-sm font-bold uppercase tracking-wider text-[#F8F8F8] "
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    {text}
+  </a>
 );
