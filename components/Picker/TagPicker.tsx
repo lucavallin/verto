@@ -50,6 +50,7 @@ export const TagPicker = ({ tags, activeTagId, onTagPage }: TagPickerProps) => {
         />
       </div>
       <div
+      onClick={toggleCollapsible}
         className={`transition-max-height overflow-hidden duration-300 ease-in-out ${
           isCollapsed ? "max-h-0" : "max-h-96"
         } ${isCollapsed ? "sm:max-h-full" : ""}`}
