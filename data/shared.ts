@@ -1,6 +1,7 @@
 import { CountableTag, Repository, Source, Tag } from "../types";
 import { getGitHubRepositories } from "./github";
 import { getGitLabRepositories } from "./gitlab";
+import { chunkArray, sleep } from "./utils";
 
 // Number of repositories to query per request (max 100, but set to a smaller number to prevent timeouts)
 const REPOS_PER_REQUEST = 25;
@@ -22,40 +23,34 @@ const providersSettings = {
  * @param source The source to process.
  * @returns A promise that resolves to an array of repository models.
  */
-export const processSource = (source: Source): Promise<Repository[]> => {
+export const processSource = async (source: Source): Promise<Repository[]> => {
   const providerSettings = providersSettings[source.provider];
+  const repos = [...new Set(source.repositories)].slice(
+    0,
+    process.env.NODE_ENV === "development" ? 200 : source.repositories.length
+  );
+  const chunks = chunkArray(repos, REPOS_PER_REQUEST);
 
-  return [...new Set(source.repositories)]
-    .slice(0, process.env.NODE_ENV === "development" ? 200 : source.repositories.length)
-    .reduce((repoChunks: string[][], repo: string, index) => {
-      // Split repositories into smaller chunks, this helps prevent request timeouts
-      const chunkIndex = Math.floor(index / REPOS_PER_REQUEST);
-      if (!repoChunks[chunkIndex]) {
-        repoChunks[chunkIndex] = [];
-      }
-      repoChunks[chunkIndex].push(repo);
-      return repoChunks;
-    }, [])
-    .reduce<Promise<Repository[]>>(async (repoData, chunk, index, arr) => {
-      return repoData.then(async (repos) => {
-        console.log(
-          `Getting ${source.name} repositories - chunk ${index + 1} of ${arr.length} (size: ${
-            chunk.length
-          })`
-        );
+  const repositories = [];
 
-        const repositories = await providerSettings.getterFunction(
-          source.url ?? providerSettings.defaultUrl,
-          chunk,
-          source.labels
-        );
+  for (let i = 0; i < chunks.length; i++) {
+    const chunk = chunks[i];
 
-        // wait 1s between requests
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+    console.log(
+      `Getting ${source.name} repositories - chunk ${i + 1} of ${chunks.length} (size: ${
+        chunk.length
+      })`
+    );
+    const repos = await providerSettings.getterFunction(
+      source.url ?? providerSettings.defaultUrl,
+      chunk,
+      source.labels
+    );
+    repositories.push(repos);
+    await sleep(1000); // wait 1s between requests
+  }
 
-        return [...repos, ...repositories];
-      });
-    }, Promise.resolve([]));
+  return repositories.flat();
 };
 
 /**

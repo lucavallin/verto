@@ -44,3 +44,14 @@ export const generateAndWriteSiteMap = async (data: Data) => {
   await fs.writeFile("public/sitemap.xml", sitemap);
   console.log("Generated public/sitemap.xml");
 };
+
+export const chunkArray = <T>(arr: T[], chunkSize: number): T[][] => {
+  const chunks = [];
+  for (let i = 0; i < arr.length; i += chunkSize) {
+    chunks.push(arr.slice(i, i + chunkSize));
+  }
+  return chunks;
+};
+
+export const sleep = (ms: number): Promise<void> =>
+  new Promise((resolve) => setTimeout(resolve, ms));
