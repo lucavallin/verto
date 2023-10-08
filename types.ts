@@ -103,3 +103,9 @@ export interface GitLabRepository {
     }[];
   };
 }
+
+export interface Data {
+  repositories: Repository[];
+  languages: CountableTag[];
+  tags: CountableTag[];
+}
