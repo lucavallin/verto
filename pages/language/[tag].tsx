@@ -32,12 +32,10 @@ export const getStaticProps: GetStaticProps<LanguageProps, Params> = async ({
 };
 
 export default function Language({ tag }: LanguageProps) {
-  const { languages } = useAppData();
-
+  const { languages, filterRepositoriesByLanguage } = useAppData();
   const language = languages.find((language) => language.id === tag);
   const pageTitle = `First Issue | ${language?.display} Language`;
-  const { filterRepositoriesByTag } = useAppData();
-  const filteredRepositories = filterRepositoriesByTag(tag);
+  const filteredRepositories = filterRepositoriesByLanguage(tag);
 
   return (
     <>
@@ -48,5 +46,3 @@ export default function Language({ tag }: LanguageProps) {
     </>
   );
 }
-
-
