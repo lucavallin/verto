@@ -1,4 +1,4 @@
-import { CountableTag, Repository, Source, Tag } from "../types";
+import { CountableLanguage, CountableTag, Repository, Source, Tag } from "../types";
 import { getGitHubRepositories } from "./github";
 import { getGitLabRepositories } from "./gitlab";
 import { chunkArray, sleep } from "./utils";
@@ -57,19 +57,19 @@ export const processSource = async (source: Source): Promise<Repository[]> => {
  * Returns an array of languages with a count of how many repositories use them.
  * Filters out languages with less than 3 repositories and sorts the remaining languages alphabetically.
  * @param repositories An array of Repository objects.
- * @returns An array of CountableTag objects representing the filtered and sorted languages.
+ * @returns An array of CountableLanguage objects representing the filtered and sorted languages.
  */
 export const getFilteredLanguages = (repositories: Repository[]) =>
   Object.values(
     repositories.reduce(
-      (arr: { [key: string]: CountableTag }, repo: Repository) => {
+      (arr: { [key: string]: CountableLanguage }, repo: Repository) => {
         // group languages by id and count them
         const { id, display } = repo.language;
         if (arr[id] === undefined) arr[id] = { id, display, count: 1 };
         else arr[id].count++;
         return arr;
       },
-      {} as { [key: string]: CountableTag }
+      {} as { [key: string]: CountableLanguage }
     )
   )
     // Ignore language with less than 3 repositories

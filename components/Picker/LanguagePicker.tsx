@@ -1,13 +1,13 @@
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import { CountableTag } from "../../types";
+import { CountableLanguage } from "../../types";
 import { SectionTitle } from "../SectionTitle";
 import { PickerItem } from "./PickerItem";
 
 type LanguagePickerProps = {
   activeTagId: string | string[] | undefined;
-  languages: CountableTag[];
+  languages: CountableLanguage[];
   onLanguagePage: boolean;
 };
 

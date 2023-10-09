@@ -1,7 +1,7 @@
 import React, { createContext, useState } from "react";
 
 import data from "../data/data.json";
-import { AppData, CountableTag, Repository, RepositorySortOrder } from "../types";
+import { AppData, CountableTag, CountableLanguage, Repository, RepositorySortOrder } from "../types";
 
 const DEFAULT_VALUE: AppData = {
   languages: [],
@@ -22,7 +22,7 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
     tags
   }: {
     repositories: Repository[];
-    languages: CountableTag[];
+    languages: CountableLanguage[];
     tags: CountableTag[];
   } = data;
   const [repositories, setRepositories] = useState<Repository[]>(allRepositories);

@@ -1,6 +1,6 @@
 import fs from "fs/promises";
 import slugify from "slugify";
-import { CountableTag as CountableTagModel, Data } from "../types";
+import { CountableLanguage, CountableTag, Data } from "../types";
 
 export const extendedSlugify = (text: string): string => {
   // symbols to replace with slugify
@@ -29,14 +29,12 @@ export const generateAndWriteSiteMap = async (data: Data) => {
         </url>
         ${data.languages
           .map(
-            (language: CountableTagModel) =>
+            (language: CountableLanguage) =>
               `<url><loc>https://firstissue.dev/language/${language.id}</loc></url>`
           )
           .join("")}
         ${data.tags
-          .map(
-            (tag: CountableTagModel) => `<url><loc>https://firstissue.dev/tag/${tag.id}</loc></url>`
-          )
+          .map((tag: CountableTag) => `<url><loc>https://firstissue.dev/tag/${tag.id}</loc></url>`)
           .join("")}
       </urlset>
     `;
