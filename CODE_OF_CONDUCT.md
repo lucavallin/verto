@@ -1,6 +1,6 @@
 # Code of Conduct
 
-We as members and contributors, and leaders pledge to make participation in our community 
+We as members and contributors, and leaders pledge to make participation in our community
 a pleasant experience for everyone, interacting in ways that contribute to a welcoming and healthy community.
 
 Community leaders are responsible for clarifying and enforcing our code of conduct and will take appropriate and fair corrective action in
@@ -17,12 +17,12 @@ an individual is officially representing the community in public spaces.
 
 ## Examples of unacceptable behavior
 
-* Personal attacks including derogatory comments
-* Harassement of any kind (public, private, sexual...)
-* Publishing others' private information, such as a physical or email
+- Personal attacks including derogatory comments
+- Harassement of any kind (public, private, sexual...)
+- Publishing others' private information, such as a physical or email
   address, without their explicit permission
-* Discussing politics and other controversial topics
-* Other conduct which could reasonably be considered inappropriate in a
+- Discussing politics and other controversial topics
+- Other conduct which could reasonably be considered inappropriate in a
   professional setting or in a public community
 
 ## Enforcement Guidelines

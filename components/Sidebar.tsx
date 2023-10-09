@@ -13,7 +13,7 @@ import { TagPicker } from "./Picker/TagPicker";
 export const Sidebar = () => {
   const router = useRouter();
   const { languages, tags } = useAppData();
-  const { tag: activeTagId } = router.query;
+  const { tag: activeTagId, language: activeLanguageId } = router.query;
   const pageName = router.pathname.split("/")[1];
   const [scrollHeightReached, setScrollHeightReached] = useState(false);
 
@@ -61,7 +61,7 @@ export const Sidebar = () => {
       >
         <LanguagePicker
           languages={languages}
-          activeTagId={activeTagId}
+          activeTagId={activeLanguageId}
           onLanguagePage={pageName == "language"}
         />
         <TagPicker tags={tags} activeTagId={activeTagId} onTagPage={pageName == "tag"} />

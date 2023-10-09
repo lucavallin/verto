@@ -21,12 +21,7 @@
       "postmarketOS/pmbootstrap|7301016",
       "LazyLibrarian/LazyLibrarian|9317860"
     ],
-    "labels": [
-      "quick win",
-      "Seeking community contribution",
-      "help wanted",
-      "good first issue"
-    ]
+    "labels": ["quick win", "Seeking community contribution", "help wanted", "good first issue"]
   },
   {
     "name": "GitHub",

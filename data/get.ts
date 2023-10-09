@@ -360,7 +360,9 @@ const getGitLabRepositories = async (
   // unfortunately, there's no way to filter repositories by number of issues or stars count
   // in the search query, so filter out repos with less than 3 open issues and less than 350
   // stars in here
-  return projects.filter((project: RepositoryModel) => project.issues.length >= 3 && project.stars > 300);
+  return projects.filter(
+    (project: RepositoryModel) => project.issues.length >= 3 && project.stars > 300
+  );
 };
 
 const providersSettings = {

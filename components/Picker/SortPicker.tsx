@@ -14,7 +14,7 @@ export const SortPicker = ({ activeSort, sortOptions, onSortOrderSelect }: SortP
       id="repositories-list"
     >
       <div>
-        <SectionTitle text="Sort Repositories" />
+        <SectionTitle className="mb-2" text="Sort Repositories" />
       </div>
       <div>
         {sortOptions.map((sortOption) => {
