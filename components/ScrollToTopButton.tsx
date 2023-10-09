@@ -7,7 +7,7 @@ const ScrollToTopButton = () => {
   // Function to handle the scroll event
   const handleScroll = () => {
     // Check the scroll position to determine when to show the "Up Arrow" button
-    if (window.scrollY > 700) {
+    if (window.scrollY > 700 ) {
       setShowUpArrow(true);
     } else {
       setShowUpArrow(false);
@@ -34,9 +34,9 @@ const ScrollToTopButton = () => {
       {showUpArrow && (
         <button
           onClick={scrollToTop}
-          className="w-4 h-4 flex justify-center items-center p-4  rounded-full  border border-primary bg-transparent fixed bottom-4 right-4 "
+          className="fixed bottom-4 right-4 flex h-14   w-14  items-center justify-center rounded-full border border-primary bg-transparent  "
         >
-          <FontAwesomeIcon icon={faArrowUp} size="lg" />
+          <FontAwesomeIcon icon={faArrowUp} size="xl"/>
         </button>
       )}
     </div>

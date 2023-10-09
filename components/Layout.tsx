@@ -1,8 +1,8 @@
 import React from "react";
 
 import { Header } from "./Header";
-import { Sidebar } from "./Sidebar";
 import ScrollToTopButton from "./ScrollToTopButton";
+import { Sidebar } from "./Sidebar";
 type LayoutProps = {
   children: React.ReactNode;
 };
@@ -13,8 +13,8 @@ export const Layout = ({ children }: LayoutProps) => (
     <main className="flex flex-1 ">
       <section className="container mx-auto flex max-w-6xl flex-col md:flex-row">
         <Sidebar />
-        <ScrollToTopButton/>
         {children}
+        <ScrollToTopButton />
       </section>
     </main>
   </div>
