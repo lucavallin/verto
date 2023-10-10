@@ -16,7 +16,7 @@ export const RepositoryLinkTitle = ({
   return (
     <a
       className={`text-xl font-bold transition-all group-hover:text-primary ${
-        isIssueOpen ? "text-primary" : ""
+        isIssueOpen ? "text-primary md:w-[50%] md:truncate" : ""
       }`}
       href={repositoryUrl}
       rel="noopener noreferrer"

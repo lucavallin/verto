@@ -9,6 +9,9 @@ export const SponsorsBar = () => (
       <Link href="https://lucavall.in" className="grayscale hover:grayscale-0">
         <Image src="/sponsors/lucavallin.png" alt="lucavallin" width={25} height={25} />
       </Link>
+      <Link href="https://chat.collectivai.com/" className="hover:scale-110">
+        <Image src="/sponsors/collectivIcon.png" alt="collectiv" width={26} height={26} />
+      </Link>
     </div>
     <Link
       href={`${process.env.NEXT_PUBLIC_SPONSOR_URL}`}

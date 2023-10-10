@@ -52,7 +52,13 @@ export const RepositoryItem = ({ repository }: RepositoryItemProps) => {
           repositoryStars={repository.stars_display}
         />
       </div>
-      {isIssueOpen && <IssuesList issues={repository.issues} />}
+      {isIssueOpen && (
+        <IssuesList
+          issues={repository.issues}
+          repositoryName={repository.name}
+          repositoryOwner={repository.owner}
+        />
+      )}
     </div>
   );
 };
