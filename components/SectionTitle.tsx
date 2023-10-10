@@ -1,9 +1,11 @@
 type SectionTitleProps = {
   text: string;
+  className?: string;
 };
 
-export const SectionTitle = ({ text }: SectionTitleProps) => (
-  <div className="flex items-center gap-[6px]">
-    <h3 className="mb-2 text-sm font-bold uppercase tracking-wider text-secondary">{text}</h3>
-  </div>
+
+export const SectionTitle = ({ text, className }: SectionTitleProps) => (
+  <h3 className={`${className || ""} text-sm font-bold uppercase tracking-wider text-secondary`}>
+    {text}
+  </h3>
 );
