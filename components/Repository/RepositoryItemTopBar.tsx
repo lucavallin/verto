@@ -1,4 +1,4 @@
-import useMediaQuery from "../../hooks/useMediaQuery";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { Repository } from "../../types";
 import { RepositoryCollectivButton } from "../Collectiv/RepositoryCollectivButton";
 import { RepositoryIssueNumberIndicator } from "./RepositoryIssueNumberIndicator";
