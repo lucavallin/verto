@@ -9,7 +9,7 @@ export const CollectivSection = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <span className=" font-bold text-primary transition-all hover:underline">
+          <span className="font-bold text-primary transition-all hover:underline">
             Collectiv
             <img
               src="/sponsors/linkout.png"
