@@ -26,7 +26,7 @@ export const IssueItem = ({ issue }: IssueItemProps) => {
       <span className="min-w-[74px] pr-2 text-right leading-snug text-secondary">#{issue.number}</span>
       <div className="flex flex-auto flex-row items-start">
         <a
-          className={`block flex-auto break-all leading-snug transition-all hover:text-primary ${issue.comments_count > 0 ? 'mr-4' : 'mr-12'}`}
+          className={`block flex-auto leading-snug transition-all hover:text-primary ${issue.comments_count > 0 ? 'mr-4' : 'mr-12'}`}
           href={issue.url}
           rel="noopener noreferrer"
           target="_blank"
