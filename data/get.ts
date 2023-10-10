@@ -23,8 +23,10 @@ import slugify from "slugify";
 import config from "../config.json";
 import {
   CountableTag as CountableTagModel,
+  GitLabRepository,
   Issue as IssueModel,
   Repository as RepositoryModel,
+  Source as SourceModel,
   Tag as TagModel
 } from "../types";
 
@@ -82,7 +84,8 @@ const octokit = new MyOctokit({
  * Use {@link https://docs.github.com/en/graphql/overview/explorer GitHub's GraphQL API explorer} to
  * build and test the search query.
  */
-const getRepositories = async (
+const getGitHubRepositories = async (
+  url: string,
   repositories: string[],
   labels: string[]
 ): Promise<RepositoryModel[]> => {
@@ -243,27 +246,176 @@ const getRepositories = async (
   return repoData.filter((repo) => repo.issues.length >= 3);
 };
 
-[...new Set(config.repositories)]
-  .slice(0, process.env.NODE_ENV === "development" ? 200 : config.repositories.length)
-  .reduce((repoChunks: string[][], repo: string, index) => {
-    // Split repositories into smaller chunks, this helps prevent request timeouts
-    const chunkIndex = Math.floor(index / REPOS_PER_REQUEST);
-    if (!repoChunks[chunkIndex]) {
-      repoChunks[chunkIndex] = [];
-    }
-    repoChunks[chunkIndex].push(repo);
-    return repoChunks;
-  }, [])
-  .reduce<Promise<RepositoryModel[]>>(async (repoData, chunk, index, arr) => {
+/**
+ * Retrieve a list of repositories by calling GitLab GraphQL API.
+ *
+ * Use {@link https://gitlab.com/-/graphql-explorer GitLab's GraphQL API explorer} to
+ * build and test the search query.
+ */
+const getGitLabRepositories = async (
+  url: string,
+  repositories: string[],
+  labels: string[]
+): Promise<RepositoryModel[]> => {
+  const labelsFilter = labels.map((label) => `"${label}"`).join(",");
+
+  const response = await fetch(`${url}/api/graphql`, {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json;charset=UTF-8"
+    },
+    body: JSON.stringify({
+      query: `
+      query {
+        projects(
+          ids: [${repositories
+            .map((repoId) => `"gid://gitlab/Project/${repoId.split("|")[1]}"`)
+            .join(",")}],
+          withMergeRequestsEnabled:true
+          withIssuesEnabled:true
+          sort: "stars_desc"
+        ) {
+          nodes {
+            id
+            name
+            description
+            starCount
+            openIssuesCount
+            lastActivityAt
+            webUrl
+            group {
+              fullName
+            },
+            languages {
+              name
+              share
+            },
+            topics,
+            issues(
+              first:10
+              or: {
+                labelNames: [${labelsFilter}]
+              },
+              state:opened
+              sort:UPDATED_DESC
+              confidential:false
+            ) {
+              nodes {
+                iid
+                webUrl
+                title
+                createdAt
+                labels { 
+                  nodes { title }
+                }
+              }
+            }
+          }
+        }
+      }`
+    })
+  });
+
+  const data = await response.json();
+  const projects = data.data.projects.nodes.map((project: GitLabRepository): RepositoryModel => {
+    return {
+      id: project.id,
+      name: project.name,
+      description: project.description,
+      owner: project.group.fullName,
+      language: ((language): TagModel => ({
+        id: slugify(language.name, { lower: true }),
+        display: language.name
+      }))(
+        project.languages.reduce((prev, current) => {
+          return prev && prev.share > current.share ? prev : current;
+        })
+      ),
+      last_modified: project.lastActivityAt,
+      stars: project.starCount,
+      stars_display: millify(project.starCount),
+      url: project.webUrl,
+      tags: project.topics.map((topic) => ({
+        id: topic,
+        display: topic
+      })),
+      issues: project.issues.nodes.map((issue) => ({
+        id: issue.webUrl,
+        number: parseInt(issue.iid),
+        title: issue.title,
+        url: issue.webUrl,
+        comments_count: 0,
+        created_at: issue.createdAt,
+        labels: issue.labels.nodes.map((label) => ({
+          id: slugify(label.title, { lower: true }),
+          display: label.title
+        }))
+      })),
+      has_new_issues: project.issues.nodes.some(
+        (issue) => dayjs().diff(dayjs(issue.createdAt), "day") <= 7
+      )
+    };
+  });
+
+  // unfortunately, there's no way to filter repositories by number of issues or stars count
+  // in the search query, so filter out repos with less than 3 open issues and less than 350
+  // stars in here
+  return projects.filter(
+    (project: RepositoryModel) => project.issues.length >= 3 && project.stars > 300
+  );
+};
+
+const providersSettings = {
+  github: {
+    getterFunction: getGitHubRepositories,
+    defaultUrl: "https://github.com"
+  },
+  gitlab: {
+    getterFunction: getGitLabRepositories,
+    defaultUrl: "https://gitlab.com"
+  }
+};
+
+const processSource = (source: SourceModel): Promise<RepositoryModel[]> => {
+  const providerSettings = providersSettings[source.provider];
+
+  return [...new Set(source.repositories)]
+    .slice(0, process.env.NODE_ENV === "development" ? 200 : source.repositories.length)
+    .reduce((repoChunks: string[][], repo: string, index) => {
+      // Split repositories into smaller chunks, this helps prevent request timeouts
+      const chunkIndex = Math.floor(index / REPOS_PER_REQUEST);
+      if (!repoChunks[chunkIndex]) {
+        repoChunks[chunkIndex] = [];
+      }
+      repoChunks[chunkIndex].push(repo);
+      return repoChunks;
+    }, [])
+    .reduce<Promise<RepositoryModel[]>>(async (repoData, chunk, index, arr) => {
+      return repoData.then(async (repos) => {
+        console.log(
+          `Getting ${source.name} repositories - chunk ${index + 1} of ${arr.length} (size: ${
+            chunk.length
+          })`
+        );
+
+        const repositories = await providerSettings.getterFunction(
+          source.url ?? providerSettings.defaultUrl,
+          chunk,
+          source.labels
+        );
+
+        // wait 1s between requests
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+
+        return [...repos, ...repositories];
+      });
+    }, Promise.resolve([]));
+};
+
+(config as SourceModel[])
+  .reduce<Promise<RepositoryModel[]>>(async (repoData, source) => {
     return repoData.then(async (repos) => {
-      console.log(
-        `Getting repositories - chunk ${index + 1} of ${arr.length} (size: ${chunk.length})`
-      );
-      const repositories = await getRepositories(chunk, config.labels);
-
-      // wait 1s between requests
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
+      const repositories = await processSource(source);
       return [...repos, ...repositories];
     });
   }, Promise.resolve([]))
@@ -318,14 +470,6 @@ const getRepositories = async (
     // Write generated data to file for use in the app
     fs.writeFileSync("data/data.json", JSON.stringify(data));
     console.log("Generated data/data.json");
-
-    // Update config.json with new list of repositories
-    config.repositories = data.repositories
-      .map((repo) => `${repo.owner}/${repo.name}`)
-      // Sort alphabetically
-      .sort((a, b) => a.localeCompare(b));
-    fs.writeFileSync("config.json", JSON.stringify(config, null, 2));
-    console.log("Generated config.json");
 
     // Build sitemap
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

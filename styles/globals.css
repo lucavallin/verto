@@ -2,9 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+.custom-substack-widget+.success, .custom-substack-widget+.error {
+  font-family: var(--font-inter), sans-serif !important;
+  color: #cb3364 !important;
+  font-size: 0.875rem;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #373c49;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #cb3364;
+  border-radius: 2px;
+}
+
 .active-pill {
   @apply border-primary font-semibold text-primary;
 }
+
 .active-pill > span {
   @apply text-primary;
 }
