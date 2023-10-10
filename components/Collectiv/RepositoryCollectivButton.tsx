@@ -19,7 +19,7 @@ export const RepositoryCollectivButton = ({
         className={`flex items-center text-sm  font-semibold ${
           isMedia720px
             ? "m-2 justify-center gap-2 rounded-[4px]  border  border-primary px-[8px] py-[6px]"
-            : "mx-2 ml-2 gap-1 rounded-full  border-transparent bg-primary px-2 text-light-200"
+            : "mx-2 ml-2 gap-1 rounded-full  border-transparent bg-primary px-[14px] text-light-200"
         }`}
         target="_blank"
         rel="noopener noreferrer"
