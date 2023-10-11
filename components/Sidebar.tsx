@@ -15,36 +15,35 @@ export const Sidebar = () => {
   const { languages, tags } = useAppData();
   const { tag: activeTagId, language: activeLanguageId } = router.query;
   const pageName = router.pathname.split("/")[1];
+
+  // State variable to track whether the user has scrolled to a minimum height of 701.5 pixels vertically.
   const [scrollHeightReached, setScrollHeightReached] = useState(false);
 
   useEffect(() => {
     const scrollTarget = document.getElementById("repositories-list");
     const isMobile = window.innerWidth <= 640;
-    if (isMobile && (pageName === "language" || pageName === "tag")) {
-      scrollTarget?.scrollIntoView({ behavior: "smooth" });
-    }
 
-    // Function to handle the scroll event
-    const shouldApplyStickyClasses = () => {
-      // Check the scroll position to determine when to apply classes
-      if (window.scrollY >= 701.5) {
-        setScrollHeightReached(true);
-      } else {
-        setScrollHeightReached(false);
+    // Handle scroll events and set "scrollHeightReached" when the user scrolls to 701.5 pixels vertically.
+    const handleScroll = () => {
+      // Scroll into view if conditions are met (isMobile and pageName criteria).
+      if (isMobile && (pageName === "language" || pageName === "tag")) {
+        scrollTarget?.scrollIntoView({ behavior: "smooth" });
       }
+      // Set "scrollHeightReached" based on scroll position.
+      setScrollHeightReached(window.scrollY >= 701.5);
     };
-
+    
     // Add the scroll event listener
-    window.addEventListener("scroll", shouldApplyStickyClasses);
+    window.addEventListener("scroll", handleScroll);
 
     // Remove the scroll event listener when the component unmounts
     return () => {
-      window.removeEventListener("scroll", shouldApplyStickyClasses);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [router.asPath, pageName]);
 
   return (
-    <section className=" w-full flex-none px-6 font-sans text-light-300 md:relative md:max-w-sm">
+    <section className="w-full flex-none px-6 font-sans text-light-300 md:relative md:max-w-sm">
       <AboutSection />
       <LinkButton href="https://github.com/lucavallin/first-issue" secondary>
         <FontAwesomeIcon icon={faGithub} className="mr-2" />
