@@ -1,6 +1,6 @@
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CountableLanguage } from "../../types";
 import { SectionTitle } from "../SectionTitle";
 import { PickerItem } from "./PickerItem";
@@ -14,6 +14,12 @@ type LanguagePickerProps = {
 export const LanguagePicker = ({ activeTagId, languages, onLanguagePage }: LanguagePickerProps) => {
   const [isCollapsed, setIsCollapsed] = useState<boolean>(true);
 
+  // Automatically collapse the sidebar after redirection
+  useEffect(() => {
+    setIsCollapsed(true);
+  }, [onLanguagePage, activeTagId]);
+
+  // Toggle the collapsible sidebar
   const toggleCollapsible = () => {
     setIsCollapsed(!isCollapsed);
   };

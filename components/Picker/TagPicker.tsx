@@ -1,6 +1,6 @@
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { CountableTag } from "../../types";
 import { ShowMoreButton } from "../Button/ShowMoreButton";
 import { SectionTitle } from "../SectionTitle";
@@ -20,6 +20,11 @@ export const TagPicker = ({ tags, activeTagId, onTagPage }: TagPickerProps) => {
 
   const [isCollapsed, setIsCollapsed] = useState<boolean>(true);
 
+  // Automatically collapse the sidebar after redirection
+  useEffect(() => {
+    setIsCollapsed(true);
+  }, [activeTagId]);
+
   const toggleCollapsible = () => {
     setIsCollapsed(!isCollapsed);
   };
@@ -34,6 +39,7 @@ export const TagPicker = ({ tags, activeTagId, onTagPage }: TagPickerProps) => {
 
     setShowMore(!showMore);
   };
+
 
   return (
     <div className="pt-6">
