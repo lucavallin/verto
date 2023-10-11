@@ -30,7 +30,7 @@ export const LanguagePicker = ({ activeTagId, languages, onLanguagePage }: Langu
         onClick={toggleCollapsible}
         className={`flex cursor-pointer ${isCollapsed ? "sm:flex" : ""}`}
       >
-        <SectionTitle text="Browse by Language" />
+        <SectionTitle className="mb-2" text="Browse by Language" />
         <FontAwesomeIcon
           icon={faChevronDown}
           className={`mx-2 mt-[3px] transform text-secondary transition-transform ${
