@@ -1,4 +1,3 @@
-import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { Issue, Repository } from "../../types";
 import { RepositoryCollectivButton } from "../Collectiv/RepositoryCollectivButton";
 
@@ -6,13 +5,10 @@ import { IssueItem } from "./IssueItem";
 
 type IssueListProps = {
   issues: Issue[];
-  repositoryName: Repository["name"];
-  repositoryOwner: Repository["owner"];
+  repositoryDetails: { name: Repository["name"]; owner: Repository["owner"] };
 };
 
-export const IssuesList = ({ issues, repositoryName, repositoryOwner }: IssueListProps) => {
-  const isMedia720px = useMediaQuery("(max-width : 720px)");
-
+export const IssuesList = ({ issues, repositoryDetails }: IssueListProps) => {
   return (
     <>
       <ol className="border-t border-dark-200 px-5 py-3 text-base leading-loose">
@@ -20,12 +16,12 @@ export const IssuesList = ({ issues, repositoryName, repositoryOwner }: IssueLis
           <IssueItem issue={issue} key={issue.id} />
         ))}
       </ol>
-      {isMedia720px && (
+      <div className="md:hidden">
         <RepositoryCollectivButton
-          repositoryName={repositoryName}
-          repositoryOwner={repositoryOwner}
+          repositoryName={repositoryDetails.name}
+          repositoryOwner={repositoryDetails.owner}
         />
-      )}
+      </div>
     </>
   );
 };

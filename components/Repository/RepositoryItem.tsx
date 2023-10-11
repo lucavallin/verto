@@ -55,8 +55,10 @@ export const RepositoryItem = ({ repository }: RepositoryItemProps) => {
       {isIssueOpen && (
         <IssuesList
           issues={repository.issues}
-          repositoryName={repository.name}
-          repositoryOwner={repository.owner}
+          repositoryDetails={{
+            name: repository.name,
+            owner: repository.owner
+          }}
         />
       )}
     </div>

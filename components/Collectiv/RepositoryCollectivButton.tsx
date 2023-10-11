@@ -1,4 +1,5 @@
-import { useMediaQuery } from "../../hooks/useMediaQuery";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Repository } from "../../types";
 
 type RepositoryCollectivButtonProps = {
@@ -10,25 +11,18 @@ export const RepositoryCollectivButton = ({
   repositoryOwner
 }: RepositoryCollectivButtonProps) => {
   const ownerAndRepoName = repositoryOwner + "/" + repositoryName;
-  const isMedia720px = useMediaQuery("(max-width : 720px)");
 
   return (
     <a
       href={`https://chat.collectivai.com/contribute?repo-name=${ownerAndRepoName}`}
-      className={`flex items-center text-sm  font-semibold ${
-        isMedia720px
-          ? "m-2 justify-center gap-2 rounded-[4px]  border  border-primary px-[8px] py-[6px]"
-          : "mx-2 ml-2 gap-1 rounded-full  border-transparent bg-primary px-[14px] text-light-200"
-      }`}
+      className="m-2 flex items-center  justify-center
+           gap-2  rounded-lg border border-primary p-2 text-sm font-semibold
+          md:m-0 md:mx-2 md:gap-1 md:rounded-full  md:border-transparent md:bg-primary md:px-[14px] md:text-light-200"
       target="_blank"
       rel="noopener noreferrer"
     >
       Get help from Collectiv
-      <img
-        src="/sponsors/arrowback.png"
-        alt="link"
-        className={`ml-1 h-[11px] w-[11px] ${isMedia720px ? " " : "inline-block"} `}
-      />
+      <FontAwesomeIcon icon={faArrowRight} className="ml-1  h-3 w-3" />
     </a>
   );
 };
