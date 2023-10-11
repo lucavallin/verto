@@ -57,7 +57,8 @@ export const RepositoryItem = ({ repository }: RepositoryItemProps) => {
           issues={repository.issues}
           repositoryDetails={{
             name: repository.name,
-            owner: repository.owner
+            owner: repository.owner,
+            url: repository.url
           }}
         />
       )}

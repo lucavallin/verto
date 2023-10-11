@@ -5,7 +5,11 @@ import { IssueItem } from "./IssueItem";
 
 type IssueListProps = {
   issues: Issue[];
-  repositoryDetails: { name: Repository["name"]; owner: Repository["owner"] };
+  repositoryDetails: {
+    name: Repository["name"];
+    owner: Repository["owner"];
+    url: Repository["url"];
+  };
 };
 
 export const IssuesList = ({ issues, repositoryDetails }: IssueListProps) => {
@@ -20,6 +24,7 @@ export const IssuesList = ({ issues, repositoryDetails }: IssueListProps) => {
         <RepositoryCollectivButton
           repositoryName={repositoryDetails.name}
           repositoryOwner={repositoryDetails.owner}
+          repositoryUrl={repositoryDetails.url}
         />
       </div>
     </>

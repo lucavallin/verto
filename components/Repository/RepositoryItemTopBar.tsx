@@ -36,6 +36,7 @@ export const RepositoryItemTopBar = ({
           <RepositoryCollectivButton
             repositoryName={repositoryName}
             repositoryOwner={repositoryOwner}
+            repositoryUrl={repositoryUrl}
           />
         </div>
       )}
