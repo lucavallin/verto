@@ -49,7 +49,7 @@ export const NewsletterSection = () => {
       </p>
 
       <Script src="https://substackapi.com/widget.js" strategy="lazyOnload" />
-      <div id="substack-embed" className="relative mt-4 flex rounded-md"></div>
+      <div id="substack-embed" className="relative mt-4 flex flex-col rounded-md"></div>
     </div>
   );
 };
