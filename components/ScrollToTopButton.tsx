@@ -1,7 +1,12 @@
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const ScrollToTopButton = ({ handleOnClick }: any) => {
+
+type ScrollToTopButtonProps = {
+  handleOnClick: () => void;
+};
+
+const ScrollToTopButton = ({ handleOnClick }: ScrollToTopButtonProps) => {
   return (
     <div>
       <button
