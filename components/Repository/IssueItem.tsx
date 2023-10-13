@@ -13,9 +13,13 @@ type IssueCommentNumProps = {
 
 const IssueCommentNum = ({ numIssues }: IssueCommentNumProps) => {
   return (
-    <div className="mt-1 flex w-10 flex-row items-center justify-end text-secondary">
-      <span className="mr-2 text-sm leading-snug">{numIssues}</span>
-      <FontAwesomeIcon icon={faComment} />
+    <div className="mt-1 flex min-w-[33px] flex-row items-center justify-end text-secondary">
+      {numIssues > 0 && (
+        <>
+          <span className="mr-2 text-sm leading-snug">{numIssues}</span>
+          <FontAwesomeIcon icon={faComment} />
+        </>
+      )}
     </div>
   );
 };
@@ -26,7 +30,7 @@ export const IssueItem = ({ issue }: IssueItemProps) => {
       <span className="w-30 px-2 text-right leading-snug text-secondary">#{issue.number}</span>
       <div className="flex flex-auto flex-row items-start">
         <a
-          className="mr-4 block flex-auto break-all leading-snug transition-all hover:text-primary"
+          className="mr-4 block flex-auto leading-snug transition-all hover:text-primary"
           href={issue.url}
           rel="noopener noreferrer"
           target="_blank"
@@ -34,7 +38,7 @@ export const IssueItem = ({ issue }: IssueItemProps) => {
         >
           {issue.title}
         </a>
-        {issue.comments_count > 0 && <IssueCommentNum numIssues={issue.comments_count} />}
+        <IssueCommentNum numIssues={issue.comments_count} />
       </div>
     </li>
   );
