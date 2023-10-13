@@ -15,14 +15,14 @@ export const RepositoryMetadata = ({
 }: RepositoryMetadataProps) => {
   return (
     <div
-      className={`flex flex-row py-1 font-mono text-sm ${isIssueOpen ? "font-bold" : "font-light"}`}
+      className={`flex flex-row py-1 font-mono lg:gap-4 text-sm ${isIssueOpen ? "font-bold text-yellow" : "font-light text-gray"}`}
     >
-      <div className="mr-4">
+      <div className="mr-4 ">
         <span className="text-green-600">lang: </span>
         {repositoryLang}
       </div>
-      <div className="mr-4">
-        <span className="text-blue-600">stars: </span>
+      <div className="mr-4 text-blue-600 bg-orange-400	">
+        <span className="">stars: </span>
         {repositoryStars}
       </div>
       <div className="mr-4">

@@ -1,9 +1,10 @@
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState,useEffect } from "react";
+import { useState, useEffect} from "react";
 import { CountableTag } from "../../types";
 import { ShowMoreButton } from "../Button/ShowMoreButton";
 import { SectionTitle } from "../SectionTitle";
+import ActiveTagButton from "./ActiveTagButton";
 import { PickerItem } from "./PickerItem";
 
 type TagPickerProps = {
@@ -40,7 +41,6 @@ export const TagPicker = ({ tags, activeTagId, onTagPage }: TagPickerProps) => {
     setShowMore(!showMore);
   };
 
-
   return (
     <div className="pt-6">
       <div
@@ -54,6 +54,9 @@ export const TagPicker = ({ tags, activeTagId, onTagPage }: TagPickerProps) => {
             isCollapsed ? "rotate-0" : "rotate-180"
           } animate-fade-in duration-300 ease-in-out md:hidden`}
         />
+
+        {/* Display the active tag button when a tag is selected, and the tag picker is collapsed. */}
+        {activeTagId && isCollapsed && <ActiveTagButton data={activeTagId} />}
       </div>
       <div
         className={`transition-max-height overflow-hidden duration-300 ease-in-out ${

@@ -1,13 +1,13 @@
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
-import { CountableTag } from "../../types";
+import { CountableLanguage } from "../../types";
 import { SectionTitle } from "../SectionTitle";
+import ActiveTagButton from "./ActiveTagButton";
 import { PickerItem } from "./PickerItem";
-
 type LanguagePickerProps = {
   activeTagId: string | string[] | undefined;
-  languages: CountableTag[];
+  languages: CountableLanguage[];
   onLanguagePage: boolean;
 };
 
@@ -30,13 +30,16 @@ export const LanguagePicker = ({ activeTagId, languages, onLanguagePage }: Langu
         onClick={toggleCollapsible}
         className={`flex cursor-pointer ${isCollapsed ? "sm:flex" : ""}`}
       >
-        <SectionTitle className="mb-2" text="Browse by Language" />
+        <SectionTitle text="Browse by Language" />
         <FontAwesomeIcon
           icon={faChevronDown}
           className={`mx-2 mt-[3px] transform text-secondary transition-transform ${
             isCollapsed ? "rotate-0" : "rotate-180"
           } animate-fade-in duration-300 ease-in-out md:hidden`}
         />
+
+        {/* Display the active tag button when a language is selected, and the language picker is collapsed. */}
+        {activeTagId && isCollapsed ? <ActiveTagButton data={activeTagId} /> : null}
       </div>
       <div
         className={`transition-max-height overflow-hidden duration-300 ease-in-out ${
