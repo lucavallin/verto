@@ -20,6 +20,10 @@ export interface CountableTag extends Tag {
   count: number;
 }
 
+export interface CountableLanguage extends Tag {
+  count: number;
+}
+
 // Describes a Repository, which is a GitHub repository
 export interface Repository {
   description: Nullable<string>;
@@ -62,7 +66,7 @@ export enum RepositorySortOrder {
 
 // Describes the data that is retrieved from the GitHub API and used by the app
 export interface AppData {
-  languages: CountableTag[];
+  languages: CountableLanguage[];
   repositories: Repository[];
   repositorySortOrder: RepositorySortOrder;
   tags: CountableTag[];
@@ -102,4 +106,10 @@ export interface GitLabRepository {
       };
     }[];
   };
+}
+
+export interface Data {
+  repositories: Repository[];
+  languages: CountableLanguage[];
+  tags: CountableTag[];
 }
