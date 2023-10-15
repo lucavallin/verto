@@ -7,17 +7,17 @@ import data from "../../data/data.json";
 import { useAppData } from "../../hooks/useAppData";
 
 interface Params extends ParsedUrlQuery {
-  tag: string;
+  language: string;
 }
 
 type LanguageProps = {
-  tag: Params["tag"];
+  language: Params["language"];
 };
 
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
   return {
     paths: data.languages.map((language) => ({
-      params: { tag: language.id }
+      params: { language: language.id }
     })),
     fallback: false
   };
@@ -27,22 +27,24 @@ export const getStaticProps: GetStaticProps<LanguageProps, Params> = async ({
   params = {} as Params
 }) => {
   return {
-    props: { tag: params.tag }
+    props: { language: params.language }
   };
 };
 
-export default function Language({ tag }: LanguageProps) {
-  const { languages, filterRepositoriesByLanguage } = useAppData();
-  const language = languages.find((language) => language.id === tag);
-  const pageTitle = `First Issue | ${language?.display} Language`;
-  const filteredRepositories = filterRepositoriesByLanguage(tag);
+export default function Language({ language }: LanguageProps) {
+  const { repositories, languages } = useAppData();
+
+  const activeLanguage = languages.find((l) => l.id === language);
+  const pageTitle = `First Issue | ${activeLanguage?.display} Language`;
 
   return (
     <>
       <Head>
         <title>{pageTitle}</title>
       </Head>
-      <RepositoryList repositories={filteredRepositories} />
+      <RepositoryList
+        repositories={repositories.filter((repository) => repository.language.id === language)}
+      />
     </>
   );
 }
