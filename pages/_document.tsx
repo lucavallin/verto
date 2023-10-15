@@ -4,6 +4,22 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        {/* Structured Metadata using JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "http://schema.org",
+              "@type": "WebSite",
+              "url": "https://firstissue.dev",
+              "name": "First Issue",
+              "description":
+                "Making your next open-source contribution doesn't have to be hard...",
+              "image": "https://firstissue.dev/meta.png",
+            }),
+          }}
+        />
+
         <meta
           name="description"
           content="Making your next open-source contribution doesn't have to be hard. First Issue is a curated list of accessible issues from popular open-source projects to get you started easily on your next contribution. Start today!"
@@ -35,9 +51,16 @@ export default function Document() {
         <meta name="twitter:image" content="https://firstissue.dev/meta.png" />
 
         <meta charSet="UTF-8" />
+
+        {/* Ensure your favicon path is correct */}
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 
-        <script defer data-domain="firstissue.dev" src="https://plausible.io/js/script.js"></script>
+        {/* Use async attribute for script loading */}
+        <script
+          async
+          data-domain="firstissue.dev"
+          src="https://plausible.io/js/script.js"
+        />
       </Head>
       <body>
         <Main />
