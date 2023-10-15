@@ -1,7 +1,7 @@
 // AppDataContext.tsx
 import React, { createContext, useEffect, useState } from "react";
 import data from "../data/data.json";
-import { AppData, CountableTag, Repository, RepositorySortOrder } from "../types";
+import { AppData, CountableTag, CountableLanguage, Repository, RepositorySortOrder } from "../types";
 
 type AppDataContextType = AppData & {
   filterRepositoriesByTag: (tag: string) => Repository[];
@@ -31,7 +31,7 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
     tags
   }: {
     repositories: Repository[];
-    languages: CountableTag[];
+    languages: CountableLanguage[];
     tags: CountableTag[];
   } = data;
   const [repositories, setRepositories] = useState<Repository[]>(allRepositories);
