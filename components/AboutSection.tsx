@@ -7,7 +7,7 @@ const PRIVACY_POLICY_URL = process.env.NEXT_PUBLIC_POLICY_URL;
 
 const ByLine = () => (
   <div className="pt-6 text-sm">
-    <a className="flex flex-row items-center" target="_blank" href={GITHUB_PROFILE_URL}>
+    <a className="flex flex-row items-center" target="_blank" href="https://cavall.in">
       <FontAwesomeIcon icon={faHeart} aria-label="GitHub Profile" />
       <span className="ml-2">
         A{" "}
@@ -23,7 +23,7 @@ const ByLine = () => (
     <a
       className="flex cursor-pointer flex-row items-center text-secondary"
       target="_blank"
-      href={PRIVACY_POLICY_URL}
+      href={process.env.NEXT_PUBLIC_POLICY_URL}
     >
       <FontAwesomeIcon icon={faCircleInfo} aria-label="Privacy and Cookie Policy" />
       <span className="ml-2">
