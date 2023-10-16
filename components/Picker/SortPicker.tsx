@@ -10,7 +10,7 @@ type SortPickerProps = {
 export const SortPicker = ({ activeSort, sortOptions, onSortOrderSelect }: SortPickerProps) => {
   return (
     <div
-      className="flex flex-col justify-between pt-6 md:flex-row md:items-center md:pt-0"
+      className="flex flex-col justify-between pt-6 lg:flex-row lg:items-center lg:pt-0"
       id="repositories-list"
     >
       <div>

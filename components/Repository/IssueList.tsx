@@ -20,7 +20,7 @@ export const IssuesList = ({ issues, repositoryDetails }: IssueListProps) => {
           <IssueItem issue={issue} key={issue.id} />
         ))}
       </ol>
-      <div className="md:hidden">
+      <div className="xl:hidden">
         <RepositoryCollectivButton
           repositoryName={repositoryDetails.name}
           repositoryOwner={repositoryDetails.owner}
