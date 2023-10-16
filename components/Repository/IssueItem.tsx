@@ -13,7 +13,7 @@ type IssueCommentNumProps = {
 
 const IssueCommentNum = ({ numIssues }: IssueCommentNumProps) => {
   return (
-    <div className="text-grayish mt-1 flex w-10 flex-row items-center justify-end">
+    <div className="mt-1 flex w-10 flex-row items-center justify-end text-grayish">
       <span className="mr-2 text-sm leading-snug">{numIssues}</span>
       <FontAwesomeIcon icon={faComment} />
     </div>
@@ -23,7 +23,7 @@ const IssueCommentNum = ({ numIssues }: IssueCommentNumProps) => {
 export const IssueItem = ({ issue }: IssueItemProps) => {
   return (
     <li key={issue.url} className="flex flex-row items-start justify-start py-1">
-      <span className="text-grayish min-w-[74px] pr-2 text-right leading-snug">
+      <span className="min-w-[74px] pr-2 text-right leading-snug text-grayish">
         #{issue.number}
       </span>
       <div className="flex flex-auto flex-row items-start">
@@ -36,7 +36,13 @@ export const IssueItem = ({ issue }: IssueItemProps) => {
           target="_blank"
           title="Open issue on GitHub"
         >
-          {issue.title}
+          {issue.title.split(" ").map((word, i) => {
+            if (word.length > 15) {
+              return <span key={i} className="break-all">{`${word} `}</span>;
+            } else {
+              return <span key={i} className="break-keep">{`${word} `}</span>;
+            }
+          })}
         </a>
         {issue.comments_count > 0 && <IssueCommentNum numIssues={issue.comments_count} />}
       </div>
