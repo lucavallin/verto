@@ -29,13 +29,6 @@ export const SearchBar = () => {
       <div className="pointer-events-none absolute inset-y-0 left-0 z-20 flex items-center pl-4">
         <FontAwesomeIcon icon={faSearch} className={"text-secondary"} />
       </div>
-      <button
-        type="button"
-        className="text-whitetransition-all inline-flex w-20 flex-shrink-0 items-center justify-center rounded-r-md border border-primary px-4 py-3 text-sm font-semibold transition-all hover:bg-primary"
-        onClick={handleSearchButtonClick}
-      >
-        Search
-      </button>
     </div>
   );
 };
