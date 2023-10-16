@@ -13,10 +13,7 @@ export const SearchBar = () => {
     filterRepositoriesByQuery(searchQuery); 
   };
 
-  const handleSearchButtonClick = () => {
-    filterRepositoriesByQuery(query); 
-  };
-
+ 
   return (
     <div className="relative mt-4 flex rounded-md">
       <input
