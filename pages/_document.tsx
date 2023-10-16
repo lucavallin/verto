@@ -1,10 +1,10 @@
-import { Head, Html, Main, NextScript } from "next/document";
+import Document, { Head, Html, Main, NextScript } from "next/document";
 
-export default function Document() {
+export default function MyDocument() {
   return (
     <Html lang="en">
       <Head>
-        {/* Structured Metadata using JSON-LD */}
+        {/* Define structured metadata using JSON-LD for SEO */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -20,11 +20,11 @@ export default function Document() {
           }}
         />
 
+        {/* Set metadata for SEO and social sharing */}
         <meta
           name="description"
           content="Making your next open-source contribution doesn't have to be hard. First Issue is a curated list of accessible issues from popular open-source projects to get you started easily on your next contribution. Start today!"
         />
-
         <meta property="og:url" content="https://firstissue.dev" />
         <meta property="og:type" content="website" />
         <meta
@@ -36,7 +36,6 @@ export default function Document() {
           content="Making your next open-source contribution doesn't have to be hard. First Issue is a curated list of accessible issues from popular open-source projects to get you started easily on your next contribution. Start today!"
         />
         <meta property="og:image" content="https://firstissue.dev/meta.png" />
-
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="firstissue.dev" />
         <meta property="twitter:url" content="https://firstissue.dev" />
@@ -49,13 +48,12 @@ export default function Document() {
           content="Making your next open-source contribution doesn't have to be hard. First Issue is a curated list of accessible issues from popular open-source projects to get you started easily on your next contribution. Start today!"
         />
         <meta name="twitter:image" content="https://firstissue.dev/meta.png" />
-
+        
         <meta charSet="UTF-8" />
-
-        {/* Ensure your favicon path is correct */}
+        
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
-
-        {/* Use async attribute for script loading */}
+        
+        {/* 'async' attribute for script loading for performance optimization */}
         <script
           async
           data-domain="firstissue.dev"
