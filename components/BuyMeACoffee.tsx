@@ -13,8 +13,8 @@ const BuyMeACoffee = () => {
         data-message="Would you like to support FirstIssue? ❤️"
         data-color="#47f6ad"
         data-position="Right"
-        data-x_margin="36"
-        data-y_margin="36"
+        data-x_margin="15"
+        data-y_margin="100"
       ></script>
     </>
   );
