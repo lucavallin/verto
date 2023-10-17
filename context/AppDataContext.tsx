@@ -1,18 +1,27 @@
-import React, { createContext, useState } from "react";
-
+// AppDataContext.tsx
+import React, { createContext, useEffect, useState } from "react";
 import data from "../data/data.json";
 import { AppData, CountableTag, CountableLanguage, Repository, RepositorySortOrder } from "../types";
 
-const DEFAULT_VALUE: AppData = {
+type AppDataContextType = AppData & {
+  filterRepositoriesByTag: (tag: string) => Repository[];
+  filterRepositoriesByQuery: (query: string) => void;
+  filterRepositoriesByLanguage: (languageId: string) => Repository[];
+};
+
+const DEFAULT_VALUE: AppDataContextType = {
   languages: [],
   repositories: [],
   repositorySortOrder: RepositorySortOrder.NONE,
   tags: [],
   query: "",
-  updateRepositorySortOrder: () => {}
+  updateRepositorySortOrder: () => {},
+  filterRepositoriesByTag: () => [],
+  filterRepositoriesByQuery: () => {}, 
+  filterRepositoriesByLanguage: () => [],
 };
 
-const AppDataContext = createContext<AppData>(DEFAULT_VALUE);
+const AppDataContext = createContext<AppDataContextType>(DEFAULT_VALUE);
 
 const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
   const query = "";
@@ -29,6 +38,11 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
   const [repositorySortOrder, setRepositorySortOrder] = useState<RepositorySortOrder>(
     RepositorySortOrder.NONE
   );
+
+  useEffect(() => {
+    const { repositories, languages, tags } = data;
+    setRepositories(repositories);
+  }, []);
 
   const updateRepositorySortOrder = (sortOrder: RepositorySortOrder) => {
     const isSetToDefaultSort = sortOrder === RepositorySortOrder.NONE;
@@ -62,13 +76,43 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
     setRepositories(updatedRepositories);
   };
 
+  const filterRepositoriesByTag = (tag: string) => {
+    return repositories.filter((repository) =>
+      repository.tags?.some((t) => t.id === tag)
+    );
+  };
+
+  
+  const filterRepositoriesByQuery = (query: string) => {
+    
+    if(query.length >= 3){
+      // Filter repositories based on query
+      const filtered = allRepositories.filter((repository) => {
+        const { name, owner, issues } = repository; 
+        const searchText = `${name} ${owner} ${issues.map((issue) => issue.title)}`.toLowerCase();
+        return searchText.includes(query.toLowerCase());
+      });
+    
+      setRepositories(filtered);
+    }else{
+      setRepositories(allRepositories);
+    }
+  };
+
+  const filterRepositoriesByLanguage = (languageId: string) => {
+    return repositories.filter((repository) => repository.language.id === languageId);
+  };
+  
   const value = {
-    languages,
+    languages: data.languages,
     repositories,
     repositorySortOrder,
-    tags,
+    tags: data.tags,
     query,
-    updateRepositorySortOrder
+    updateRepositorySortOrder,
+    filterRepositoriesByTag,
+    filterRepositoriesByQuery,
+    filterRepositoriesByLanguage, 
   };
 
   return <AppDataContext.Provider value={value}>{children}</AppDataContext.Provider>;

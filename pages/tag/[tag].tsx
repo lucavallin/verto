@@ -32,21 +32,23 @@ export const getStaticProps: GetStaticProps<TagProps, Params> = async ({
 };
 
 export default function Tag({ tag }: TagProps) {
-  const { repositories, tags } = useAppData();
+  const { tags } = useAppData();
 
   const activeTag = tags.find((t) => t.id === tag);
   const pageTitle = `First Issue | Tag ${activeTag?.display}`;
+  const { filterRepositoriesByTag } = useAppData();
+  const filteredRepositories = filterRepositoriesByTag(tag);
+
+  // ...
 
   return (
     <>
       <Head>
         <title>{pageTitle}</title>
       </Head>
-      <RepositoryList
-        repositories={repositories.filter(
-          (repository) => repository.tags?.some((t) => t.id === tag)
-        )}
-      />
+      <RepositoryList repositories={filteredRepositories} />
     </>
   );
 }
+
+ 
