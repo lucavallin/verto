@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ByLine = () => (
   <div className="pt-6 text-sm">
-    <a className="flex flex-row items-center" target="_blank" href="https://cavall.in">
+    <a className="flex flex-row items-center" target="_blank" href="https://lucavall.in">
       <FontAwesomeIcon icon={faHeart} />
       <span className="ml-2">
         A{" "}
