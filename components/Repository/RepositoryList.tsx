@@ -28,8 +28,8 @@ export const RepositoryList = ({ repositories }: RepositoryListProps) => {
   const { repositorySortOrder, updateRepositorySortOrder } = useAppData();
 
   return (
-    <main className="grow">
-      <div className="w-full px-6">
+    <main className="grow md:max-w-sm lg:max-w-none">
+      <div className="px-6">
         <SortPicker
           activeSort={repositorySortOrder}
           sortOptions={REPOSITORY_SORT_OPTIONS}

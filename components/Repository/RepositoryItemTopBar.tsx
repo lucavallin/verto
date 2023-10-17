@@ -32,7 +32,7 @@ export const RepositoryItemTopBar = ({
         <div className={`h-2 w-2 rounded-full ${repositoryHasNewIssues ? "bg-primary" : ""}`}></div>
       </div>
       {isIssueOpen && (
-        <div className="hidden md:block">
+        <div className="hidden xl:block">
           <RepositoryCollectivButton
             repositoryName={repositoryName}
             repositoryOwner={repositoryOwner}

@@ -22,7 +22,7 @@ export const RepositoryCollectivButton = ({
       }
       className="m-2 flex items-center  justify-center
            gap-2  rounded-lg border border-primary p-2 text-sm font-semibold
-           md:m-0 md:ml-2  md:rounded-full md:border-transparent md:bg-primary md:px-3"
+           xl:m-0 xl:ml-2  xl:rounded-full xl:border-transparent xl:bg-primary xl:px-3"
       target="_blank"
       rel="noopener noreferrer"
     >

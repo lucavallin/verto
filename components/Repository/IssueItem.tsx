@@ -23,16 +23,26 @@ const IssueCommentNum = ({ numIssues }: IssueCommentNumProps) => {
 export const IssueItem = ({ issue }: IssueItemProps) => {
   return (
     <li key={issue.url} className="flex flex-row items-start justify-start py-1">
-      <span className="min-w-[74px] pr-2 text-right leading-snug text-grayish">#{issue.number}</span>
+      <span className="min-w-[74px] pr-2 text-right leading-snug text-grayish">
+        #{issue.number}
+      </span>
       <div className="flex flex-auto flex-row items-start">
         <a
-          className={`block flex-auto leading-snug transition-all hover:text-primary ${issue.comments_count > 0 ? 'mr-4' : 'mr-12'}`}
+          className={`block flex-auto leading-snug transition-all hover:text-primary ${
+            issue.comments_count > 0 ? "mr-4" : "mr-12"
+          }`}
           href={issue.url}
           rel="noopener noreferrer"
           target="_blank"
           title="Open issue on GitHub"
         >
-          {issue.title}
+          {issue.title.split(" ").map((word, i) => {
+            if (word.length > 15) {
+              return <span key={i} className="break-all">{`${word} `}</span>;
+            } else {
+              return <span key={i} className="break-keep">{`${word} `}</span>;
+            }
+          })}
         </a>
         {issue.comments_count > 0 && <IssueCommentNum numIssues={issue.comments_count} />}
       </div>
