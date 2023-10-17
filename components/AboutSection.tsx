@@ -7,8 +7,8 @@ const PRIVACY_POLICY_URL = process.env.NEXT_PUBLIC_POLICY_URL;
 
 const ByLine = () => (
   <div className="pt-6 text-sm">
-    <a className="flex flex-row items-center" target="_blank" href="https://cavall.in">
-      <FontAwesomeIcon icon={faHeart} aria-label="GitHub Profile" />
+    <a className="flex flex-row items-center" target="_blank" href="https://lucavall.in">
+      <FontAwesomeIcon icon={faHeart} />
       <span className="ml-2">
         A{" "}
         <span
