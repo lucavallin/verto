@@ -10,6 +10,7 @@ import { SponsorsBar } from "../components/SponsorsBar";
 import { AppDataProvider } from "../context/AppDataContext";
 import "../styles/globals.css";
 import NotFound from "./404";
+import BuyMeACoffee from "../components/BuyMeACoffee";
 
 // Fontawesome and TailwindCSS related settings
 config.autoAddCss = false;
@@ -40,6 +41,7 @@ export default function App({ Component, pageProps }: AppProps) {
             <NotFound />
           )}
         </main>
+        <BuyMeACoffee />
       </AppDataProvider>
     </>
   );
