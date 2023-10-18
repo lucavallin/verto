@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useAppData } from "../hooks/useAppData";
-import { Tag } from "../types";
 
 const getActiveTagOrLanguage = (tag, language, languages, tags) => {
   return [...languages, ...tags].find((t) => t.id === tag || t.id === language);
