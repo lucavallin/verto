@@ -3,13 +3,15 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useAppData } from "../hooks/useAppData";
 
-const getActiveTagOrLanguage = (tag, language, languages, tags) => {
+type TagType = string;
+
+const getActiveTagOrLanguage = (tag: TagType, language: string, languages: any[], tags: any[]) => {
   return [...languages, ...tags].find((t) => t.id === tag || t.id === language);
 };
 
 export const Header = () => {
   const router = useRouter();
-  const { tag, language } = router.query;
+  const { tag, language } = router.query as { tag: TagType, language: string };
   const { languages, tags } = useAppData();
   const activeTagOrLanguage = getActiveTagOrLanguage(tag, language, languages, tags);
 
