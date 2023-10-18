@@ -2,7 +2,6 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const GITHUB_PROFILE_URL = "https://github.com/lucavallin";
 const PRIVACY_POLICY_URL = process.env.NEXT_PUBLIC_POLICY_URL;
 
 const ByLine = () => (
@@ -23,7 +22,7 @@ const ByLine = () => (
     <a
       className="flex cursor-pointer flex-row items-center text-secondary"
       target="_blank"
-      href={process.env.NEXT_PUBLIC_POLICY_URL}
+      href={PRIVACY_POLICY_URL}
     >
       <FontAwesomeIcon icon={faCircleInfo} aria-label="Privacy and Cookie Policy" />
       <span className="ml-2">
