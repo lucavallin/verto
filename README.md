@@ -47,10 +47,7 @@ First Issue is a static website that uses Next.js, React and Typescript. The dat
 To contribute new features and changes to the website, you would want to run the app locally. Please follow these steps:
 
 ## How to setup the project locally
-To set up the project locally or to run it on your server, follow these steps:
-Run `yarn`.
-Then, run `yarn start`.
-If you want to try the production mode, run `yarn start:prod`.
+
 
 1. Fork the repository, clone it locally, create a new branch to work on a specific feature or bug fix without affecting the main branch of the repository. Make sure you have a recent version of Node.js installed on your computer.
 1. You can use the included [data.json](data/data.json) as dummy data or you can run `npm run prebuild` to fetch the latest data from GitHub yourself: for this, you will need to set the `GH_PERSONAL_ACCESS_TOKEN` environment variable to a valid GitHub Personal Access Token (PAT). Notice: repositories not maching the criteria listed above (see rules in [data.json](data/data.json)are automatically removed from [config.json](config.json) when the [data.json]data/data.json) script runs.
