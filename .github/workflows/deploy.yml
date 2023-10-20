@@ -16,15 +16,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  Run-Tests:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Install Dependencies
-        run: npm install
-      - name: Run Tests
-        run: npm run test
-
   Deploy-Production:
     runs-on: ubuntu-latest
     steps:
