@@ -28,3 +28,9 @@
 .active-pill > span {
   @apply text-primary;
 }
+
+#bmc-iframe {
+  min-height: 750px !important;
+  max-height: 750px !important;
+}
+
