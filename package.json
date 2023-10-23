@@ -34,7 +34,7 @@
     "@octokit/core": "^5.0.1",
     "@octokit/graphql-schema": "^14.37.0",
     "@octokit/plugin-retry": "^6.0.1",
-    "@octokit/plugin-throttling": "^8.0.0",
+    "@octokit/plugin-throttling": "^8.0.1",
     "@octokit/types": "^12.0.0",
     "@types/jest": "^29.5.6",
     "@types/react-infinite-scroller": "^1.2.3",
