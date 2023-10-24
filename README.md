@@ -1,12 +1,14 @@
 <p align="center">
-  <img src="/public/meta.png" width="100%"/>
+  <a href="https://firstissue.dev/">
+    <img src="/public/meta.png" width="100%"/>
+  </a>
 </p>
 
 ---
 
 Welcome! 👋🏼
 
-**First Issue** is an initiative to curate a list of accessible issues from popular projects, so developers looking for a new (or first) project to contribute to can get started quickly.
+**First Issue** is an initiative to curate a list of accessible issues from popular projects, so developers looking for a new (or first) project to contribute to can get started quickly. [firstissue.dev](https://firstissue.dev/) is our website.
 
 Open-source maintainers are always looking to get more people involved, but it can be challenging to become a contributor. We believe First Issue lowers the barrier for future contributions - and this is why it exists.
 
