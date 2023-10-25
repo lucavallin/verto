@@ -24,6 +24,13 @@ export const SponsorSection = () => {
         </Link>
         to solve Hacktoberfest issues and win a T-Shirt & other exciting merch!
       </p>
+      <Link
+        href="mailto:sponsor@verto.sh?subject=verto.sh%20Sponsorship&body=Hi%2C%20I%27m%20interested%20in%20sponsoring%verto.sh%21"
+        className="text-yellow"
+      >
+        {" "}
+        Interested in sponsoring?
+      </Link>
     </div>
   );
 };

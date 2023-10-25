@@ -9,9 +9,10 @@ export const AboutSection = () => {
     <div>
       <SectionTitle className="mb-2" text="About" />
       <p className="text-silver-500">
-        <strong>verto.sh</strong> simplifies your entry into the open-source world by curating
-        accessible projects. Ideal for beginners making their first contribution, founders building
-        teams, and maintainers seeking new contributors.
+        <h1 className="inline text-lg font-bold">verto.sh</h1> simplifies your entry into the
+        open-source world by curating accessible projects. Ideal for beginners making their first
+        contribution, founders building teams, and maintainers seeking new contributors.
+        <h2 className="mt-2">Your Gateway to Open-Source Collaboration!</h2>
       </p>
       <div className="pt-6 text-sm">
         <Link className="flex flex-row items-center" target="_blank" href="https://www.lucavall.in">

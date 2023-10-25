@@ -4,7 +4,7 @@ import { Space_Grotesk } from "next/font/google";
 import React from "react";
 
 import BuyMeACoffee from "../components/BuyMeACoffee";
-import { SponsorsBar } from "../components/SponsorsBar";
+import { TopBar } from "../components/TopBar";
 import "../styles/globals.css";
 import config from "./config.mts";
 
@@ -72,7 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <main className={`${space_grotesk.variable} font-sans`}>
-          <SponsorsBar />
+          <TopBar />
           {children}
         </main>
         <BuyMeACoffee />
