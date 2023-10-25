@@ -1,7 +1,9 @@
+"use client";
+
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useRouter } from "next/router";
 
+import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useAppData } from "../hooks/useAppData";
 import { AboutSection } from "./AboutSection";
@@ -13,10 +15,12 @@ import ScrollToTopButton from "./ScrollToTopButton";
 import { SponsorSection } from "./Sponsor/SponsorSection";
 
 export const Sidebar = () => {
-  const router = useRouter();
+  const currentPage = usePathname();
+  const search = useSearchParams();
+  const activeTagId = search.get("tag");
+  const activeLanguageId = search.get("language ");
+
   const { languages, tags } = useAppData();
-  const { tag: activeTagId, language: activeLanguageId } = router.query;
-  const pageName = router.pathname.split("/")[1];
 
   // State variable to track whether the user has scrolled to a minimum height of 702 pixels vertically.
   const [scrollHeightReached, setScrollHeightReached] = useState(false);
@@ -25,7 +29,7 @@ export const Sidebar = () => {
   useEffect(() => {
     const scrollTarget = document.getElementById("repositories-list");
     const isMobile = window.innerWidth <= 640;
-    if (isMobile && (pageName === "language" || pageName === "tag")) {
+    if (isMobile && (currentPage === "language" || currentPage === "tag")) {
       scrollTarget?.scrollIntoView({ behavior: "smooth" });
     }
 
@@ -40,7 +44,7 @@ export const Sidebar = () => {
 
     // Remove the scroll event listener when the component unmounts
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [router.asPath, pageName]);
+  }, [currentPage]);
 
   // Function to scroll to the top of the page
   const handleScrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
@@ -65,9 +69,9 @@ export const Sidebar = () => {
         <LanguagePicker
           languages={languages}
           activeTagId={activeLanguageId}
-          onLanguagePage={pageName == "language"}
+          onLanguagePage={currentPage == "language"}
         />
-        <TagPicker tags={tags} activeTagId={activeTagId} onTagPage={pageName == "tag"} />
+        <TagPicker tags={tags} activeTagId={activeTagId} onTagPage={currentPage == "tag"} />
       </div>
       {showUpArrow && <ScrollToTopButton handleOnClick={handleScrollToTop} />}
     </section>

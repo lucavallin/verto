@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import { AppDataProvider } from "../context/AppDataContext";
 import { Header } from "./Header";
 import { Sidebar } from "./Sidebar";
 
@@ -11,8 +14,10 @@ export const Layout = ({ children }: LayoutProps) => (
     <Header />
     <main className="flex flex-1">
       <section className="container mx-auto flex flex-col md:flex-row lg:max-w-6xl">
-        <Sidebar />
-        {children}
+        <AppDataProvider>
+          <Sidebar />
+          {children}
+        </AppDataProvider>
       </section>
     </main>
   </div>

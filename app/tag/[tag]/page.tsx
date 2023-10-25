@@ -2,9 +2,9 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { ParsedUrlQuery } from "querystring";
 
-import { RepositoryList } from "../../components/Repository/RepositoryList";
-import data from "../../data/data.json";
-import { useAppData } from "../../hooks/useAppData";
+import { RepositoryList } from "../../../components/Repository/RepositoryList";
+import data from "../../../data/data.json";
+import { useAppData } from "../../../hooks/useAppData";
 
 interface Params extends ParsedUrlQuery {
   tag: string;

@@ -1,3 +1,5 @@
+"use client";
+
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
@@ -7,8 +9,8 @@ import { REPOSITORY_SORT_OPTIONS } from "../../constants";
 import { useAppData } from "../../hooks/useAppData";
 import { Repository } from "../../types";
 import { SortPicker } from "../Picker/SortPicker";
-import { SearchBar } from "../SearchBar";
 import { RepositoryItem } from "./RepositoryItem";
+import { SearchBar } from "./SearchBar";
 
 type RepositoryListProps = {
   repositories: Repository[];
@@ -17,7 +19,7 @@ type RepositoryListProps = {
 const Loader = () => (
   <div className="w-full p-4">
     <div className="flex items-center justify-center">
-      <FontAwesomeIcon icon={faCircleNotch} className="fa-spin" />
+      <FontAwesomeIcon icon={faCircleNotch} spin />
     </div>
   </div>
 );

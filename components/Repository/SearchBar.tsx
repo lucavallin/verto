@@ -2,7 +2,7 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import { useAppData } from "../hooks/useAppData";
+import { useAppData } from "../../hooks/useAppData";
 
 export const SearchBar = () => {
   const [query, setQuery] = useState("");

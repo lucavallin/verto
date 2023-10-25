@@ -1,26 +1,6 @@
 import { NewsletterForm } from "./NewsletterForm";
 import { SectionTitle } from "./SectionTitle";
 
-interface CustomSubstackWidget {
-  element: string;
-  substackUrl: string | undefined;
-  placeholder: string;
-  buttonText: string;
-  theme: string;
-  colors: {
-    primary: string;
-    input: string;
-    email: string;
-    text: string;
-  };
-}
-
-declare global {
-  interface Window {
-    CustomSubstackWidget?: CustomSubstackWidget;
-  }
-}
-
 export const NewsletterSection = () => {
   return (
     <div className="pt-6">
