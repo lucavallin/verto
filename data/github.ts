@@ -13,7 +13,7 @@ import {
   RepositoryTopic,
   RepositoryTopicEdge,
   SearchResultItemEdge,
-  validate
+  validate,
 } from "@octokit/graphql-schema";
 import { retry } from "@octokit/plugin-retry";
 import { throttling } from "@octokit/plugin-throttling";
@@ -27,9 +27,14 @@ const MAX_ISSUES = 10;
 // Setup Octokit (GitHub API client)
 const MyOctokit = Octokit.plugin(throttling, retry);
 const octokit = new MyOctokit({
-  auth: process.env.GH_PERSONAL_ACCESS_TOKEN,
+  auth: process.env.GH_PAT,
   throttle: {
-    onRateLimit: (retryAfter: number, options: object, octokit: Octokit, retryCount: number) => {
+    onRateLimit: (
+      retryAfter: number,
+      options: object,
+      octokit: Octokit,
+      retryCount: number
+    ) => {
       const { method, url } = options as RequestOptions;
       octokit.log.warn(`Request quota exhausted for request ${method} ${url}`);
 
@@ -46,15 +51,17 @@ const octokit = new MyOctokit({
       retryCount: number
     ) => {
       const { method, url } = options as RequestOptions;
-      octokit.log.warn(`SecondaryRateLimit detected for request ${method} ${url}`);
+      octokit.log.warn(
+        `SecondaryRateLimit detected for request ${method} ${url}`
+      );
 
       if (retryCount < 2) {
         // retries twice
         octokit.log.warn(`Retrying after ${retryAfter} seconds!`);
         return true;
       }
-    }
-  }
+    },
+  },
 });
 
 /**
@@ -81,7 +88,7 @@ export const getGitHubRepositories = async (
     "archived:false",
     "is:public",
     "stars:>=1000",
-    `pushed:>=${dayjs().add(-1, "month").format("YYYY-MM-DD")}`
+    `pushed:>=${dayjs().add(-1, "month").format("YYYY-MM-DD")}`,
   ].join(" ");
 
   const gqlQuery = `
@@ -111,7 +118,9 @@ export const getGitHubRepositories = async (
             # return first 10 open issues with one or more of the labels we want
             issues(
               states: OPEN
-              filterBy: {labels: [${labels.map((label) => `"${label}"`).join(",")}]}
+              filterBy: {labels: [${labels
+                .map((label) => `"${label}"`)
+                .join(",")}]}
               orderBy: {field: CREATED_AT, direction: DESC}
               first: ${MAX_ISSUES}
             ) {
@@ -156,11 +165,15 @@ export const getGitHubRepositories = async (
   if (gqlQueryErrors.length > 0) {
     // if query is invalid, gqlQueryErrors will contain errors
     throw new Error(
-      `GraphQL query is invalid:\n\t${gqlQueryErrors.map((error) => error.message).join("\n\t")}`
+      `GraphQL query is invalid:\n\t${gqlQueryErrors
+        .map((error) => error.message)
+        .join("\n\t")}`
     );
   }
 
-  const searchResults = await octokit.graphql<Pick<Query, "search">>({ query: gqlQuery });
+  const searchResults = await octokit.graphql<Pick<Query, "search">>({
+    query: gqlQuery,
+  });
 
   // map response data to our Repository model
   const repoData =
@@ -181,15 +194,19 @@ export const getGitHubRepositories = async (
           license: repo.licenseInfo?.name,
           last_modified: repo.pushedAt,
           language: {
-            id: slugify((repo.primaryLanguage as Language).name, { lower: true }),
-            display: (repo.primaryLanguage as Language).name
+            id: slugify((repo.primaryLanguage as Language).name, {
+              lower: true,
+            }),
+            display: (repo.primaryLanguage as Language).name,
           },
           tags: repo.repositoryTopics.edges
             ?.filter((edge) => edge !== undefined)
-            .map((edge) => (edge as RepositoryTopicEdge).node as RepositoryTopic)
+            .map(
+              (edge) => (edge as RepositoryTopicEdge).node as RepositoryTopic
+            )
             .map((topic) => ({
               id: slugify(topic.topic.name, { lower: true }),
-              display: topic.topic.name
+              display: topic.topic.name,
             })),
           issues:
             repo.issues.edges
@@ -209,8 +226,8 @@ export const getGitHubRepositories = async (
                       .map((edge) => (edge as LabelEdge).node as Label)
                       .map((label) => ({
                         id: slugify(label.name, { lower: true }),
-                        display: label.name
-                      })) ?? []
+                        display: label.name,
+                      })) ?? [],
                 })
               )
               // sort issues by issue number
@@ -222,7 +239,7 @@ export const getGitHubRepositories = async (
               .some(
                 // Repository has "new" issues if there are any issues created in the last week
                 (issue) => dayjs().diff(dayjs(issue.createdAt), "day") <= 7
-              ) ?? false
+              ) ?? false,
         })
       ) ?? [];
 

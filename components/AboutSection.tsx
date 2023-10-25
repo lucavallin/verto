@@ -38,8 +38,8 @@ export const AboutSection = () => {
     <div>
       <SectionTitle className="mb-2" text="About" />
       <p className="text-silver-500">
-        First Issue curates accessible issues from popular open-source projects, and helps you make
-        your next contribution to open-source.
+        Verto curates accessible issues from popular open-source projects, and helps you make your
+        next contribution to open-source.
       </p>
       <ByLine />
     </div>

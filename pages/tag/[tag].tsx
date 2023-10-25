@@ -35,7 +35,7 @@ export default function Tag({ tag }: TagProps) {
   const { tags } = useAppData();
 
   const activeTag = tags.find((t) => t.id === tag);
-  const pageTitle = `First Issue | Tag ${activeTag?.display}`;
+  const pageTitle = `Verto | Tag ${activeTag?.display}`;
   const { filterRepositoriesByTag } = useAppData();
   const filteredRepositories = filterRepositoriesByTag(tag);
 

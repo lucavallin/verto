@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>First Issue | Issues for your next open-source contribution</title>
+        <title>Verto | Issues for your next open-source contribution</title>
       </Head>
       <RepositoryList repositories={repositories} />
     </>

@@ -75,8 +75,8 @@ describe("utils", () => {
       };
       await generateAndWriteSiteMap(data);
       const fileContent = await fs.readFile("public/sitemap.xml", "utf-8");
-      expect(fileContent).toContain("<loc>https://firstissue.dev/language/javascript</loc>");
-      expect(fileContent).toContain("<loc>https://firstissue.dev/tag/react</loc>");
+      expect(fileContent).toContain("<loc>https://verto.dev/language/javascript</loc>");
+      expect(fileContent).toContain("<loc>https://verto.dev/tag/react</loc>");
     });
   });
 

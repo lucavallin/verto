@@ -35,7 +35,7 @@ export default function Language({ language }: LanguageProps) {
   const { repositories, languages } = useAppData();
 
   const activeLanguage = languages.find((l) => l.id === language);
-  const pageTitle = `First Issue | ${activeLanguage?.display} Language`;
+  const pageTitle = `Verto | ${activeLanguage?.display} Language`;
 
   return (
     <>

@@ -83,10 +83,7 @@
         { "id": "hacktoberfest", "display": "hacktoberfest" },
         { "id": "cncf", "display": "cncf" },
         { "id": "operator-sdk", "display": "operator-sdk" },
-        {
-          "id": "site-reliability-engineering",
-          "display": "site-reliability-engineering"
-        },
+        { "id": "site-reliability-engineering", "display": "site-reliability-engineering" },
         { "id": "golang", "display": "golang" }
       ],
       "issues": [
@@ -1334,10 +1331,7 @@
         { "id": "pytorch", "display": "pytorch" },
         { "id": "machine-learning", "display": "machine-learning" },
         { "id": "bayesian", "display": "bayesian" },
-        {
-          "id": "probabilistic-programming",
-          "display": "probabilistic-programming"
-        },
+        { "id": "probabilistic-programming", "display": "probabilistic-programming" },
         { "id": "bayesian-inference", "display": "bayesian-inference" },
         { "id": "variational-inference", "display": "variational-inference" },
         { "id": "probabilistic-modeling", "display": "probabilistic-modeling" },
@@ -2872,10 +2866,7 @@
         { "id": "mitre-attack", "display": "mitre-attack" },
         { "id": "devops", "display": "devops" },
         { "id": "best-practice", "display": "best-practice" },
-        {
-          "id": "vulnerability-detection",
-          "display": "vulnerability-detection"
-        }
+        { "id": "vulnerability-detection", "display": "vulnerability-detection" }
       ],
       "issues": [
         {
@@ -4785,16 +4776,10 @@
         { "id": "gluon", "display": "gluon" },
         { "id": "deep-learning", "display": "deep-learning" },
         { "id": "machine-learning", "display": "machine-learning" },
-        {
-          "id": "natural-language-processing",
-          "display": "natural-language-processing"
-        },
+        { "id": "natural-language-processing", "display": "natural-language-processing" },
         { "id": "numpy", "display": "numpy" },
         { "id": "nlu", "display": "nlu" },
-        {
-          "id": "natural-language-understanding",
-          "display": "natural-language-understanding"
-        }
+        { "id": "natural-language-understanding", "display": "natural-language-understanding" }
       ],
       "issues": [
         {
@@ -4908,10 +4893,7 @@
         { "id": "serverless", "display": "serverless" },
         { "id": "api-management", "display": "api-management" },
         { "id": "kubernetes", "display": "kubernetes" },
-        {
-          "id": "kubernetes-ingress-controller",
-          "display": "kubernetes-ingress-controller"
-        },
+        { "id": "kubernetes-ingress-controller", "display": "kubernetes-ingress-controller" },
         { "id": "microservices", "display": "microservices" },
         { "id": "hybrid-apps", "display": "hybrid-apps" },
         { "id": "legacy-apps", "display": "legacy-apps" }
@@ -5537,10 +5519,7 @@
         { "id": "data-science", "display": "data-science" },
         { "id": "neural-networks", "display": "neural-networks" },
         { "id": "statistics", "display": "statistics" },
-        {
-          "id": "probabilistic-programming",
-          "display": "probabilistic-programming"
-        }
+        { "id": "probabilistic-programming", "display": "probabilistic-programming" }
       ],
       "issues": [
         {
@@ -6385,10 +6364,7 @@
         { "id": "golang-application", "display": "golang-application" },
         { "id": "performance", "display": "performance" },
         { "id": "performance-testing", "display": "performance-testing" },
-        {
-          "id": "performance-visualization",
-          "display": "performance-visualization"
-        },
+        { "id": "performance-visualization", "display": "performance-visualization" },
         { "id": "http", "display": "http" },
         { "id": "grpc", "display": "grpc" },
         { "id": "proxy", "display": "proxy" },
@@ -6619,10 +6595,7 @@
       "tags": [
         { "id": "serverless", "display": "serverless" },
         { "id": "serverless-framework", "display": "serverless-framework" },
-        {
-          "id": "serverless-architectures",
-          "display": "serverless-architectures"
-        },
+        { "id": "serverless-architectures", "display": "serverless-architectures" },
         { "id": "aws-lambda", "display": "aws-lambda" },
         { "id": "google-cloud-functions", "display": "google-cloud-functions" },
         { "id": "azure-functions", "display": "azure-functions" },
@@ -7543,10 +7516,7 @@
       "language": { "id": "go", "display": "Go" },
       "tags": [
         { "id": "anns", "display": "anns" },
-        {
-          "id": "nearest-neighbor-search",
-          "display": "nearest-neighbor-search"
-        },
+        { "id": "nearest-neighbor-search", "display": "nearest-neighbor-search" },
         { "id": "faiss", "display": "faiss" },
         { "id": "vector-search", "display": "vector-search" },
         { "id": "image-search", "display": "image-search" },
@@ -8831,10 +8801,7 @@
         { "id": "numpy", "display": "numpy" },
         { "id": "python", "display": "python" },
         { "id": "qt", "display": "qt" },
-        {
-          "id": "scientific-visualization",
-          "display": "scientific-visualization"
-        },
+        { "id": "scientific-visualization", "display": "scientific-visualization" },
         { "id": "visualization", "display": "visualization" }
       ],
       "issues": [
@@ -9172,10 +9139,7 @@
         { "id": "kubernetes", "display": "kubernetes" },
         { "id": "operator", "display": "operator" },
         { "id": "golang", "display": "golang" },
-        {
-          "id": "site-reliability-engineering",
-          "display": "site-reliability-engineering"
-        },
+        { "id": "site-reliability-engineering", "display": "site-reliability-engineering" },
         { "id": "fault-injection", "display": "fault-injection" },
         { "id": "cncf", "display": "cncf" },
         { "id": "cloud-native", "display": "cloud-native" }
@@ -9399,17 +9363,11 @@
       "last_modified": "2023-09-05T11:09:14Z",
       "language": { "id": "c", "display": "C" },
       "tags": [
-        {
-          "id": "software-defined-storage",
-          "display": "software-defined-storage"
-        },
+        { "id": "software-defined-storage", "display": "software-defined-storage" },
         { "id": "posix", "display": "posix" },
         { "id": "filesystem", "display": "filesystem" },
         { "id": "file-system", "display": "file-system" },
-        {
-          "id": "distributed-file-system",
-          "display": "distributed-file-system"
-        },
+        { "id": "distributed-file-system", "display": "distributed-file-system" },
         { "id": "clustering", "display": "clustering" },
         { "id": "distributed-storage", "display": "distributed-storage" },
         { "id": "distributed-computing", "display": "distributed-computing" },
@@ -10046,10 +10004,7 @@
         { "id": "vtk", "display": "vtk" },
         { "id": "3d-viewer", "display": "3d-viewer" },
         { "id": "raytracing", "display": "raytracing" },
-        {
-          "id": "physically-based-rendering",
-          "display": "physically-based-rendering"
-        },
+        { "id": "physically-based-rendering", "display": "physically-based-rendering" },
         { "id": "volume-rendering", "display": "volume-rendering" },
         { "id": "kiss", "display": "kiss" },
         { "id": "command-line-tool", "display": "command-line-tool" },
@@ -10525,16 +10480,10 @@
       "last_modified": "2023-09-26T02:20:09Z",
       "language": { "id": "cplusplus", "display": "C++" },
       "tags": [
-        {
-          "id": "machine-learning-library",
-          "display": "machine-learning-library"
-        },
+        { "id": "machine-learning-library", "display": "machine-learning-library" },
         { "id": "c-plus-plus", "display": "c-plus-plus" },
         { "id": "deep-learning", "display": "deep-learning" },
-        {
-          "id": "nearest-neighbor-search",
-          "display": "nearest-neighbor-search"
-        },
+        { "id": "nearest-neighbor-search", "display": "nearest-neighbor-search" },
         { "id": "regression", "display": "regression" },
         { "id": "machine-learning", "display": "machine-learning" },
         { "id": "hacktoberfest", "display": "hacktoberfest" },
@@ -10644,10 +10593,7 @@
         { "id": "cloud-native", "display": "cloud-native" },
         { "id": "servicemesh", "display": "servicemesh" },
         { "id": "kubesphere", "display": "kubesphere" },
-        {
-          "id": "kubernetes-platform-solution",
-          "display": "kubernetes-platform-solution"
-        },
+        { "id": "kubernetes-platform-solution", "display": "kubernetes-platform-solution" },
         { "id": "kubernetes", "display": "kubernetes" },
         { "id": "jenkins", "display": "jenkins" }
       ],
@@ -10874,10 +10820,7 @@
       "tags": [
         { "id": "golang", "display": "golang" },
         { "id": "go", "display": "go" },
-        {
-          "id": "configuration-management",
-          "display": "configuration-management"
-        },
+        { "id": "configuration-management", "display": "configuration-management" },
         { "id": "config-management", "display": "config-management" },
         { "id": "devops", "display": "devops" },
         { "id": "etcd", "display": "etcd" },
@@ -11067,10 +11010,7 @@
       "last_modified": "2023-09-21T20:02:39Z",
       "language": { "id": "python", "display": "Python" },
       "tags": [
-        {
-          "id": "natural-language-processing",
-          "display": "natural-language-processing"
-        },
+        { "id": "natural-language-processing", "display": "natural-language-processing" },
         { "id": "machine-learning", "display": "machine-learning" },
         { "id": "annotation-tool", "display": "annotation-tool" },
         { "id": "python", "display": "python" },
@@ -11504,10 +11444,7 @@
       "last_modified": "2023-09-28T21:52:18Z",
       "language": { "id": "rust", "display": "Rust" },
       "tags": [
-        {
-          "id": "distributed-transactions",
-          "display": "distributed-transactions"
-        },
+        { "id": "distributed-transactions", "display": "distributed-transactions" },
         { "id": "raft", "display": "raft" },
         { "id": "rust", "display": "rust" },
         { "id": "key-value", "display": "key-value" },
@@ -11864,10 +11801,7 @@
         { "id": "cloud", "display": "cloud" },
         { "id": "faas", "display": "faas" },
         { "id": "functions-as-a-service", "display": "functions-as-a-service" },
-        {
-          "id": "serverless-architectures",
-          "display": "serverless-architectures"
-        },
+        { "id": "serverless-architectures", "display": "serverless-architectures" },
         { "id": "serverless-functions", "display": "serverless-functions" },
         { "id": "docker", "display": "docker" },
         { "id": "kubernetes", "display": "kubernetes" }
@@ -13016,9 +12950,9 @@
     {
       "id": "MDEwOlJlcG9zaXRvcnk5MzQ0NjA0Mg==",
       "owner": "hashicorp",
-      "name": "terraform-provider-yellowrm",
+      "name": "terraform-provider-azurerm",
       "description": "Terraform provider for Azure Resource Manager",
-      "url": "https://github.com/hashicorp/terraform-provider-yellowrm",
+      "url": "https://github.com/hashicorp/terraform-provider-azurerm",
       "stars": 4173,
       "stars_display": "4.2K",
       "license": "Mozilla Public License 2.0",
@@ -13035,7 +12969,7 @@
           "id": "I_kwDOBZHfms5E4e-h",
           "number": 15649,
           "title": "azurerm_kusto_script failing to create, then saying it already exists on rerun",
-          "url": "https://github.com/hashicorp/terraform-provider-yellowrm/issues/15649",
+          "url": "https://github.com/hashicorp/terraform-provider-azurerm/issues/15649",
           "comments_count": 11,
           "created_at": "2022-03-01T18:14:44Z",
           "labels": []
@@ -13044,7 +12978,7 @@
           "id": "I_kwDOBZHfms5IN6_m",
           "number": 16500,
           "title": "r/data_factory_linked_service_postgresql: export `key_vault_connection_string`",
-          "url": "https://github.com/hashicorp/terraform-provider-yellowrm/issues/16500",
+          "url": "https://github.com/hashicorp/terraform-provider-azurerm/issues/16500",
           "comments_count": 1,
           "created_at": "2022-04-21T22:21:01Z",
           "labels": []
@@ -13053,7 +12987,7 @@
           "id": "I_kwDOBZHfms5Jyvuh",
           "number": 16816,
           "title": "Application Gateway still not working with versionless key vault secretId",
-          "url": "https://github.com/hashicorp/terraform-provider-yellowrm/issues/16816",
+          "url": "https://github.com/hashicorp/terraform-provider-azurerm/issues/16816",
           "comments_count": 7,
           "created_at": "2022-05-17T04:16:15Z",
           "labels": []
@@ -13062,7 +12996,7 @@
           "id": "I_kwDOBZHfms5RrBga",
           "number": 18351,
           "title": "There are a couple of issues with the Logic apps Standard terraform template shared at https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/logic_app_standard",
-          "url": "https://github.com/hashicorp/terraform-provider-yellowrm/issues/18351",
+          "url": "https://github.com/hashicorp/terraform-provider-azurerm/issues/18351",
           "comments_count": 3,
           "created_at": "2022-09-12T16:56:54Z",
           "labels": []
@@ -13071,7 +13005,7 @@
           "id": "I_kwDOBZHfms5XNroF",
           "number": 19427,
           "title": "Terraform tries to update customer_managed_key.key_vault_key_id even if it is in the state",
-          "url": "https://github.com/hashicorp/terraform-provider-yellowrm/issues/19427",
+          "url": "https://github.com/hashicorp/terraform-provider-azurerm/issues/19427",
           "comments_count": 6,
           "created_at": "2022-11-24T11:32:20Z",
           "labels": []
@@ -13080,7 +13014,7 @@
           "id": "I_kwDOBZHfms5gvAZT",
           "number": 20931,
           "title": "SPELLING MISTAKE || azurerm_automation_software_update_configuration || V3.33.0",
-          "url": "https://github.com/hashicorp/terraform-provider-yellowrm/issues/20931",
+          "url": "https://github.com/hashicorp/terraform-provider-azurerm/issues/20931",
           "comments_count": 1,
           "created_at": "2023-03-14T08:04:20Z",
           "labels": []
@@ -13089,7 +13023,7 @@
           "id": "I_kwDOBZHfms5h40mA",
           "number": 21144,
           "title": "Support for azurerm_relay_namespace/azurerm_relay_hybrid_connection data sources",
-          "url": "https://github.com/hashicorp/terraform-provider-yellowrm/issues/21144",
+          "url": "https://github.com/hashicorp/terraform-provider-azurerm/issues/21144",
           "comments_count": 1,
           "created_at": "2023-03-27T15:07:45Z",
           "labels": []
@@ -13098,7 +13032,7 @@
           "id": "I_kwDOBZHfms5iA1ys",
           "number": 21165,
           "title": "azurerm_mssql_managed_instance_active_directory_administrator unable to destroy when azuread_authentication_only is set to True",
-          "url": "https://github.com/hashicorp/terraform-provider-yellowrm/issues/21165",
+          "url": "https://github.com/hashicorp/terraform-provider-azurerm/issues/21165",
           "comments_count": 1,
           "created_at": "2023-03-28T17:32:10Z",
           "labels": []
@@ -13107,7 +13041,7 @@
           "id": "I_kwDOBZHfms5iV8Xm",
           "number": 21242,
           "title": "azurerm_container_app - Support for using system assigned managed identity in registry block",
-          "url": "https://github.com/hashicorp/terraform-provider-yellowrm/issues/21242",
+          "url": "https://github.com/hashicorp/terraform-provider-azurerm/issues/21242",
           "comments_count": 4,
           "created_at": "2023-03-31T19:41:04Z",
           "labels": []
@@ -13116,7 +13050,7 @@
           "id": "I_kwDOBZHfms5kOnZk",
           "number": 21522,
           "title": "azurerm_postgresql_flexible_server SKU name validation mismatch between Terraform provider and Azure API",
-          "url": "https://github.com/hashicorp/terraform-provider-yellowrm/issues/21522",
+          "url": "https://github.com/hashicorp/terraform-provider-azurerm/issues/21522",
           "comments_count": 6,
           "created_at": "2023-04-24T15:33:25Z",
           "labels": []
@@ -13364,10 +13298,7 @@
       "language": { "id": "rust", "display": "Rust" },
       "tags": [
         { "id": "rpc-framework", "display": "rpc-framework" },
-        {
-          "id": "asynchronous-programming",
-          "display": "asynchronous-programming"
-        },
+        { "id": "asynchronous-programming", "display": "asynchronous-programming" },
         { "id": "tokio", "display": "tokio" },
         { "id": "rust", "display": "rust" },
         { "id": "futures", "display": "futures" }
@@ -13432,14 +13363,8 @@
         { "id": "spring-cloud", "display": "spring-cloud" },
         { "id": "microservices", "display": "microservices" },
         { "id": "service-mesh", "display": "service-mesh" },
-        {
-          "id": "configuration-management",
-          "display": "configuration-management"
-        },
-        {
-          "id": "distributed-configuration",
-          "display": "distributed-configuration"
-        }
+        { "id": "configuration-management", "display": "configuration-management" },
+        { "id": "distributed-configuration", "display": "distributed-configuration" }
       ],
       "issues": [
         {
@@ -14158,10 +14083,7 @@
         { "id": "statistics", "display": "statistics" },
         { "id": "econometrics", "display": "econometrics" },
         { "id": "data-analysis", "display": "data-analysis" },
-        {
-          "id": "generalized-linear-models",
-          "display": "generalized-linear-models"
-        },
+        { "id": "generalized-linear-models", "display": "generalized-linear-models" },
         { "id": "timeseries-analysis", "display": "timeseries-analysis" },
         { "id": "regression-models", "display": "regression-models" },
         { "id": "count-model", "display": "count-model" },
@@ -20735,10 +20657,7 @@
         { "id": "oci", "display": "oci" },
         { "id": "oci-runtime", "display": "oci-runtime" },
         { "id": "kubernetes", "display": "kubernetes" },
-        {
-          "id": "container-runtime-interface",
-          "display": "container-runtime-interface"
-        },
+        { "id": "container-runtime-interface", "display": "container-runtime-interface" },
         { "id": "k8s-sig-node", "display": "k8s-sig-node" },
         { "id": "kata-containers", "display": "kata-containers" },
         { "id": "runc", "display": "runc" },
@@ -22204,15 +22123,9 @@
         { "id": "computer-science", "display": "computer-science" },
         { "id": "machine-learning", "display": "machine-learning" },
         { "id": "html", "display": "html" },
-        {
-          "id": "artificial-intelligence",
-          "display": "artificial-intelligence"
-        },
+        { "id": "artificial-intelligence", "display": "artificial-intelligence" },
         { "id": "linux", "display": "linux" },
-        {
-          "id": "competitive-programming",
-          "display": "competitive-programming"
-        }
+        { "id": "competitive-programming", "display": "competitive-programming" }
       ],
       "issues": [
         {
@@ -22661,14 +22574,8 @@
       "tags": [
         { "id": "database", "display": "database" },
         { "id": "distributed-database", "display": "distributed-database" },
-        {
-          "id": "distributed-sql-database",
-          "display": "distributed-sql-database"
-        },
-        {
-          "id": "distributed-transactions",
-          "display": "distributed-transactions"
-        },
+        { "id": "distributed-sql-database", "display": "distributed-sql-database" },
+        { "id": "distributed-transactions", "display": "distributed-transactions" },
         { "id": "sql", "display": "sql" },
         { "id": "shard", "display": "shard" },
         { "id": "database-cluster", "display": "database-cluster" },
@@ -24104,10 +24011,7 @@
         { "id": "cloudflare", "display": "cloudflare" },
         { "id": "reverse-proxy", "display": "reverse-proxy" },
         { "id": "cloudflare-tunnel", "display": "cloudflare-tunnel" },
-        {
-          "id": "zero-trust-network-access",
-          "display": "zero-trust-network-access"
-        }
+        { "id": "zero-trust-network-access", "display": "zero-trust-network-access" }
       ],
       "issues": [
         {
@@ -24546,18 +24450,12 @@
       "tags": [
         { "id": "automl", "display": "automl" },
         { "id": "hyperparam", "display": "hyperparam" },
-        {
-          "id": "automated-machine-learning",
-          "display": "automated-machine-learning"
-        },
+        { "id": "automated-machine-learning", "display": "automated-machine-learning" },
         { "id": "machine-learning", "display": "machine-learning" },
         { "id": "data-science", "display": "data-science" },
         { "id": "python", "display": "python" },
         { "id": "jupyter-notebook", "display": "jupyter-notebook" },
-        {
-          "id": "hyperparameter-optimization",
-          "display": "hyperparameter-optimization"
-        },
+        { "id": "hyperparameter-optimization", "display": "hyperparameter-optimization" },
         { "id": "random-forest", "display": "random-forest" },
         { "id": "scikit-learn", "display": "scikit-learn" }
       ],
@@ -26812,25 +26710,13 @@
       "tags": [
         { "id": "automl", "display": "automl" },
         { "id": "deep-learning", "display": "deep-learning" },
-        {
-          "id": "neural-architecture-search",
-          "display": "neural-architecture-search"
-        },
-        {
-          "id": "hyperparameter-optimization",
-          "display": "hyperparameter-optimization"
-        },
+        { "id": "neural-architecture-search", "display": "neural-architecture-search" },
+        { "id": "hyperparameter-optimization", "display": "hyperparameter-optimization" },
         { "id": "distributed", "display": "distributed" },
         { "id": "bayesian-optimization", "display": "bayesian-optimization" },
-        {
-          "id": "automated-machine-learning",
-          "display": "automated-machine-learning"
-        },
+        { "id": "automated-machine-learning", "display": "automated-machine-learning" },
         { "id": "machine-learning", "display": "machine-learning" },
-        {
-          "id": "machine-learning-algorithms",
-          "display": "machine-learning-algorithms"
-        },
+        { "id": "machine-learning-algorithms", "display": "machine-learning-algorithms" },
         { "id": "data-science", "display": "data-science" }
       ],
       "issues": [
@@ -27565,18 +27451,12 @@
       "last_modified": "2023-09-25T03:52:12Z",
       "language": { "id": "java", "display": "Java" },
       "tags": [
-        {
-          "id": "configuration-management",
-          "display": "configuration-management"
-        },
+        { "id": "configuration-management", "display": "configuration-management" },
         { "id": "spring-boot", "display": "spring-boot" },
         { "id": "config-management", "display": "config-management" },
         { "id": "microservices", "display": "microservices" },
         { "id": "spring-cloud", "display": "spring-cloud" },
-        {
-          "id": "distributed-configuration",
-          "display": "distributed-configuration"
-        }
+        { "id": "distributed-configuration", "display": "distributed-configuration" }
       ],
       "issues": [
         {
@@ -27780,10 +27660,7 @@
         { "id": "data-streaming", "display": "data-streaming" },
         { "id": "event-streaming", "display": "event-streaming" },
         { "id": "framework", "display": "framework" },
-        {
-          "id": "massive-data-integration",
-          "display": "massive-data-integration"
-        },
+        { "id": "massive-data-integration", "display": "massive-data-integration" },
         { "id": "full-scenario-service", "display": "full-scenario-service" }
       ],
       "issues": [
@@ -32780,10 +32657,7 @@
         { "id": "topic-modeling", "display": "topic-modeling" },
         { "id": "information-retrieval", "display": "information-retrieval" },
         { "id": "machine-learning", "display": "machine-learning" },
-        {
-          "id": "natural-language-processing",
-          "display": "natural-language-processing"
-        },
+        { "id": "natural-language-processing", "display": "natural-language-processing" },
         { "id": "nlp", "display": "nlp" },
         { "id": "data-science", "display": "data-science" },
         { "id": "python", "display": "python" },
@@ -33979,10 +33853,7 @@
       "language": { "id": "go", "display": "Go" },
       "tags": [
         { "id": "kubernetes", "display": "kubernetes" },
-        {
-          "id": "development-environment",
-          "display": "development-environment"
-        }
+        { "id": "development-environment", "display": "development-environment" }
       ],
       "issues": [
         {
@@ -39022,10 +38893,7 @@
       "last_modified": "2023-09-28T22:26:27Z",
       "language": { "id": "cplusplus", "display": "C++" },
       "tags": [
-        {
-          "id": "machine-learning-algorithms",
-          "display": "machine-learning-algorithms"
-        },
+        { "id": "machine-learning-algorithms", "display": "machine-learning-algorithms" },
         { "id": "machine-learning", "display": "machine-learning" },
         { "id": "cuda", "display": "cuda" },
         { "id": "gpu", "display": "gpu" },
@@ -39489,10 +39357,7 @@
         { "id": "audio", "display": "audio" },
         { "id": "music", "display": "music" },
         { "id": "sound", "display": "sound" },
-        {
-          "id": "algorithmic-composition",
-          "display": "algorithmic-composition"
-        },
+        { "id": "algorithmic-composition", "display": "algorithmic-composition" },
         { "id": "computer-music", "display": "computer-music" }
       ],
       "issues": [
@@ -39695,10 +39560,7 @@
         { "id": "ocelot", "display": "ocelot" },
         { "id": "middleware-pipeline", "display": "middleware-pipeline" },
         { "id": "middleware", "display": "middleware" },
-        {
-          "id": "microservices-architecture",
-          "display": "microservices-architecture"
-        },
+        { "id": "microservices-architecture", "display": "microservices-architecture" },
         { "id": "asp-net-core", "display": "asp-net-core" },
         { "id": "asp-net", "display": "asp-net" },
         { "id": "netstandard20", "display": "netstandard20" }
@@ -39813,14 +39675,8 @@
         { "id": "machine-learning", "display": "machine-learning" },
         { "id": "featurestore", "display": "featurestore" },
         { "id": "in-memory-database", "display": "in-memory-database" },
-        {
-          "id": "database-for-machine-learning",
-          "display": "database-for-machine-learning"
-        },
-        {
-          "id": "machine-learning-database",
-          "display": "machine-learning-database"
-        },
+        { "id": "database-for-machine-learning", "display": "database-for-machine-learning" },
+        { "id": "machine-learning-database", "display": "machine-learning-database" },
         { "id": "feature-store", "display": "feature-store" },
         { "id": "feature-extraction", "display": "feature-extraction" },
         { "id": "database-for-ai", "display": "database-for-ai" },
@@ -40385,15 +40241,9 @@
       "language": { "id": "python", "display": "Python" },
       "tags": [
         { "id": "python", "display": "python" },
-        {
-          "id": "configuration-management",
-          "display": "configuration-management"
-        },
+        { "id": "configuration-management", "display": "configuration-management" },
         { "id": "remote-execution", "display": "remote-execution" },
-        {
-          "id": "infrastructure-management",
-          "display": "infrastructure-management"
-        },
+        { "id": "infrastructure-management", "display": "infrastructure-management" },
         { "id": "zeromq", "display": "zeromq" },
         { "id": "event-stream", "display": "event-stream" },
         { "id": "event-management", "display": "event-management" },
@@ -41394,10 +41244,7 @@
         { "id": "linux", "display": "linux" },
         { "id": "linux-distribution", "display": "linux-distribution" },
         { "id": "kubernetes", "display": "kubernetes" },
-        {
-          "id": "kubernetes-distribution",
-          "display": "kubernetes-distribution"
-        },
+        { "id": "kubernetes-distribution", "display": "kubernetes-distribution" },
         { "id": "go", "display": "go" },
         { "id": "musl", "display": "musl" },
         { "id": "grpc", "display": "grpc" },
@@ -41833,10 +41680,7 @@
       "last_modified": "2023-09-28T15:46:59Z",
       "language": { "id": "go", "display": "Go" },
       "tags": [
-        {
-          "id": "cloud-native-buildpacks",
-          "display": "cloud-native-buildpacks"
-        },
+        { "id": "cloud-native-buildpacks", "display": "cloud-native-buildpacks" },
         { "id": "buildpacks", "display": "buildpacks" },
         { "id": "cncf", "display": "cncf" }
       ],
@@ -42053,10 +41897,7 @@
       "language": { "id": "c", "display": "C" },
       "tags": [
         { "id": "metrics-gathering", "display": "metrics-gathering" },
-        {
-          "id": "metrics-gathering-daemon",
-          "display": "metrics-gathering-daemon"
-        },
+        { "id": "metrics-gathering-daemon", "display": "metrics-gathering-daemon" },
         { "id": "metrics", "display": "metrics" },
         { "id": "metrics-server", "display": "metrics-server" },
         { "id": "prometheus-exporter", "display": "prometheus-exporter" },
@@ -42177,10 +42018,7 @@
         { "id": "microservice", "display": "microservice" },
         { "id": "kubernetes", "display": "kubernetes" },
         { "id": "fault", "display": "fault" },
-        {
-          "id": "site-reliability-engineering",
-          "display": "site-reliability-engineering"
-        },
+        { "id": "site-reliability-engineering", "display": "site-reliability-engineering" },
         { "id": "chaos-testing", "display": "chaos-testing" },
         { "id": "alibaba", "display": "alibaba" }
       ],
@@ -42723,10 +42561,7 @@
       "language": { "id": "csharp", "display": "C#" },
       "tags": [
         { "id": "c-sharp", "display": "c-sharp" },
-        {
-          "id": "algorithmic-trading-engine",
-          "display": "algorithmic-trading-engine"
-        },
+        { "id": "algorithmic-trading-engine", "display": "algorithmic-trading-engine" },
         { "id": "quantconnect", "display": "quantconnect" },
         { "id": "lean-engine", "display": "lean-engine" },
         { "id": "finance", "display": "finance" },
@@ -44136,14 +43971,8 @@
       "tags": [
         { "id": "automl", "display": "automl" },
         { "id": "scikit-learn", "display": "scikit-learn" },
-        {
-          "id": "automated-machine-learning",
-          "display": "automated-machine-learning"
-        },
-        {
-          "id": "hyperparameter-optimization",
-          "display": "hyperparameter-optimization"
-        },
+        { "id": "automated-machine-learning", "display": "automated-machine-learning" },
+        { "id": "hyperparameter-optimization", "display": "hyperparameter-optimization" },
         { "id": "hyperparameter-tuning", "display": "hyperparameter-tuning" },
         { "id": "hyperparameter-search", "display": "hyperparameter-search" },
         { "id": "bayesian-optimization", "display": "bayesian-optimization" },
@@ -44769,10 +44598,7 @@
         { "id": "network-traffic", "display": "network-traffic" },
         { "id": "threat", "display": "threat" },
         { "id": "scanning", "display": "scanning" },
-        {
-          "id": "offensive-countermeasures",
-          "display": "offensive-countermeasures"
-        },
+        { "id": "offensive-countermeasures", "display": "offensive-countermeasures" },
         { "id": "bro-ids", "display": "bro-ids" },
         { "id": "blueteam", "display": "blueteam" },
         { "id": "security", "display": "security" },
@@ -46371,10 +46197,7 @@
         { "id": "devops", "display": "devops" },
         { "id": "developer-tools", "display": "developer-tools" },
         { "id": "aws-fargate", "display": "aws-fargate" },
-        {
-          "id": "aws-fargate-application",
-          "display": "aws-fargate-application"
-        },
+        { "id": "aws-fargate-application", "display": "aws-fargate-application" },
         { "id": "aws-apprunner", "display": "aws-apprunner" }
       ],
       "issues": [
@@ -48331,7 +48154,7 @@
         {
           "id": "MDU6SXNzdWU2NDY2ODMyMjA=",
           "number": 2088,
-          "title": "babel-plugin-yellowux-saga crashes sagas - Object.defineProperty called on non-object",
+          "title": "babel-plugin-redux-saga crashes sagas - Object.defineProperty called on non-object",
           "url": "https://github.com/redux-saga/redux-saga/issues/2088",
           "comments_count": 1,
           "created_at": "2020-06-27T13:29:43Z",
@@ -50784,10 +50607,7 @@
         { "id": "syntax-highlighting", "display": "syntax-highlighting" },
         { "id": "zsh", "display": "zsh" },
         { "id": "screenshot", "display": "screenshot" },
-        {
-          "id": "zsh-syntax-highlighting",
-          "display": "zsh-syntax-highlighting"
-        }
+        { "id": "zsh-syntax-highlighting", "display": "zsh-syntax-highlighting" }
       ],
       "issues": [
         {
@@ -51857,10 +51677,7 @@
         { "id": "docker", "display": "docker" },
         { "id": "containers", "display": "containers" },
         { "id": "vulnerability-scanners", "display": "vulnerability-scanners" },
-        {
-          "id": "vulnerability-detection",
-          "display": "vulnerability-detection"
-        },
+        { "id": "vulnerability-detection", "display": "vulnerability-detection" },
         { "id": "vulnerability", "display": "vulnerability" },
         { "id": "golang", "display": "golang" },
         { "id": "go", "display": "go" },
@@ -53181,10 +52998,7 @@
       "language": { "id": "go", "display": "Go" },
       "tags": [
         { "id": "kubernetes", "display": "kubernetes" },
-        {
-          "id": "cloud-native-developers",
-          "display": "cloud-native-developers"
-        },
+        { "id": "cloud-native-developers", "display": "cloud-native-developers" },
         { "id": "docker", "display": "docker" },
         { "id": "helm", "display": "helm" },
         { "id": "developer-tools", "display": "developer-tools" },
@@ -53758,10 +53572,7 @@
         { "id": "cis-security", "display": "cis-security" },
         { "id": "kubernetes-security", "display": "kubernetes-security" },
         { "id": "cis-benchmark", "display": "cis-benchmark" },
-        {
-          "id": "cis-kubernetes-benchmark",
-          "display": "cis-kubernetes-benchmark"
-        },
+        { "id": "cis-kubernetes-benchmark", "display": "cis-kubernetes-benchmark" },
         { "id": "openshift", "display": "openshift" },
         { "id": "kubernetes", "display": "kubernetes" },
         { "id": "hacktoberfest", "display": "hacktoberfest" }
@@ -56325,10 +56136,7 @@
       "tags": [
         { "id": "webassembly", "display": "webassembly" },
         { "id": "wasm", "display": "wasm" },
-        {
-          "id": "artificial-intelligence",
-          "display": "artificial-intelligence"
-        },
+        { "id": "artificial-intelligence", "display": "artificial-intelligence" },
         { "id": "rust-lang", "display": "rust-lang" },
         { "id": "cncf", "display": "cncf" },
         { "id": "cloud", "display": "cloud" },
@@ -59448,24 +59256,12 @@
         { "id": "mautic", "display": "mautic" },
         { "id": "php", "display": "php" },
         { "id": "hacktoberfest", "display": "hacktoberfest" },
-        {
-          "id": "digital-experience-platform",
-          "display": "digital-experience-platform"
-        },
-        {
-          "id": "digitalexperienceplatform",
-          "display": "digitalexperienceplatform"
-        },
+        { "id": "digital-experience-platform", "display": "digital-experience-platform" },
+        { "id": "digitalexperienceplatform", "display": "digitalexperienceplatform" },
         { "id": "dxp", "display": "dxp" },
         { "id": "email-marketing", "display": "email-marketing" },
-        {
-          "id": "email-marketing-automation",
-          "display": "email-marketing-automation"
-        },
-        {
-          "id": "email-marketing-software",
-          "display": "email-marketing-software"
-        }
+        { "id": "email-marketing-automation", "display": "email-marketing-automation" },
+        { "id": "email-marketing-software", "display": "email-marketing-software" }
       ],
       "issues": [
         {
@@ -62340,10 +62136,7 @@
         { "id": "gettext", "display": "gettext" },
         { "id": "django", "display": "django" },
         { "id": "crowdsourcing", "display": "crowdsourcing" },
-        {
-          "id": "continuous-localization",
-          "display": "continuous-localization"
-        },
+        { "id": "continuous-localization", "display": "continuous-localization" },
         { "id": "python", "display": "python" },
         { "id": "l10n", "display": "l10n" },
         { "id": "i18n", "display": "i18n" },
@@ -63406,10 +63199,7 @@
         { "id": "gce", "display": "gce" },
         { "id": "aws", "display": "aws" },
         { "id": "kubespray", "display": "kubespray" },
-        {
-          "id": "k8s-sig-cluster-lifecycle",
-          "display": "k8s-sig-cluster-lifecycle"
-        },
+        { "id": "k8s-sig-cluster-lifecycle", "display": "k8s-sig-cluster-lifecycle" },
         { "id": "hacktoberfest", "display": "hacktoberfest" }
       ],
       "issues": [
@@ -64635,10 +64425,7 @@
         { "id": "cost-estimation", "display": "cost-estimation" },
         { "id": "infrastructure-as-code", "display": "infrastructure-as-code" },
         { "id": "aws", "display": "aws" },
-        {
-          "id": "terraform-cost-estimation",
-          "display": "terraform-cost-estimation"
-        },
+        { "id": "terraform-cost-estimation", "display": "terraform-cost-estimation" },
         { "id": "cloud", "display": "cloud" },
         { "id": "cost-optimization", "display": "cost-optimization" },
         { "id": "cost-management", "display": "cost-management" },
@@ -65475,10 +65262,7 @@
         { "id": "kong", "display": "kong" },
         { "id": "kubernetes-ingress", "display": "kubernetes-ingress" },
         { "id": "ingress", "display": "ingress" },
-        {
-          "id": "kubernetes-ingress-controller",
-          "display": "kubernetes-ingress-controller"
-        },
+        { "id": "kubernetes-ingress-controller", "display": "kubernetes-ingress-controller" },
         { "id": "apis", "display": "apis" },
         { "id": "k8s", "display": "k8s" },
         { "id": "crds", "display": "crds" },
@@ -66024,10 +65808,7 @@
       "language": { "id": "go", "display": "Go" },
       "tags": [
         { "id": "distributed-database", "display": "distributed-database" },
-        {
-          "id": "distributed-transactions",
-          "display": "distributed-transactions"
-        },
+        { "id": "distributed-transactions", "display": "distributed-transactions" },
         { "id": "tidb", "display": "tidb" },
         { "id": "database", "display": "database" },
         { "id": "scale", "display": "scale" },
@@ -67746,11 +67527,7 @@
     { "id": "windows", "display": "windows", "count": 12 },
     { "id": "monitoring", "display": "monitoring", "count": 12 },
     { "id": "open-source", "display": "open-source", "count": 12 },
-    {
-      "id": "distributed-systems",
-      "display": "distributed-systems",
-      "count": 11
-    },
+    { "id": "distributed-systems", "display": "distributed-systems", "count": 11 },
     { "id": "k8s", "display": "k8s", "count": 11 },
     { "id": "api", "display": "api", "count": 11 },
     { "id": "mysql", "display": "mysql", "count": 11 },
@@ -67772,11 +67549,7 @@
     { "id": "helm", "display": "helm", "count": 8 },
     { "id": "postgresql", "display": "postgresql", "count": 8 },
     { "id": "observability", "display": "observability", "count": 8 },
-    {
-      "id": "distributed-database",
-      "display": "distributed-database",
-      "count": 8
-    },
+    { "id": "distributed-database", "display": "distributed-database", "count": 8 },
     { "id": "wasm", "display": "wasm", "count": 8 },
     { "id": "c", "display": "c", "count": 8 },
     { "id": "cryptography", "display": "cryptography", "count": 8 },
@@ -67795,11 +67568,7 @@
     { "id": "browser", "display": "browser", "count": 7 },
     { "id": "macos", "display": "macos", "count": 7 },
     { "id": "css", "display": "css", "count": 7 },
-    {
-      "id": "programming-language",
-      "display": "programming-language",
-      "count": 7
-    },
+    { "id": "programming-language", "display": "programming-language", "count": 7 },
     { "id": "game", "display": "game", "count": 7 },
     { "id": "numpy", "display": "numpy", "count": 7 },
     { "id": "terminal", "display": "terminal", "count": 7 },
@@ -67830,22 +67599,10 @@
     { "id": "django", "display": "django", "count": 5 },
     { "id": "automation", "display": "automation", "count": 5 },
     { "id": "high-availability", "display": "high-availability", "count": 5 },
-    {
-      "id": "continuous-integration",
-      "display": "continuous-integration",
-      "count": 5
-    },
-    {
-      "id": "continuous-delivery",
-      "display": "continuous-delivery",
-      "count": 5
-    },
+    { "id": "continuous-integration", "display": "continuous-integration", "count": 5 },
+    { "id": "continuous-delivery", "display": "continuous-delivery", "count": 5 },
     { "id": "rpc", "display": "rpc", "count": 5 },
-    {
-      "id": "distributed-tracing",
-      "display": "distributed-tracing",
-      "count": 5
-    },
+    { "id": "distributed-tracing", "display": "distributed-tracing", "count": 5 },
     { "id": "proxy", "display": "proxy", "count": 5 },
     { "id": "search", "display": "search", "count": 5 },
     { "id": "security-tools", "display": "security-tools", "count": 5 },
@@ -67862,11 +67619,7 @@
     { "id": "sqlite", "display": "sqlite", "count": 5 },
     { "id": "cluster", "display": "cluster", "count": 5 },
     { "id": "ethereum", "display": "ethereum", "count": 5 },
-    {
-      "id": "static-code-analysis",
-      "display": "static-code-analysis",
-      "count": 5
-    },
+    { "id": "static-code-analysis", "display": "static-code-analysis", "count": 5 },
     { "id": "rest", "display": "rest", "count": 5 },
     { "id": "graphql", "display": "graphql", "count": 5 },
     { "id": "markdown", "display": "markdown", "count": 5 },
@@ -67874,11 +67627,7 @@
     { "id": "time-series", "display": "time-series", "count": 5 },
     { "id": "ecommerce-platform", "display": "ecommerce-platform", "count": 5 },
     { "id": "ecommerce", "display": "ecommerce", "count": 5 },
-    {
-      "id": "configuration-management",
-      "display": "configuration-management",
-      "count": 4
-    },
+    { "id": "configuration-management", "display": "configuration-management", "count": 4 },
     { "id": "material-design", "display": "material-design", "count": 4 },
     { "id": "workflow", "display": "workflow", "count": 4 },
     { "id": "olap", "display": "olap", "count": 4 },
@@ -67892,11 +67641,7 @@
     { "id": "event-driven", "display": "event-driven", "count": 4 },
     { "id": "openshift", "display": "openshift", "count": 4 },
     { "id": "es6", "display": "es6", "count": 4 },
-    {
-      "id": "infrastructure-as-code",
-      "display": "infrastructure-as-code",
-      "count": 4
-    },
+    { "id": "infrastructure-as-code", "display": "infrastructure-as-code", "count": 4 },
     { "id": "scikit-learn", "display": "scikit-learn", "count": 4 },
     { "id": "eks", "display": "eks", "count": 4 },
     { "id": "bitcoin", "display": "bitcoin", "count": 4 },
@@ -67957,23 +67702,11 @@
     { "id": "hive", "display": "hive", "count": 3 },
     { "id": "graphdb", "display": "graphdb", "count": 3 },
     { "id": "data-engineering", "display": "data-engineering", "count": 3 },
-    {
-      "id": "distributed-transactions",
-      "display": "distributed-transactions",
-      "count": 3
-    },
+    { "id": "distributed-transactions", "display": "distributed-transactions", "count": 3 },
     { "id": "pubsub", "display": "pubsub", "count": 3 },
     { "id": "http-proxy", "display": "http-proxy", "count": 3 },
-    {
-      "id": "functions-as-a-service",
-      "display": "functions-as-a-service",
-      "count": 3
-    },
-    {
-      "id": "serverless-functions",
-      "display": "serverless-functions",
-      "count": 3
-    },
+    { "id": "functions-as-a-service", "display": "functions-as-a-service", "count": 3 },
+    { "id": "serverless-functions", "display": "serverless-functions", "count": 3 },
     { "id": "ide", "display": "ide", "count": 3 },
     { "id": "command-line", "display": "command-line", "count": 3 },
     { "id": "admin-dashboard", "display": "admin-dashboard", "count": 3 },
@@ -67981,35 +67714,19 @@
     { "id": "pipeline", "display": "pipeline", "count": 3 },
     { "id": "redux", "display": "redux", "count": 3 },
     { "id": "automl", "display": "automl", "count": 3 },
-    {
-      "id": "automated-machine-learning",
-      "display": "automated-machine-learning",
-      "count": 3
-    },
-    {
-      "id": "hyperparameter-optimization",
-      "display": "hyperparameter-optimization",
-      "count": 3
-    },
+    { "id": "automated-machine-learning", "display": "automated-machine-learning", "count": 3 },
+    { "id": "hyperparameter-optimization", "display": "hyperparameter-optimization", "count": 3 },
     { "id": "science", "display": "science", "count": 3 },
     { "id": "ssl", "display": "ssl", "count": 3 },
     { "id": "azure-sdk", "display": "azure-sdk", "count": 3 },
     { "id": "kubernetes-cluster", "display": "kubernetes-cluster", "count": 3 },
-    {
-      "id": "kubernetes-deployment",
-      "display": "kubernetes-deployment",
-      "count": 3
-    },
+    { "id": "kubernetes-deployment", "display": "kubernetes-deployment", "count": 3 },
     { "id": "firefox", "display": "firefox", "count": 3 },
     { "id": "parser", "display": "parser", "count": 3 },
     { "id": "runtime", "display": "runtime", "count": 3 },
     { "id": "webgl", "display": "webgl", "count": 3 },
     { "id": "virtual-machine", "display": "virtual-machine", "count": 3 },
-    {
-      "id": "site-reliability-engineering",
-      "display": "site-reliability-engineering",
-      "count": 3
-    },
+    { "id": "site-reliability-engineering", "display": "site-reliability-engineering", "count": 3 },
     { "id": "ci", "display": "ci", "count": 3 },
     { "id": "design", "display": "design", "count": 3 },
     { "id": "video", "display": "video", "count": 3 },
@@ -68022,11 +67739,7 @@
     { "id": "multicloud", "display": "multicloud", "count": 3 },
     { "id": "cuda", "display": "cuda", "count": 3 },
     { "id": "oidc", "display": "oidc", "count": 3 },
-    {
-      "id": "natural-language-processing",
-      "display": "natural-language-processing",
-      "count": 3
-    },
+    { "id": "natural-language-processing", "display": "natural-language-processing", "count": 3 },
     { "id": "registry", "display": "registry", "count": 3 },
     { "id": "dotnet-core", "display": "dotnet-core", "count": 3 },
     { "id": "ml", "display": "ml", "count": 3 },
@@ -68034,22 +67747,14 @@
     { "id": "consensus", "display": "consensus", "count": 3 },
     { "id": "kubernetes-ingress", "display": "kubernetes-ingress", "count": 3 },
     { "id": "build-tools", "display": "build-tools", "count": 3 },
-    {
-      "id": "functional-programming",
-      "display": "functional-programming",
-      "count": 3
-    },
+    { "id": "functional-programming", "display": "functional-programming", "count": 3 },
     { "id": "frontend", "display": "frontend", "count": 3 },
     { "id": "ui", "display": "ui", "count": 3 },
     { "id": "code-quality", "display": "code-quality", "count": 3 },
     { "id": "linkerd", "display": "linkerd", "count": 3 },
     { "id": "scale", "display": "scale", "count": 3 },
     { "id": "fairwinds-official", "display": "fairwinds-official", "count": 3 },
-    {
-      "id": "static-site-generator",
-      "display": "static-site-generator",
-      "count": 3
-    },
+    { "id": "static-site-generator", "display": "static-site-generator", "count": 3 },
     { "id": "web-app", "display": "web-app", "count": 3 },
     { "id": "dependencies", "display": "dependencies", "count": 3 },
     { "id": "dependency-manager", "display": "dependency-manager", "count": 3 },
@@ -68077,17 +67782,9 @@
     { "id": "monorepo", "display": "monorepo", "count": 3 },
     { "id": "wpf", "display": "wpf", "count": 3 },
     { "id": "console", "display": "console", "count": 3 },
-    {
-      "id": "contributions-welcome",
-      "display": "contributions-welcome",
-      "count": 3
-    },
+    { "id": "contributions-welcome", "display": "contributions-welcome", "count": 3 },
     { "id": "game-engine", "display": "game-engine", "count": 3 },
-    {
-      "id": "scientific-computing",
-      "display": "scientific-computing",
-      "count": 3
-    },
+    { "id": "scientific-computing", "display": "scientific-computing", "count": 3 },
     { "id": "server", "display": "server", "count": 3 },
     { "id": "foss", "display": "foss", "count": 3 },
     { "id": "x509", "display": "x509", "count": 3 },

@@ -17,7 +17,7 @@ export const Header = () => {
     <header className="container mx-auto my-5 flex flex-col items-center bg-black-400 p-6 md:my-10 md:flex-row md:justify-between lg:max-w-6xl">
       <nav className="flex flex-wrap items-center md:justify-center">
         <Link href="/">
-          <Image src="/firstissue.png" alt="First Issue" className="h-12" width={290} height={51} />
+          <Image src="/firstissue.png" alt="Verto" className="h-12" width={290} height={51} />
         </Link>
         {activeTagOrLanguage ? (
           <span className="ml-8 cursor-pointer pt-4 text-4xl font-semibold text-gray">

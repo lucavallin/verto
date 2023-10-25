@@ -25,16 +25,16 @@ export const generateAndWriteSiteMap = async (data: Data) => {
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
       <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
         <url>
-          <loc>https://firstissue.dev</loc>
+          <loc>https://verto.dev</loc>
         </url>
         ${data.languages
           .map(
             (language: CountableLanguage) =>
-              `<url><loc>https://firstissue.dev/language/${language.id}</loc></url>`
+              `<url><loc>https://verto.dev/language/${language.id}</loc></url>`
           )
           .join("")}
         ${data.tags
-          .map((tag: CountableTag) => `<url><loc>https://firstissue.dev/tag/${tag.id}</loc></url>`)
+          .map((tag: CountableTag) => `<url><loc>https://verto.dev/tag/${tag.id}</loc></url>`)
           .join("")}
       </urlset>
     `;
