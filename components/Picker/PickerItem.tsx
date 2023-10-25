@@ -13,7 +13,7 @@ export const PickerItem = ({ className, totalOccurrences, href, text }: PickerIt
   return (
     <Link href={href} className={className}>
       {text}
-      <span className="text-white-400 transition-all group-hover:text-yellow">
+      <span className="text-white-400 transition-all group-hover:text-pink">
         &nbsp;&times;{totalOccurrences}
       </span>
     </Link>

@@ -1,6 +1,7 @@
 import { faComment } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import Link from "next/link";
 import { Issue } from "../../types";
 
 type IssueItemProps = {
@@ -25,8 +26,8 @@ export const IssueItem = ({ issue }: IssueItemProps) => {
     <li key={issue.url} className="flex flex-row items-start justify-start py-1">
       <span className="min-w-[74px] pr-2 text-right leading-snug text-gray">#{issue.number}</span>
       <div className="flex flex-auto flex-row items-start">
-        <a
-          className={`block flex-auto leading-snug transition-all hover:text-yellow ${
+        <Link
+          className={`block flex-auto leading-snug transition-all hover:text-pink ${
             issue.comments_count > 0 ? "mr-4" : "mr-12"
           }`}
           href={issue.url}
@@ -41,7 +42,7 @@ export const IssueItem = ({ issue }: IssueItemProps) => {
               return <span key={i} className="break-keep">{`${word} `}</span>;
             }
           })}
-        </a>
+        </Link>
         {issue.comments_count > 0 && <IssueCommentNum numIssues={issue.comments_count} />}
       </div>
     </li>

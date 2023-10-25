@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Repository } from "../../types";
 
 type RepositoryLinkTitleProps = {
@@ -14,9 +15,9 @@ export const RepositoryLinkTitle = ({
   repositoryUrl
 }: RepositoryLinkTitleProps) => {
   return (
-    <a
-      className={`text-xl font-bold transition-all group-hover:text-yellow ${
-        isIssueOpen ? "text-yellow max-md:w-[50%] md:truncate" : ""
+    <Link
+      className={`text-xl font-bold transition-all group-hover:text-pink ${
+        isIssueOpen ? "text-pink max-md:w-[50%] md:truncate" : ""
       }`}
       href={repositoryUrl}
       rel="noopener noreferrer"
@@ -24,6 +25,6 @@ export const RepositoryLinkTitle = ({
       title={`Open ${repositoryOwner}/${repositoryName} on GitHub`}
     >
       {repositoryOwner} / {repositoryName}
-    </a>
+    </Link>
   );
 };

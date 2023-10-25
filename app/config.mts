@@ -18,20 +18,18 @@ const config = {
     producthunt: "https://www.producthunt.com/@lucavallin",
     discord: "https://discord.gg/WW66KfFhfk",
     calendly: "https://calendly.com/lucavallin",
-    newsletter: "https://newsletter.lucavallin.com"
+    newsletter: "https://newsletter.lucavallin.com",
+    website: "https://www.lucavall.in"
   },
   meta: {
-    title: "Luca Cavallin - The lucavallin Website",
-    headerTitle: "lucavallin",
-    description: `
-      I'm Luca Cavallin, a Software Engineer at GitHub Actions and a solopreneur. My professional focus is on distributed systems, developer and infrastructure tooling, and platform engineering. My work frequently involves Go, Rust, Kubernetes, serverless technologies, and the broader Cloud Native domain. I'm an active contributor to open source and believe in the importance of knowledge sharing, as evidenced by the newsletter I run, my blog posts, and talks. Additionally, I hold the title of Google Developer Expert (GDE). Outside of work, activities like cycling, using a kamado for cooking, stargazing, and attending to my cats keep me occupied.
-      `,
-    seoDescription: `Luca Cavallin, Software Engineer at GitHub Actions & solopreneur, specializes in distributed systems, developer tooling, & platform engineering. Proficient in Go, Rust, Kubernetes & Cloud Native tech. Active in open source, values knowledge sharing—runs a newsletter, blogs & speaks. Google Developer Expert. Enjoys cycling, kamado cooking, stargazing & cats.`,
+    title: "Verto - Your Gateway to Open Source Contributions",
+    description: `Making your next open-source contribution doesn't have to be hard. Verto is a curated list of accessible issues from popular open-source projects to get you started easily on your next contribution. Start today!`,
+    seoDescription: `Making your next open-source contribution doesn't have to be hard. Verto is a curated list of accessible issues from popular open-source projects to get you started easily on your next contribution. Start today!`,
     language: "en-us",
     theme: "system", // system, dark or light
     siteUrl: "https://www.firstissue.dev",
-    siteLogo: "/static/images/lucavallin.png",
-    socialBanner: "/static/images/meta.png",
+    siteLogo: "/verto.png",
+    socialBanner: "/meta.png",
     locale: "en-US",
     analytics: {
       plausibleAnalytics: {

@@ -53,7 +53,7 @@ export const LanguagePicker = ({ activeTagId, languages, onLanguagePage }: Langu
               className={`group m-1 inline-block rounded-sm border px-2 py-1 ${
                 onLanguagePage && language.id === activeTagId
                   ? "active-pill"
-                  : "border-silver-100 transition-all hover:border-yellow hover:text-yellow"
+                  : "border-silver-100 transition-all hover:border-pink hover:text-pink"
               }`}
               href={`/language/${language.id}`}
               key={language.id}

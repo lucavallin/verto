@@ -29,7 +29,7 @@ export const RepositoryItemTopBar = ({
         repositoryUrl={repositoryUrl}
       />
       <div className="flex flex-1 items-center justify-end">
-        <div className={`h-2 w-2 rounded-full ${repositoryHasNewIssues ? "bg-yellow" : ""}`}></div>
+        <div className={`h-2 w-2 rounded-full ${repositoryHasNewIssues ? "bg-pink" : ""}`}></div>
       </div>
       {isIssueOpen && (
         <div className="hidden xl:block">

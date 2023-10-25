@@ -1,17 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { useSearchParams } from "next/navigation";
+import { useParams } from "next/navigation";
 import { useAppData } from "../hooks/useAppData";
 import { Tag } from "../types";
 
 export const Header = () => {
-  const search = useSearchParams();
-  const tag = search.get("tag");
-  const language = search.get("language");
+  const { tag: activeTagId, language: activeLanguageId } = useParams();
   const { languages, tags } = useAppData();
   const activeTagOrLanguage = [...languages, ...tags].find(
-    (t: Tag) => t.id === tag || t.id === language
+    (t: Tag) => t.id === activeTagId || t.id === activeLanguageId
   );
 
   return (

@@ -29,7 +29,7 @@ export const RepositoryItem = ({ repository }: RepositoryItemProps) => {
     <div
       id={`repo-${repository.id}`}
       className={`group mb-4 w-full select-none rounded-md border ${
-        isIssueOpen ? "border-yellow" : "border-silver-100"
+        isIssueOpen ? "border-pink" : "border-silver-100"
       }`}
     >
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
