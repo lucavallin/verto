@@ -1,7 +1,7 @@
 {
   "name": "verto.sh",
   "short_name": "verto.sh",
-  "description": "",
+  "description": "Your Gateway to Open Source Contributions",
   "start_url": "/",
   "display": "standalone",
   "theme_color": "#101620",
