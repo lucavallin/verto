@@ -1,7 +1,7 @@
 {
   "name": "verto.sh",
   "short_name": "verto.sh",
-  "description": "",
+  "description": "Your Gateway to Open Source Contributions",
   "start_url": "/",
   "display": "standalone",
   "theme_color": "#101620",
@@ -13,8 +13,8 @@
       "type": "image/png"
     },
     {
-      "src": "/android-chrome-512x512.png",
-      "sizes": "512x512",
+      "src": "/android-chrome-384x384.png",
+      "sizes": "384x384",
       "type": "image/png"
     }
   ]
