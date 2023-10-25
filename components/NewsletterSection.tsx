@@ -1,6 +1,4 @@
-import { useEffect } from "react";
-
-import Script from "next/script";
+import { NewsletterForm } from "./NewsletterForm";
 import { SectionTitle } from "./SectionTitle";
 
 interface CustomSubstackWidget {
@@ -24,32 +22,14 @@ declare global {
 }
 
 export const NewsletterSection = () => {
-  useEffect(() => {
-    window.CustomSubstackWidget = {
-      element: "#substack-embed",
-      substackUrl: process.env.NEXT_PUBLIC_NEWSLETTER_URL,
-      placeholder: "your email address",
-      buttonText: "SUBSCRIBE",
-      theme: "custom",
-      colors: {
-        primary: "#cb3364",
-        input: "#ffffff",
-        email: "#52575c",
-        text: "#16181d"
-      }
-    };
-  }, []);
-
   return (
     <div className="pt-6">
       <SectionTitle className="mb-2" text="Join the Newsletter" />
-      <p className="text-sm">
+      <p className="text-sm text-silver-500">
         Join &quot;The lucavallin Newsletter&quot; to receive curated issues from FirstIssue and
         other articles in your inbox every other week.
       </p>
-
-      <Script src="https://substackapi.com/widget.js" strategy="lazyOnload" />
-      <div id="substack-embed" className="relative mt-4 flex flex-col rounded-md"></div>
+      <NewsletterForm />
     </div>
   );
 };

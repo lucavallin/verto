@@ -1,20 +1,19 @@
 import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { SectionTitle } from "../SectionTitle";
 
-export const CollectivSection = () => {
+export const SponsorSection = () => {
   return (
     <div className="pt-6">
-      <h3 className="flex cursor-pointer flex-row items-center text-sm font-bold uppercase tracking-wider text-secondary">
-        Get Help
-      </h3>
-      <p className="py-2 text-sm">
+      <SectionTitle text="This month's sponsor" />
+      <p className="py-2 text-sm text-silver-500">
         Use{" "}
         <a
           href="https://chat.collectivai.com/hacktober-fest"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <span className="font-bold text-primary transition-all hover:underline">
+          <span className="text-lg font-bold text-pink transition-all hover:underline">
             Collectiv
             <FontAwesomeIcon
               icon={faUpRightFromSquare}
@@ -22,9 +21,7 @@ export const CollectivSection = () => {
             />{" "}
           </span>{" "}
         </a>
-        to solve Hacktoberfest issues and{" "}
-        <span className="mb-2 text-sm font-bold tracking-wider text-[#F8F8F8]">win a T-shirt</span>{" "}
-        & other exciting Merch!
+        to solve Hacktoberfest issues and win a T-Shirt & other exciting merch!
       </p>
     </div>
   );

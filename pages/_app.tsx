@@ -1,35 +1,39 @@
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import type { AppProps } from "next/app";
-import { Inter } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
+import BuyMeACoffee from "../components/BuyMeACoffee";
 import { Layout } from "../components/Layout";
 import { SponsorsBar } from "../components/SponsorsBar";
 import { AppDataProvider } from "../context/AppDataContext";
 import "../styles/globals.css";
 import NotFound from "./404";
-import BuyMeACoffee from "../components/BuyMeACoffee";
 
 // Fontawesome and TailwindCSS related settings
 config.autoAddCss = false;
-const inter = Inter({
+const space_grotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-inter"
+  display: "swap",
+  variable: "--font-space-grotesk"
 });
 
 // Entry point for the app
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const shouldRenderComponents = router.pathname === "/" || router.pathname.startsWith('/language/') || router.pathname.startsWith('/tag/');
+  const shouldRenderComponents =
+    router.pathname === "/" ||
+    router.pathname.startsWith("/language/") ||
+    router.pathname.startsWith("/tag/");
   return (
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <AppDataProvider>
-        <main className={`${inter.variable} font-sans`}>
+        <main className={`${space_grotesk.variable} font-sans`}>
           {shouldRenderComponents ? (
             <>
               <SponsorsBar />

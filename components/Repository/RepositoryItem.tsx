@@ -29,11 +29,12 @@ export const RepositoryItem = ({ repository }: RepositoryItemProps) => {
     <div
       id={`repo-${repository.id}`}
       className={`group mb-4 w-full select-none rounded-md border ${
-        isIssueOpen ? "border-primary" : "border-dark-200"
+        isIssueOpen ? "border-pink" : "border-silver-100"
       }`}
     >
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div
-        className="cursor-pointer px-5 py-3 transition-all hover:bg-dark-300"
+        className="cursor-pointer px-5 py-3 transition-all hover:bg-black-300"
         onClick={() => setIsIssueOpen(!isIssueOpen)}
       >
         <RepositoryItemTopBar
@@ -46,7 +47,6 @@ export const RepositoryItem = ({ repository }: RepositoryItemProps) => {
         />
         <RepositoryDescription repositoryDescription={repository.description} />
         <RepositoryMetadata
-          isIssueOpen={isIssueOpen}
           lastModified={lastModified}
           repositoryLang={repository.language.display}
           repositoryStars={repository.stars_display}

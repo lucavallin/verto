@@ -1,7 +1,13 @@
 // AppDataContext.tsx
 import React, { createContext, useEffect, useState } from "react";
 import data from "../data/data.json";
-import { AppData, CountableTag, CountableLanguage, Repository, RepositorySortOrder } from "../types";
+import {
+  AppData,
+  CountableLanguage,
+  CountableTag,
+  Repository,
+  RepositorySortOrder
+} from "../types";
 
 type AppDataContextType = AppData & {
   filterRepositoriesByTag: (tag: string) => Repository[];
@@ -17,8 +23,8 @@ const DEFAULT_VALUE: AppDataContextType = {
   query: "",
   updateRepositorySortOrder: () => {},
   filterRepositoriesByTag: () => [],
-  filterRepositoriesByQuery: () => {}, 
-  filterRepositoriesByLanguage: () => [],
+  filterRepositoriesByQuery: () => {},
+  filterRepositoriesByLanguage: () => []
 };
 
 const AppDataContext = createContext<AppDataContextType>(DEFAULT_VALUE);
@@ -77,24 +83,20 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const filterRepositoriesByTag = (tag: string) => {
-    return repositories.filter((repository) =>
-      repository.tags?.some((t) => t.id === tag)
-    );
+    return repositories.filter((repository) => repository.tags?.some((t) => t.id === tag));
   };
 
-  
   const filterRepositoriesByQuery = (query: string) => {
-    
-    if(query.length >= 3){
+    if (query.length >= 3) {
       // Filter repositories based on query
       const filtered = allRepositories.filter((repository) => {
-        const { name, owner, issues } = repository; 
+        const { name, owner, issues } = repository;
         const searchText = `${name} ${owner} ${issues.map((issue) => issue.title)}`.toLowerCase();
         return searchText.includes(query.toLowerCase());
       });
-    
+
       setRepositories(filtered);
-    }else{
+    } else {
       setRepositories(allRepositories);
     }
   };
@@ -102,7 +104,7 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
   const filterRepositoriesByLanguage = (languageId: string) => {
     return repositories.filter((repository) => repository.language.id === languageId);
   };
-  
+
   const value = {
     languages: data.languages,
     repositories,
@@ -112,7 +114,7 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
     updateRepositorySortOrder,
     filterRepositoriesByTag,
     filterRepositoriesByQuery,
-    filterRepositoriesByLanguage, 
+    filterRepositoriesByLanguage
   };
 
   return <AppDataContext.Provider value={value}>{children}</AppDataContext.Provider>;

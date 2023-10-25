@@ -4,7 +4,7 @@ type SectionTitleProps = {
 };
 
 export const SectionTitle = ({ text, className }: SectionTitleProps) => (
-  <h3 className={`${className || ""} text-sm font-bold uppercase tracking-wider text-secondary`}>
+  <h3 className={`${className || ""} text-sm font-bold uppercase tracking-wider text-gray`}>
     {/* Prevents text from wrapping to the next line. */}
     <span className="truncate">{text}</span>
   </h3>

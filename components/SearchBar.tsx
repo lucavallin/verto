@@ -10,21 +10,20 @@ export const SearchBar = () => {
 
   const handleSearch = (searchQuery: string) => {
     setQuery(searchQuery);
-    filterRepositoriesByQuery(searchQuery); 
+    filterRepositoriesByQuery(searchQuery);
   };
 
- 
   return (
     <div className="relative mt-4 flex rounded-md">
       <input
         type="text"
-        className="block w-full rounded-l-md px-4 py-3 pl-11 text-sm text-secondary"
+        className="block w-full rounded-l-md px-4 py-3 pl-11 text-sm text-silver-500"
         placeholder="Search in name, description, tags..."
-        value={query} 
+        value={query}
         onChange={(e) => handleSearch(e.target.value)}
       />
       <div className="pointer-events-none absolute inset-y-0 left-0 z-20 flex items-center pl-4">
-        <FontAwesomeIcon icon={faSearch} className={"text-secondary"} />
+        <FontAwesomeIcon icon={faSearch} className={"text-silver-500"} />
       </div>
     </div>
   );

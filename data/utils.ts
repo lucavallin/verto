@@ -46,7 +46,7 @@ export const generateAndWriteSiteMap = async (data: Data) => {
 export const chunkArray = <T>(arr: T[], chunkSize: number): T[][] => {
   const chunks = [];
   for (let i = 0; i < arr.length; i += chunkSize) {
-    chunks.push(arr.slice(i, i + chunkSize));
+    chunks.push(arr.slice(i, i + chunkSize) as never);
   }
   return chunks;
 };

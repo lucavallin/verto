@@ -12,8 +12,8 @@ export const LinkButton = ({ href, secondary, children }: LinkButtonProps) => {
       <a
         className={`block rounded-md border px-1 py-3 text-center font-bold uppercase transition-all ${
           secondary
-            ? "border-primary hover:border-primary hover:text-primary"
-            : "bg-primary text-dark-400 hover:bg-primary_light"
+            ? "border-pink hover:border-pink hover:text-pink"
+            : "bg-pink text-white outline-offset-2 outline-pink hover:outline"
         }`}
         href={href}
         target="_blank"

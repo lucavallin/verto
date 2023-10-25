@@ -16,6 +16,9 @@
     "@fortawesome/free-regular-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@next/bundle-analyzer": "^13.5.6",
+    "@tailwindcss/forms": "^0.5.6",
+    "@tailwindcss/typography": "^0.5.10",
     "@types/node": "20.8.7",
     "@types/react": "18.2.25",
     "@types/react-dom": "18.2.14",
@@ -46,9 +49,12 @@
     "eslint-config-next": "13.5.4",
     "eslint-config-prettier": "^9.0.0",
     "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-tailwindcss": "^3.13.0",
     "husky": "^8.0.3",
     "jest": "^29.7.0",
+    "lint-staged": "^15.0.2",
     "postcss": "^8.4.30",
     "prettier": "^3.0.3",
     "prettier-plugin-organize-imports": "^3.2.3",
@@ -57,5 +63,10 @@
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.1",
     "typescript": "5.2.2"
+  },
+  "lint-staged": {
+    "*.+(js|jsx|ts|tsx|json|css|md|mdx)": [
+      "eslint --fix"
+    ]
   }
 }

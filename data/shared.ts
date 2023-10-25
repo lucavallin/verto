@@ -46,7 +46,7 @@ export const processSource = async (source: Source): Promise<Repository[]> => {
       chunk,
       source.labels
     );
-    repositories.push(repos);
+    repositories.push(repos as never);
     await sleep(1000); // wait 1s between requests
   }
 

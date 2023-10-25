@@ -22,11 +22,11 @@
 }
 
 .active-pill {
-  @apply border-primary font-semibold text-primary;
+  @apply border-pink font-semibold text-pink;
 }
 
 .active-pill > span {
-  @apply text-primary;
+  @apply text-pink;
 }
 
 #bmc-iframe {
