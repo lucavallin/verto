@@ -67,7 +67,7 @@ module.exports = () => {
       domains: []
     },
     compiler: {
-      // removeConsole: true
+      removeConsole: true
     },
     async headers() {
       return [
