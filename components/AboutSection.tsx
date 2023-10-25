@@ -10,7 +10,7 @@ const ByLine = () => (
       <span className="ml-2">
         A{" "}
         <span
-          className="inline text-lg font-bold text-pink transition-all hover:underline"
+          className="inline text-lg font-bold text-yellow transition-all hover:underline"
           title="Visit GitHub profile"
         >
           @lucavallin

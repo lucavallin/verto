@@ -11,7 +11,7 @@ const BuyMeACoffee = () => {
         data-id="lucavallin"
         data-description="Would you like to support FirstIssue? ❤️"
         data-message="Would you like to support FirstIssue? ❤️"
-        data-color="#47f6ad"
+        data-color="#e3407c"
         data-position="Right"
         data-x_margin="15"
         data-y_margin="100"

@@ -13,7 +13,7 @@ export const SponsorSection = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <span className="text-lg font-bold text-pink transition-all hover:underline">
+          <span className="text-lg font-bold text-yellow transition-all hover:underline">
             Collectiv
             <FontAwesomeIcon
               icon={faUpRightFromSquare}

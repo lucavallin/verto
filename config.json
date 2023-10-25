@@ -21,7 +21,12 @@
       "postmarketOS/pmbootstrap|7301016",
       "LazyLibrarian/LazyLibrarian|9317860"
     ],
-    "labels": ["quick win", "Seeking community contribution", "help wanted", "good first issue"]
+    "labels": [
+      "quick win",
+      "Seeking community contribution",
+      "help wanted",
+      "good first issue"
+    ]
   },
   {
     "name": "GitHub",
@@ -639,7 +644,7 @@
       "hashicorp/terraform",
       "hashicorp/terraform-cdk",
       "hashicorp/terraform-provider-aws",
-      "hashicorp/terraform-provider-azurerm",
+      "hashicorp/terraform-provider-yellowrm",
       "hashicorp/terraform-provider-google",
       "hashicorp/terraform-provider-kubernetes",
       "hashicorp/vagrant",
@@ -1198,7 +1203,7 @@
       "tensorflow/tensorflow",
       "tensorflow/tfjs",
       "terraform-providers/terraform-provider-aws",
-      "terraform-providers/terraform-provider-azurerm",
+      "terraform-providers/terraform-provider-yellowrm",
       "testcontainers/testcontainers-java",
       "textlint/textlint",
       "thanos-io/thanos",

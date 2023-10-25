@@ -70,7 +70,7 @@ export const TagPicker = ({ tags, activeTagId, onTagPage }: TagPickerProps) => {
               className={`group m-1 inline-block rounded-sm border px-2 py-1 ${
                 onTagPage && tag.id === activeTagId
                   ? "active-pill"
-                  : "border-silver-100 transition-all hover:border-pink hover:text-pink"
+                  : "border-silver-100 transition-all hover:border-yellow hover:text-yellow"
               }`}
               href={`/tag/${tag.id}`}
               key={tag.id}
