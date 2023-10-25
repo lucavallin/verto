@@ -27,15 +27,20 @@ const Loader = () => (
 export const RepositoryList = ({ languageId, tagId }: RepositoryListProps) => {
   const itemsPerScroll = 15;
   const [items, setItems] = useState(itemsPerScroll);
-  const { repositories, repositorySortOrder, updateRepositorySortOrder } = useAppData();
-  let repos = repositories;
+  const {
+    repositories,
+    repositorySortOrder,
+    updateRepositorySortOrder,
+    filterRepositoriesByTag,
+    filterRepositoriesByLanguage
+  } = useAppData();
 
   if (languageId) {
-    repos = repositories.filter((r) => r.language.id === languageId);
+    filterRepositoriesByLanguage(languageId);
   }
 
   if (tagId) {
-    repos = repos.filter((r) => r.tags?.some((t) => t.id === tagId));
+    filterRepositoriesByTag(tagId);
   }
 
   return (
@@ -51,10 +56,10 @@ export const RepositoryList = ({ languageId, tagId }: RepositoryListProps) => {
           className="pt-6"
           dataLength={items}
           next={() => setItems(items + itemsPerScroll)}
-          hasMore={items < repos.length}
+          hasMore={items < repositories.length}
           loader={<Loader />}
         >
-          {repos.slice(0, items).map((repository) => {
+          {repositories.slice(0, items).map((repository) => {
             // NOTE - We sometimes get duplicate values back from GitHub API
             // meaning we can't simply rely on the id as the key
             const key = `${repository.id}_${new Date().getTime()}_${Math.random()}`;
