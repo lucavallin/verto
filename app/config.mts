@@ -22,20 +22,11 @@ const config = {
     website: "https://www.lucavall.in"
   },
   meta: {
-    title: "Verto - Your Gateway to Open Source Contributions",
-    description: `Making your next open-source contribution doesn't have to be hard. Verto is a curated list of accessible issues from popular open-source projects to get you started easily on your next contribution. Start today!`,
-    seoDescription: `Making your next open-source contribution doesn't have to be hard. Verto is a curated list of accessible issues from popular open-source projects to get you started easily on your next contribution. Start today!`,
-    language: "en-us",
-    theme: "system", // system, dark or light
-    siteUrl: "https://www.firstissue.dev",
-    siteLogo: "/verto.png",
+    title: "verto.sh - Your Gateway to Open Source Contributions",
+    description: `verto.sh simplifies your entry into the open-source world by curating accessible projects. Ideal for beginners making their first contribution, founders building teams, and maintainers seeking new contributors. Explore, contribute, and foster innovation with verto.sh.`,
+    siteUrl: "https://www.verto.sh",
     socialBanner: "/meta.png",
-    locale: "en-US",
-    analytics: {
-      plausibleAnalytics: {
-        plausibleDataDomain: "firstissue.dev"
-      }
-    }
+    locale: "en-US"
   }
 };
 

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     default: config.meta.title,
     template: `%s | ${config.meta.title}`
   },
-  description: config.meta.seoDescription,
+  description: config.meta.description,
   openGraph: {
     title: config.meta.title,
     description: config.meta.description,
@@ -68,7 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#101620" />
         <meta name="msapplication-TileColor" content="#101620" />
         <meta name="theme-color" content="#101620" />
-        <script defer data-domain="verto.dev" src="https://plausible.io/js/script.js"></script>
+        <script defer data-domain="verto.sh" src="https://plausible.io/js/script.js"></script>
       </head>
       <body>
         <main className={`${space_grotesk.variable} font-sans`}>

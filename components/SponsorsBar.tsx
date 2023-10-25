@@ -14,7 +14,7 @@ export const SponsorsBar = () => (
       </Link>
     </div>
     <Link
-      href="mailto:sponsor@verto.dev?subject=Verto.dev%20Sponsorship&body=Hi%2C%20I%27m%20interested%20in%20sponsoring%Verto.dev%21"
+      href="mailto:sponsor@verto.sh?subject=verto.sh%20Sponsorship&body=Hi%2C%20I%27m%20interested%20in%20sponsoring%verto.sh%21"
       className="justify-self-end rounded-sm border border-gray px-2 py-1 text-sm text-gray hover:border-yellow hover:text-yellow"
     >
       Sponsor?

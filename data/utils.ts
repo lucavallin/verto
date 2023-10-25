@@ -1,18 +1,18 @@
 import fs from "fs/promises";
 import slugify from "slugify";
-import { CountableLanguage, CountableTag, Data } from "../types";
+import { Data } from "../types";
 
 export const extendedSlugify = (text: string): string => {
   // symbols to replace with slugify
   slugify.extend({
     "#": "sharp",
-    "+": "plus",
+    "+": "plus"
   });
 
   return slugify(text, {
     lower: true,
     strict: true,
-    locale: "en",
+    locale: "en"
   });
 };
 
