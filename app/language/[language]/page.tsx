@@ -1,6 +1,7 @@
 import { Layout } from "@/components/Layout";
 import { Metadata } from "next";
 import { RepositoryList } from "../../../components/Repository/RepositoryList";
+import data from "../../../data/data.json";
 
 export async function generateMetadata({
   params
@@ -8,9 +9,10 @@ export async function generateMetadata({
   params: { language: string };
 }): Promise<Metadata | undefined> {
   const slug = decodeURI(params.language);
+  const language = data.languages.find((l) => l.id === slug);
 
   return {
-    title: "Language " + slug
+    title: `Language ${language?.display} (${language?.count})`
   };
 }
 

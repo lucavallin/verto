@@ -21,7 +21,7 @@ const jsonLdGraph: Graph = {
       "@id": "person",
       name: "Luca Cavallin",
       url: config.author.website,
-      image: config.meta.siteUrl + "/images/luca_cavallin.png",
+      image: `${config.meta.siteUrl}/images/luca_cavallin.png`,
       sameAs: [
         config.author.xtwitter,
         config.author.linkedin,

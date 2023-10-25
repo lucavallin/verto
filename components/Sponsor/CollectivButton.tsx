@@ -11,7 +11,7 @@ export const CollectivButton = ({
   repositoryOwner,
   repositoryUrl
 }: CollectivButtonProps) => {
-  const ownerAndRepoName = repositoryOwner + "/" + repositoryName;
+  const ownerAndRepoName = `${repositoryOwner}/${repositoryName}`;
   const isGitLabRepo = repositoryUrl.includes("gitlab.com");
 
   return (
