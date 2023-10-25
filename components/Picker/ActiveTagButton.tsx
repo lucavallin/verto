@@ -4,7 +4,7 @@ type ActiveTagButtonProps = {
 
 const ActiveTagButton = ({ data }: ActiveTagButtonProps) => {
   return (
-    <button className="overflow-hidden rounded-full border border-pink bg-pink/10 p-0 px-3 font-mono text-xs font-bold uppercase tracking-wider text-silver-500 md:hidden">
+    <button className="overflow-hidden rounded-full border border-yellow bg-yellow/10 p-0 px-3 font-mono text-xs font-bold uppercase tracking-wider text-silver-500 md:hidden">
       <span className="truncate">{data}</span>
     </button>
   );

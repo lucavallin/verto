@@ -65,6 +65,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#101620" />
+        <meta name="msapplication-TileColor" content="#101620" />
+        <meta name="theme-color" content="#101620" />
         <script defer data-domain="verto.dev" src="https://plausible.io/js/script.js"></script>
       </head>
       <body>

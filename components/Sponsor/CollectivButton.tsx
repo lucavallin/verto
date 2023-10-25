@@ -22,8 +22,8 @@ export const CollectivButton = ({
           : `https://chat.collectivai.com/contribute?repo-name=${ownerAndRepoName}`
       }
       className="m-2 flex items-center justify-center
-           gap-2 rounded-lg border border-pink p-2 text-sm font-semibold
-           hover:bg-pink hover:text-black xl:m-0 xl:ml-2 xl:rounded-full xl:px-3"
+           gap-2 rounded-lg border border-yellow p-2 text-sm font-semibold
+           hover:bg-yellow hover:text-black xl:m-0 xl:ml-2 xl:rounded-full xl:px-3"
       target="_blank"
       rel="noopener noreferrer"
     >

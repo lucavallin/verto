@@ -18,7 +18,7 @@ export const AboutSection = () => {
           <span className="ml-2">
             A{" "}
             <span
-              className="inline text-lg font-bold text-pink transition-all hover:underline"
+              className="inline text-lg font-bold text-yellow transition-all hover:underline"
               title="Visit GitHub profile"
             >
               @lucavallin
@@ -29,7 +29,7 @@ export const AboutSection = () => {
         <Link
           className="flex cursor-pointer flex-row items-center text-silver-500"
           target="_blank"
-          href={process.env.NEXT_PUBLIC_POLICY_URL || "/"}
+          href="https://www.privacyboard.co/company/lucavallin"
         >
           <FontAwesomeIcon icon={faCircleInfo} />
           <span className="ml-2">
