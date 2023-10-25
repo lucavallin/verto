@@ -1,4 +1,7 @@
-#### ℹ️ Repository information
+<!-- If you are adding a new repository, uncomment and use the following block -->
+<!--
+
+# ℹ️ Repository information
 
 **The repository has**:
 
@@ -10,3 +13,5 @@
 - Link:
 - [ ] CONTRIBUTING.md
 - [ ] Actively maintained (last updated less than 1 months ago).
+
+-->

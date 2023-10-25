@@ -2,7 +2,11 @@
   "compilerOptions": {
     "incremental": true,
     "target": "ES6",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -18,8 +22,12 @@
     "allowImportingTsExtensions": true,
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/css/*": ["css/*"],
+      "@/components/*": [
+        "components/*"
+      ],
+      "@/css/*": [
+        "css/*"
+      ]
     },
     "plugins": [
       {
@@ -36,6 +44,9 @@
     "**/*.mts",
     "**/*.tsx",
     "**/*.json",
+    ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"],
+  "exclude": [
+    "node_modules"
+  ]
 }

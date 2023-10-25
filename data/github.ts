@@ -27,7 +27,7 @@ const MAX_ISSUES = 10;
 // Setup Octokit (GitHub API client)
 const MyOctokit = Octokit.plugin(throttling, retry);
 const octokit = new MyOctokit({
-  auth: process.env.GH_PERSONAL_ACCESS_TOKEN,
+  auth: process.env.GH_PAT,
   throttle: {
     onRateLimit: (retryAfter: number, options: object, octokit: Octokit, retryCount: number) => {
       const { method, url } = options as RequestOptions;
@@ -160,7 +160,9 @@ export const getGitHubRepositories = async (
     );
   }
 
-  const searchResults = await octokit.graphql<Pick<Query, "search">>({ query: gqlQuery });
+  const searchResults = await octokit.graphql<Pick<Query, "search">>({
+    query: gqlQuery
+  });
 
   // map response data to our Repository model
   const repoData =
@@ -181,7 +183,9 @@ export const getGitHubRepositories = async (
           license: repo.licenseInfo?.name,
           last_modified: repo.pushedAt,
           language: {
-            id: slugify((repo.primaryLanguage as Language).name, { lower: true }),
+            id: slugify((repo.primaryLanguage as Language).name, {
+              lower: true
+            }),
             display: (repo.primaryLanguage as Language).name
           },
           tags: repo.repositoryTopics.edges

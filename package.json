@@ -1,5 +1,5 @@
 {
-  "name": "first-issue",
+  "name": "verto",
   "version": "1.0.0",
   "scripts": {
     "dev": "next dev",
@@ -24,10 +24,11 @@
     "@types/react-dom": "18.2.14",
     "dayjs": "^1.11.10",
     "millify": "^6.1.0",
-    "next": "13.5.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "next": "^13.5.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-infinite-scroll-component": "^6.1.0",
+    "schema-dts": "^1.1.2",
     "slugify": "^1.6.6",
     "validator": "^13.11.0",
     "vercel": "^32.4.1"
@@ -46,7 +47,7 @@
     "@typescript-eslint/parser": "^6.7.3",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.52.0",
-    "eslint-config-next": "13.5.4",
+    "eslint-config-next": "^13.5.6",
     "eslint-config-prettier": "^9.0.0",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-jsx-a11y": "^6.7.1",

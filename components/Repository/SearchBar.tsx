@@ -2,7 +2,7 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import { useAppData } from "../hooks/useAppData";
+import { useAppData } from "../../hooks/useAppData";
 
 export const SearchBar = () => {
   const [query, setQuery] = useState("");
@@ -17,7 +17,7 @@ export const SearchBar = () => {
     <div className="relative mt-4 flex rounded-md">
       <input
         type="text"
-        className="block w-full rounded-l-md px-4 py-3 pl-11 text-sm text-silver-500"
+        className="block w-full rounded-md px-4 py-3 pl-11 text-sm text-gray"
         placeholder="Search in name, description, tags..."
         value={query}
         onChange={(e) => handleSearch(e.target.value)}

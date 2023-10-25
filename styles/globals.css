@@ -13,20 +13,20 @@
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #373c49;
+  background-color: #2e3f5c;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #cb3364;
+  background-color: #ffec70;
   border-radius: 2px;
 }
 
 .active-pill {
-  @apply border-pink font-semibold text-pink;
+  @apply border-yellow font-semibold text-yellow;
 }
 
 .active-pill > span {
-  @apply text-pink;
+  @apply text-yellow;
 }
 
 #bmc-iframe {

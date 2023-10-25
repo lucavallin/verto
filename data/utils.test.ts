@@ -1,12 +1,6 @@
 import fs from "fs/promises";
 import { Data } from "../types";
-import {
-  chunkArray,
-  extendedSlugify,
-  generateAndWriteSiteMap,
-  sleep,
-  writeDataFile
-} from "./utils";
+import { chunkArray, extendedSlugify, sleep, writeDataFile } from "./utils";
 
 describe("utils", () => {
   describe("extendedSlugify", () => {
@@ -57,26 +51,6 @@ describe("utils", () => {
       await writeDataFile(data);
       const fileContent = await fs.readFile("data/data.json", "utf-8");
       expect(JSON.parse(fileContent)).toEqual(data);
-    });
-  });
-
-  describe("generateAndWriteSiteMap", () => {
-    it("should generate a sitemap file", async () => {
-      const data: Data = {
-        languages: [
-          { id: "javascript", display: "JavaScript", count: 10 },
-          { id: "typescript", display: "TypeScript", count: 5 }
-        ],
-        tags: [
-          { id: "react", display: "React", count: 8 },
-          { id: "npm", display: "NPM", count: 3 }
-        ],
-        repositories: []
-      };
-      await generateAndWriteSiteMap(data);
-      const fileContent = await fs.readFile("public/sitemap.xml", "utf-8");
-      expect(fileContent).toContain("<loc>https://firstissue.dev/language/javascript</loc>");
-      expect(fileContent).toContain("<loc>https://firstissue.dev/tag/react</loc>");
     });
   });
 
