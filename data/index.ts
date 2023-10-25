@@ -1,7 +1,7 @@
 import config from "../config.json";
 import { Data, Repository as RepositoryModel, Source as SourceModel } from "../types";
 import { getFilteredLanguages, getFilteredTags, processSource } from "./shared";
-import { generateAndWriteSiteMap, writeDataFile } from "./utils";
+import { writeDataFile } from "./utils";
 
 const main = async () => {
   console.log(
@@ -32,7 +32,7 @@ const main = async () => {
       tags: filteredTags
     };
 
-    await Promise.all([writeDataFile(data), generateAndWriteSiteMap(data)]);
+    await Promise.all([writeDataFile(data)]);
 
     console.log("Data generation complete.");
   } catch (e) {
