@@ -1,5 +1,5 @@
 import { Issue, Repository } from "../../types";
-import { RepositoryCollectivButton } from "../Collectiv/RepositoryCollectivButton";
+import { CollectivButton } from "../Sponsor/CollectivButton";
 
 import { IssueItem } from "./IssueItem";
 
@@ -15,13 +15,13 @@ type IssueListProps = {
 export const IssuesList = ({ issues, repositoryDetails }: IssueListProps) => {
   return (
     <>
-      <ol className="border-t border-dark-200 px-5 py-3 text-base leading-loose">
+      <ol className="border-t border-silver-100 px-5 py-3 text-base leading-loose">
         {issues.map((issue) => (
           <IssueItem issue={issue} key={issue.id} />
         ))}
       </ol>
       <div className="xl:hidden">
-        <RepositoryCollectivButton
+        <CollectivButton
           repositoryName={repositoryDetails.name}
           repositoryOwner={repositoryDetails.owner}
           repositoryUrl={repositoryDetails.url}

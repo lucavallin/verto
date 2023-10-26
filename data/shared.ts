@@ -27,7 +27,7 @@ export const processSource = async (source: Source): Promise<Repository[]> => {
   const providerSettings = providersSettings[source.provider];
   const repos = [...new Set(source.repositories)].slice(
     0,
-    process.env.NODE_ENV === "development" ? 200 : source.repositories.length
+    process.env.GH_PAT == "" ? 200 : source.repositories.length
   );
   const chunks = chunkArray(repos, REPOS_PER_REQUEST);
 
@@ -46,7 +46,7 @@ export const processSource = async (source: Source): Promise<Repository[]> => {
       chunk,
       source.labels
     );
-    repositories.push(repos);
+    repositories.push(repos as never);
     await sleep(1000); // wait 1s between requests
   }
 

@@ -22,10 +22,10 @@ export const SortPicker = ({ activeSort, sortOptions, onSortOrderSelect }: SortP
             <button
               key={sortOption}
               onClick={() => onSortOrderSelect(sortOption)}
-              className={`group mx-1 my-1 inline-block rounded-sm border px-2 py-1 text-sm ${
+              className={`group m-1 inline-block rounded-sm border px-2 py-1 ${
                 activeSort === sortOption
                   ? "active-pill"
-                  : "border-secondary transition-all hover:border-primary hover:text-primary"
+                  : "border-silver-100 transition-all hover:border-yellow hover:text-yellow"
               }`}
             >
               {sortOption}

@@ -11,9 +11,9 @@ type PickerItemLinkProps = {
 
 export const PickerItem = ({ className, totalOccurrences, href, text }: PickerItemLinkProps) => {
   return (
-    <Link href={href} className={className}>
+    <Link href={href} title={text} aria-label={text} className={className}>
       {text}
-      <span className={`text-light-400 transition-all group-hover:text-primary`}>
+      <span className="text-white-400 transition-all group-hover:text-yellow">
         &nbsp;&times;{totalOccurrences}
       </span>
     </Link>

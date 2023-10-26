@@ -26,33 +26,34 @@ export const LanguagePicker = ({ activeTagId, languages, onLanguagePage }: Langu
 
   return (
     <div className="pt-6">
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div
         onClick={toggleCollapsible}
         className={`flex cursor-pointer ${isCollapsed ? "sm:flex" : ""}`}
       >
-        <SectionTitle text="Browse by Language" />
+        <SectionTitle className="mb-2" text="Browse by Language" />
         <FontAwesomeIcon
           icon={faChevronDown}
-          className={`mx-2 mt-[3px] transform text-secondary transition-transform ${
+          className={`mx-2 mt-[3px] text-silver-500 transition-transform ${
             isCollapsed ? "rotate-0" : "rotate-180"
-          } animate-fade-in duration-300 ease-in-out md:hidden`}
+          } duration-300 ease-in-out md:hidden`}
         />
 
         {/* Display the active tag button when a language is selected, and the language picker is collapsed. */}
         {activeTagId && isCollapsed ? <ActiveTagButton data={activeTagId} /> : null}
       </div>
       <div
-        className={`transition-max-height overflow-hidden duration-300 ease-in-out ${
+        className={`-mx-1 overflow-hidden duration-300 ease-in-out ${
           isCollapsed ? "max-h-0" : "max-h-96"
         } ${isCollapsed ? "sm:max-h-full" : ""}`}
       >
         {languages.map((language) => {
           return (
             <PickerItem
-              className={`group mx-1 my-1 inline-block rounded-sm border px-2 py-1 text-sm ${
+              className={`group m-1 inline-block rounded-sm border px-2 py-1 ${
                 onLanguagePage && language.id === activeTagId
                   ? "active-pill"
-                  : "border-secondary transition-all hover:border-primary hover:text-primary"
+                  : "border-silver-100 transition-all hover:border-yellow hover:text-yellow"
               }`}
               href={`/language/${language.id}`}
               key={language.id}
