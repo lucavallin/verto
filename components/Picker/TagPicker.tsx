@@ -15,11 +15,13 @@ type TagPickerProps = {
 
 export const TagPicker = ({ tags, activeTagId, onTagPage }: TagPickerProps) => {
   const limitStep = 15;
-  const [showMore, setShowMore] = useState(false);
   const [limit, setLimit] = useState(limitStep);
   const hasMore = tags.length > limit;
 
   const [isCollapsed, setIsCollapsed] = useState<boolean>(true);
+
+  // showLess button is only visible when the limit value exceeds by limitStep(i.e 15)
+  const isShowLessVisible = limit > limitStep;
 
   // Automatically collapse the sidebar after redirection
   useEffect(() => {
@@ -31,14 +33,10 @@ export const TagPicker = ({ tags, activeTagId, onTagPage }: TagPickerProps) => {
   };
 
   const handleShowMore = () => {
-    if (!hasMore) {
-      setLimit(15);
-      window.scrollTo(0, 0);
-    } else {
-      setLimit(limit + limitStep);
-    }
-
-    setShowMore(!showMore);
+    setLimit((limit) => limit + limitStep);
+  };
+  const handleShowLess = () => {
+    setLimit(limitStep);
   };
 
   return (
@@ -48,26 +46,35 @@ export const TagPicker = ({ tags, activeTagId, onTagPage }: TagPickerProps) => {
         onClick={toggleCollapsible}
         className={`flex cursor-pointer ${isCollapsed ? "sm:flex" : ""}`}
       >
-        <SectionTitle className="mb-2" text="Browse by tag" />
+        <SectionTitle className="my-1" text="Browse by tag" />
         <FontAwesomeIcon
           icon={faChevronDown}
-          className={`mx-2 mt-[3px] text-silver-500 transition-transform ${
+          className={`mx-2 mt-[3px] transform text-silver-500 transition-transform ${
             isCollapsed ? "rotate-0" : "rotate-180"
-          } duration-300 ease-in-out md:hidden`}
+          } animate-fade-in duration-300 ease-in-out md:hidden`}
         />
-
+        <button
+          className={`${
+            !isShowLessVisible ? "md:hidden" : "md:inline-block"
+          } active-pill group mb-2 ml-2 hidden cursor-pointer rounded-sm border px-2 py-1 transition-all hover:bg-yellow hover:text-white`}
+          onClick={handleShowLess}
+        >
+          Show Less
+        </button>
         {/* Display the active tag button when a tag is selected, and the tag picker is collapsed. */}
         {activeTagId && isCollapsed && <ActiveTagButton data={activeTagId} />}
       </div>
       <div
-        className={`-mx-1 overflow-hidden duration-300 ease-in-out ${
+        className={` transition-max-height ${
+          isShowLessVisible && "overflow-y-scroll"
+        } overflow-hidden duration-300  ease-in-out md:max-h-[50dvh] ${
           isCollapsed ? "max-h-0" : "max-h-96"
         } ${isCollapsed ? "sm:max-h-full" : ""}`}
       >
         {tags.slice(0, limit).map((tag) => {
           return (
             <PickerItem
-              className={`group m-1 inline-block rounded-sm border px-2 py-1 ${
+              className={`group mx-1 my-1 inline-block rounded-sm border px-2 py-1 text-sm ${
                 onTagPage && tag.id === activeTagId
                   ? "active-pill"
                   : "border-silver-100 transition-all hover:border-yellow hover:text-yellow"
