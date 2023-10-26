@@ -1,5 +1,5 @@
 # verto.sh
-> Your Gateway to Open-Source Contributions
+> Your Gateway to Open-Source Collaboration.
 
 <p align="center">
   <img src="/public/meta.png" width="100%"/>
