@@ -1,4 +1,5 @@
 // AppDataContext.tsx
+import { getData } from "app/data-loader";
 import React, { createContext, useEffect, useState } from "react";
 import {
   AppData,
@@ -7,7 +8,6 @@ import {
   Repository,
   RepositorySortOrder
 } from "../types";
-import { getData } from "app/data-loader";
 
 type AppDataContextType = AppData & {
   filterRepositoriesByTag: (tag: string) => Repository[];
@@ -33,9 +33,7 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
   const data = getData();
   const query = "";
   const {
-    repositories: allRepositories,
-    languages,
-    tags
+    repositories: allRepositories
   }: {
     repositories: Repository[];
     languages: CountableLanguage[];
@@ -47,9 +45,9 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
   );
 
   useEffect(() => {
-    const { repositories, languages, tags } = data;
+    const { repositories } = data;
     setRepositories(repositories);
-  }, []);
+  }, [data]);
 
   const updateRepositorySortOrder = (sortOrder: RepositorySortOrder) => {
     const isSetToDefaultSort = sortOrder === RepositorySortOrder.NONE;

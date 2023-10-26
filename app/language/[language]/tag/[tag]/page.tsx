@@ -7,7 +7,7 @@ export async function generateMetadata({
   params
 }: {
   params: { language: string; tag: string };
-  }): Promise<Metadata | undefined> {
+}): Promise<Metadata | undefined> {
   const data = getData();
   const languageSlug = decodeURI(params.language);
   const tagSlug = decodeURI(params.tag);
