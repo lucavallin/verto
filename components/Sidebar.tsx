@@ -53,13 +53,16 @@ export const Sidebar = () => {
     <section className="w-full flex-none px-6 font-sans text-silver-500 md:relative md:max-w-sm">
       <AboutSection />
       <div className="pt-4">
-        <LinkButton href="https://github.com/lucavallin/verto" secondary>
+        <LinkButton title="Star it on GitHub" href="https://github.com/lucavallin/verto" secondary>
           <FontAwesomeIcon icon={faGithub} className="mr-2" />
           Star it on GitHub 🌟
         </LinkButton>
       </div>
       <div className="pt-2">
-        <LinkButton href="https://github.com/lucavallin/verto#adding-a-new-project">
+        <LinkButton
+          title="Add your project"
+          href="https://github.com/lucavallin/verto#adding-a-new-project"
+        >
           Add your project
         </LinkButton>
       </div>

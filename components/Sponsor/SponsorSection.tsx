@@ -13,6 +13,8 @@ export const SponsorSection = () => {
           href="https://chat.collectivai.com/hacktober-fest"
           target="_blank"
           rel="noopener noreferrer"
+          title="collectiv"
+          aria-label="collectiv"
         >
           <span className="text-lg font-bold text-yellow transition-all hover:underline">
             Collectiv
@@ -27,6 +29,8 @@ export const SponsorSection = () => {
       <Link
         href="mailto:sponsor@verto.sh?subject=verto.sh%20Sponsorship&body=Hi%2C%20I%27m%20interested%20in%20sponsoring%verto.sh%21"
         className="text-yellow"
+        title="Interested in sponsoring?"
+        aria-label="Interested in sponsoring?"
       >
         {" "}
         Interested in sponsoring?

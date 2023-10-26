@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
+import { Repository } from "types";
 import { REPOSITORY_SORT_OPTIONS } from "../../constants";
 import { useAppData } from "../../hooks/useAppData";
 import { SortPicker } from "../Picker/SortPicker";
@@ -34,13 +35,14 @@ export const RepositoryList = ({ languageId, tagId }: RepositoryListProps) => {
     filterRepositoriesByTag,
     filterRepositoriesByLanguage
   } = useAppData();
+  let repos: Repository[] = repositories;
 
   if (languageId) {
-    filterRepositoriesByLanguage(languageId);
+    repos = filterRepositoriesByLanguage(languageId);
   }
 
   if (tagId) {
-    filterRepositoriesByTag(tagId);
+    repos = filterRepositoriesByTag(tagId);
   }
 
   return (
@@ -56,10 +58,10 @@ export const RepositoryList = ({ languageId, tagId }: RepositoryListProps) => {
           className="pt-6"
           dataLength={items}
           next={() => setItems(items + itemsPerScroll)}
-          hasMore={items < repositories.length}
+          hasMore={items < repos.length}
           loader={<Loader />}
         >
-          {repositories.slice(0, items).map((repository) => {
+          {repos.slice(0, items).map((repository) => {
             // NOTE - We sometimes get duplicate values back from GitHub API
             // meaning we can't simply rely on the id as the key
             const key = `${repository.id}_${new Date().getTime()}_${Math.random()}`;

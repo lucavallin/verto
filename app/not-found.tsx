@@ -10,6 +10,8 @@ export default function NotFound() {
       <h3 className="text-xl lg:text-3xl">Whooops! You are in the wrong place.</h3>
       <p className="text-silver-500">the page you are looking for does not exist</p>
       <Link
+        title="Go back"
+        aria-label="Go back"
         href="/"
         className="flex w-1/2 items-center justify-center rounded-md border border-yellow py-3 text-center  font-bold uppercase transition-all hover:border-yellow hover:text-yellow md:w-1/4 lg:w-1/5"
       >

@@ -13,7 +13,8 @@ export async function generateMetadata({
   const tag = data.tags.find((t) => t.id === slug);
 
   return {
-    title: `Tag ${tag?.display} (${tag?.count})`
+    title: `Tag ${tag?.display} (${tag?.count})`,
+    description: `There are ${tag?.count} repositories tagged ${tag?.display} on verto. Take the first step into collaborative coding, and be part of something bigger. Your code today could be the start of something amazing in the open-source community.`
   };
 }
 

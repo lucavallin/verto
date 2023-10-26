@@ -26,6 +26,8 @@ export const CollectivButton = ({
            hover:bg-yellow hover:text-black xl:m-0 xl:ml-2 xl:rounded-full xl:px-3"
       target="_blank"
       rel="noopener noreferrer"
+      title="Open Collectiv"
+      aria-label="Open Collectiv"
     >
       Open Collectiv
     </Link>
