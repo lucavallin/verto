@@ -1,5 +1,5 @@
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
-import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
+import { faCircleInfo, faPaintRoller } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { SectionTitle } from "./SectionTitle";
@@ -28,12 +28,28 @@ export const AboutSection = () => {
           <span className="ml-2">
             A{" "}
             <span
-              className="inline text-lg font-bold text-yellow transition-all hover:underline"
+              className="inline font-bold text-yellow transition-all hover:underline"
               title="Visit GitHub profile"
             >
               @lucavallin
             </span>{" "}
             & contributors initiative
+          </span>
+        </Link>
+        <Link
+          className="flex flex-row items-center"
+          title="Chiara Dametto on LinkedIn"
+          aria-label="@chidame"
+          rel="noopener noreferrer"
+          target="_blank"
+          href="https://www.linkedin.com/in/chiara-dametto"
+        >
+          <FontAwesomeIcon icon={faPaintRoller} />
+          <span className="ml-2">
+            UI/UX Design by{" "}
+            <span className="inline font-bold text-yellow transition-all hover:underline">
+              Chiara Dametto
+            </span>{" "}
           </span>
         </Link>
         <Link

@@ -16,7 +16,7 @@ export const SponsorSection = () => {
           title="collectiv"
           aria-label="collectiv"
         >
-          <span className="text-lg font-bold text-yellow transition-all hover:underline">
+          <span className="font-bold text-yellow transition-all hover:underline">
             Collectiv
             <FontAwesomeIcon
               icon={faUpRightFromSquare}
