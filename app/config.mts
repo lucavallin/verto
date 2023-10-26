@@ -8,7 +8,7 @@ const config = {
     github: "https://github.com/lucavallin",
     xtwitter: "https://twitter.com/lucavallin",
     youtube: "https://youtube.com/@lucavallin",
-    linkedin: "https://www.linkedin.com/lucavallin",
+    linkedin: "https://www.linkedin.com/in/lucavallin",
     mastodon: "https://mastodon.social/@lucavallin",
     reddit: "https://reddit.com/u/lucavallin",
     medium: "https://medium.com/@lucavallin",
