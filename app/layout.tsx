@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import React from "react";
 
-import BuyMeACoffee from "../components/BuyMeACoffee";
+import SponsorMe from "@/components/SponsorMe";
 import { TopBar } from "../components/TopBar";
 import "../styles/globals.css";
 import config from "./config.mts";
@@ -75,7 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <TopBar />
           {children}
         </main>
-        <BuyMeACoffee />
+        <SponsorMe />
       </body>
     </html>
   );
