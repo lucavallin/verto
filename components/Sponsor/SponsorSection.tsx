@@ -29,11 +29,11 @@ export const SponsorSection = () => {
       <Link
         href="mailto:sponsor@verto.sh?subject=verto.sh%20Sponsorship&body=Hi%2C%20I%27m%20interested%20in%20sponsoring%verto.sh%21"
         className="text-yellow"
-        title="Interested in sponsoring?"
-        aria-label="Interested in sponsoring?"
+        title="Your name and logo here?"
+        aria-label="Your name and logo here?"
       >
         {" "}
-        Interested in sponsoring?
+        Your name and logo here?
       </Link>
     </div>
   );
