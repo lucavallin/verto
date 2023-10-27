@@ -7,7 +7,7 @@ import Link from "next/link";
 const SponsorMe = () => {
   return (
     <Link
-      className="fixed bottom-28 right-4 z-50 h-[64px] w-[64px]"
+      className="fixed bottom-24 right-4 z-50 h-[64px] w-[64px]"
       href="https://github.com/sponsors/lucavallin"
       title="Sponsor me on GitHub"
       aria-label="Sponsor me on GitHub"
