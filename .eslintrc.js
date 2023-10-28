@@ -24,6 +24,7 @@ module.exports = {
   },
   rules: {
     "prettier/prettier": ["error", {
+      "endOfLine": "auto",
       "printWidth": 100,
       "tabWidth": 2,
       "trailingComma": "none",
