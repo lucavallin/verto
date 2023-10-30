@@ -44,7 +44,7 @@
     "@types/react-infinite-scroller": "^1.2.3",
     "@types/validator": "^13.11.3",
     "@typescript-eslint/eslint-plugin": "^6.7.5",
-    "@typescript-eslint/parser": "^6.7.3",
+    "@typescript-eslint/parser": "^6.9.0",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.52.0",
     "eslint-config-next": "^13.5.6",
