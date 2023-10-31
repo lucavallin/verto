@@ -8,7 +8,8 @@
     "lint": "next lint",
     "prepare": "husky install",
     "prebuild": "ts-node data/index.ts",
-    "test": "jest"
+    "test": "jest",
+    "test-cypress": "cypress open"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
