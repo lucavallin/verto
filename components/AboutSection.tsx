@@ -9,7 +9,7 @@ export const AboutSection = () => {
     <div>
       <SectionTitle className="mb-2" text="About" />
       <h1 className="hidden text-lg font-bold">verto.sh</h1>
-      <p className="text-silver-500">
+      <p className="text-white-500">
         <strong>verto.sh</strong> simplifies your entry into the open-source world by curating
         accessible projects. Ideal for beginners making their first contribution, founders building
         teams, and maintainers seeking new contributors.
@@ -47,7 +47,7 @@ export const AboutSection = () => {
           <FontAwesomeIcon icon={faPaintRoller} />
           <span className="ml-2">
             UI/UX Design by{" "}
-            <span className="inline font-bold text-yellow transition-all hover:underline">
+            <span className="inline font-bold text-blue transition-all hover:underline">
               Chiara Dametto
             </span>{" "}
           </span>
