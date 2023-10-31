@@ -1,0 +1,89 @@
+{
+    "repositories": [
+      {
+        "id": "MDEwOlJlcG9zaXRvcnk2MzIyNjU4OA==",
+        "owner": "marmelab",
+        "name": "react-admin",
+        "description": "A frontend Framework for building B2B applications running in the browser on top of REST/GraphQL APIs, using ES6, React and Material Design",
+        "url": "https://github.com/marmelab/react-admin",
+        "stars": 22928,
+        "stars_display": "22.9K",
+        "license": "MIT License",
+        "last_modified": "2023-09-28T13:45:45Z",
+        "language": { "id": "typescript", "display": "TypeScript" },
+        "tags": [
+          { "id": "react-admin", "display": "react-admin" },
+          { "id": "reactjs", "display": "reactjs" }
+        ],
+        "issues": [
+          {
+            "id": "I_kwDOA8TC3M5dHUr4",
+            "number": 8609,
+            "title": "Possibility to add label to rowsPerPageOptions prop of TablePagination component",
+            "url": "https://github.com/marmelab/react-admin/issues/8609",
+            "comments_count": 2,
+            "created_at": "2023-01-30T10:54:06Z",
+            "labels": []
+          },
+          {
+            "id": "I_kwDOA8TC3M5iELCK",
+            "number": 8776,
+            "title": "Add the ability to disable title configuration (while still make the rest of the page configurable)",
+            "url": "https://github.com/marmelab/react-admin/issues/8776",
+            "comments_count": 5,
+            "created_at": "2023-03-29T08:14:02Z",
+            "labels": []
+          }
+        ],
+        "has_new_issues": false
+      },
+      {
+        "id": "MDEwOlJlcG9zaXRvcnk4NTAzOTk2NQ==",
+        "owner": "litmuschaos",
+        "name": "litmus",
+        "description": "Litmus helps  SREs and developers practice chaos engineering in a Cloud-native way. Chaos experiments are published at the ChaosHub  (https://hub.litmuschaos.io). Community notes is at https://hackmd.io/a4Zu_sH4TZGeih-xCimi3Q",
+        "url": "https://github.com/litmuschaos/litmus",
+        "stars": 3834,
+        "stars_display": "3.8K",
+        "license": "Apache License 2.0",
+        "last_modified": "2023-09-28T19:54:15Z",
+        "language": { "id": "go", "display": "Go" },
+        "tags": [
+          { "id": "kubernetes", "display": "kubernetes" },
+          { "id": "golang", "display": "golang" }
+        ],
+        "issues": [
+          {
+            "id": "I_kwDOBRGbXc5t1S-V",
+            "number": 4121,
+            "title": "Change code architecture in Environment handler to use interface",
+            "url": "https://github.com/litmuschaos/litmus/issues/4121",
+            "comments_count": 4,
+            "created_at": "2023-08-09T07:51:15Z",
+            "labels": []
+          },
+          {
+            "id": "I_kwDOBRGbXc5vkOsx",
+            "number": 4147,
+            "title": "Add all the strings/texts in the strings.en.yaml file and replace all the occurences with getString() in frontend",
+            "url": "https://github.com/litmuschaos/litmus/issues/4147",
+            "comments_count": 1,
+            "created_at": "2023-08-29T14:13:07Z",
+            "labels": []
+          }
+        ],
+        "has_new_issues": false
+      }
+    ],
+    "languages": [
+      { "id": "c", "display": "C", "count": 25 },
+      { "id": "typescript", "display": "TypeScript", "count": 62 }
+    ],
+    "tags": [
+        { "id": "kubernetes", "display": "kubernetes" },
+        { "id": "react-admin", "display": "react-admin" },
+        { "id": "golang", "display": "golang" },
+      { "id": "reactjs", "display": "reactjs" }
+    ]
+  }
+  
