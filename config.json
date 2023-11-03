@@ -663,6 +663,7 @@
       "Infisical/infisical",
       "influxdata/influxdb",
       "infracost/infracost",
+      "InsightSoftwareConsortium/ITK",
       "inspec/inspec",
       "internetarchive/openlibrary",
       "iodide-project/iodide",
@@ -1337,6 +1338,6 @@
       "zsh-users/zsh-syntax-highlighting",
       "zulip/zulip"
     ],
-    "labels": ["good first issue", "help wanted"]
+    "labels": ["good first issue", "help wanted", "Good first issue"]
   }
 ]
