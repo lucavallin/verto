@@ -14,7 +14,7 @@ export const Layout = ({ children }: LayoutProps) => (
     <AppDataProvider>
       <Header />
       <main className="flex flex-1">
-        <section className="container mx-auto flex flex-col md:flex-row lg:max-w-6xl">
+        <section className="container mx-auto flex flex-col items-center md:flex-row md:items-start lg:max-w-6xl">
           <Sidebar />
           {children}
         </section>

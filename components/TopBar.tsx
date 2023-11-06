@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SignupButton } from "./Button/SignupButton";
 import { SectionTitle } from "./SectionTitle";
 import { Socials } from "./Socials";
 
 export const TopBar = () => (
-  <div className="flex items-center justify-between bg-black-400 px-6 py-3 transition-all hover:border-yellow hover:text-yellow">
+  <div className="flex h-16 items-center justify-between bg-black-400 px-6 py-3 transition-all">
     <div className="flex items-center justify-between gap-5">
       <SectionTitle text="Sponsored by" />
       <Link
@@ -26,6 +27,9 @@ export const TopBar = () => (
         <Image src="/sponsors/collectiv.png" alt="collectiv" width={26} height={26} />
       </Link>
     </div>
-    <Socials />
+    <div className="flex items-center gap-7">
+      <SignupButton />
+      <Socials />
+    </div>
   </div>
 );
