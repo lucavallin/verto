@@ -701,6 +701,7 @@
       "kedacore/keda",
       "kedro-org/kedro",
       "keephq/keep",
+      "kelektiv/node-cron",
       "kelseyhightower/nocode",
       "keploy/keploy",
       "keptn/keptn",
