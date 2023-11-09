@@ -650,6 +650,7 @@
       "hazelcast/hazelcast",
       "hazelcast/hazelcast-jet",
       "helm/helm",
+      "highlightjs/highlight.js",
       "hoppscotch/hoppscotch",
       "http4s/http4s",
       "hudson-and-thames/mlfinlab",
