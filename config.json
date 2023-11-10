@@ -181,6 +181,7 @@
       "assertj/assertj-core",
       "astropy/astropy",
       "atlassian/react-beautiful-dnd",
+      "auroraeditor/auroraeditor",
       "authzed/spicedb",
       "Automattic/wp-calypso",
       "automl/auto-sklearn",
