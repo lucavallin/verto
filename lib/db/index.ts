@@ -1,4 +1,3 @@
-import { dbErrors } from "lib/errors";
 import mongoose from "mongoose";
 
 const uri = process.env.MONGO_URI as string;
@@ -13,7 +12,7 @@ const connect = async () => {
   try {
     if (cached.connection) return cached.connection;
 
-    if (!uri || uri.length === 0) throw new Error(dbErrors.missing_uri);
+    if (!uri || uri.length === 0) throw new Error("Missing MONGO_URI");
     if (!cached.promise) {
       cached.promise = mongoose
         .connect(uri, {
