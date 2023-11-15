@@ -1,32 +1,32 @@
-import { MINIMUM_LENGTH } from "lib/constants";
-import { emailErrors, passwordErrors, usernameErrors } from "lib/errors";
-import { emailMatcher, usernameMatcher } from "lib/regex";
+import { EMAIL, PASSWORD, USERNAME } from "lib/constants";
 import { Schema, model, models } from "mongoose";
 
 export interface IUser {
-  username: string;
   email: string;
   password: string;
+  username: string;
 }
 
 const UserSchema = new Schema<IUser>({
   username: {
     type: String,
     unique: false,
-    required: [true, usernameErrors.missing],
-    match: [usernameMatcher, usernameErrors.invalid],
-    minLength: [MINIMUM_LENGTH.USERNAME, usernameErrors.short]
+    required: [true, USERNAME.errors.missing],
+    match: [USERNAME.matcher, USERNAME.errors.invalid],
+    minLength: [USERNAME.minLength, USERNAME.errors.short],
+    maxlength: [USERNAME.maxLength, USERNAME.errors.long]
   },
   email: {
     type: String,
     unique: true,
-    required: [true, emailErrors.missing],
-    match: [emailMatcher, emailErrors.invalid]
+    required: [true, EMAIL.errors.missing],
+    match: [EMAIL.matcher, EMAIL.errors.invalid]
   },
   password: {
     type: String,
-    required: [true, passwordErrors.missing],
-    minLength: [MINIMUM_LENGTH.PASSWORD, passwordErrors.short]
+    required: [true, PASSWORD.errors.missing],
+    match: [PASSWORD.matcher, PASSWORD.errors.invalid],
+    minLength: [PASSWORD.minLength, PASSWORD.errors.short]
   }
 });
 

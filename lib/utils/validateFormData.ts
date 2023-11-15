@@ -1,37 +1,30 @@
-import { MINIMUM_LENGTH } from "../constants";
-import { emailErrors, passwordErrors, usernameErrors } from "../errors";
-import { emailMatcher, usernameMatcher } from "../regex";
+import { IUser } from "lib/db/models/users";
+import { EMAIL, PASSWORD, USERNAME } from "../constants";
 
-interface SigninFormData {
-  email: string;
-  password: string;
-}
-
-export interface SignupResponse extends SigninFormData {
-  username: string;
-}
+type SigninFormData = Omit<IUser, "username">;
 
 const validateUsername = (username: string) => {
-  if (username?.length === 0) throw new Error(usernameErrors.missing);
-  if (username.length < MINIMUM_LENGTH.USERNAME) throw new Error(usernameErrors.short);
+  if (username?.length === 0) throw new Error(USERNAME.errors.missing);
+  if (username.length < USERNAME.minLength) throw new Error(USERNAME.errors.short);
+  if (username.length > USERNAME.maxLength) throw new Error(USERNAME.errors.long);
 
-  if (!username.match(usernameMatcher)) throw new Error(usernameErrors.invalid);
+  if (!username.match(USERNAME.matcher)) throw new Error(USERNAME.errors.invalid);
 };
 
 const validateEmail = (email: string) => {
-  if (email?.length === 0) throw new Error(emailErrors.missing);
-  if (!email.match(emailMatcher)) throw new Error(emailErrors.invalid);
+  if (email?.length === 0) throw new Error(EMAIL.errors.missing);
+  if (!email.match(EMAIL.matcher)) throw new Error(EMAIL.errors.invalid);
 };
 
 const validatePassword = (password: string) => {
-  if (password?.length === 0) throw new Error(passwordErrors.missing);
-  if (password.length < MINIMUM_LENGTH.PASSWORD) throw new Error(passwordErrors.short);
+  if (password?.length === 0) throw new Error(PASSWORD.errors.missing);
+  if (password.length < PASSWORD.minLength) throw new Error(PASSWORD.errors.short);
 };
 
 const compareBothPasswords = (password: string, confirmPassword: string) => {
   validatePassword(password);
-  if (confirmPassword?.length === 0) throw new Error(passwordErrors.unconfirmed);
-  if (password !== confirmPassword) throw new Error(passwordErrors.invalid);
+  if (confirmPassword?.length === 0) throw new Error(PASSWORD.errors.unconfirmed);
+  if (password !== confirmPassword) throw new Error(PASSWORD.errors.invalid);
 };
 
 export const validateSignupFormData = ({
@@ -39,7 +32,7 @@ export const validateSignupFormData = ({
   email,
   password,
   confirmPassword
-}: SignupResponse & { confirmPassword: string }): SignupResponse => {
+}: IUser & { confirmPassword: string }): IUser => {
   validateUsername(username);
   validateEmail(email);
   compareBothPasswords(password, confirmPassword);
