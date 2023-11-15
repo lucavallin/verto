@@ -1,47 +1,47 @@
 "use client";
 
 import { useToast } from "hooks/useToast";
-import { validateFormData } from "lib/utils";
-import { FormEvent } from "react";
+import { handleSignin, handleSignup } from "lib/handlers";
 import Input from "./InputField";
 import SubmitButton from "./SubmitButton";
 
 export default function Form({ type }: { type: "signup" | "signin" }) {
   const emitToast = useToast();
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    try {
-      const rawFormData = event.target as HTMLFormElement;
+    const rawFormData = event.target as HTMLFormElement;
 
-      const processedFormData = validateFormData({
-        username: rawFormData.username.value.trim(),
-        email: rawFormData.email.value.trim(),
-        password: rawFormData.password.value,
-        confirmPassword: rawFormData.confirmPassword.value
-      });
-      console.log(processedFormData);
-    } catch (error) {
-      emitToast(error.message);
-      return;
+    if (type === "signup") {
+      await handleSignup(rawFormData, emitToast);
+    } else {
+      await handleSignin(rawFormData, emitToast);
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div className="mb-8 flex flex-col gap-6">
-        <Input placeholder="Enter username" type="text" id="username" name="username" />
+        {type === "signup" && (
+          <Input placeholder="Enter username" type="text" id="username" name="username" />
+        )}
         <Input placeholder="Enter email" id="email" name="email" />
         <Input placeholder="Enter password" id="password" name="password" type="password" />
-        <Input
-          placeholder="Confirm password"
-          id="confirmPassword"
-          name="confirmPassword"
-          type="password"
-        />
+        {type === "signup" && (
+          <Input
+            placeholder="Confirm password"
+            id="confirmPassword"
+            name="confirmPassword"
+            type="password"
+          />
+        )}
       </div>
-      <SubmitButton>Sign up</SubmitButton>
+      {type === "signup" ? (
+        <SubmitButton>Sign up</SubmitButton>
+      ) : (
+        <SubmitButton>Sign in</SubmitButton>
+      )}
     </form>
   );
 }

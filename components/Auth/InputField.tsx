@@ -15,6 +15,7 @@ const InputStyles = {
 export default function Input({ ...props }: InputProps) {
   return (
     <input
+      autoComplete="off"
       className={`${InputStyles.default} ${InputStyles.focus} ${
         props?.type === "password" && "select-none selection:bg-transparent"
       }`}
