@@ -16,6 +16,8 @@ import ScrollToTop from "./ScrollToTop";
 import { SectionTitle } from "./SectionTitle";
 import { SponsorSection } from "./Sponsor/SponsorSection";
 
+export const GithubLogo = () => <FontAwesomeIcon icon={faGithub} className="mr-2" />;
+
 export const Sidebar = () => {
   const pageType = usePathPrefix();
   const { tag: activeTagId, language: activeLanguageId } = useParams();
@@ -58,7 +60,7 @@ export const Sidebar = () => {
       <AboutSection />
       <div className="pt-4">
         <LinkButton title="Star it on GitHub" href="https://github.com/lucavallin/verto" secondary>
-          <FontAwesomeIcon icon={faGithub} className="mr-2" />
+          <GithubLogo />
           Star it on GitHub 🌟
         </LinkButton>
       </div>

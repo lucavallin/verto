@@ -1,5 +1,6 @@
 import Form from "@/components/Auth/Form";
 import SubmitButton from "@/components/Auth/SubmitButton";
+import { GithubLogo } from "@/components/Sidebar";
 
 export default function SignupPage() {
   return (
@@ -10,7 +11,10 @@ export default function SignupPage() {
         <span className="h-fit w-fit select-none bg-black-400 px-3">or</span>
       </div>
       <SubmitButton type="signin">Log into existing Account</SubmitButton>
-      <SubmitButton type="github">Sign up with Github</SubmitButton>
+      <SubmitButton type="github">
+        <GithubLogo />
+        Sign up with Github
+      </SubmitButton>
     </section>
   );
 }
