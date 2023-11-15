@@ -1,7 +1,4 @@
-import { compare } from "bcryptjs";
-import { connectDB } from "lib/db/connectDB";
-import User from "lib/db/models/users";
-import { NextAuthOptions } from "next-auth";
+import { NextAuthOptions, getServerSession } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GithubProvider from "next-auth/providers/github";
 
@@ -15,23 +12,10 @@ const providers: NextAuthOptions["providers"] = [
     name: "Credentials",
     credentials: {
       email: { label: "Email", type: "text" },
-      password: { label: "Password", type: "password" }
+      username: { label: "Username", type: "text" }
     },
-    authorize: async (credentials) => {
-      await connectDB().catch((err) => {
-        throw new Error(err);
-      });
-      const user = await User.findOne({
-        email: credentials?.email
-      }).select("+password");
-      if (!user) {
-        throw new Error("Invalid credentials");
-      }
-      const isPasswordCorrect = await compare(credentials!.password, user.password);
-      if (!isPasswordCorrect) {
-        throw new Error("Invalid credentials");
-      }
-      return user;
+    authorize: async ({ email, username }: { email: string; username: string }) => {
+      return { id: "", email, name: username };
     }
   })
 ];
@@ -48,16 +32,27 @@ const callbacks: NextAuthOptions["callbacks"] = {
 };
 
 const pages: NextAuthOptions["pages"] = {
-  signIn: "/auth/signup"
+  signIn: "/auth/signin"
 };
 
 const session: NextAuthOptions["session"] = {
-  strategy: "jwt"
+  strategy: "jwt",
+  maxAge: 60 * 60 * 24 * 30
 };
 
-export default {
+export const options: NextAuthOptions = {
   providers,
   pages,
   session,
-  callbacks
-} as NextAuthOptions;
+  callbacks,
+  secret: process.env.NEXTAUTH_SECRET
+};
+
+export const getUserCredentials = async () => {
+  const session = await getServerSession(options);
+  if (!session || !session.user) {
+    return null;
+  }
+  const { email, name: username } = session.user;
+  return { email, username };
+};
