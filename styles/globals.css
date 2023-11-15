@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --toastify-color-warning: #ffec70 !important;
+  --toastify-color-dark: #2e3f5c !important;
+}
+
 .custom-substack-widget+.success, .custom-substack-widget+.error {
   font-family: var(--font-inter), sans-serif !important;
   color: #cb3364 !important;

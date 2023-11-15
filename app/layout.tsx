@@ -2,11 +2,9 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import React from "react";
-import "react-toastify/dist/ReactToastify.css";
 
 import SponsorMe from "@/components/SponsorMe";
 import AuthProvider from "context/AuthProvider";
-import { ToastContainer } from "react-toastify";
 import { TopBar } from "../components/TopBar";
 import "../styles/globals.css";
 import config from "./config.mts";
@@ -80,22 +78,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
           </main>
           <SponsorMe />
-          <ToastContainer
-            position="bottom-right"
-            autoClose={1500}
-            hideProgressBar={false}
-            newestOnTop
-            closeOnClick
-            toastStyle={{
-              backgroundColor: "#2e3f5c",
-              color: "#ffec70"
-            }}
-            rtl={false}
-            pauseOnFocusLoss
-            draggable={false}
-            pauseOnHover
-            theme="dark"
-          />
         </AuthProvider>
       </body>
     </html>
