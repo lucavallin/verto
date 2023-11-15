@@ -3,10 +3,16 @@ import { emailErrors, passwordErrors, usernameErrors } from "lib/errors";
 import { emailMatcher, usernameMatcher } from "lib/regex";
 import { Schema, model, models } from "mongoose";
 
-const UserSchema = new Schema({
+export interface IUser {
+  username: string;
+  email: string;
+  password: string;
+}
+
+const UserSchema = new Schema<IUser>({
   username: {
     type: String,
-    unique: true,
+    unique: false,
     required: [true, usernameErrors.missing],
     match: [usernameMatcher, usernameErrors.invalid],
     minLength: [MINIMUM_LENGTH.USERNAME, usernameErrors.short]
@@ -20,11 +26,10 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: [true, passwordErrors.missing],
-    minLength: [MINIMUM_LENGTH.PASSWORD, passwordErrors.short],
-    select: false
+    minLength: [MINIMUM_LENGTH.PASSWORD, passwordErrors.short]
   }
 });
 
-const User = models.User || model("User", UserSchema);
+const User = models.User || model<IUser>("User", UserSchema);
 
 export default User;
