@@ -23,7 +23,7 @@ export const RepositoryLinkTitle = ({
       rel="noopener noreferrer"
       target="_blank"
       title={`Open ${repositoryOwner}/${repositoryName} on GitHub`}
-      aria-label={`Open ${repositoryOwner}/${repositoryName} on GitHub`}
+      aria-label={`${repositoryOwner} / ${repositoryName}`}
     >
       {repositoryOwner} / {repositoryName}
     </Link>
