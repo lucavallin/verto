@@ -17,9 +17,9 @@ export const AboutSection = () => {
       <h2 className="mt-2">Your Gateway to Open-Source Collaboration!</h2>
       <div className="pt-6 text-sm">
         <Link
-          className="flex flex-row items-center"
+          className="flex flex-row items-center text-base"
           title="@lucavallin"
-          aria-label="@lucavallin"
+          aria-label="A @lucavallin & contributors initiative"
           rel="noopener noreferrer"
           target="_blank"
           href="https://www.lucavall.in"
@@ -37,9 +37,9 @@ export const AboutSection = () => {
           </span>
         </Link>
         <Link
-          className="flex flex-row items-center"
+          className="flex flex-row items-center text-base"
           title="Chiara Dametto on LinkedIn"
-          aria-label="@chidame"
+          aria-label=" UI/UX Design by Chiara Dametto"
           rel="noopener noreferrer"
           target="_blank"
           href="https://www.linkedin.com/in/chiara-dametto"
@@ -53,17 +53,17 @@ export const AboutSection = () => {
           </span>
         </Link>
         <Link
-          className="flex cursor-pointer flex-row items-center text-silver-500"
+          className="flex cursor-pointer flex-row items-center text-base text-silver-500"
           target="_blank"
           rel="noopener noreferrer"
           title="View Privacy Policy"
-          aria-label="View Privacy Policy"
+          aria-label="Privacy & Cookie Policy"
           href="https://www.privacyboard.co/company/lucavallin"
         >
           <FontAwesomeIcon icon={faCircleInfo} />
           <span className="ml-2">
             <span
-              className="inline text-silver-200/80 transition-all hover:underline"
+              className="inline text-base text-gray-900 transition-all hover:underline"
               title="View Privacy Policy"
             >
               Privacy & Cookie Policy
