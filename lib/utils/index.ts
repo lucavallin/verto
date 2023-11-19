@@ -1,6 +1,3 @@
+export { APIClientError, APIServerError } from "./errors";
 export { comparePasswords, hashPassword } from "./hashPassword";
-export {
-  validateSigninFormData,
-  validateSignupFormData,
-  type SignupResponse
-} from "./validateFormData";
+export { validateSigninFormData, validateSignupFormData } from "./validateFormData";

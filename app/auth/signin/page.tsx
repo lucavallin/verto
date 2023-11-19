@@ -1,6 +1,8 @@
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import Form from "@/components/Auth/Form";
 import SubmitButton from "@/components/Auth/SubmitButton";
-import { GithubLogo } from "@/components/Sidebar";
 
 export default function SignupPage() {
   return (
@@ -12,7 +14,7 @@ export default function SignupPage() {
       </div>
       <SubmitButton type="signup">Create a new Account</SubmitButton>
       <SubmitButton type="github">
-        <GithubLogo />
+        <FontAwesomeIcon icon={faGithub} className="mr-2" />
         Sign in with Github
       </SubmitButton>
     </section>

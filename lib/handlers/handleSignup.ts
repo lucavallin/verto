@@ -15,7 +15,6 @@ export const handleSignup = async (
 
     await signupWithCredentials(processedFormData);
   } catch (error) {
-    console.log("Error occured: ", error);
     handleError(error.message);
   }
 };
