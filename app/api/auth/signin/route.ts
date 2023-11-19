@@ -1,35 +1,21 @@
 import { NextResponse } from "next/server";
 
-import db from "lib/db";
-import User, { type IUser } from "lib/db/models/users";
-import { comparePasswords } from "lib/utils";
-import { Response } from "../signup/route";
+import { getUser } from "lib/api/services/userService";
+import { APIServerError } from "lib/utils";
+import { IUserCredentials, IUserPublicData } from "types";
 
-export async function POST(request: Request): Promise<NextResponse<Response>> {
+export async function POST(request: Request): Promise<NextResponse<IUserPublicData>> {
   try {
-    const { email, password } = (await request.json()) as IUser;
+    const userPayload: IUserCredentials = await request.json();
 
-    await db.connect();
+    const user = await getUser(userPayload);
 
-    const user = await User.findOne({ email });
-    if (!user) {
-      throw new Error("User not found", { cause: "BAD_REQUEST" });
-    }
-
-    const isPasswordCorrect = await comparePasswords(password, user.password);
-    if (!isPasswordCorrect) {
-      throw new Error("Incorrect password", { cause: "BAD_REQUEST" });
-    }
-
-    const response = { email: user.email, username: user.username };
-
-    return NextResponse.json({ user: response }, { status: 200 });
+    return NextResponse.json(user, { status: 200 });
   } catch (err) {
-    console.log(err.message);
-
-    if (err.cause !== "BAD_REQUEST") {
-      err.message = "Something unexpected happened";
+    if (err instanceof APIServerError) {
+      console.log(err.cause);
+      err.showDefaultMessage();
     }
-    return NextResponse.json({ error: err.message });
+    return NextResponse.json(err.message, { status: err.statusCode });
   }
 }

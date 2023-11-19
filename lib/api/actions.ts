@@ -1,43 +1,36 @@
+import axios from "axios";
 import { signIn, signOut } from "next-auth/react";
 
-import axios from "axios";
-import { type SignupResponse } from "../utils";
+import type { IUserCredentials } from "types";
 
-interface SigninPayload {
-  email: string;
-  password: string;
-}
+// sends request to the api to get a existing user
+export const signinWithCredentials = async (payload: IUserCredentials) => {
+  try {
+    const { data: user } = await axios.post("/api/auth/signin", payload);
 
-export const OAuthProvider = {
-  github: () => signIn("github", { callbackUrl: "/" })
+    await signIn("credentials", { ...user, callbackUrl: "/" });
+  } catch (error) {
+    throw new Error(error.response.data);
+  }
 };
 
+// sends request to the api to create a new user
+export const signupWithCredentials = async (payload: IUserCredentials) => {
+  try {
+    const { data: user } = await axios.post("/api/auth/signup", payload);
+
+    await signIn("credentials", { ...user, callbackUrl: "/" });
+  } catch (error) {
+    throw new Error(error.response.data);
+  }
+};
+
+// kills current session and logs out current user
 export const signoutHandler = async () => {
   await signOut({ callbackUrl: "/" });
 };
 
-export const signinWithCredentials = async (payload: SigninPayload) => {
-  const { data } = await axios.post("/api/auth/signin", payload, {
-    headers: {
-      "Content-Type": "application/json"
-    }
-  });
-  const { user, error } = data;
-  if (error) {
-    throw new Error(error);
-  }
-  await signIn("credentials", { ...user, callbackUrl: "/" });
-};
-
-export const signupWithCredentials = async (payload: SignupResponse) => {
-  const { data } = await axios.post("/api/auth/signup", payload, {
-    headers: {
-      "Content-Type": "application/json"
-    }
-  });
-  const { user, error } = data;
-  if (error) {
-    throw new Error(error);
-  }
-  await signIn("credentials", { ...user, callbackUrl: "/" });
+// list of all currently available OAuth providers
+export const OAuthProvider = {
+  github: () => signIn("github", { callbackUrl: "/" })
 };

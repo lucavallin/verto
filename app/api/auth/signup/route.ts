@@ -1,35 +1,21 @@
 import { NextResponse } from "next/server";
 
-import db from "lib/db";
-import User, { type IUser } from "lib/db/models/users";
-import { hashPassword } from "lib/utils";
+import { createUser } from "lib/api/services/userService";
+import { APIServerError } from "lib/utils";
+import { IUserPublicData } from "types";
 
-export type Response = { error: string } | { user: Omit<IUser, "password"> };
-
-export async function POST(request: Request): Promise<NextResponse<Response>> {
+export async function POST(request: Request): Promise<NextResponse<IUserPublicData>> {
   try {
-    const userPayload = (await request.json()) as IUser;
+    const userPayload = await request.json();
 
-    await db.connect();
+    const user = await createUser(userPayload);
 
-    const existingUser = await User.findOne({ email: userPayload?.email });
-    if (existingUser) {
-      throw new Error("User already exists", { cause: "BAD_REQUEST" });
-    }
-
-    userPayload.password = await hashPassword(userPayload.password);
-    const user = new User(userPayload);
-    await user.save();
-
-    const response = { email: userPayload.email, username: userPayload.username };
-
-    return NextResponse.json({ user: response }, { status: 201 });
+    return NextResponse.json(user, { status: 201 });
   } catch (err) {
-    console.log(err.message);
-
-    if (err.cause !== "BAD_REQUEST") {
-      err.message = "Something unexpected happened";
+    if (err instanceof APIServerError) {
+      console.log(err.cause);
+      err.showDefaultMessage();
     }
-    return NextResponse.json({ error: err.message });
+    return NextResponse.json(err.message, { status: err.statusCode });
   }
 }
