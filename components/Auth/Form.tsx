@@ -2,10 +2,17 @@
 
 import { useToast } from "hooks/useToast";
 import { handleSignin, handleSignup } from "lib/handlers";
+import { ReactNode } from "react";
 import Input from "./InputField";
 import SubmitButton from "./SubmitButton";
 
-export default function Form({ type }: { type: "signup" | "signin" }) {
+export default function Form({
+  children,
+  variant
+}: {
+  children: ReactNode;
+  variant: "signup" | "signin";
+}) {
   const emitToast = useToast();
 
   const handleSubmit = async (event) => {
@@ -13,7 +20,7 @@ export default function Form({ type }: { type: "signup" | "signin" }) {
 
     const rawFormData = event.target as HTMLFormElement;
 
-    if (type === "signup") {
+    if (variant === "signup") {
       await handleSignup(rawFormData, emitToast);
     } else {
       await handleSignin(rawFormData, emitToast);
@@ -23,12 +30,12 @@ export default function Form({ type }: { type: "signup" | "signin" }) {
   return (
     <form onSubmit={handleSubmit}>
       <div className="mb-8 flex flex-col gap-6">
-        {type === "signup" && (
+        {variant === "signup" && (
           <Input placeholder="Enter username" type="text" id="username" name="username" />
         )}
         <Input placeholder="Enter email" id="email" name="email" />
         <Input placeholder="Enter password" id="password" name="password" type="password" />
-        {type === "signup" && (
+        {variant === "signup" && (
           <Input
             placeholder="Confirm password"
             id="confirmPassword"
@@ -37,11 +44,7 @@ export default function Form({ type }: { type: "signup" | "signin" }) {
           />
         )}
       </div>
-      {type === "signup" ? (
-        <SubmitButton>Sign up</SubmitButton>
-      ) : (
-        <SubmitButton>Sign in</SubmitButton>
-      )}
+      <SubmitButton>{children}</SubmitButton>
     </form>
   );
 }

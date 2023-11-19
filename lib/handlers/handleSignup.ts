@@ -1,20 +1,27 @@
-import { signupWithCredentials } from "lib/api/actions";
+import axios, { AxiosError } from "axios";
 import { validateSignupFormData } from "lib/utils";
+import { signIn } from "next-auth/react";
 
 export const handleSignup = async (
   rawFormData: HTMLFormElement,
   handleError: (msg: string) => void
 ) => {
   try {
-    const processedFormData = validateSignupFormData({
+    const userPayload = validateSignupFormData({
       username: rawFormData.username.value.trim(),
       email: rawFormData.email.value.trim(),
       password: rawFormData.password.value,
       confirmPassword: rawFormData.confirmPassword.value
     });
 
-    await signupWithCredentials(processedFormData);
+    const { data: user } = await axios.post("/api/auth/signup", userPayload);
+
+    await signIn("credentials", { ...user, callbackUrl: "/" });
   } catch (error) {
-    handleError(error.message);
+    if (error instanceof AxiosError) {
+      handleError(error.response?.data);
+    } else {
+      handleError(error.message);
+    }
   }
 };
