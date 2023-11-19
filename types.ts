@@ -113,3 +113,13 @@ export interface Data {
   languages: CountableLanguage[];
   tags: CountableTag[];
 }
+
+export interface IUserPublicData {
+  email: string;
+  username: string;
+}
+export interface IUser extends IUserPublicData {
+  password: string;
+}
+
+export type IUserCredentials = Pick<IUser, "email" | "password">;

@@ -1,11 +1,6 @@
 import { EMAIL, PASSWORD, USERNAME } from "lib/constants";
 import { Schema, model, models } from "mongoose";
-
-export interface IUser {
-  email: string;
-  password: string;
-  username: string;
-}
+import { IUser } from "types";
 
 const UserSchema = new Schema<IUser>({
   username: {
@@ -13,20 +8,18 @@ const UserSchema = new Schema<IUser>({
     unique: false,
     required: [true, USERNAME.errors.missing],
     match: [USERNAME.matcher, USERNAME.errors.invalid],
-    minLength: [USERNAME.minLength, USERNAME.errors.short],
-    maxlength: [USERNAME.maxLength, USERNAME.errors.long]
+    minLength: [USERNAME.minLength, USERNAME.errors.length],
+    maxlength: [USERNAME.maxLength, USERNAME.errors.length]
   },
   email: {
     type: String,
     unique: true,
-    required: [true, EMAIL.errors.missing],
-    match: [EMAIL.matcher, EMAIL.errors.invalid]
+    required: [true, EMAIL.errors.missing]
   },
   password: {
     type: String,
     required: [true, PASSWORD.errors.missing],
-    match: [PASSWORD.matcher, PASSWORD.errors.invalid],
-    minLength: [PASSWORD.minLength, PASSWORD.errors.short]
+    minlength: [PASSWORD.minLength, PASSWORD.errors.short]
   }
 });
 
