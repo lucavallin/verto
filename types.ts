@@ -114,6 +114,8 @@ export interface Data {
   tags: CountableTag[];
 }
 
+export type AuthSubmitButtonVariant = "toggle_signup" | "toggle_signin" | "auth_github";
+
 export interface IUserPublicData {
   email: string;
   username: string;
