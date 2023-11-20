@@ -18,7 +18,6 @@ export const SortPicker = ({ activeSort, sortOptions, onSortOrderSelect }: SortP
       </div>
       <div>
         {sortOptions.map((sortOption) => {
-          console.log(sortOption);
           return (
             <button
               key={sortOption}
