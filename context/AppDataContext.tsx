@@ -63,6 +63,7 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
   const updateRepositoriesOnSortChange = (sortOrder: RepositorySortOrder) => {
     let updatedRepositories: Repository[] = [];
 
+    //Find and return the newest issue in a given repository
     if (sortOrder === RepositorySortOrder.NEW_ISSUES) {
       function getNewestIssue(repository: Repository): Issue {
         const sortedIssues = [...repository.issues].sort((a, b) => {
@@ -70,7 +71,6 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
           const dateB = new Date(b.created_at).getTime();
           return dateB - dateA; 
         });
-        // Return the repo's newest issue
         return sortedIssues[0]; 
       }
       //Compare current repo's newest issue to next repo's newest issue, sort by newest issue first
