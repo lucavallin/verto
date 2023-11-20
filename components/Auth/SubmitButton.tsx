@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import type { AuthSubmitButtonVariant as ButtonVariant } from "types";
 import GithubAuthButton from "../Button/GithubAuthButton";
 import ToggleButton from "../Button/ToggleButton";
-import ButtonWrapper from "../ui/SubmitButtonWrapper";
+import ButtonWrapper from "../UI/SubmitButtonWrapper";
 
 export default function SubmitButton({
   children,

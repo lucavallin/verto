@@ -1,6 +1,6 @@
 import Form from "@/components/Auth/Form";
 import SubmitButton from "@/components/Auth/SubmitButton";
-import Divider from "@/components/ui/Divider";
+import Divider from "@/components/UI/Divider";
 
 export default function SignupPage() {
   return (

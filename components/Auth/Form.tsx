@@ -2,8 +2,9 @@
 
 import { useToast } from "hooks/useToast";
 import { handleSignin, handleSignup } from "lib/handlers";
-import { ReactNode } from "react";
+import { FormEvent, ReactNode } from "react";
 import Input from "./InputField";
+import Password from "./PasswordField";
 import SubmitButton from "./SubmitButton";
 
 export default function Form({
@@ -15,7 +16,7 @@ export default function Form({
 }) {
   const emitToast = useToast();
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const rawFormData = event.target as HTMLFormElement;
@@ -31,17 +32,12 @@ export default function Form({
     <form onSubmit={handleSubmit}>
       <div className="mb-8 flex flex-col gap-6">
         {variant === "signup" && (
-          <Input placeholder="Enter username" type="text" id="username" name="username" />
+          <Input placeholder="Enter username" id="username" name="username" />
         )}
         <Input placeholder="Enter email" id="email" name="email" />
-        <Input placeholder="Enter password" id="password" name="password" type="password" />
+        <Password placeholder="Enter password" id="password" name="password" />
         {variant === "signup" && (
-          <Input
-            placeholder="Confirm password"
-            id="confirmPassword"
-            name="confirmPassword"
-            type="password"
-          />
+          <Password placeholder="Confirm password" id="confirmPassword" name="confirmPassword" />
         )}
       </div>
       <SubmitButton>{children}</SubmitButton>
