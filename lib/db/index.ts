@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 import { getMongoUri } from "lib/env";
+import user from "./models/users";
 
 let cached = global.mongoose;
 
@@ -22,7 +23,7 @@ const connect = async (): Promise<mongoose.Mongoose> => {
   }
   cached.connection = await cached.promise;
 
-  console.log(`MongoDB is up and running`);
+  console.log(`MongoDB is up and running at ${uri}`);
   return cached.connection;
 };
 
@@ -30,5 +31,5 @@ const disconnect = async () => {
   await mongoose.disconnect();
 };
 
-const db = { connect, disconnect };
+const db = { connect, disconnect, user };
 export default db;
