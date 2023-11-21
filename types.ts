@@ -59,6 +59,7 @@ export interface Label {
 }
 
 export enum RepositorySortOrder {
+  NEW_ISSUES = "New Issues",
   LEAST_STARS = "By Least Stars",
   MOST_STARS = "By Most Stars",
   NONE = "None"

@@ -6,6 +6,7 @@ import {
   CountableLanguage,
   CountableTag,
   Repository,
+  Issue,
   RepositorySortOrder
 } from "../types";
 
@@ -61,6 +62,26 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
 
   const updateRepositoriesOnSortChange = (sortOrder: RepositorySortOrder) => {
     let updatedRepositories: Repository[] = [];
+
+    //Find and return the newest issue in a given repository
+    if (sortOrder === RepositorySortOrder.NEW_ISSUES) {
+      function getNewestIssue(repository: Repository): Issue {
+        const sortedIssues = [...repository.issues].sort((a, b) => {
+          const dateA = new Date(a.created_at).getTime();
+          const dateB = new Date(b.created_at).getTime();
+          return dateB - dateA; 
+        });
+        return sortedIssues[0]; 
+      }
+      //Compare current repo's newest issue to next repo's newest issue, sort by newest issue first
+      updatedRepositories = [...allRepositories].sort((currentRepository, nextRepository) => {
+        const currentNewestIssue = getNewestIssue(currentRepository);
+        const nextNewestIssue = getNewestIssue(nextRepository);
+        const timestampDiff = new Date(nextNewestIssue.created_at).getTime() - new Date(currentNewestIssue.created_at).getTime();
+
+        return timestampDiff;
+      });
+    }
 
     if (sortOrder === RepositorySortOrder.MOST_STARS) {
       updatedRepositories = [...allRepositories].sort((currentRepository, nextRepository) => {
