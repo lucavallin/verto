@@ -5,7 +5,7 @@ export const secret = process.env.NEXTAUTH_SECRET as string;
 
 export const getMongoUri = (): string => {
   try {
-    const uri = process.env.MONGO_URI;
+    const uri = process.env.MONGODB_URI;
     if (!uri || isEmpty(uri)) throw new Error("Missing MONGO_URI in ENV");
 
     return uri;

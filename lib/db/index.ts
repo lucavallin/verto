@@ -16,7 +16,7 @@ const connect = async (): Promise<mongoose.Mongoose> => {
   if (!cached.promise) {
     cached.promise = mongoose
       .connect(uri, {
-        bufferCommands: false,
+        bufferCommands: false
       })
       .then(() => mongoose);
   }
