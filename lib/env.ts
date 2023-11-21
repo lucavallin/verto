@@ -3,14 +3,6 @@ import { APIServerError } from "./utils/errors";
 
 export const secret = process.env.NEXTAUTH_SECRET as string;
 
-export const getBaseUrl = (): string => {
-  let baseUrl = process.env.NEXTAUTH_URL ?? "http://localhost:3000";
-  if (process.env.NODE_ENV === "production") {
-    baseUrl = "https://verto-test-prod.vercel.app";
-  }
-  return baseUrl;
-};
-
 export const getMongoUri = (): string => {
   try {
     const uri = process.env.MONGODB_URI;

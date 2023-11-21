@@ -1,5 +1,4 @@
 import axios, { AxiosError } from "axios";
-import { getBaseUrl } from "lib/env";
 import { validateSignupFormData } from "lib/utils";
 import { signIn } from "next-auth/react";
 
@@ -17,7 +16,7 @@ export const handleSignup = async (
 
     const { data: user } = await axios.post("/api/auth/signup", userPayload);
 
-    await signIn("credentials", { ...user, callbackUrl: getBaseUrl() });
+    await signIn("credentials", { ...user, callbackUrl: "/" });
   } catch (error) {
     if (error instanceof AxiosError) {
       handleError(error.response?.data);
