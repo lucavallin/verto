@@ -3,7 +3,7 @@ const config = {
     name: "Luca Cavallin",
     avatar: "/static/images/luca_cavallin.png",
     job: "Software Engineer",
-    company: "GitHub",
+    company: "GitHub, Inc.",
     email: "lu@cavall.in",
     github: "https://github.com/lucavallin",
     xtwitter: "https://twitter.com/lucavallin",

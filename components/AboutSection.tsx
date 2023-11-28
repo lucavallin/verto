@@ -2,6 +2,7 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faCircleInfo, faPaintRoller } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
+import config from "../app/config.mts";
 import { SectionTitle } from "./SectionTitle";
 
 export const AboutSection = () => {
@@ -22,7 +23,7 @@ export const AboutSection = () => {
           aria-label="A @lucavallin & contributors initiative"
           rel="noopener noreferrer"
           target="_blank"
-          href="https://www.lucavall.in"
+          href={config.author.website}
         >
           <FontAwesomeIcon icon={faHeart} />
           <span className="ml-2">
