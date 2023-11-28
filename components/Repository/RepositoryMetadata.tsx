@@ -14,15 +14,15 @@ export const RepositoryMetadata = ({
   return (
     <div className="flex flex-row py-1 font-mono text-sm lg:gap-4">
       <div className="mr-4">
-        <span className="text-yellow">lang: </span>
+        <span className="text-primary">lang: </span>
         {repositoryLang}
       </div>
       <div className="mr-4">
-        <span className="text-yellow">stars: </span>
+        <span className="text-primary">stars: </span>
         {repositoryStars}
       </div>
       <div className="mr-4">
-        <span className="text-yellow">last activity: </span>
+        <span className="text-primary">last activity: </span>
         <span>{lastModified}</span>
       </div>
     </div>

@@ -28,7 +28,7 @@ export const AboutSection = () => {
           <span className="ml-2">
             A{" "}
             <span
-              className="inline font-bold text-yellow transition-all hover:underline"
+              className="inline font-bold text-primary transition-all hover:underline"
               title="Visit GitHub profile"
             >
               @lucavallin
@@ -47,7 +47,7 @@ export const AboutSection = () => {
           <FontAwesomeIcon icon={faPaintRoller} />
           <span className="ml-2">
             UI/UX Design by{" "}
-            <span className="inline font-bold text-yellow transition-all hover:underline">
+            <span className="inline font-bold text-primary transition-all hover:underline">
               Chiara Dametto
             </span>{" "}
           </span>

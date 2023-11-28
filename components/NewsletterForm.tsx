@@ -46,23 +46,23 @@ export const NewsletterForm = () => {
         <div className="relative mt-4 flex rounded-md">
           <input
             type="text"
-            className="block w-full rounded-l-md border-2 border-yellow px-4 py-3 pl-11 text-black focus:border-yellow focus:outline-none"
+            className="block w-full rounded-l-md border-2 border-primary px-4 py-3 pl-11 text-black focus:border-primary focus:outline-none"
             aria-label="Email address"
             onChange={(e) => setEmail(e.target.value)}
           />
           <div className="pointer-events-none absolute inset-y-0 left-0 z-20 flex items-center pl-4">
             {isSubmitting ? (
-              <FontAwesomeIcon icon={faSpinner} className="animate-spin text-yellow" />
+              <FontAwesomeIcon icon={faSpinner} className="animate-spin text-primary" />
             ) : (
               <FontAwesomeIcon
                 icon={isValidEmail ? faEnvelope : faWarning}
-                className={isValidEmail ? "text-black" : "text-yellow"}
+                className={isValidEmail ? "text-black" : "text-primary"}
               />
             )}
           </div>
           <button
             type="button"
-            className="inline-flex shrink-0 items-center justify-center rounded-r-md border-2 border-l-0 border-yellow px-4 py-3 text-lg font-semibold uppercase text-yellow transition-all hover:bg-yellow hover:text-black"
+            className="inline-flex shrink-0 items-center justify-center rounded-r-md border-2 border-l-0 border-primary px-4 py-3 text-lg font-semibold uppercase text-primary transition-all hover:bg-primary hover:text-black"
             onClick={onClick}
           >
             Join
@@ -71,14 +71,14 @@ export const NewsletterForm = () => {
       )}
       {isSubscribed && (
         <div className="w-full pt-4">
-          <div className="block rounded-md bg-yellow px-4 py-3 text-center font-bold uppercase text-black">
+          <div className="block rounded-md bg-primary px-4 py-3 text-center font-bold uppercase text-black">
             Thanks for subscribing!
           </div>
         </div>
       )}
       {hasError && (
         <div className="w-full pt-4">
-          <div className="block rounded-md border border-yellow px-4 py-3 text-center font-bold uppercase text-black">
+          <div className="block rounded-md border border-primary px-4 py-3 text-center font-bold uppercase text-black">
             Something went wrong
           </div>
         </div>
