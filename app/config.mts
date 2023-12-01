@@ -8,7 +8,6 @@ const config = {
     github: "https://github.com/lucavallin",
     linkedin: "https://www.linkedin.com/in/lucavallin",
     reddit: "https://reddit.com/u/lucavallin",
-    producthunt: "https://www.producthunt.com/@lucavallin",
     calendly: "https://calendly.com/lucavallin",
     newsletter: "https://newsletter.lucavallin.com",
     website: "https://www.lucavall.in"

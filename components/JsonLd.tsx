@@ -26,7 +26,6 @@ const jsonLdGraph: Graph = {
         config.author.linkedin,
         config.author.github,
         config.author.reddit,
-        config.author.producthunt,
         config.author.calendly,
         config.author.newsletter,
         config.meta.siteUrl
