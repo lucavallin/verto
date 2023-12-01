@@ -19,7 +19,7 @@ const jsonLdGraph: Graph = {
     {
       "@type": "Person",
       "@id": "person",
-      name: "Luca Cavallin",
+      name: config.author.name,
       url: config.author.website,
       image: `${config.meta.siteUrl}/images/luca_cavallin.png`,
       sameAs: [
@@ -30,10 +30,10 @@ const jsonLdGraph: Graph = {
         config.author.newsletter,
         config.meta.siteUrl
       ],
-      jobTitle: "Software Engineer",
+      jobTitle: config.author.job,
       worksFor: {
         "@type": "Organization",
-        name: "GitHub, Inc."
+        name: config.author.company
       }
     },
     {

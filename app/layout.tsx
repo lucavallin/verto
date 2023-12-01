@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   publisher: config.author.name,
   authors: [
     {
-      name: "Luca Cavallin",
+      name: config.author.name,
       url: config.author.website
     }
   ],
