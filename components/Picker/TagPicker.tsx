@@ -49,9 +49,9 @@ export const TagPicker = ({ tags, activeTagId, onTagPage }: TagPickerProps) => {
         <SectionTitle className="my-1" text="Browse by tag" />
         <FontAwesomeIcon
           icon={faChevronDown}
-          className={`mx-2 mt-[3px] transform text-silver-500 transition-transform ${
+          className={`mx-2 mt-[3px] text-silver-500 transition-transform ${
             isCollapsed ? "rotate-0" : "rotate-180"
-          } animate-fade-in duration-300 ease-in-out md:hidden`}
+          } duration-300 ease-in-out md:hidden`}
         />
         <button
           className={`${
@@ -65,7 +65,7 @@ export const TagPicker = ({ tags, activeTagId, onTagPage }: TagPickerProps) => {
         {activeTagId && isCollapsed && <ActiveTagButton data={activeTagId} />}
       </div>
       <div
-        className={` transition-max-height ${
+        className={` ${
           isShowLessVisible && "overflow-y-scroll"
         } overflow-hidden duration-300  ease-in-out md:max-h-[50dvh] ${
           isCollapsed ? "max-h-0" : "max-h-96"
@@ -74,7 +74,7 @@ export const TagPicker = ({ tags, activeTagId, onTagPage }: TagPickerProps) => {
         {tags.slice(0, limit).map((tag) => {
           return (
             <PickerItem
-              className={`group mx-1 my-1 inline-block rounded-sm border px-2 py-1 text-sm ${
+              className={`group m-1 inline-block rounded-sm border px-2 py-1 text-sm ${
                 onTagPage && tag.id === activeTagId
                   ? "active-pill"
                   : "border-silver-100 transition-all hover:border-yellow hover:text-yellow"
