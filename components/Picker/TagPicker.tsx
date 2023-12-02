@@ -51,7 +51,7 @@ export const TagPicker = ({ tags, activeTagId, onTagPage }: TagPickerProps) => {
           icon={faChevronDown}
           className={`mx-2 mt-[3px] text-silver-500 transition-transform ${
             isCollapsed ? "rotate-0" : "rotate-180"
-          } animate-fade-in duration-300 ease-in-out md:hidden`}
+          } duration-300 ease-in-out md:hidden`}
         />
         <button
           className={`${
@@ -65,7 +65,7 @@ export const TagPicker = ({ tags, activeTagId, onTagPage }: TagPickerProps) => {
         {activeTagId && isCollapsed && <ActiveTagButton data={activeTagId} />}
       </div>
       <div
-        className={` transition-max-height ${
+        className={` ${
           isShowLessVisible && "overflow-y-scroll"
         } overflow-hidden duration-300  ease-in-out md:max-h-[50dvh] ${
           isCollapsed ? "max-h-0" : "max-h-96"
