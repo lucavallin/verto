@@ -18,8 +18,8 @@ export const LinkButton = ({ title, href, secondary, children }: LinkButtonProps
       rel="noopener noreferrer"
       className={`block rounded-md border px-1 py-3 text-center font-bold uppercase transition-all ${
         secondary
-          ? "border-yellow hover:border-yellow hover:text-yellow"
-          : "bg-yellow text-black outline-offset-2 outline-yellow hover:outline"
+          ? "border-primary hover:border-primary hover:text-primary"
+          : "bg-primary text-black outline-offset-2 outline-primary hover:outline"
       }`}
     >
       {children}

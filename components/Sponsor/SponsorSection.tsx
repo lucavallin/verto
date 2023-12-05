@@ -16,7 +16,7 @@ export const SponsorSection = () => {
           title="collectiv"
           aria-label="collectiv"
         >
-          <span className="font-bold text-yellow transition-all hover:underline">
+          <span className="font-bold text-primary transition-all hover:underline">
             Collectiv
             <FontAwesomeIcon
               icon={faUpRightFromSquare}
@@ -28,7 +28,7 @@ export const SponsorSection = () => {
       </p>
       <Link
         href="mailto:sponsor@verto.sh?subject=verto.sh%20Sponsorship&body=Hi%2C%20I%27m%20interested%20in%20sponsoring%verto.sh%21"
-        className="text-yellow"
+        className="text-primary"
         title="Your name and logo here?"
         aria-label="Your name and logo here?"
       >

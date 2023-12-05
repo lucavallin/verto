@@ -7,7 +7,7 @@ module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,tsx}",
-    "./components/**/*.{js,ts,tsx}",
+    "./components/**/*.{js,ts,tsx}"
   ],
   darkMode: "class",
   theme: {
@@ -23,52 +23,16 @@ module.exports = {
       },
       colors: {
         primary: {
-          DEFAULT: "#e3407c",
-          100: "#330817",
-          200: "#650f2f",
-          300: "#981746",
-          400: "#ca1e5d",
-          500: "#e3407c",
-          600: "#e86696",
-          700: "#ee8db0",
-          800: "#f4b3ca",
-          900: "#f9d9e5"
-        },
-        pink: {
-          DEFAULT: "#e3407c",
-          100: "#330817",
-          200: "#650f2f",
-          300: "#981746",
-          400: "#ca1e5d",
-          500: "#e3407c",
-          600: "#e86696",
-          700: "#ee8db0",
-          800: "#f4b3ca",
-          900: "#f9d9e5"
-        },
-        purple: {
-          DEFAULT: "#851eeb",
-          100: "#1b0431",
-          200: "#350862",
-          300: "#500d92",
-          400: "#6a11c3",
-          500: "#851eeb",
-          600: "#9d4bef",
-          700: "#b678f3",
-          800: "#cea5f7",
-          900: "#e7d2fb"
-        },
-        blue: {
-          DEFAULT: "#1c6cf7",
-          100: "#021535",
-          200: "#04296a",
-          300: "#063e9f",
-          400: "#0853d5",
-          500: "#1c6cf7",
-          600: "#4a8af8",
-          700: "#77a7fa",
-          800: "#a4c4fc",
-          900: "#d2e2fd"
+          DEFAULT: "#ffec70",
+          100: "#494000",
+          200: "#937f00",
+          300: "#dcbf00",
+          400: "#ffe227",
+          500: "#ffec70",
+          600: "#fff08d",
+          700: "#fff4a9",
+          800: "#fff7c6",
+          900: "#fffbe2"
         },
         azure: {
           DEFAULT: "#61d0ff",
@@ -82,18 +46,6 @@ module.exports = {
           800: "#c0ecff",
           900: "#dff6ff"
         },
-        cyan: {
-          DEFAULT: "#47e9f5",
-          100: "#03383c",
-          200: "#067178",
-          300: "#09a9b4",
-          400: "#0de1f0",
-          500: "#47e9f5",
-          600: "#6ceef7",
-          700: "#91f2f9",
-          800: "#b5f6fb",
-          900: "#dafbfd"
-        },
         green: {
           DEFAULT: "#47f6ad",
           100: "#033c24",
@@ -105,30 +57,6 @@ module.exports = {
           700: "#90face",
           800: "#b5fcde",
           900: "#dafdef"
-        },
-        yellow: {
-          DEFAULT: "#ffec70",
-          100: "#494000",
-          200: "#937f00",
-          300: "#dcbf00",
-          400: "#ffe227",
-          500: "#ffec70",
-          600: "#fff08d",
-          700: "#fff4a9",
-          800: "#fff7c6",
-          900: "#fffbe2"
-        },
-        red: {
-          DEFAULT: "#fa4d52",
-          100: "#400204",
-          200: "#7f0307",
-          300: "#bf050b",
-          400: "#f90c14",
-          500: "#fa4d52",
-          600: "#fb7074",
-          700: "#fc9497",
-          800: "#fdb7ba",
-          900: "#fedbdc"
         },
         black: {
           DEFAULT: "#101620",
@@ -183,13 +111,13 @@ module.exports = {
         DEFAULT: {
           css: {
             p: {
-              color: theme("colors.gray.800"),
+              color: theme("colors.gray.800")
             },
             ul: {
-              color: theme("colors.gray.800"),
+              color: theme("colors.gray.800")
             },
             strong: {
-              color: theme("colors.green.500"),
+              color: theme("colors.green.500")
             },
             a: {
               color: theme("colors.primary.500"),
@@ -212,7 +140,7 @@ module.exports = {
               color: theme("colors.azure.600")
             }
           }
-        },
+        }
       })
     }
   },
