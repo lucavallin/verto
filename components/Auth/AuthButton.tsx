@@ -1,8 +1,8 @@
-import { getUserCredentials } from "lib/api/auth";
-import { LogoutButton } from "./LogoutButton";
-import { SigninButton } from "./SigninButton";
+import { getUserCredentials } from "lib/auth";
+import { SigninButton } from "./Button.SignIn";
+import { SignoutButton } from "./Button.SignOut";
 
 export default async function AuthButton() {
   const user = await getUserCredentials();
-  return user ? <LogoutButton /> : <SigninButton />;
+  return user ? <SignoutButton /> : <SigninButton />;
 }

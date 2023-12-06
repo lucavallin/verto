@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 import { getMongoUri } from "lib/env";
-import users from "./models/users";
+import User from "./models/users";
 
 let cached = global.mongoose;
 
@@ -27,9 +27,5 @@ const connect = async (): Promise<mongoose.Mongoose> => {
   return cached.connection;
 };
 
-const disconnect = async () => {
-  await mongoose.disconnect();
-};
-
-const db = { connect, disconnect, users };
+const db = { connect, user: User };
 export default db;

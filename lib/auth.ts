@@ -1,24 +1,14 @@
 import { NextAuthOptions, getServerSession } from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials";
 import GithubProvider from "next-auth/providers/github";
+import GitlabProvider from "next-auth/providers/gitlab";
 
 import { JWT_LIFESPAN } from "lib/constants";
-import { getGithubClient, secret } from "lib/env";
-import { IUserPublicData } from "types";
+import { getGithubClient, getGitlabClient, secret } from "lib/env";
+import db from "./db";
 
 const providers: NextAuthOptions["providers"] = [
   GithubProvider(getGithubClient()),
-  CredentialsProvider({
-    id: "credentials",
-    name: "Credentials",
-    credentials: {
-      email: { label: "Email", type: "text" },
-      username: { label: "Username", type: "text" }
-    },
-    authorize: async ({ email, username }: IUserPublicData) => {
-      return { id: "", email, name: username };
-    }
-  })
+  GitlabProvider(getGitlabClient())
 ];
 
 const callbacks: NextAuthOptions["callbacks"] = {
@@ -30,6 +20,20 @@ const callbacks: NextAuthOptions["callbacks"] = {
   session: async ({ session, token }) => {
     session.user = token.user as typeof session.user;
     return session;
+  },
+  signIn: async ({ user }) => {
+    const { name, email } = user;
+    await db.connect();
+    db.user
+      .findOneAndUpdate({ email }, { name }, { upsert: true })
+      .then((fetchedUser) => {
+        console.log(fetchedUser);
+      })
+      .catch((err) => {
+        console.log(err);
+        return false;
+      });
+    return true;
   }
 };
 
@@ -42,15 +46,15 @@ const session: NextAuthOptions["session"] = {
   maxAge: 60 * 60 * 24 * JWT_LIFESPAN
 };
 
-export const options: NextAuthOptions = {
+export const options = {
   providers,
   pages,
   session,
   callbacks,
   secret
-};
+} satisfies NextAuthOptions;
 
-// gets user details of currenly logged in user
+// gets details of currenly logged in user
 export const getUserCredentials = async () => {
   const session = await getServerSession(options);
   if (!session || !session.user) {

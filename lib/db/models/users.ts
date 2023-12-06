@@ -1,27 +1,27 @@
-import { EMAIL, PASSWORD, USERNAME } from "lib/constants";
-import { Schema, model, models } from "mongoose";
-import { IUser } from "types";
+import { Document, Schema, model, models } from "mongoose";
 
-const UserSchema = new Schema<IUser>({
-  username: {
-    type: String,
-    unique: false,
-    required: [true, USERNAME.errors.missing],
-    match: [USERNAME.matcher, USERNAME.errors.invalid],
-    minLength: [USERNAME.minLength, USERNAME.errors.length],
-    maxlength: [USERNAME.maxLength, USERNAME.errors.length]
+interface IUser extends Document {
+  name: string;
+  email: string;
+}
+
+const UserSchema = new Schema<IUser>(
+  {
+    name: {
+      type: String,
+      required: [true, "Name is required"],
+      trim: true
+    },
+    email: {
+      type: String,
+      unique: true,
+      required: [true, "Email is required"]
+    }
   },
-  email: {
-    type: String,
-    unique: true,
-    required: [true, EMAIL.errors.missing]
-  },
-  password: {
-    type: String,
-    required: [true, PASSWORD.errors.missing],
-    minlength: [PASSWORD.minLength, PASSWORD.errors.short]
+  {
+    timestamps: true
   }
-});
+);
 
 const User = models.User || model<IUser>("User", UserSchema);
 
