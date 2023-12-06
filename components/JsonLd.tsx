@@ -19,30 +19,21 @@ const jsonLdGraph: Graph = {
     {
       "@type": "Person",
       "@id": "person",
-      name: "Luca Cavallin",
+      name: config.author.name,
       url: config.author.website,
       image: `${config.meta.siteUrl}/images/luca_cavallin.png`,
       sameAs: [
-        config.author.xtwitter,
         config.author.linkedin,
-        config.author.youtube,
         config.author.github,
-        config.author.mastodon,
         config.author.reddit,
-        config.author.medium,
-        config.author.devto,
-        config.author.hashnode,
-        config.author.stackoverflow,
-        config.author.producthunt,
-        config.author.discord,
         config.author.calendly,
         config.author.newsletter,
         config.meta.siteUrl
       ],
-      jobTitle: "Software Engineer",
+      jobTitle: config.author.job,
       worksFor: {
         "@type": "Organization",
-        name: "GitHub, Inc."
+        name: config.author.company
       }
     },
     {

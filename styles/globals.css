@@ -22,16 +22,16 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #ffec70;
+  @apply bg-primary;
   border-radius: 2px;
 }
 
 .active-pill {
-  @apply border-yellow font-semibold text-yellow;
+  @apply border-primary font-semibold text-primary;
 }
 
 .active-pill > span {
-  @apply text-yellow;
+  @apply text-primary;
 }
 
 #bmc-iframe {

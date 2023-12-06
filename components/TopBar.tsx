@@ -5,7 +5,7 @@ import { SectionTitle } from "./SectionTitle";
 import { Socials } from "./Socials";
 
 export const TopBar = () => (
-  <div className="flex h-16 items-center justify-between bg-black-400 px-6 py-3 transition-all">
+  <div className="flex h-16 items-center justify-between bg-black-400 px-6 py-3 transition-all hover:border-primary hover:text-primary">
     <div className="flex items-center justify-between gap-5">
       <SectionTitle text="Sponsored by" />
       <Link
