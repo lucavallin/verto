@@ -4,6 +4,7 @@ import { Space_Grotesk } from "next/font/google";
 import React from "react";
 
 import SponsorMe from "@/components/SponsorMe";
+import AuthProvider from "context/AuthProvider";
 import { TopBar } from "../components/TopBar";
 import "../styles/globals.css";
 import config from "./config.mts";
@@ -71,11 +72,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script defer data-domain="verto.sh" src="https://plausible.io/js/script.js"></script>
       </head>
       <body>
-        <main className={`${space_grotesk.variable} font-sans`}>
-          <TopBar />
-          {children}
-        </main>
-        <SponsorMe />
+        <AuthProvider>
+          <main className={`${space_grotesk.variable} font-sans`}>
+            <TopBar />
+            {children}
+          </main>
+          <SponsorMe />
+        </AuthProvider>
       </body>
     </html>
   );

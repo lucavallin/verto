@@ -3,7 +3,8 @@
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { useParams, usePathname } from "next/navigation";
+import { usePathPrefix } from "hooks/usePathData";
+import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useAppData } from "../hooks/useAppData";
 import { AboutSection } from "./AboutSection";
@@ -16,8 +17,7 @@ import { SectionTitle } from "./SectionTitle";
 import { SponsorSection } from "./Sponsor/SponsorSection";
 
 export const Sidebar = () => {
-  const currentPage = usePathname();
-  const pageType = currentPage.split("/")[1];
+  const pageType = usePathPrefix();
   const { tag: activeTagId, language: activeLanguageId } = useParams();
 
   const { languages, tags } = useAppData();
@@ -50,7 +50,11 @@ export const Sidebar = () => {
   const handleScrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <section className="w-full flex-none px-6 font-sans text-silver-500 md:relative md:max-w-sm">
+    <section
+      className={`w-full flex-none px-6 font-sans text-silver-500 md:relative md:max-w-sm ${
+        pageType === "auth" && "hidden md:block"
+      }`}
+    >
       <AboutSection />
       <div className="pt-4">
         <LinkButton title="Star it on GitHub" href="https://github.com/lucavallin/verto" secondary>
@@ -77,18 +81,22 @@ export const Sidebar = () => {
         <NewsletterForm />
       </div>
 
-      <div
-        className={` z-50 bg-black-400 transition-all duration-300 md:sticky md:top-4 ${
-          scrollHeightReached ? "fixed top-0 " : "sticky top-0"
-        }`}
-      >
-        <LanguagePicker
-          languages={languages}
-          activeTagId={activeLanguageId}
-          onLanguagePage={pageType == "language"}
-        />
-        <TagPicker tags={tags} activeTagId={activeTagId} onTagPage={pageType == "tag"} />
-      </div>
+      {pageType === "auth" ? (
+        <div className="m-20" />
+      ) : (
+        <div
+          className={` z-50 bg-black-400 transition-all duration-300 md:sticky md:top-4 ${
+            scrollHeightReached ? "fixed top-0 " : "sticky top-0"
+          }`}
+        >
+          <LanguagePicker
+            languages={languages}
+            activeTagId={activeLanguageId}
+            onLanguagePage={pageType == "language"}
+          />
+          <TagPicker tags={tags} activeTagId={activeTagId} onTagPage={pageType == "tag"} />
+        </div>
+      )}
       {showUpArrow && <ScrollToTop handleOnClick={handleScrollToTop} />}
     </section>
   );

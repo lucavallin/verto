@@ -1,4 +1,4 @@
-import { RepositorySortOrder } from "./types";
+import { RepositorySortOrder } from "types";
 
 export const REPOSITORY_SORT_OPTIONS = [
   RepositorySortOrder.NEW_ISSUES,
@@ -6,3 +6,5 @@ export const REPOSITORY_SORT_OPTIONS = [
   RepositorySortOrder.MOST_STARS,
   RepositorySortOrder.NONE
 ];
+
+export const JWT_LIFESPAN = 30;
