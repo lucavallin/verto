@@ -1,5 +1,4 @@
 import { Issue, Repository } from "../../types";
-import { CollectivButton } from "../Sponsor/CollectivButton";
 
 import { IssueItem } from "./IssueItem";
 
@@ -20,13 +19,6 @@ export const IssuesList = ({ issues, repositoryDetails }: IssueListProps) => {
           <IssueItem issue={issue} key={issue.id} />
         ))}
       </ol>
-      <div className="xl:hidden">
-        <CollectivButton
-          repositoryName={repositoryDetails.name}
-          repositoryOwner={repositoryDetails.owner}
-          repositoryUrl={repositoryDetails.url}
-        />
-      </div>
     </>
   );
 };

@@ -9,12 +9,9 @@ import { useEffect, useState } from "react";
 import { useAppData } from "../hooks/useAppData";
 import { AboutSection } from "./AboutSection";
 import { LinkButton } from "./Button/LinkButton";
-import { NewsletterForm } from "./NewsletterForm";
 import { LanguagePicker } from "./Picker/LanguagePicker";
 import { TagPicker } from "./Picker/TagPicker";
 import ScrollToTop from "./ScrollToTop";
-import { SectionTitle } from "./SectionTitle";
-import { SponsorSection } from "./Sponsor/SponsorSection";
 
 export const Sidebar = () => {
   const pageType = usePathPrefix();
@@ -69,16 +66,6 @@ export const Sidebar = () => {
         >
           Add your project
         </LinkButton>
-      </div>
-      <SponsorSection />
-
-      <div className="pt-6">
-        <SectionTitle className="mb-2" text="Join the Newsletter" />
-        <p className="text-sm text-silver-500">
-          Join &quot;The lucavallin Newsletter&quot; to receive curated issues from{" "}
-          <strong>verto.sh</strong> and other articles in your inbox every other week.
-        </p>
-        <NewsletterForm />
       </div>
 
       {pageType === "auth" ? (
