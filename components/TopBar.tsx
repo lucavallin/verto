@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import AuthButton from "./Auth/AuthButton";
+// import AuthButton from "./Auth/AuthButton";
 import { SectionTitle } from "./SectionTitle";
 import { Socials } from "./Socials";
 
@@ -28,7 +28,7 @@ export const TopBar = () => (
       </Link>
     </div>
     <div className="flex items-center gap-7">
-      <AuthButton />
+      {/* <AuthButton /> */}
       <Socials />
     </div>
   </div>
