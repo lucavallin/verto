@@ -3,8 +3,7 @@
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { usePathPrefix } from "hooks/usePathData";
-import { useParams } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useAppData } from "../hooks/useAppData";
 import { AboutSection } from "./AboutSection";
@@ -14,7 +13,8 @@ import { TagPicker } from "./Picker/TagPicker";
 import ScrollToTop from "./ScrollToTop";
 
 export const Sidebar = () => {
-  const pageType = usePathPrefix();
+  const currentPage = usePathname();
+  const pageType = currentPage.split("/")[1];
   const { tag: activeTagId, language: activeLanguageId } = useParams();
 
   const { languages, tags } = useAppData();
@@ -68,22 +68,18 @@ export const Sidebar = () => {
         </LinkButton>
       </div>
 
-      {pageType === "auth" ? (
-        <div className="m-20" />
-      ) : (
-        <div
-          className={` z-50 bg-black-400 transition-all duration-300 md:sticky md:top-4 ${
-            scrollHeightReached ? "fixed top-0 " : "sticky top-0"
-          }`}
-        >
-          <LanguagePicker
-            languages={languages}
-            activeTagId={activeLanguageId}
-            onLanguagePage={pageType == "language"}
-          />
-          <TagPicker tags={tags} activeTagId={activeTagId} onTagPage={pageType == "tag"} />
-        </div>
-      )}
+      <div
+        className={` z-50 bg-black-400 transition-all duration-300 md:sticky md:top-4 ${
+          scrollHeightReached ? "fixed top-0 " : "sticky top-0"
+        }`}
+      >
+        <LanguagePicker
+          languages={languages}
+          activeTagId={activeLanguageId}
+          onLanguagePage={pageType == "language"}
+        />
+        <TagPicker tags={tags} activeTagId={activeTagId} onTagPage={pageType == "tag"} />
+      </div>
       {showUpArrow && <ScrollToTop handleOnClick={handleScrollToTop} />}
     </section>
   );

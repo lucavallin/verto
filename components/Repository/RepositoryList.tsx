@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-import { REPOSITORY_SORT_OPTIONS } from "lib/constants";
 import { Repository } from "types";
+import { REPOSITORY_SORT_OPTIONS } from "../../constants";
 import { useAppData } from "../../hooks/useAppData";
 import { SortPicker } from "../Picker/SortPicker";
 import { RepositoryItem } from "./RepositoryItem";
