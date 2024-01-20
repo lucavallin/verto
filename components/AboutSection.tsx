@@ -1,5 +1,5 @@
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
-import { faCircleInfo, faPaintRoller } from "@fortawesome/free-solid-svg-icons";
+import { faPaintRoller } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import config from "../app/config.mts";
@@ -51,24 +51,6 @@ export const AboutSection = () => {
             <span className="inline font-bold text-primary transition-all hover:underline">
               Chiara Dametto
             </span>{" "}
-          </span>
-        </Link>
-        <Link
-          className="flex cursor-pointer flex-row items-center text-base text-silver-500"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="View Privacy Policy"
-          aria-label="Privacy & Cookie Policy"
-          href="https://www.privacyboard.co/company/lucavallin"
-        >
-          <FontAwesomeIcon icon={faCircleInfo} />
-          <span className="ml-2">
-            <span
-              className="inline text-base text-gray-900 transition-all hover:underline"
-              title="View Privacy Policy"
-            >
-              Privacy & Cookie Policy
-            </span>
           </span>
         </Link>
       </div>

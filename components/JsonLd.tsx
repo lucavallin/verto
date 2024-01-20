@@ -33,20 +33,6 @@ const jsonLdGraph: Graph = {
         "@type": "Organization",
         name: config.author.company
       }
-    },
-    {
-      "@type": "WebPage",
-      "@id": config.meta.siteUrl,
-      url: config.meta.siteUrl,
-      name: config.meta.title,
-      inLanguage: config.meta.locale,
-      description: config.meta.description,
-      author: {
-        "@id": "person"
-      },
-      publisher: {
-        "@id": "person"
-      }
     }
   ]
 };
