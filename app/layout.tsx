@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import React from "react";
 
-import SponsorMe from "@/components/SponsorMe";
+import { Analytics, AnalyticsConfig } from "pliny/analytics";
 import { TopBar } from "../components/TopBar";
 import "../styles/globals.css";
 import config from "./config.mts";
@@ -68,14 +68,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#101620" />
         <meta name="msapplication-TileColor" content="#101620" />
         <meta name="theme-color" content="#101620" />
-        <script defer data-domain="verto.sh" src="https://plausible.io/js/script.js"></script>
       </head>
       <body>
+        <Analytics
+          analyticsConfig={
+            {
+              googleAnalytics: { googleAnalyticsId: process.env.NEXT_GA_MEASUREMENT_ID }
+            } as AnalyticsConfig
+          }
+        />
         <main className={`${space_grotesk.variable} font-sans`}>
           <TopBar />
           {children}
         </main>
-        <SponsorMe />
       </body>
     </html>
   );
