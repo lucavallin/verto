@@ -59,7 +59,7 @@ export const Sidebar = () => {
           Star it on GitHub 🌟
         </LinkButton>
       </div>
-      <div className="pt-2">
+      <div className="py-2">
         <LinkButton
           title="Add your project"
           href="https://github.com/lucavallin/verto#adding-a-new-project"
