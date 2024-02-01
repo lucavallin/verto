@@ -1122,6 +1122,7 @@
       "serverless/serverless",
       "SheetJS/sheetjs",
       "shentao/vue-multiselect",
+      "shuttle-hq/shuttle",
       "siderolabs/talos",
       "Signoz/signoz",
       "simonmichael/hledger",
