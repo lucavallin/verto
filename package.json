@@ -21,7 +21,7 @@
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "20.10.0",
     "@types/react": "18.2.55",
-    "@types/react-dom": "18.2.17",
+    "@types/react-dom": "18.2.19",
     "dayjs": "^1.11.10",
     "millify": "^6.1.0",
     "next": "^14.0.4",
