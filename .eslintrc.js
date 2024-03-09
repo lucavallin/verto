@@ -33,6 +33,12 @@ module.exports = {
       "semi": true,
       "plugins": ["prettier-plugin-organize-imports", "prettier-plugin-tailwindcss"]
     }],
+    "no-console": [
+      "warn",
+      {
+        "allow": ["warn", "error"]
+      }
+    ],
     "react/react-in-jsx-scope": "off",
     "jsx-a11y/anchor-is-valid": [
       "error",
@@ -43,7 +49,14 @@ module.exports = {
       }
     ],
     "react/prop-types": 0,
-    "@typescript-eslint/no-unused-vars": 0,
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "ignoreRestSiblings": true,
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
     "react/no-unescaped-entities": 0,
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-var-requires": "off",
