@@ -1,75 +1,46 @@
 "use client";
 
-import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
+import { Loader } from "@/components/Loader";
 import { Repository } from "types";
-import { REPOSITORY_SORT_OPTIONS } from "../../constants";
-import { useAppData } from "../../hooks/useAppData";
-import { SortPicker } from "../Picker/SortPicker";
 import { RepositoryItem } from "./RepositoryItem";
-import { SearchBar } from "./SearchBar";
 
-type RepositoryListProps = {
-  languageId?: string;
-  tagId?: string;
-};
+const itemsPerScroll = 15;
 
-const Loader = () => (
-  <div className="w-full p-4">
-    <div className="flex items-center justify-center">
-      <FontAwesomeIcon icon={faCircleNotch} spin />
-    </div>
-  </div>
-);
+interface Props {
+  repos: Repository[];
+}
 
-export const RepositoryList = ({ languageId, tagId }: RepositoryListProps) => {
-  const itemsPerScroll = 15;
+function RepositoryList({ repos }: Props) {
   const [items, setItems] = useState(itemsPerScroll);
-  const {
-    repositories,
-    repositorySortOrder,
-    updateRepositorySortOrder,
-    filterRepositoriesByTag,
-    filterRepositoriesByLanguage
-  } = useAppData();
-  let repos: Repository[] = repositories;
-
-  if (languageId) {
-    repos = filterRepositoriesByLanguage(languageId);
-  }
-
-  if (tagId) {
-    repos = filterRepositoriesByTag(tagId);
-  }
 
   return (
-    <main className="grow md:max-w-sm lg:max-w-none">
-      <div className="px-6">
-        <SortPicker
-          activeSort={repositorySortOrder}
-          sortOptions={REPOSITORY_SORT_OPTIONS}
-          onSortOrderSelect={updateRepositorySortOrder}
-        />
-        <SearchBar />
-        <InfiniteScroll
-          className="pt-6"
-          dataLength={items}
-          next={() => setItems(items + itemsPerScroll)}
-          hasMore={items < repos.length}
-          loader={<Loader />}
-        >
-          {repos.slice(0, items).map((repository) => {
+    <div>
+      <InfiniteScroll
+        className="pt-6"
+        dataLength={items}
+        next={() => setItems(items + itemsPerScroll)}
+        hasMore={items < repos.length}
+        loader={<Loader />}
+      >
+        {repos.length > 0 ? (
+          repos.slice(0, items).map((repository) => {
             // NOTE - We sometimes get duplicate values back from GitHub API
             // meaning we can't simply rely on the id as the key
             const key = `${repository.id}_${new Date().getTime()}_${Math.random()}`;
 
             return <RepositoryItem key={key} repository={repository} />;
-          })}
-        </InfiniteScroll>
-      </div>
-    </main>
+          })
+        ) : (
+          <div className="group mb-4 flex h-40 w-full select-none items-center justify-center rounded-md border border-silver-100 text-xl font-semibold">
+            We couldn't find any repositories matching your search
+          </div>
+        )}
+      </InfiniteScroll>
+    </div>
   );
-};
+}
+
+export { RepositoryList };

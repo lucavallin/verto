@@ -1,38 +1,50 @@
-import { RepositorySortOrder } from "../../types";
-import { SectionTitle } from "../SectionTitle";
+import { Loader } from "@/components/Loader";
+import { SectionTitle } from "@/components/SectionTitle";
+import { useRepositoryQuery } from "store";
+import { RepositorySortOrder } from "types";
 
-type SortPickerProps = {
-  activeSort: RepositorySortOrder;
-  sortOptions: RepositorySortOrder[];
-  onSortOrderSelect: (sortOrder: RepositorySortOrder) => void;
-};
+interface Props {
+  isLoading: boolean;
+}
 
-export const SortPicker = ({ activeSort, sortOptions, onSortOrderSelect }: SortPickerProps) => {
+function SortPicker({ isLoading }: Props) {
+  const {
+    query: { sort },
+    setQuery
+  } = useRepositoryQuery();
+
   return (
     <div
       className="flex flex-col justify-between pt-6 lg:flex-row lg:items-center lg:pt-0"
       id="repositories-list"
     >
-      <div>
+      <div className="flex gap-4">
         <SectionTitle className="mb-2" text="Sort Repositories" />
+        {isLoading && (
+          <div className="mt-1">
+            <Loader />
+          </div>
+        )}
       </div>
+
       <div>
-        {sortOptions.map((sortOption) => {
+        {Object.values(RepositorySortOrder).map((option) => {
           return (
             <button
-              key={sortOption}
-              onClick={() => onSortOrderSelect(sortOption)}
+              key={option}
+              onClick={() => setQuery("sort", option)}
               className={`group m-1 inline-block rounded-sm border px-2 py-1 ${
-                activeSort === sortOption
+                sort === option
                   ? "active-pill"
                   : "border-silver-100 transition-all hover:border-primary hover:text-primary"
               }`}
             >
-              {sortOption}
+              {option}
             </button>
           );
         })}
       </div>
     </div>
   );
-};
+}
+export { SortPicker };
