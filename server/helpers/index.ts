@@ -1,7 +1,7 @@
 import { Repository, RepositorySortOrder } from "types";
 
 function checkTags(repo: Repository, tags: string[]) {
-  return repo.tags ? repo.tags.some((tag) => tags.includes(tag.display)) : false;
+  return repo.tags ? repo.tags.some((tag) => tags.includes(tag.id)) : false;
 }
 
 function chekRepoByNameDescTags(repo: Repository, search: string, tags: string[]) {

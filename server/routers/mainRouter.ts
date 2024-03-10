@@ -10,7 +10,7 @@ const mainRouter = Router({
     // Filter repositories based on tags, languages, and search
     const filteredRepos = ctx.data.repositories.filter((repo) => {
       const matchesTags = tags.length === 0 || checkTags(repo, tags);
-      const matchesLanguages = languages.length === 0 || languages.includes(repo.language.display);
+      const matchesLanguages = languages.length === 0 || languages.includes(repo.language.id);
       const matchesSearch = !search || chekRepoByNameDescTags(repo, search, tags);
 
       return matchesTags && matchesLanguages && matchesSearch;

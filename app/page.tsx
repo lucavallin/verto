@@ -21,7 +21,7 @@ export default function Page() {
   // update the url query when the query changes
   useEffect(() => {
     if (queryIsNotEmpty(query)) {
-      router.replace(`?${updateUrlQuery(query)}`);
+      router.push(`?${updateUrlQuery(query)}`, { scroll: false });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);

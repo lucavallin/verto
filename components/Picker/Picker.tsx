@@ -74,18 +74,18 @@ function Picker({ data, isLoading, title, type, limitStep = 15 }: Props) {
               <button
                 key={el.id}
                 className={`group m-1 inline-block rounded-sm border px-2 py-1 text-sm ${
-                  query[type].includes(el.display)
+                  query[type].includes(el.id)
                     ? "active-pill"
                     : "border-silver-100 transition-all hover:border-primary hover:text-primary"
                 }`}
                 onClick={() => {
-                  if (query[type].includes(el.display)) {
+                  if (query[type].includes(el.id)) {
                     setQuery(
                       type,
-                      query[type].filter((q) => q !== el.display)
+                      query[type].filter((q) => q !== el.id)
                     );
                   } else {
-                    setQuery(type, [...query[type], el.display]);
+                    setQuery(type, [...query[type], el.id]);
                   }
                 }}
               >
