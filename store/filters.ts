@@ -1,7 +1,7 @@
 import { RepositorySortOrder } from "types";
 import { create } from "zustand";
 
-interface RepositoryQuery {
+export interface RepositoryQuery {
   languages: string[];
   tags: string[];
   search: string;
@@ -11,6 +11,7 @@ interface RepositoryQuery {
 interface RepositoryQueryStore {
   query: RepositoryQuery;
   setQuery: (key: keyof RepositoryQuery, value: string[] | string | RepositorySortOrder) => void;
+  setInitialQuery: (query: Partial<RepositoryQuery>) => void;
 }
 
 const initialquery: RepositoryQuery = {
@@ -25,7 +26,8 @@ const useRepositoryQuery = create<RepositoryQueryStore>((set) => ({
   setQuery: (key, value) =>
     set((state) => {
       return { query: { ...state.query, [key]: value } };
-    })
+    }),
+  setInitialQuery: (query) => set({ query: { ...initialquery, ...query } })
 }));
 
 export { useRepositoryQuery };

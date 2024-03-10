@@ -4,19 +4,35 @@ import { Layout } from "@/components/Layout";
 import { Loader } from "@/components/Loader";
 import { SortPicker } from "@/components/Picker";
 import { RepositoryList, SearchBar } from "@/components/Repository";
+import { parseQueryString, queryIsNotEmpty, updateUrlQuery } from "@/lib/helpers";
 import { Server } from "@/lib/trpc/client";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 import { useRepositoryQuery } from "store";
 
 export default function Page() {
-  const {
-    query: { languages, tags, search, sort }
-  } = useRepositoryQuery();
-  const { data, isInitialLoading, isPreviousData } = Server.route.getRepositories.useQuery(
-    { languages, tags, search, sort },
-    {
-      keepPreviousData: true
+  const params = useSearchParams();
+  const router = useRouter();
+  const { query, setInitialQuery } = useRepositoryQuery();
+  const { data, isInitialLoading, isPreviousData } = Server.route.getRepositories.useQuery(query, {
+    keepPreviousData: true
+  });
+
+  // update the url query when the query changes
+  useEffect(() => {
+    if (queryIsNotEmpty(query)) {
+      router.replace(`?${updateUrlQuery(query)}`);
     }
-  );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query]);
+
+  // set the initial query from the url query
+  useEffect(() => {
+    if (params.toString()) {
+      setInitialQuery(parseQueryString(params.toString()));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Layout>
