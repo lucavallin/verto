@@ -33,12 +33,14 @@ function Picker({ data, isLoading, title, type, limitStep = 15 }: Props) {
       >
         <SectionTitle className="my-3 cursor-pointer" text={title} />
 
-        <FontAwesomeIcon
-          icon={faChevronDown}
-          className={`mx-2 mt-[3px] text-silver-500 transition-transform ${
-            isCollapsed ? "rotate-0" : "rotate-180"
-          } duration-300 ease-in-out md:hidden`}
-        />
+        <div className="md:hidden">
+          <FontAwesomeIcon
+            icon={faChevronDown}
+            className={`mx-2 mt-[3px] text-silver-500 transition-transform ${
+              isCollapsed ? "rotate-0" : "rotate-180"
+            } duration-300 ease-in-out`}
+          />
+        </div>
         {type === "tags" && (
           <button
             className={`${
@@ -49,13 +51,16 @@ function Picker({ data, isLoading, title, type, limitStep = 15 }: Props) {
             Show Less
           </button>
         )}
-        <FontAwesomeIcon
-          icon={faTimes}
-          className={`ml-auto mr-6 cursor-pointer text-silver-500 hover:text-primary ${
-            query[type].length === 0 ? "hidden" : "inline-block"
-          }`}
-          onClick={() => setQuery(type, [])}
-        />
+        <div className={`ml-auto mr-6  ${query[type].length === 0 ? "hidden" : "inline-block"}`}>
+          <FontAwesomeIcon
+            icon={faTimes}
+            className="cursor-pointer text-silver-500 hover:text-primary"
+            onClick={(e) => {
+              e.stopPropagation();
+              setQuery(type, []);
+            }}
+          />
+        </div>
       </div>
       <div
         className={`${
