@@ -14,13 +14,15 @@ export default function Page() {
   const params = useSearchParams();
   const router = useRouter();
   const { query, setInitialQuery } = useRepositoryQuery();
-  const { data, isInitialLoading, isPreviousData, hasNextPage } =
-    Server.route.getRepositories.useInfiniteQuery(query, {
+  const { data, isInitialLoading, isPreviousData } = Server.route.getRepositories.useInfiniteQuery(
+    query,
+    {
       keepPreviousData: true,
-      getNextPageParam(lastPage, allPages) {
-        return lastPage.length > 0 ? allPages.length + 1 : undefined;
+      getNextPageParam({ repositories }, allPages) {
+        return repositories.length > 0 ? allPages[0].repositories.length + 1 : undefined;
       }
-    });
+    }
+  );
 
   // update the url query when the query changes
   useEffect(() => {
@@ -51,7 +53,12 @@ export default function Page() {
               <Loader />
             </div>
           ) : (
-            data && <RepositoryList repos={data.pages.flat()} hasNextPage={hasNextPage ?? false} />
+            data && (
+              <RepositoryList
+                repos={data.pages[0].repositories}
+                hasNextPage={data.pages[0].hasNextPage ?? false}
+              />
+            )
           )}
         </div>
       </main>

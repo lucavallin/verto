@@ -2,7 +2,6 @@
 
 import InfiniteScroll from "react-infinite-scroll-component";
 
-import { Loader } from "@/components/Loader";
 import { useRepositoryQuery } from "store";
 import { Repository } from "types";
 import { RepositoryItem } from "./RepositoryItem";
@@ -25,7 +24,7 @@ function RepositoryList({ repos, hasNextPage }: Props) {
         dataLength={repos.length}
         next={() => setQuery("page", page + 1)}
         hasMore={hasNextPage}
-        loader={<Loader />}
+        loader={<></>}
       >
         {repos.length > 0 ? (
           repos.map((repository) => {

@@ -27,7 +27,9 @@ const mainRouter = Router({
 
     const repositories = filteredRepos.slice(0, page * pageSize);
 
-    return repositories;
+    const hasNextPage = repositories.length < filteredRepos.length;
+
+    return { repositories, hasNextPage };
   }),
 
   getLanguages: Procedure.query(({ ctx }) => {
