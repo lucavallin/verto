@@ -1,32 +1,34 @@
 "use client";
 
-import { useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import { Loader } from "@/components/Loader";
+import { useRepositoryQuery } from "store";
 import { Repository } from "types";
 import { RepositoryItem } from "./RepositoryItem";
 
-const itemsPerScroll = 15;
-
 interface Props {
   repos: Repository[];
+  hasNextPage: boolean;
 }
 
-function RepositoryList({ repos }: Props) {
-  const [items, setItems] = useState(itemsPerScroll);
+function RepositoryList({ repos, hasNextPage }: Props) {
+  const {
+    query: { page },
+    setQuery
+  } = useRepositoryQuery();
 
   return (
     <div>
       <InfiniteScroll
         className="pt-6"
-        dataLength={items}
-        next={() => setItems(items + itemsPerScroll)}
-        hasMore={items < repos.length}
+        dataLength={repos.length}
+        next={() => setQuery("page", page + 1)}
+        hasMore={hasNextPage}
         loader={<Loader />}
       >
         {repos.length > 0 ? (
-          repos.slice(0, items).map((repository) => {
+          repos.map((repository) => {
             // NOTE - We sometimes get duplicate values back from GitHub API
             // meaning we can't simply rely on the id as the key
             const key = `${repository.id}_${new Date().getTime()}_${Math.random()}`;

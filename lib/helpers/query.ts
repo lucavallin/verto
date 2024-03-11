@@ -6,8 +6,10 @@ function updateUrlQuery(query: RepositoryQuery) {
     if (Array.isArray(value)) {
       value.forEach((item) => searchParams.append(key, item));
     } else {
-      if (value !== "None" && value !== "") {
-        searchParams.set(key, value);
+      if (key !== "page" && key !== "pageSize") {
+        if (value !== "None" && value !== "") {
+          searchParams.set(key, value);
+        }
       }
     }
   }
@@ -21,8 +23,10 @@ function parseQueryString(queryString: string) {
 
   for (const key of params.keys()) {
     const values = params.getAll(key);
-    queryObject[key] =
-      values.length > 1 || key === "tags" || key === "languages" ? values : values[0];
+    if (key !== "page" && key !== "pageSize") {
+      queryObject[key] =
+        values.length > 1 || key === "tags" || key === "languages" ? values : values[0];
+    }
   }
 
   return queryObject;

@@ -6,9 +6,9 @@ function checkTags(repo: Repository, tags: string[]) {
 
 function chekRepoByNameDescTags(repo: Repository, search: string, tags: string[]) {
   return (
-    repo.name.toLowerCase().includes(search.toLowerCase()) ||
+    repo.name.toLowerCase().includes(search) ||
     checkTags(repo, tags) ||
-    (repo.description && repo.description.toLowerCase().includes(search.toLowerCase()))
+    (repo.description && repo.description.toLowerCase().includes(search))
   );
 }
 

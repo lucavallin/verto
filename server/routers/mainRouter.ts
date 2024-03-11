@@ -5,13 +5,17 @@ import { RepositorySortOrder } from "types";
 
 const mainRouter = Router({
   getRepositories: Procedure.input(RepositoriesValidator).query(({ ctx, input }) => {
-    const { tags, languages, search, sort } = input;
+    const { tags, languages, search, sort, page, pageSize } = input;
 
-    // Filter repositories based on tags, languages, and search
+    const searchLower = search.toLowerCase();
+
+    const languageSet = new Set(languages.map((lang) => lang.toLowerCase()));
+
     const filteredRepos = ctx.data.repositories.filter((repo) => {
       const matchesTags = tags.length === 0 || checkTags(repo, tags);
-      const matchesLanguages = languages.length === 0 || languages.includes(repo.language.id);
-      const matchesSearch = !search || chekRepoByNameDescTags(repo, search, tags);
+      const matchesLanguages =
+        languages.length === 0 || languageSet.has(repo.language.id.toLowerCase());
+      const matchesSearch = !search || chekRepoByNameDescTags(repo, searchLower, tags);
 
       return matchesTags && matchesLanguages && matchesSearch;
     });
@@ -21,7 +25,9 @@ const mainRouter = Router({
       filteredRepos.sort((a, b) => sortRepo(a, b, sort));
     }
 
-    return filteredRepos;
+    const repositories = filteredRepos.slice(0, page * pageSize);
+
+    return repositories;
   }),
 
   getLanguages: Procedure.query(({ ctx }) => {

@@ -6,11 +6,16 @@ export interface RepositoryQuery {
   tags: string[];
   search: string;
   sort: RepositorySortOrder;
+  page: number;
+  pageSize: number;
 }
 
 interface RepositoryQueryStore {
   query: RepositoryQuery;
-  setQuery: (key: keyof RepositoryQuery, value: string[] | string | RepositorySortOrder) => void;
+  setQuery: (
+    key: keyof RepositoryQuery,
+    value: string[] | string | number | RepositorySortOrder
+  ) => void;
   setInitialQuery: (query: Partial<RepositoryQuery>) => void;
 }
 
@@ -18,7 +23,9 @@ const initialquery: RepositoryQuery = {
   languages: [],
   tags: [],
   search: "",
-  sort: RepositorySortOrder.NONE
+  sort: RepositorySortOrder.NONE,
+  page: 1,
+  pageSize: 15
 };
 
 const useRepositoryQuery = create<RepositoryQueryStore>((set) => ({
