@@ -28,7 +28,7 @@ export const RepositoryItemTopBar = ({
         repositoryUrl={repositoryUrl}
       />
       <div className="flex flex-1 items-center justify-end">
-        <div className={`h-2 w-2 rounded-full ${repositoryHasNewIssues ? "bg-primary" : ""}`}></div>
+        <div className={`size-2 rounded-full ${repositoryHasNewIssues ? "bg-primary" : ""}`}></div>
       </div>
       <RepositoryIssueNumberIndicator numberOfIssues={repositoryNumIssues} />
     </div>

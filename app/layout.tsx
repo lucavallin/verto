@@ -1,12 +1,15 @@
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import "devicon/devicon.min.css";
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import React from "react";
 
+import { TopBar } from "@/components/TopBar";
 import { Analytics, AnalyticsConfig } from "pliny/analytics";
-import { TopBar } from "../components/TopBar";
 import "../styles/globals.css";
 import config from "./config.mts";
+
+import { TrpcProvider } from "@/lib/trpc/TrpcProvider";
 
 // Fontawesome and TailwindCSS related settings
 const space_grotesk = Space_Grotesk({
@@ -79,7 +82,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <main className={`${space_grotesk.variable} font-sans`}>
           <TopBar />
-          {children}
+          <TrpcProvider>{children}</TrpcProvider>
         </main>
       </body>
     </html>
