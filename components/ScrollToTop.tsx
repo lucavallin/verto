@@ -5,17 +5,17 @@ type ScrollToTopProps = {
   handleOnClick: () => void;
 };
 
-function ScrollToTop({ handleOnClick }: ScrollToTopProps) {
+const ScrollToTop = ({ handleOnClick }: ScrollToTopProps) => {
   return (
     <div className="z-50">
       <button
         onClick={handleOnClick}
-        className="fixed bottom-4 right-4 flex size-[64px] items-center justify-center rounded-full border border-primary bg-transparent hover:bg-primary hover:text-black md:bottom-7 md:right-4"
+        className="fixed bottom-4 right-4 flex h-[64px] w-[64px] items-center justify-center rounded-full border border-primary bg-transparent hover:bg-primary hover:text-black md:bottom-7 md:right-4"
       >
         <FontAwesomeIcon icon={faArrowUp} size="xl" />
       </button>
     </div>
   );
-}
+};
 
-export { ScrollToTop };
+export default ScrollToTop;
