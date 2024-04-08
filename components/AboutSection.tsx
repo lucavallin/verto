@@ -1,11 +1,11 @@
+import { SectionTitle } from "@/components/SectionTitle";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faPaintRoller } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import config from "../app/config.mts";
-import { SectionTitle } from "./SectionTitle";
 
-export const AboutSection = () => {
+function AboutSection() {
   return (
     <div>
       <SectionTitle className="mb-2" text="About" />
@@ -56,4 +56,6 @@ export const AboutSection = () => {
       </div>
     </div>
   );
-};
+}
+
+export { AboutSection };
