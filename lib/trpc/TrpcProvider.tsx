@@ -8,7 +8,9 @@ import superjson from "superjson";
 
 let url: string;
 
-if (process.env.NEXT_PUBLIC_VERCEL_BRANCH_URL) {
+if (process.env.NODE_ENV === "production") {
+  url = "https://www.verto.sh/api/trpc/";
+} else if (process.env.NEXT_PUBLIC_VERCEL_BRANCH_URL) {
   // Branch deploy URL is available, use it
   url = `https://${process.env.NEXT_PUBLIC_VERCEL_BRANCH_URL}/api/trpc/`;
 } else if (process.env.NEXT_PUBLIC_VERCEL_URL) {
