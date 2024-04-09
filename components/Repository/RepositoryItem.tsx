@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Repository } from "../../types";
 import { IssuesList } from "./IssueList";
@@ -12,10 +12,18 @@ type RepositoryItemProps = {
   repository: Repository;
 };
 
-dayjs.extend(relativeTime);
-
 export const RepositoryItem = ({ repository }: RepositoryItemProps) => {
   const [isIssueOpen, setIsIssueOpen] = useState(false);
+
+  dayjs.extend(relativeTime);
+  const useLastModified = (date: string) => {
+    const [lastModified, setLastModified] = useState("");
+
+    useEffect(() => setLastModified(dayjs(date).fromNow()), [date]);
+
+    return lastModified;
+  };
+  const lastModified = useLastModified(repository.last_modified);
 
   return (
     <div
@@ -39,12 +47,21 @@ export const RepositoryItem = ({ repository }: RepositoryItemProps) => {
         />
         <RepositoryDescription repositoryDescription={repository.description} />
         <RepositoryMetadata
-          lastModified={dayjs(repository.last_modified).fromNow()}
+          lastModified={lastModified}
           repositoryLang={repository.language.display}
           repositoryStars={repository.stars_display}
         />
       </div>
-      {isIssueOpen && <IssuesList issues={repository.issues} />}
+      {isIssueOpen && (
+        <IssuesList
+          issues={repository.issues}
+          repositoryDetails={{
+            name: repository.name,
+            owner: repository.owner,
+            url: repository.url
+          }}
+        />
+      )}
     </div>
   );
 };
