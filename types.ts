@@ -65,16 +65,6 @@ export enum RepositorySortOrder {
   NONE = "None"
 }
 
-// Describes the data that is retrieved from the GitHub API and used by the app
-export interface AppData {
-  languages: CountableLanguage[];
-  repositories: Repository[];
-  repositorySortOrder: RepositorySortOrder;
-  tags: CountableTag[];
-  query: string;
-  updateRepositorySortOrder: (sortOrder: RepositorySortOrder) => void;
-}
-
 export interface GitLabRepository {
   id: string;
   name: string;

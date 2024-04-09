@@ -8,7 +8,7 @@ type LinkButtonProps = {
   children: React.ReactNode;
 };
 
-export const LinkButton = ({ title, href, secondary, children }: LinkButtonProps) => {
+function LinkButton({ title, href, secondary, children }: LinkButtonProps) {
   return (
     <Link
       href={href}
@@ -25,4 +25,6 @@ export const LinkButton = ({ title, href, secondary, children }: LinkButtonProps
       {children}
     </Link>
   );
-};
+}
+
+export { LinkButton };

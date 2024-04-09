@@ -1,6 +1,6 @@
+import { SectionTitle } from "@/components/SectionTitle";
 import Image from "next/image";
 import Link from "next/link";
-import { SectionTitle } from "./SectionTitle";
 import { Socials } from "./Socials";
 
 export const TopBar = () => (
