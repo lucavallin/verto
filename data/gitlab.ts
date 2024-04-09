@@ -66,7 +66,7 @@ export const getGitLabRepositories = async (
                 webUrl
                 title
                 createdAt
-                labels {
+                labels { 
                   nodes { title }
                 }
               }

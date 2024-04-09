@@ -1,50 +1,38 @@
-import { Loader } from "@/components/Loader";
-import { SectionTitle } from "@/components/SectionTitle";
-import { useRepositoryQuery } from "store";
-import { RepositorySortOrder } from "types";
+import { RepositorySortOrder } from "../../types";
+import { SectionTitle } from "../SectionTitle";
 
-interface Props {
-  isLoading: boolean;
-}
+type SortPickerProps = {
+  activeSort: RepositorySortOrder;
+  sortOptions: RepositorySortOrder[];
+  onSortOrderSelect: (sortOrder: RepositorySortOrder) => void;
+};
 
-function SortPicker({ isLoading }: Props) {
-  const {
-    query: { sort },
-    setQuery
-  } = useRepositoryQuery();
-
+export const SortPicker = ({ activeSort, sortOptions, onSortOrderSelect }: SortPickerProps) => {
   return (
     <div
       className="flex flex-col justify-between pt-6 lg:flex-row lg:items-center lg:pt-0"
       id="repositories-list"
     >
-      <div className="flex gap-4">
-        <SectionTitle className="mb-2" text="Sort Repositories" />
-        {isLoading && (
-          <div className="mt-1">
-            <Loader />
-          </div>
-        )}
-      </div>
-
       <div>
-        {Object.values(RepositorySortOrder).map((option) => {
+        <SectionTitle className="mb-2" text="Sort Repositories" />
+      </div>
+      <div>
+        {sortOptions.map((sortOption) => {
           return (
             <button
-              key={option}
-              onClick={() => setQuery("sort", option)}
+              key={sortOption}
+              onClick={() => onSortOrderSelect(sortOption)}
               className={`group m-1 inline-block rounded-sm border px-2 py-1 ${
-                sort === option
+                activeSort === sortOption
                   ? "active-pill"
                   : "border-silver-100 transition-all hover:border-primary hover:text-primary"
               }`}
             >
-              {option}
+              {sortOption}
             </button>
           );
         })}
       </div>
     </div>
   );
-}
-export { SortPicker };
+};
