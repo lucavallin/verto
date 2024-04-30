@@ -19,7 +19,7 @@
     "@next/bundle-analyzer": "^14.1.4",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.12",
-    "@types/node": "20.10.0",
+    "@types/node": "20.12.7",
     "@types/react": "18.2.73",
     "@types/react-dom": "18.2.22",
     "dayjs": "^1.11.10",
