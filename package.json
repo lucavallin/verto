@@ -22,7 +22,7 @@
     "@types/node": "20.12.7",
     "@types/react": "18.2.73",
     "@types/react-dom": "18.2.22",
-    "dayjs": "^1.11.10",
+    "dayjs": "^1.11.11",
     "millify": "^6.1.0",
     "next": "^14.0.4",
     "pliny": "^0.1.7",
