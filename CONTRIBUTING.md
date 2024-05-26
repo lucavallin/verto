@@ -147,11 +147,93 @@ Enhancement suggestions are tracked as [GitHub issues](https://github.com/lucava
 
 ### Your First Code Contribution
 
-TBD
+Making your first code contribution to a project can be a rewarding experience. Here’s a step-by-step guide to get you started:
+
+- **Step 1 Fork the Repository:**
+
+- Go to the GitHub page of the project you want to contribute to.
+- Click on the "Fork" button at the top right corner to create a copy of the repository under your GitHub account.
+
+- **Step 2 Clone the Repository:**
+
+- Clone the forked repository to your local machine using the command:
+
+bashCopy code
+git clone https://github.com/your-username/repo-name.git
+
+- **Step 3 Create a New Branch:**
+
+- Navigate to the repository directory and create a new branch for your enhancement:
+
+bashCopy code
+git checkout -b feature/your-enhancement
+
+- **Step 4 Make Your Changes:**
+
+- Implement your changes in the new branch.
+- Ensure you follow the project’s coding standards and guidelines.
+
+- **Step 5 Test Your Changes:**
+
+- Run the existing tests to make sure nothing is broken.
+- Add new tests if necessary to cover your changes.
+
+- **Step 6 Commit Your Changes:**
+
+- Commit your changes with a descriptive message:
+
+bashCopy code
+git commit -m "Add feature: your enhancement description"
+
+- **Step 7 Push Your Changes:**
+
+- Push the changes to your forked repository:
+
+bashCopy code
+git push origin feature/your-enhancement
+
+- **Step 8 Create a Pull Request:**
+
+- Go to the original repository on GitHub.
+- Click on "Compare & pull request" to open a new pull request.
+- Provide a detailed description of your changes and why they should be merged.
+- Submit the pull request.
 
 ### Improving The Documentation
 
-TBD
+Good documentation is crucial for any project. Here’s how you can help improve it:
+
+- **1. Identify Areas for Improvement:**
+
+-Look for typos, unclear sections, missing information, or outdated content.
+
+- **2. Make Edits:**
+
+- Fork and clone the repository as described above.
+- Navigate to the documentation files, often located in a docs folder or as README.md files.
+
+- **3. Follow Documentation Guidelines:**
+
+- Adhere to the project's style guide and formatting rules for documentation.
+- Use clear and concise language.
+- Provide examples, diagrams, or screenshots if necessary.
+
+- **4. Commit and Push Changes:**
+
+- Commit your documentation improvements with a descriptive message:
+
+bashCopy code
+git commit -m "Improve documentation: clarify installation steps"
+
+- Push the changes to your forked repository.
+
+- **5. Create a Pull Request:**
+
+- Go to the original repository and open a pull request as described above.
+- Explain the improvements you made and why they are beneficial.
+
+By following these guidelines, you can make meaningful contributions to the project, whether through code enhancements or documentation improvements. Happy contributing!
+
 
 ## Styleguides
 
