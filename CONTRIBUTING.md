@@ -158,15 +158,17 @@ Making your first code contribution to a project can be a rewarding experience. 
 
 - Clone the forked repository to your local machine using the command:
 
-bash </br>
-git clone https://github.com/your-username/repo-name.git
+
+   
+   ```bash
+   git clone https://github.com/your-username/repo-name.git
 
 **Step 3 Create a New Branch:**
 
 - Navigate to the repository directory and create a new branch for your enhancement:
 
-bash </br>
-git checkout -b feature/your-enhancement
+   ```bash
+   git checkout -b feature/your-enhancement
 
 **Step 4 Make Your Changes:**
 
@@ -182,15 +184,15 @@ git checkout -b feature/your-enhancement
 
 - Commit your changes with a descriptive message:
 
-bash </br>
-git commit -m "Add feature: your enhancement description"
+   ```bash
+   git commit -m "Add feature: your enhancement description"
 
 **Step 7 Push Your Changes:**
 
 - Push the changes to your forked repository:
 
-bash </br>
-git push origin feature/your-enhancement
+   ```bash
+   git push origin feature/your-enhancement
 
 **Step 8 Create a Pull Request:**
 
@@ -222,8 +224,8 @@ Good documentation is crucial for any project. Here’s how you can help improve
 
 - Commit your documentation improvements with a descriptive message:
 
-bash </br>
-git commit -m "Improve documentation: clarify installation steps"
+   ```bash
+   git commit -m "Improve documentation: clarify installation steps"
 
 - Push the changes to your forked repository.
 
