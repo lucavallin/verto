@@ -207,7 +207,7 @@ Good documentation is crucial for any project. Here’s how you can help improve
 
 **1. Identify Areas for Improvement:**
 
--Look for typos, unclear sections, missing information, or outdated content.
+- Look for typos, unclear sections, missing information, or outdated content.
 
 **2. Make Edits:**
 
