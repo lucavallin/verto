@@ -16,15 +16,6 @@ export const TopBar = () => (
       >
         <Image src="/sponsors/lucavallin.png" alt="lucavallin" width={25} height={25} />
       </Link>
-      <Link
-        href="https://chat.collectivai.com/"
-        title="collectiv"
-        aria-label="collectiv"
-        rel="noopener noreferrer"
-        className="grayscale hover:grayscale-0"
-      >
-        <Image src="/sponsors/collectiv.png" alt="collectiv" width={26} height={26} />
-      </Link>
     </div>
     <div className="flex items-center gap-7">
       <Socials />
