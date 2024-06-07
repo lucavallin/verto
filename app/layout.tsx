@@ -1,9 +1,9 @@
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
+import Script from "next/script";
 import React from "react";
 
-import PlausibleProvider from "next-plausible";
 import { TopBar } from "../components/TopBar";
 import "../styles/globals.css";
 import config from "./config.mts";
@@ -68,7 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#101620" />
         <meta name="msapplication-TileColor" content="#101620" />
         <meta name="theme-color" content="#101620" />
-        <PlausibleProvider domain="verto.sh" />
+        <Script defer data-domain="verto.sh" src="/js/script.js" />
       </head>
       <body>
         <main className={`${space_grotesk.variable} font-sans`}>
