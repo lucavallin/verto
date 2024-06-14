@@ -12,7 +12,7 @@ if [ ! -d "$SOURCE_DIR" ]; then
 fi
 
 # Copy contents of the profile directory to the new-setup directory
-cp -r "$SOURCE_DIR"/app "$DEST_DIR/app" &&
+cp -r "$SOURCE_DIR"/app/* "$DEST_DIR/app/" &&
     cp -r "$SOURCE_DIR"/public "$DEST_DIR" &&
     cp -r "$SOURCE_DIR"/styles "$DEST_DIR" &&
     cp -r "$SOURCE_DIR"/config.json "$DEST_DIR/config.json" &&
