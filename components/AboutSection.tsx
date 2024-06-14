@@ -1,5 +1,4 @@
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
-import { faPaintRoller } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import config from "../app/config.mts";
@@ -35,22 +34,6 @@ export const AboutSection = () => {
               @lucavallin
             </span>{" "}
             & contributors initiative
-          </span>
-        </Link>
-        <Link
-          className="flex flex-row items-center text-base"
-          title="Chiara Dametto on LinkedIn"
-          aria-label=" UI/UX Design by Chiara Dametto"
-          rel="noopener noreferrer"
-          target="_blank"
-          href="https://www.linkedin.com/in/chiara-dametto"
-        >
-          <FontAwesomeIcon icon={faPaintRoller} />
-          <span className="ml-2">
-            UI/UX Design by{" "}
-            <span className="inline font-bold text-primary transition-all hover:underline">
-              Chiara Dametto
-            </span>{" "}
           </span>
         </Link>
       </div>
