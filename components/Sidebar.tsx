@@ -69,8 +69,8 @@ export const Sidebar = () => {
       </div>
 
       <div
-        className={` z-50 bg-black-400 transition-all duration-300 md:sticky md:top-4 ${
-          scrollHeightReached ? "fixed top-0 " : "sticky top-0"
+        className={`z-50 bg-black-400 transition-all duration-300 md:sticky md:top-4 ${
+          scrollHeightReached ? "fixed top-0" : "sticky top-0"
         }`}
       >
         <LanguagePicker

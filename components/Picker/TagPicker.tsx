@@ -67,7 +67,7 @@ export const TagPicker = ({ tags, activeTagId, onTagPage }: TagPickerProps) => {
       <div
         className={` ${
           isShowLessVisible && "overflow-y-scroll"
-        } overflow-hidden duration-300  ease-in-out md:max-h-[50dvh] ${
+        } overflow-hidden duration-300 ease-in-out md:max-h-[50dvh] ${
           isCollapsed ? "max-h-0" : "max-h-96"
         } ${isCollapsed ? "sm:max-h-full" : ""}`}
       >
