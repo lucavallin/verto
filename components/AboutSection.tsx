@@ -1,9 +1,9 @@
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { faPaintRoller } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import config from "../app/config.mts";
 import { SectionTitle } from "./SectionTitle";
-import { faPaintRoller } from "@fortawesome/free-solid-svg-icons";
 
 export const AboutSection = () => {
   return (
