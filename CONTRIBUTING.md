@@ -146,8 +146,56 @@ Enhancement suggestions are tracked as [GitHub issues](https://github.com/lucava
 <!-- You might want to create an issue template for enhancement suggestions that can be used as a guide and that defines the structure of the information to be included. If you do so, reference it here in the description. -->
 
 ### Your First Code Contribution
+Thank you for considering your first contribution! We want to make this process as smooth as possible for you. Here’s how you can get started:
 
-TBD
+#### 1. Find an Issue to Work On
+Check the issues page of the repository.
+Look for issues labeled "good first issue" or "help wanted". These issues are typically more beginner-friendly and suitable for new contributors.
+If you find an issue you're interested in, comment on the issue to let the maintainers know you're planning to work on it.
+#### 2. Fork the Repository
+Click the "Fork" button at the top-right corner of the repository page to create your own copy of the project.
+
+Clone your forked repository to your local machine:
+
+`git clone https://github.com/your-username/repo-name.git`
+Replace your-username and repo-name with your GitHub username and the name of the repository.
+
+#### 3. Set Up Your Local Environment
+Follow the setup instructions provided in the README.md file to install any necessary dependencies and run the project locally.
+Make sure everything is working as expected before making any changes.
+#### 4. Create a Branch
+It's a good practice to create a new branch for each contribution. This helps keep your work organized and avoids conflicts with the main branch:
+
+`git checkout -b your-branch-name`
+Use a meaningful branch name, like fix-issue-123 or add-feature-x.
+
+#### 5. Make Your Changes
+Make the necessary changes to fix the issue or add the feature.
+
+Keep commits small and focused, and write meaningful commit messages. For example:
+
+`git commit -m "Fix: Correct typo in README.md"`
+
+#### 6. Test Your Changes
+If the project has tests, make sure to run them to verify that your changes don’t break anything.
+Add new tests if applicable.
+
+#### 7. Push to Your Fork
+Once you're happy with your changes, push your branch to your forked repository:
+
+`git push origin your-branch-name`
+#### 8. Open a Pull Request
+Go to the original repository on GitHub.
+Click the "Compare & pull request" button that appears for your branch.
+Fill in the details for your pull request:
+Write a clear title and description of the changes you’ve made.
+Reference the issue your pull request fixes, if applicable (e.g., "Fixes #123").
+#### 9. Collaborate and Improve
+A maintainer will review your pull request. They might ask for changes, so be ready to discuss and make updates if needed.
+Once your pull request is approved, it will be merged into the main branch!
+#### 10. Celebrate!
+Congratulations on making your first contribution! 🎉
+Feel free to share your contribution and keep an eye out for more issues you’d like to work on.
 
 ### Improving The Documentation
 
