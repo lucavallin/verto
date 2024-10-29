@@ -41,7 +41,7 @@
     "@octokit/plugin-retry": "^6.0.1",
     "@octokit/plugin-throttling": "^8.2.0",
     "@octokit/types": "^13.6.1",
-    "@types/jest": "^29.5.12",
+    "@types/jest": "^29.5.14",
     "@types/react-infinite-scroller": "^1.2.5",
     "@types/validator": "^13.12.0",
     "@typescript-eslint/eslint-plugin": "^8.8.0",
