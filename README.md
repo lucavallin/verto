@@ -52,10 +52,6 @@ To contribute new features and changes to the website, you would want to run the
 ```bash
 # install the dependencies
 $ npm install
-# "install" your profile (default)
-./scripts/init.sh default
-# "install" your profile (cncf)
-./scripts/init.sh cncf
 # start the development server
 $ npm run dev
 ```
