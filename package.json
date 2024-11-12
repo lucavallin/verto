@@ -18,7 +18,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@next/bundle-analyzer": "^15.0.1",
     "@tailwindcss/forms": "^0.5.9",
-    "@tailwindcss/typography": "^0.5.13",
+    "@tailwindcss/typography": "^0.5.15",
     "@types/node": "22.8.7",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
