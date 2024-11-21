@@ -1342,7 +1342,8 @@
       "zitadel/zitadel",
       "zsh-users/zsh-completions",
       "zsh-users/zsh-syntax-highlighting",
-      "zulip/zulip"
+      "zulip/zulip",
+      "csarmentocj/testsenseai-core"
     ],
     "labels": ["good first issue", "help wanted"]
   }
