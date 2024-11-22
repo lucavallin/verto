@@ -1343,7 +1343,7 @@
       "zsh-users/zsh-completions",
       "zsh-users/zsh-syntax-highlighting",
       "zulip/zulip",
-      "csarmentocj/testsenseai-core"
+      "TestSenseAi/testsenseai-core"
     ],
     "labels": ["good first issue", "help wanted"]
   }
