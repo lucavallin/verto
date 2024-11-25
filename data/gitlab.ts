@@ -1,7 +1,11 @@
 import dayjs from "dayjs";
 import millify from "millify";
 import slugify from "slugify";
-import { GitLabRepository, Repository as RepositoryModel, Tag as TagModel } from "../types";
+import {
+  GitLabRepository,
+  Repository as RepositoryModel,
+  Tag as TagModel,
+} from "../types";
 import { extendedSlugify } from "./utils";
 
 /**
@@ -23,7 +27,7 @@ export const getGitLabRepositories = async (
   const response = await fetch(`${url}/api/graphql`, {
     method: "POST",
     headers: {
-      "Content-type": "application/json;charset=UTF-8"
+      "Content-type": "application/json;charset=UTF-8",
     },
     body: JSON.stringify({
       query: `
@@ -66,59 +70,62 @@ export const getGitLabRepositories = async (
                 webUrl
                 title
                 createdAt
-                labels { 
+                labels {
                   nodes { title }
                 }
               }
             }
           }
         }
-      }`
-    })
+      }`,
+    }),
   });
 
   const data = await response.json();
-  const projects = data.data.projects.nodes.map((project: GitLabRepository): RepositoryModel => {
-    return {
-      id: project.id,
-      name: project.name,
-      description: project.description,
-      owner: project.group.fullName,
-      language: ((language): TagModel => ({
-        id: extendedSlugify(language.name),
-        display: language.name
-      }))(
-        project.languages.reduce((prev, current) => {
-          return prev && prev.share > current.share ? prev : current;
-        })
-      ),
-      last_modified: project.lastActivityAt,
-      stars: project.starCount,
-      stars_display: millify(project.starCount),
-      url: project.webUrl,
-      tags: project.topics.map((topic) => ({
-        id: topic,
-        display: topic
-      })),
-      issues: project.issues.nodes.map((issue) => ({
-        id: issue.webUrl,
-        number: parseInt(issue.iid),
-        title: issue.title,
-        url: issue.webUrl,
-        comments_count: 0,
-        created_at: issue.createdAt,
-        labels: issue.labels.nodes.map((label) => ({
-          id: slugify(label.title, { lower: true }),
-          display: label.title
-        }))
-      })),
-      has_new_issues: project.issues.nodes.some(
-        (issue) => dayjs().diff(dayjs(issue.createdAt), "day") <= 7
-      )
-    };
-  });
+  const projects = data.data.projects.nodes.map(
+    (project: GitLabRepository): RepositoryModel => {
+      return {
+        id: project.id,
+        name: project.name,
+        description: project.description,
+        owner: project.group.fullName,
+        language: ((language): TagModel => ({
+          id: extendedSlugify(language.name),
+          display: language.name,
+        }))(
+          project.languages.reduce((prev, current) => {
+            return prev && prev.share > current.share ? prev : current;
+          })
+        ),
+        last_modified: project.lastActivityAt,
+        stars: project.starCount,
+        stars_display: millify(project.starCount),
+        url: project.webUrl,
+        tags: project.topics.map((topic) => ({
+          id: topic,
+          display: topic,
+        })),
+        issues: project.issues.nodes.map((issue) => ({
+          id: issue.webUrl,
+          number: parseInt(issue.iid),
+          title: issue.title,
+          url: issue.webUrl,
+          comments_count: 0,
+          created_at: issue.createdAt,
+          labels: issue.labels.nodes.map((label) => ({
+            id: slugify(label.title, { lower: true }),
+            display: label.title,
+          })),
+        })),
+        has_new_issues: project.issues.nodes.some(
+          (issue) => dayjs().diff(dayjs(issue.createdAt), "day") <= 7
+        ),
+      };
+    }
+  );
 
   return projects.filter(
-    (project: RepositoryModel) => project.issues.length >= 3 && project.stars > 300
+    (project: RepositoryModel) =>
+      project.issues.length >= 3 && project.stars > 300
   );
 };

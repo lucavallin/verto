@@ -3,13 +3,15 @@ import { getData } from "app/data-loader";
 import { Metadata } from "next";
 import { RepositoryList } from "../../../components/Repository/RepositoryList";
 
+type Params = Promise<{ tag: string }>;
+
 export async function generateMetadata({
   params
 }: {
-  params: { tag: string };
+  params: Params;
 }): Promise<Metadata | undefined> {
   const data = getData();
-  const slug = decodeURI(params.tag);
+  const slug = decodeURI((await params).tag);
   const tag = data.tags.find((t) => t.id === slug);
 
   return {
@@ -18,10 +20,10 @@ export async function generateMetadata({
   };
 }
 
-export default function Page({ params }: { params: { tag: string } }) {
+export default async function Page({ params }: { params: Params }) {
   return (
     <Layout>
-      <RepositoryList tagId={params.tag} />
+      <RepositoryList tagId={(await params).tag} />
     </Layout>
   );
 }

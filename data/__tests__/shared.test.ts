@@ -1,6 +1,10 @@
 import { Repository, Source } from "../../types";
 import { getGitHubRepositories } from "../github";
-import { getFilteredLanguages, getFilteredTags, processSource } from "../shared";
+import {
+  getFilteredLanguages,
+  getFilteredTags,
+  processSource,
+} from "../shared";
 import { dummyRepositories } from "./test-data";
 
 jest.mock("../github");
@@ -12,7 +16,7 @@ describe("shared", () => {
         name: "Empty Source",
         provider: "github",
         repositories: [],
-        labels: []
+        labels: [],
       };
       const result = await processSource(source);
       expect(result).toEqual([]);
@@ -23,14 +27,14 @@ describe("shared", () => {
         name: "React Repositories",
         provider: "github",
         repositories: ["facebook/react", "airbnb/react-dates"],
-        labels: []
+        labels: [],
       };
       (getGitHubRepositories as jest.Mock).mockResolvedValueOnce([
         {
           name: "React",
           url: "https://github.com/facebook/react",
           language: { id: "javascript", display: "JavaScript" },
-          tags: [{ id: "ui", display: "UI" }]
+          tags: [{ id: "ui", display: "UI" }],
         },
         {
           name: "React Dates",
@@ -38,9 +42,9 @@ describe("shared", () => {
           language: { id: "javascript", display: "JavaScript" },
           tags: [
             { id: "ui", display: "UI" },
-            { id: "calendar", display: "Calendar" }
-          ]
-        }
+            { id: "calendar", display: "Calendar" },
+          ],
+        },
       ]);
       const result = await processSource(source);
       expect(result).toEqual([
@@ -48,7 +52,7 @@ describe("shared", () => {
           name: "React",
           url: "https://github.com/facebook/react",
           language: { id: "javascript", display: "JavaScript" },
-          tags: [{ id: "ui", display: "UI" }]
+          tags: [{ id: "ui", display: "UI" }],
         },
         {
           name: "React Dates",
@@ -56,9 +60,9 @@ describe("shared", () => {
           language: { id: "javascript", display: "JavaScript" },
           tags: [
             { id: "ui", display: "UI" },
-            { id: "calendar", display: "Calendar" }
-          ]
-        }
+            { id: "calendar", display: "Calendar" },
+          ],
+        },
       ]);
     });
   });
@@ -80,19 +84,19 @@ describe("shared", () => {
           name: "Angular1",
           url: "https://github.com/angular/angular",
           language: { id: "typescript", display: "TypeScript" },
-          tags: [{ id: "ui", display: "UI" }]
+          tags: [{ id: "ui", display: "UI" }],
         },
         {
           name: "Angular2",
           url: "https://github.com/angular/angular",
           language: { id: "typescript", display: "TypeScript" },
-          tags: [{ id: "ui", display: "UI" }]
+          tags: [{ id: "ui", display: "UI" }],
         },
         {
           name: "React",
           url: "https://github.com/facebook/react",
           language: { id: "javascript", display: "JavaScript" },
-          tags: [{ id: "ui", display: "UI" }]
+          tags: [{ id: "ui", display: "UI" }],
         },
         {
           name: "React Dates",
@@ -100,27 +104,27 @@ describe("shared", () => {
           language: { id: "javascript", display: "JavaScript" },
           tags: [
             { id: "ui", display: "UI" },
-            { id: "calendar", display: "Calendar" }
-          ]
+            { id: "calendar", display: "Calendar" },
+          ],
         },
         {
           name: "Vue.js",
           url: "https://github.com/vuejs/vue",
           language: { id: "javascript", display: "JavaScript" },
-          tags: [{ id: "ui", display: "UI" }]
+          tags: [{ id: "ui", display: "UI" }],
         },
         {
           name: "Angular",
           url: "https://github.com/angular/angular",
           language: { id: "typescript", display: "TypeScript" },
-          tags: [{ id: "ui", display: "UI" }]
-        }
+          tags: [{ id: "ui", display: "UI" }],
+        },
       ] as Repository[];
       const result = getFilteredLanguages(repositories);
       console.log(result);
       expect(result).toEqual([
         { id: "javascript", display: "JavaScript", count: 3 },
-        { id: "typescript", display: "TypeScript", count: 3 }
+        { id: "typescript", display: "TypeScript", count: 3 },
       ]);
     });
   });
@@ -137,7 +141,7 @@ describe("shared", () => {
           name: "React",
           url: "https://github.com/facebook/react",
           language: { id: "javascript", display: "JavaScript" },
-          tags: [{ id: "ui", display: "UI" }]
+          tags: [{ id: "ui", display: "UI" }],
         },
         {
           name: "React Dates",
@@ -145,15 +149,15 @@ describe("shared", () => {
           language: { id: "javascript", display: "JavaScript" },
           tags: [
             { id: "ui", display: "UI" },
-            { id: "calendar", display: "Calendar" }
-          ]
+            { id: "calendar", display: "Calendar" },
+          ],
         },
         {
           name: "Vue.js",
           url: "https://github.com/vuejs/vue",
           language: { id: "javascript", display: "JavaScript" },
-          tags: [{ id: "ui", display: "UI" }]
-        }
+          tags: [{ id: "ui", display: "UI" }],
+        },
       ] as Repository[];
       const result = getFilteredTags(repositories);
       expect(result).toEqual([{ id: "ui", display: "UI", count: 3 }]);
@@ -165,7 +169,7 @@ describe("shared", () => {
           name: "React",
           url: "https://github.com/facebook/react",
           language: { id: "javascript", display: "JavaScript" },
-          tags: [{ id: "ui", display: "UI" }]
+          tags: [{ id: "ui", display: "UI" }],
         },
         {
           name: "React Dates",
@@ -173,8 +177,8 @@ describe("shared", () => {
           language: { id: "javascript", display: "JavaScript" },
           tags: [
             { id: "ui", display: "UI" },
-            { id: "calendar", display: "Calendar" }
-          ]
+            { id: "calendar", display: "Calendar" },
+          ],
         },
         {
           name: "Vue.js",
@@ -182,8 +186,8 @@ describe("shared", () => {
           language: { id: "javascript", display: "JavaScript" },
           tags: [
             { id: "ui", display: "UI" },
-            { id: "calendar", display: "Calendar" }
-          ]
+            { id: "calendar", display: "Calendar" },
+          ],
         },
         {
           name: "Angular",
@@ -192,14 +196,14 @@ describe("shared", () => {
           tags: [
             { id: "ui", display: "UI" },
             { id: "calendar", display: "Calendar" },
-            { id: "angular", display: "Angular" }
-          ]
-        }
+            { id: "angular", display: "Angular" },
+          ],
+        },
       ] as Repository[];
       const result = getFilteredTags(repositories);
       expect(result).toEqual([
         { id: "ui", display: "UI", count: 4 },
-        { id: "calendar", display: "Calendar", count: 3 }
+        { id: "calendar", display: "Calendar", count: 3 },
       ]);
     });
   });
