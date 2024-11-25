@@ -36,17 +36,17 @@ describe("utils", () => {
           {
             count: 1,
             display: "JavaScript",
-            id: "javascript"
-          }
+            id: "javascript",
+          },
         ],
         tags: [
           {
             count: 1,
             display: "UI",
-            id: "ui"
-          }
+            id: "ui",
+          },
         ],
-        repositories: []
+        repositories: [],
       };
       await writeDataFile(data);
       const fileContent = await fs.readFile("data/data.json", "utf-8");
@@ -61,7 +61,7 @@ describe("utils", () => {
       const expected = [
         [1, 2],
         [3, 4],
-        [5, 6]
+        [5, 6],
       ];
       expect(chunkArray(arr, chunkSize)).toEqual(expected);
     });
