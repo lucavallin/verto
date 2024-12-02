@@ -32,7 +32,7 @@
     "sharp": "^0.33.5",
     "slugify": "^1.6.6",
     "validator": "^13.12.0",
-    "vercel": "^39.1.1"
+    "vercel": "^39.1.2"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^15.0.3",
