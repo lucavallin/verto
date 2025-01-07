@@ -7,7 +7,7 @@
     "start": "next start",
     "lint": "next lint --fix .",
     "prepare": "husky install",
-    "prebuild": "",
+    "prebuild": "ts-node data/index.ts",
     "test": "jest"
   },
   "dependencies": {
