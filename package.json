@@ -40,7 +40,7 @@
     "@octokit/graphql-schema": "^14.50.0",
     "@octokit/plugin-retry": "^6.1.0",
     "@octokit/plugin-throttling": "^8.2.0",
-    "@octokit/types": "^13.6.2",
+    "@octokit/types": "^13.7.0",
     "@types/jest": "^29.5.14",
     "@types/react-infinite-scroller": "^1.2.5",
     "@types/validator": "^13.12.2",
