@@ -2,7 +2,7 @@
 
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import { Repository } from "types";
@@ -35,15 +35,21 @@ export const RepositoryList = ({ languageId, tagId }: RepositoryListProps) => {
     filterRepositoriesByTag,
     filterRepositoriesByLanguage
   } = useAppData();
-  let repos: Repository[] = repositories;
 
-  if (languageId) {
-    repos = filterRepositoriesByLanguage(languageId);
-  }
+  // Memoizing the filtered repositories based on languageId and tagId
+  const repos: Repository[] = useMemo(() => {
+    let filteredRepos = repositories;
 
-  if (tagId) {
-    repos = filterRepositoriesByTag(tagId);
-  }
+    if (languageId) {
+      filteredRepos = filterRepositoriesByLanguage(languageId);
+    }
+
+    if (tagId) {
+      filteredRepos = filterRepositoriesByTag(tagId);
+    }
+
+    return filteredRepos;
+  }, [repositories, languageId, tagId, filterRepositoriesByLanguage, filterRepositoriesByTag]);
 
   return (
     <main className="grow md:max-w-sm lg:max-w-none">
