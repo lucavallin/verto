@@ -1,6 +1,6 @@
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState, useMemo, useCallback } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { CountableTag } from "../../types";
 import { ShowMoreButton } from "../Button/ShowMoreButton";
 import { SectionTitle } from "../SectionTitle";

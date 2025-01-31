@@ -2,7 +2,7 @@
 
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState, useCallback } from "react";
+import { useCallback, useState } from "react";
 import { useAppData } from "../../hooks/useAppData";
 
 export const SearchBar = () => {
@@ -10,10 +10,13 @@ export const SearchBar = () => {
   const { filterRepositoriesByQuery } = useAppData();
 
   // Memoize the handleSearch function to avoid re-creating it on every render
-  const handleSearch = useCallback((searchQuery: string) => {
-    setQuery(searchQuery);
-    filterRepositoriesByQuery(searchQuery);
-  }, [filterRepositoriesByQuery]);
+  const handleSearch = useCallback(
+    (searchQuery: string) => {
+      setQuery(searchQuery);
+      filterRepositoriesByQuery(searchQuery);
+    },
+    [filterRepositoriesByQuery]
+  );
 
   return (
     <div className="relative mt-4 flex rounded-md">

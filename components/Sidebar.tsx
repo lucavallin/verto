@@ -4,7 +4,7 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { useParams, usePathname } from "next/navigation";
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useAppData } from "../hooks/useAppData";
 import { AboutSection } from "./AboutSection";
 import { LinkButton } from "./Button/LinkButton";
@@ -42,7 +42,8 @@ export const Sidebar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [pageType]);
 
-  const handleScrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  const handleScrollToTop = () =>
+    window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
     <section
@@ -52,7 +53,11 @@ export const Sidebar = () => {
     >
       <AboutSection />
       <div className="pt-4">
-        <LinkButton title="Star it on GitHub" href="https://github.com/lucavallin/verto" secondary>
+        <LinkButton
+          title="Star it on GitHub"
+          href="https://github.com/lucavallin/verto"
+          secondary
+        >
           <FontAwesomeIcon icon={faGithub} className="mr-2" />
           Star it on GitHub 🌟
         </LinkButton>
@@ -76,7 +81,11 @@ export const Sidebar = () => {
           activeTagId={activeLanguageId}
           onLanguagePage={pageType == "language"}
         />
-        <TagPicker tags={memoizedTags} activeTagId={activeTagId} onTagPage={pageType == "tag"} />
+        <TagPicker
+          tags={memoizedTags}
+          activeTagId={activeTagId}
+          onTagPage={pageType == "tag"}
+        />
       </div>
       {showUpArrow && <ScrollToTop handleOnClick={handleScrollToTop} />}
     </section>

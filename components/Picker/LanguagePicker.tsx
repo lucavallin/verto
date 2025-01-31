@@ -1,6 +1,6 @@
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState, useCallback, useMemo } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { CountableLanguage } from "../../types";
 import { SectionTitle } from "../SectionTitle";
 import ActiveTagButton from "./ActiveTagButton";
@@ -12,7 +12,11 @@ type LanguagePickerProps = {
   onLanguagePage: boolean;
 };
 
-export const LanguagePicker = ({ activeTagId, languages, onLanguagePage }: LanguagePickerProps) => {
+export const LanguagePicker = ({
+  activeTagId,
+  languages,
+  onLanguagePage,
+}: LanguagePickerProps) => {
   const [isCollapsed, setIsCollapsed] = useState<boolean>(true);
 
   // Automatically collapse the sidebar after redirection
@@ -44,7 +48,9 @@ export const LanguagePicker = ({ activeTagId, languages, onLanguagePage }: Langu
         />
 
         {/* Display the active tag button when a language is selected, and the language picker is collapsed. */}
-        {activeTagId && isCollapsed ? <ActiveTagButton data={activeTagId} /> : null}
+        {activeTagId && isCollapsed ? (
+          <ActiveTagButton data={activeTagId} />
+        ) : null}
       </div>
       <div
         className={`-mx-1 overflow-hidden duration-300 ease-in-out ${
