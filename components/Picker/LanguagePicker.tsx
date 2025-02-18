@@ -1,6 +1,6 @@
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { CountableLanguage } from "../../types";
 import { SectionTitle } from "../SectionTitle";
 import ActiveTagButton from "./ActiveTagButton";
@@ -19,10 +19,13 @@ export const LanguagePicker = ({ activeTagId, languages, onLanguagePage }: Langu
     setIsCollapsed(true);
   }, [onLanguagePage, activeTagId]);
 
+  // Memoize the list of languages to prevent unnecessary re-rendering
+  const memoizedLanguages = useMemo(() => languages, [languages]);
+
   // Toggle the collapsible sidebar
-  const toggleCollapsible = () => {
-    setIsCollapsed(!isCollapsed);
-  };
+  const toggleCollapsible = useCallback(() => {
+    setIsCollapsed((prev) => !prev);
+  }, []);
 
   return (
     <div className="pt-6">
@@ -47,21 +50,19 @@ export const LanguagePicker = ({ activeTagId, languages, onLanguagePage }: Langu
           isCollapsed ? "max-h-0" : "max-h-96"
         } ${isCollapsed ? "sm:max-h-full" : ""}`}
       >
-        {languages.map((language) => {
-          return (
-            <PickerItem
-              className={`group m-1 inline-block rounded-sm border px-2 py-1 ${
-                onLanguagePage && language.id === activeTagId
-                  ? "active-pill"
-                  : "border-silver-100 transition-all hover:border-primary hover:text-primary"
-              }`}
-              href={`/language/${language.id}`}
-              key={language.id}
-              text={language.display}
-              totalOccurrences={language.count}
-            />
-          );
-        })}
+        {memoizedLanguages.map((language) => (
+          <PickerItem
+            className={`group m-1 inline-block rounded-sm border px-2 py-1 ${
+              onLanguagePage && language.id === activeTagId
+                ? "active-pill"
+                : "border-silver-100 transition-all hover:border-primary hover:text-primary"
+            }`}
+            href={`/language/${language.id}`}
+            key={language.id}
+            text={language.display}
+            totalOccurrences={language.count}
+          />
+        ))}
       </div>
     </div>
   );
