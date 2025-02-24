@@ -35,7 +35,7 @@
     "vercel": "^39.2.5"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^15.1.4",
+    "@next/eslint-plugin-next": "^15.1.7",
     "@octokit/core": "^5.2.0",
     "@octokit/graphql-schema": "^14.50.0",
     "@octokit/plugin-retry": "^6.1.0",
