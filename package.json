@@ -17,7 +17,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.1",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@next/bundle-analyzer": "^15.1.7",
-    "@tailwindcss/forms": "^0.5.9",
+    "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "22.13.10",
     "@types/react": "19.0.2",
