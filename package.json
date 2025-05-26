@@ -38,7 +38,7 @@
     "@next/eslint-plugin-next": "^15.1.7",
     "@octokit/core": "^5.2.0",
     "@octokit/graphql-schema": "^14.50.0",
-    "@octokit/plugin-retry": "^6.1.0",
+    "@octokit/plugin-retry": "^8.0.1",
     "@octokit/plugin-throttling": "^8.2.0",
     "@octokit/types": "^13.8.0",
     "@types/jest": "^29.5.14",
