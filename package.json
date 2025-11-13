@@ -31,7 +31,7 @@
     "schema-dts": "^1.1.2",
     "sharp": "^0.33.5",
     "slugify": "^1.6.6",
-    "validator": "^13.12.0",
+    "validator": "^13.15.20",
     "vercel": "^41.3.2"
   },
   "devDependencies": {
