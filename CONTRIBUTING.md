@@ -157,7 +157,27 @@ TBD
 
 ### Commit Messages
 
-TBD
+This project follows the [Conventional Commits](https://www.conventionalcommits.org/) specification. Each commit message consists of a **type** and a **description**:
+
+```
+type: description
+
+Longer explanation if needed. Wrap at 72 characters.
+```
+
+**Types:**
+- `feat` — new feature
+- `fix` — bug fix
+- `refactor` — code restructuring
+- `docs` — documentation changes
+- `test` — adding or updating tests
+- `ci` — CI/CD changes
+- `chore` — maintenance tasks
+
+**Examples:**
+- `feat: add user authentication`
+- `fix: correct redirect URL after login`
+- `docs: update README with installation steps`
 
 ## Join The Project Team
 
