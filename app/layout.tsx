@@ -1,7 +1,7 @@
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
-import Script from "next/script";
 import React from "react";
 
 import { TopBar } from "../components/TopBar";
@@ -68,13 +68,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#101620" />
         <meta name="msapplication-TileColor" content="#101620" />
         <meta name="theme-color" content="#101620" />
-        <Script defer data-domain="verto.sh" src="/js/script.js" />
+        {/* <Script defer data-domain="verto.sh" src="/js/script.js" /> */}
       </head>
       <body>
         <main className={`${space_grotesk.variable} font-sans`}>
           <TopBar />
           {children}
         </main>
+        <Analytics />
       </body>
     </html>
   );

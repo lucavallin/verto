@@ -16,9 +16,9 @@ export const AboutSection = () => {
         teams, and maintainers seeking new contributors.
       </p>
       <h2 className="mt-2">Your Gateway to Open-Source Collaboration!</h2>
-      <div className="pt-6 text-sm">
+      <div className="pt-6 text-base">
         <Link
-          className="flex flex-row items-center text-base"
+          className="flex flex-row items-center"
           title="@lucavallin"
           aria-label="A @lucavallin & contributors initiative"
           rel="noopener noreferrer"

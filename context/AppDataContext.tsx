@@ -69,9 +69,9 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
         const sortedIssues = [...repository.issues].sort((a, b) => {
           const dateA = new Date(a.created_at).getTime();
           const dateB = new Date(b.created_at).getTime();
-          return dateB - dateA; 
+          return dateB - dateA;
         });
-        return sortedIssues[0]; 
+        return sortedIssues[0];
       }
       //Compare current repo's newest issue to next repo's newest issue, sort by newest issue first
       updatedRepositories = [...allRepositories].sort((currentRepository, nextRepository) => {
