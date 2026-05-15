@@ -147,11 +147,45 @@ Enhancement suggestions are tracked as [GitHub issues](https://github.com/lucava
 
 ### Your First Code Contribution
 
-TBD
+Ready to make your first code contribution? Here's a step-by-step guide:
+
+1. **Find an issue:** Browse the [issues labeled "good first issue"](https://github.com/lucavallin/verto/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22). These are curated tickets designed for newcomers — they have clear scope, limited complexity, and usually include hints or acceptance criteria.
+
+2. **Comment and claim:** Leave a comment on the issue you'd like to work on so maintainers know it's being picked up. If you have questions about the approach, ask there — we're happy to discuss before you write code.
+
+3. **Set up locally:** Follow the [How to Setup The Project Locally](https://github.com/lucavallin/verto/blob/main/README.md#how-to-setup-the-project-locally) section in the README. You will need Node.js (see `.nvmrc` for the recommended version) and a GitHub Personal Access Token if you plan to run the data generation script.
+
+4. **Create a branch:** Use a descriptive branch name prefixed with the change type — for example `fix/issue-123-typo` or `feat/456-new-filter`. Always branch from an up-to-date `main`.
+
+5. **Make your changes:** Keep them focused on the issue scope. Follow the existing code style (TypeScript, React + Next.js). The project uses ESLint with a pre-commit hook — run `npm run lint` to check your changes before committing.
+
+6. **Write conventional commits:** Follow the [Commit Messages](#commit-messages) format below. Each commit should be a single logical change relevant to the issue.
+
+7. **Open a pull request:** Push your branch and open a PR against `main`. Include a clear description, reference the issue number (e.g. `Closes #123`), and describe how you tested your change. CI will run linting and tests automatically — make sure both pass.
+
+8. **Respond to feedback:** Maintainers may request changes during code review. This is normal and collaborative — don't hesitate to ask clarifying questions.
+
+> **Stuck?** Drop a comment on your issue or open a [Question Discussion](https://github.com/lucavallin/verto/issues/new). We'd rather help you get unstuck than have you give up.
 
 ### Improving The Documentation
 
-TBD
+Documentation is a first-class contribution in this project — it helps every user and contributor that comes after you.
+
+**Where documentation lives:**
+- **README.md** — Project overview, setup instructions, and how verto.sh works.
+- **CONTRIBUTING.md** (this file) — Contribution workflows, style guides, and team information.
+- **CLAUDE.md** — AI coding assistant guidance for contributors using Claude Code.
+- **Code comments and JSDoc** — Inline documentation for functions and components.
+
+**How to contribute documentation changes:**
+
+1. **Identify the gap:** Is something unclear, missing, outdated, or hard to follow? Check existing issues labeled ["documentation"](https://github.com/lucavallin/verto/issues?q=is%3Aissue+is%3Aopen+label%3Adocumentation) — there may already be a ticket for what you noticed.
+
+2. **Make it better:** Fix typos, clarify ambiguous wording, add missing steps, write examples, or improve formatting. When adding new sections, follow the existing heading hierarchy and tone (conversational, beginner-friendly, and precise).
+
+3. **Follow the same PR workflow:** Create a branch, make your changes, commit with a `docs:` prefix (e.g. `docs: add troubleshooting section to README`), and open a pull request.
+
+4. **Keep it maintained:** If you notice documentation that references a feature you changed in code, update it in the same PR — don't leave docs for later.
 
 ## Styleguides
 
@@ -181,4 +215,22 @@ Longer explanation if needed. Wrap at 72 characters.
 
 ## Join The Project Team
 
-TBD
+We welcome contributors who want to take on a more active role in the project. Team members help triage issues, review pull requests, and guide new contributors.
+
+**What team members do:**
+- Review and triage incoming issues
+- Provide code reviews on pull requests
+- Help maintain documentation and contribution guides
+- Participate in project planning discussions
+
+**How to join:**
+
+1. **Make consistent contributions:** Start by contributing regularly — code, documentation, issue triage, or helping answer questions. There is no minimum, but we look for a pattern of high-quality, collaborative contributions over time.
+
+2. **Show ownership:** Take responsibility for specific areas: follow up on issues you're involved with, help other contributors, and ensure your contributions stay maintained.
+
+3. **Express interest:** Open an issue or reach out to an existing team member. Tell us what area you'd like to focus on and what you've done so far.
+
+4. **Get invited:** After discussion, existing team members will extend an invitation. Welcome aboard!
+
+There is no fixed timeline — we value quality and collaboration over quantity. If you're interested but unsure, ask in an issue or discussion.
