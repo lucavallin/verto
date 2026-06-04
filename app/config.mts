@@ -2,8 +2,8 @@ const config = {
   author: {
     name: "Luca Cavallin",
     avatar: "/static/images/luca_cavallin.png",
-    job: "Software Engineer",
-    company: "GitHub, Inc.",
+    job: "Platform Engineer",
+    company: "Xebia",
     github: "https://github.com/lucavallin",
     linkedin: "https://www.linkedin.com/in/lucavallin",
     website: "https://www.lucavallin.com"
