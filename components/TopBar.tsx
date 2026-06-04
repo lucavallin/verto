@@ -8,7 +8,7 @@ export const TopBar = () => (
     <div className="flex items-center justify-between gap-5">
       <SectionTitle text="Sponsored by" />
       <Link
-        href="https://lucavall.in"
+        href="https://www.lucavallin.com"
         title="lucavallin"
         aria-label="lucavallin"
         rel="noopener noreferrer"
