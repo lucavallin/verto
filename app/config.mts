@@ -6,7 +6,7 @@ const config = {
     company: "GitHub, Inc.",
     github: "https://github.com/lucavallin",
     linkedin: "https://www.linkedin.com/in/lucavallin",
-    website: "https://www.lucavall.in"
+    website: "https://www.lucavallin.com"
   },
   meta: {
     title: "verto.sh - Your Gateway to Open Source Collaboration",
