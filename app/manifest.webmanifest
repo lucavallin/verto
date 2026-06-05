@@ -1,6 +1,6 @@
 {
-  "name": "verto.sh",
-  "short_name": "verto.sh",
+  "name": "verto",
+  "short_name": "verto",
   "description": "Your Gateway to Open Source Collaboration",
   "start_url": "/",
   "display": "standalone",

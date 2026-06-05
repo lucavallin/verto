@@ -6,15 +6,15 @@ const config = {
     company: "Xebia",
     github: "https://github.com/lucavallin",
     linkedin: "https://www.linkedin.com/in/lucavallin",
-    website: "https://www.lucavallin.com"
+    website: "https://www.lucavallin.com",
   },
   meta: {
-    title: "verto.sh - Your Gateway to Open Source Collaboration",
-    description: `verto.sh simplifies your entry into the open-source world by curating accessible projects. Ideal for beginners making their first contribution, founders building teams, and maintainers seeking new contributors. Explore, contribute, and foster innovation with verto.sh.`,
-    siteUrl: "https://www.verto.sh",
+    title: "verto - Your Gateway to Open Source Collaboration",
+    description: `verto simplifies your entry into the open-source world by curating accessible projects. Ideal for beginners making their first contribution, founders building teams, and maintainers seeking new contributors. Explore, contribute, and foster innovation with verto.`,
+    siteUrl: "https://verto.lucavallin.com",
     socialBanner: "/meta.png",
-    locale: "en-US"
-  }
+    locale: "en-US",
+  },
 };
 
 export default config;
