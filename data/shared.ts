@@ -1,10 +1,4 @@
-import {
-  CountableLanguage,
-  CountableTag,
-  Repository,
-  Source,
-  Tag,
-} from "../types";
+import { CountableLanguage, CountableTag, Repository, Source, Tag } from "../types";
 import { getGitHubRepositories } from "./github";
 import { getGitLabRepositories } from "./gitlab";
 import { chunkArray, sleep } from "./utils";
@@ -16,12 +10,12 @@ const providersSettings = {
   github: {
     getterFunction: getGitHubRepositories, // we can probably separate filtering logic from the data fetcher functions
     // filteringFunction: filterGitHubRepositories, // this can be used to filter the repositories and only contain the filtering logic
-    defaultUrl: "https://github.com",
+    defaultUrl: "https://github.com"
   },
   gitlab: {
     getterFunction: getGitLabRepositories,
-    defaultUrl: "https://gitlab.com",
-  },
+    defaultUrl: "https://gitlab.com"
+  }
 };
 
 /**
@@ -31,10 +25,7 @@ const providersSettings = {
  */
 export const processSource = async (source: Source): Promise<Repository[]> => {
   const providerSettings = providersSettings[source.provider];
-  const repos = [...new Set(source.repositories)].slice(
-    0,
-    process.env.GH_PAT == "" ? 200 : source.repositories.length
-  );
+  const repos = [...new Set(source.repositories)];
   const chunks = chunkArray(repos, REPOS_PER_REQUEST);
 
   const repositories = [];
@@ -113,9 +104,7 @@ export const getFilteredTags = (repositories: Repository[]) =>
     // Ignore tags with less than 3 repositories
     .filter((tag) => {
       if (tag.count >= 3) return true;
-      console.log(
-        `Ignoring tag "${tag.display}" because it has less than 3 repositories.`
-      );
+      console.log(`Ignoring tag "${tag.display}" because it has less than 3 repositories.`);
       return false;
     })
     // Sort by count desc

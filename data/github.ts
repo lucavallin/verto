@@ -20,42 +20,45 @@ import { throttling } from "@octokit/plugin-throttling";
 import { RequestOptions } from "@octokit/types";
 import millify from "millify";
 import slugify from "slugify";
+import { getRequiredGitHubToken } from "./env";
 
 // Maximum number of issues to retrieve per repository. Only used by GitHub currently.
 const MAX_ISSUES = 10;
 
 // Setup Octokit (GitHub API client)
 const MyOctokit = Octokit.plugin(throttling, retry);
-const octokit = new MyOctokit({
-  auth: process.env.GH_PAT,
-  throttle: {
-    onRateLimit: (retryAfter: number, options: object, octokit: Octokit, retryCount: number) => {
-      const { method, url } = options as RequestOptions;
-      octokit.log.warn(`Request quota exhausted for request ${method} ${url}`);
+let octokit: InstanceType<typeof MyOctokit> | undefined;
+const getOctokit = () =>
+  (octokit ??= new MyOctokit({
+    auth: getRequiredGitHubToken(),
+    throttle: {
+      onRateLimit: (retryAfter: number, options: object, octokit: Octokit, retryCount: number) => {
+        const { method, url } = options as RequestOptions;
+        octokit.log.warn(`Request quota exhausted for request ${method} ${url}`);
 
-      if (retryCount < 1) {
-        // only retries once
-        octokit.log.info(`Retrying after ${retryAfter} seconds!`);
-        return true;
-      }
-    },
-    onSecondaryRateLimit: (
-      retryAfter: number,
-      options: object,
-      octokit: Octokit,
-      retryCount: number
-    ) => {
-      const { method, url } = options as RequestOptions;
-      octokit.log.warn(`SecondaryRateLimit detected for request ${method} ${url}`);
+        if (retryCount < 1) {
+          // only retries once
+          octokit.log.info(`Retrying after ${retryAfter} seconds!`);
+          return true;
+        }
+      },
+      onSecondaryRateLimit: (
+        retryAfter: number,
+        options: object,
+        octokit: Octokit,
+        retryCount: number
+      ) => {
+        const { method, url } = options as RequestOptions;
+        octokit.log.warn(`SecondaryRateLimit detected for request ${method} ${url}`);
 
-      if (retryCount < 2) {
-        // retries twice
-        octokit.log.warn(`Retrying after ${retryAfter} seconds!`);
-        return true;
+        if (retryCount < 2) {
+          // retries twice
+          octokit.log.warn(`Retrying after ${retryAfter} seconds!`);
+          return true;
+        }
       }
     }
-  }
-});
+  }));
 
 /**
  * Searches for GitHub repositories based on the provided search criteria.
@@ -160,7 +163,7 @@ export const getGitHubRepositories = async (
     );
   }
 
-  const searchResults = await octokit.graphql<Pick<Query, "search">>({
+  const searchResults = await getOctokit().graphql<Pick<Query, "search">>({
     query: gqlQuery
   });
 

@@ -17,7 +17,7 @@ ANALYZE=true npm run build  # Build with bundle analyzer
 
 ## Environment Variables
 
-- `GH_PAT` — GitHub Personal Access Token required by `npm run prebuild` to fetch repository data. Without it, only the first 200 repositories will be processed.
+- `GH_PAT` — GitHub Personal Access Token required by `npm run prebuild` to fetch repository data. Set it in your shell or in `.env.local`.
 
 ## Architecture
 
