@@ -1,35 +1,29 @@
 import config from "../config.json";
-import {
-  Data,
-  Repository as RepositoryModel,
-  Source as SourceModel,
-} from "../types";
-import {
-  getRequiredGitHubToken,
-  loadPrebuildEnv,
-  MissingGitHubTokenError,
-} from "./env";
+import { Data, Repository as RepositoryModel, Source as SourceModel } from "../types";
+import { getRequiredGitHubToken, loadPrebuildEnv, MissingGitHubTokenError } from "./env";
 import { getFilteredLanguages, getFilteredTags, processSource } from "./shared";
 import { writeDataFile } from "./utils";
 
 const main = async () => {
+  console.log(
+    "⚠️ This command must be run from the root of the project directory with `npm run prebuild`"
+  );
   try {
     loadPrebuildEnv();
-    getRequiredGitHubToken();
-
-    console.log(
-      "⚠️ This command must be run from the root of the project directory with `npm run prebuild`",
-    );
+    if (config.some((source) => source.provider === "github")) {
+      getRequiredGitHubToken();
+    }
 
     // Get data from all sources defined in config.json
-    const repositories = await (config as SourceModel[]).reduce<
-      Promise<RepositoryModel[]>
-    >(async (repoData, source) => {
-      return repoData.then(async (repos) => {
-        const repositories = await processSource(source);
-        return [...repos, ...repositories];
-      });
-    }, Promise.resolve([]));
+    const repositories = await (config as SourceModel[]).reduce<Promise<RepositoryModel[]>>(
+      async (repoData, source) => {
+        return repoData.then(async (repos) => {
+          const repositories = await processSource(source);
+          return [...repos, ...repositories];
+        });
+      },
+      Promise.resolve([])
+    );
 
     // Get a list of distinct languages with counts for use with filtering in the UI
     const filteredLanguages = getFilteredLanguages(repositories);
@@ -41,20 +35,27 @@ const main = async () => {
       // Sort the repositories randomly so that the list isn't always the same
       repositories: repositories.sort(() => Math.random() - 0.5),
       languages: filteredLanguages,
-      tags: filteredTags,
+      tags: filteredTags
     };
 
     await Promise.all([writeDataFile(data)]);
 
     console.log("Data generation complete.");
   } catch (error) {
-    if (error instanceof MissingGitHubTokenError) {
-      console.error(error.message);
+    if (error instanceof Error) {
+      const status = "status" in error ? ` (status ${error.status})` : "";
+      console.error(`${error.message}${status}`);
     } else {
+      console.error(String(error));
+    }
+
+    if (process.argv.includes("--verbose")) {
       console.error(error);
     }
 
-    process.exitCode = 1;
+    if (error instanceof MissingGitHubTokenError) {
+      process.exitCode = 1;
+    }
   }
 };
 

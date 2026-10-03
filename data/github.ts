@@ -13,7 +13,7 @@ import {
   RepositoryTopic,
   RepositoryTopicEdge,
   SearchResultItemEdge,
-  validate,
+  validate
 } from "@octokit/graphql-schema";
 import { retry } from "@octokit/plugin-retry";
 import { throttling } from "@octokit/plugin-throttling";
@@ -27,18 +27,14 @@ const MAX_ISSUES = 10;
 
 // Setup Octokit (GitHub API client)
 const MyOctokit = Octokit.plugin(throttling, retry);
+let octokit: InstanceType<typeof MyOctokit> | undefined;
 const getOctokit = () =>
-  new MyOctokit({
+  (octokit ??= new MyOctokit({
     auth: getRequiredGitHubToken(),
     throttle: {
-      onRateLimit: (
-        retryAfter: number,
-        options: object,
-        octokit: Octokit,
-        retryCount: number,
-      ) => {
+      onRateLimit: (retryAfter: number, options: object, octokit: Octokit, retryCount: number) => {
         const { method, url } = options as RequestOptions;
-        octokit.log.warn(`GitHub rate limit hit for request ${method} ${url}`);
+        octokit.log.warn(`Request quota exhausted for request ${method} ${url}`);
 
         if (retryCount < 1) {
           // only retries once
@@ -50,21 +46,19 @@ const getOctokit = () =>
         retryAfter: number,
         options: object,
         octokit: Octokit,
-        retryCount: number,
+        retryCount: number
       ) => {
         const { method, url } = options as RequestOptions;
-        octokit.log.warn(
-          `SecondaryRateLimit detected for request ${method} ${url}`,
-        );
+        octokit.log.warn(`SecondaryRateLimit detected for request ${method} ${url}`);
 
         if (retryCount < 2) {
           // retries twice
           octokit.log.warn(`Retrying after ${retryAfter} seconds!`);
           return true;
         }
-      },
-    },
-  });
+      }
+    }
+  }));
 
 /**
  * Searches for GitHub repositories based on the provided search criteria.
@@ -81,7 +75,7 @@ const getOctokit = () =>
 export const getGitHubRepositories = async (
   url: string,
   repositories: string[],
-  labels: string[],
+  labels: string[]
 ): Promise<RepositoryModel[]> => {
   // Filter results with search qualifiers
   // See https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
@@ -90,7 +84,7 @@ export const getGitHubRepositories = async (
     "archived:false",
     "is:public",
     "stars:>=1000",
-    `pushed:>=${dayjs().add(-1, "month").format("YYYY-MM-DD")}`,
+    `pushed:>=${dayjs().add(-1, "month").format("YYYY-MM-DD")}`
   ].join(" ");
 
   const gqlQuery = `
@@ -165,12 +159,12 @@ export const getGitHubRepositories = async (
   if (gqlQueryErrors.length > 0) {
     // if query is invalid, gqlQueryErrors will contain errors
     throw new Error(
-      `GraphQL query is invalid:\n\t${gqlQueryErrors.map((error) => error.message).join("\n\t")}`,
+      `GraphQL query is invalid:\n\t${gqlQueryErrors.map((error) => error.message).join("\n\t")}`
     );
   }
 
   const searchResults = await getOctokit().graphql<Pick<Query, "search">>({
-    query: gqlQuery,
+    query: gqlQuery
   });
 
   // map response data to our Repository model
@@ -193,18 +187,16 @@ export const getGitHubRepositories = async (
           last_modified: repo.pushedAt,
           language: {
             id: slugify((repo.primaryLanguage as Language).name, {
-              lower: true,
+              lower: true
             }),
-            display: (repo.primaryLanguage as Language).name,
+            display: (repo.primaryLanguage as Language).name
           },
           tags: repo.repositoryTopics.edges
             ?.filter((edge) => edge !== undefined)
-            .map(
-              (edge) => (edge as RepositoryTopicEdge).node as RepositoryTopic,
-            )
+            .map((edge) => (edge as RepositoryTopicEdge).node as RepositoryTopic)
             .map((topic) => ({
               id: slugify(topic.topic.name, { lower: true }),
-              display: topic.topic.name,
+              display: topic.topic.name
             })),
           issues:
             repo.issues.edges
@@ -224,9 +216,9 @@ export const getGitHubRepositories = async (
                       .map((edge) => (edge as LabelEdge).node as Label)
                       .map((label) => ({
                         id: slugify(label.name, { lower: true }),
-                        display: label.name,
-                      })) ?? [],
-                }),
+                        display: label.name
+                      })) ?? []
+                })
               )
               // sort issues by issue number
               .sort((a, b) => a.number - b.number) ?? [],
@@ -236,9 +228,9 @@ export const getGitHubRepositories = async (
               .map((edge) => (edge as IssueEdge).node as Issue)
               .some(
                 // Repository has "new" issues if there are any issues created in the last week
-                (issue) => dayjs().diff(dayjs(issue.createdAt), "day") <= 7,
-              ) ?? false,
-        }),
+                (issue) => dayjs().diff(dayjs(issue.createdAt), "day") <= 7
+              ) ?? false
+        })
       ) ?? [];
 
   // unfortunately, there's no way to filter repositories by number of issues in the search query

@@ -46,7 +46,7 @@ You're welcome to add a new project in **verto**, just follow these steps:
 To contribute new features and changes to the website, you would want to run the app locally. Please follow these steps:
 
 1. Fork the repository, clone it locally, create a new branch to work on a specific feature or bug fix without affecting the main branch of the repository. Make sure you have a recent version of Node.js installed on your computer.
-2. You can use the included [data.json](data/data.json) as dummy data or you can run `npm run prebuild` to fetch the latest data from GitHub yourself. To do this, set `GH_PAT` to a valid GitHub Personal Access Token (PAT), either in your shell (`GH_PAT=ghp_your_token npm run prebuild`) or in a local env file such as `.env.local`. Notice: repositories not matching the criteria listed above are automatically removed from [config.json](config.json) when the [data.json](data/data.json) script runs.
+2. You can use the included [data.json](data/data.json) as dummy data or you can run `npm run prebuild` to fetch the latest data from GitHub yourself. To do this, set `GH_PAT` to a valid GitHub Personal Access Token (PAT), either in your shell (`GH_PAT=ghp_your_token npm run prebuild`) or in `.env.local` or `.env` at the project root. Prebuild uses production env files by default; to use `.env.development.local` or `.env.development`, run `NODE_ENV=development npm run prebuild`. Notice: repositories not matching the criteria listed above (see rules in [data.json](data/data.json)) are automatically removed from [config.json](config.json) when the [data.json](data/data.json) script runs.
 3. Start the development server and open the app in your browser.
 
 ```bash

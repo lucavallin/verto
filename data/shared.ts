@@ -1,10 +1,4 @@
-import {
-  CountableLanguage,
-  CountableTag,
-  Repository,
-  Source,
-  Tag,
-} from "../types";
+import { CountableLanguage, CountableTag, Repository, Source, Tag } from "../types";
 import { getGitHubRepositories } from "./github";
 import { getGitLabRepositories } from "./gitlab";
 import { chunkArray, sleep } from "./utils";
@@ -16,12 +10,12 @@ const providersSettings = {
   github: {
     getterFunction: getGitHubRepositories, // we can probably separate filtering logic from the data fetcher functions
     // filteringFunction: filterGitHubRepositories, // this can be used to filter the repositories and only contain the filtering logic
-    defaultUrl: "https://github.com",
+    defaultUrl: "https://github.com"
   },
   gitlab: {
     getterFunction: getGitLabRepositories,
-    defaultUrl: "https://gitlab.com",
-  },
+    defaultUrl: "https://gitlab.com"
+  }
 };
 
 /**
@@ -31,12 +25,7 @@ const providersSettings = {
  */
 export const processSource = async (source: Source): Promise<Repository[]> => {
   const providerSettings = providersSettings[source.provider];
-  const shouldLimitGitHubRequests =
-    source.provider === "github" && !process.env.GH_PAT?.trim();
-  const repos = [...new Set(source.repositories)].slice(
-    0,
-    shouldLimitGitHubRequests ? 200 : source.repositories.length,
-  );
+  const repos = [...new Set(source.repositories)];
   const chunks = chunkArray(repos, REPOS_PER_REQUEST);
 
   const repositories = [];
@@ -47,12 +36,12 @@ export const processSource = async (source: Source): Promise<Repository[]> => {
     console.log(
       `Getting ${source.name} repositories - chunk ${i + 1} of ${chunks.length} (size: ${
         chunk.length
-      })`,
+      })`
     );
     const repos = await providerSettings.getterFunction(
       source.url ?? providerSettings.defaultUrl,
       chunk,
-      source.labels,
+      source.labels
     );
     repositories.push(repos as never);
     await sleep(1000); // wait 1s between requests
@@ -77,14 +66,14 @@ export const getFilteredLanguages = (repositories: Repository[]) =>
         else arr[id].count++;
         return arr;
       },
-      {} as { [key: string]: CountableLanguage },
-    ),
+      {} as { [key: string]: CountableLanguage }
+    )
   )
     // Ignore language with less than 3 repositories
     .filter((language) => {
       if (language.count >= 3) return true;
       console.log(
-        `Ignoring language "${language.display}" because it has less than 3 repositories.`,
+        `Ignoring language "${language.display}" because it has less than 3 repositories.`
       );
       return false;
     })
@@ -109,15 +98,13 @@ export const getFilteredTags = (repositories: Repository[]) =>
           else arr[id].count++;
           return arr;
         },
-        {} as { [key: string]: CountableTag },
-      ),
+        {} as { [key: string]: CountableTag }
+      )
   )
     // Ignore tags with less than 3 repositories
     .filter((tag) => {
       if (tag.count >= 3) return true;
-      console.log(
-        `Ignoring tag "${tag.display}" because it has less than 3 repositories.`,
-      );
+      console.log(`Ignoring tag "${tag.display}" because it has less than 3 repositories.`);
       return false;
     })
     // Sort by count desc

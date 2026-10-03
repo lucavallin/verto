@@ -5,16 +5,16 @@ export class MissingGitHubTokenError extends Error {
     super(
       [
         "GH_PAT is required to run `npm run prebuild`.",
-        "Set it in your shell or add it to `.env.local`, for example:",
-        "GH_PAT=ghp_your_token_here npm run prebuild",
-      ].join("\n"),
+        "Set it in your shell or add it to `.env.local` or `.env` at the project root, for example:",
+        "GH_PAT=ghp_your_token_here npm run prebuild"
+      ].join("\n")
     );
     this.name = "MissingGitHubTokenError";
   }
 }
 
 export const loadPrebuildEnv = () => {
-  loadEnvConfig(process.cwd());
+  loadEnvConfig(process.cwd(), process.env.NODE_ENV === "development");
 };
 
 export const getRequiredGitHubToken = (token = process.env.GH_PAT): string => {
